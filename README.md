@@ -23,7 +23,7 @@ struct Type {
 
 ```
 
-The rest of type management is coded in contract file dType.sol .
+The rest of type management is coded in contract file dType.sol [https://github.com/ctzurcanu/dType/blob/master/contracts/dType.sol] .
 
 
 
