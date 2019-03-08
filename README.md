@@ -13,7 +13,6 @@ The struct for storing the types could be of the form:
 
 ```
 struct Type {
-    bytes32 id;
     string name;
     string stype;
     bytes32[] types;
