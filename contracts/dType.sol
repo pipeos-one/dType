@@ -21,7 +21,7 @@ contract dType{
     
     function insert(string memory name, string memory stype, address contractAddress)        
     public returns(uint256 index){
-        bytes32 hash = keccak256(abi.encode(stype));
+        bytes32 hash = keccak256(abi.encode(name, stype));
         if(isType(hash)) revert("This type exists. Use the extant type."); 
         typeStruct[hash].name = name;
         typeStruct[hash].stype = stype;
@@ -54,7 +54,7 @@ contract dType{
     
     function update(string memory name, string memory stype) 
     public returns(bool success) {
-        bytes32 hash = keccak256(abi.encode(stype));
+        bytes32 hash = keccak256(abi.encode(name, stype));
         if(!isType(hash)) revert("No such type inserted.");
 
         typeStruct[hash].name = name;
