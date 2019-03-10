@@ -15,8 +15,9 @@ The struct for storing the types could be of the form:
 struct Type {
     string name;
     bytes32[] types;
+    bool isArray;
     address contractAddress;
-    bytes32 swarmId;
+    bytes32 source;
     uint256 index;
 }
 
