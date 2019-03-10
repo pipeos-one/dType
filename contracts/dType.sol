@@ -3,7 +3,6 @@ pragma solidity ^0.5.1;
 contract dType{
     struct Type {
         string name;
-        // string stype;
         bytes32[] types;
         address contractAddress;
         bytes32 swarmId;
