@@ -5,15 +5,19 @@ contract dType{
     struct Type {
         string name;
         bytes32[] types;
-        bool isArray;
         address contractAddress;
         bytes32 source;
         uint256 index;
     }
     
-    mapping(bytes32 => Type) private typeStruct;
-    bytes32[] private typeIndex;
+    mapping(bytes32 => Type) public typeStruct;
+    bytes32[] public typeIndex;
     mapping(string =>  bytes32[]) nameIndex;
+    
+    function getIndex() public view returns(bytes32[] memory indext)
+    {
+        return typeIndex;
+    }
     
     
     function isType(bytes32 typeHash)
@@ -25,14 +29,15 @@ contract dType{
     function insert(string memory name, 
         // string memory ttype, 
         bytes32[] memory types, 
-        bool isArray,
     address contractAddress, bytes32 source)        
     public returns(uint256 index){
-        bytes32 hash = keccak256(abi.encode(name, types, isArray));
+        bytes32 hash = keccak256(abi.encode(name, types));
         if(isType(hash)) revert("This type exists. Use the extant type."); 
+        for (uint256 i =0 ; i< types.length; i++){
+            if (!isType(types[i]) && types[i] != bytes32(0x0)) revert("A type in the composition does not exists. Use only extant types."); 
+        }
         typeStruct[hash].name = name;
         typeStruct[hash].types = types;
-        typeStruct[hash].isArray = isArray;
         //typeStruct[hash].ttype = ttype;
         // typeStruct[hash].types = arrayOfEach(hash(type));
         typeStruct[hash].contractAddress = contractAddress;
@@ -45,8 +50,7 @@ contract dType{
             hash, 
             typeStruct[hash].index, 
             name, 
-            types,
-            isArray);
+            types);
         
         return typeIndex.length-1;
     }
@@ -105,20 +109,18 @@ contract dType{
     
     
     
-    function update(string memory name, bytes32[] memory types, bool isArray) 
+    function update(string memory name, bytes32[] memory types) 
     public returns(bool success) {
-        bytes32 hash = keccak256(abi.encode(name, types, isArray));
+        bytes32 hash = keccak256(abi.encode(name, types));
         if(!isType(hash)) revert("No such type inserted.");
 
         typeStruct[hash].name = name;
         typeStruct[hash].types = types;
-        typeStruct[hash].isArray = isArray;
         emit LogUpdate(
             hash,
             typeStruct[hash].index,
             name, 
-            typeStruct[hash].types,
-            typeStruct[hash].isArray
+            typeStruct[hash].types
             );
             
         return true;
@@ -139,8 +141,7 @@ contract dType{
             keyToMove, 
             rowToDelete, 
             typeStruct[keyToMove].name, 
-            typeStruct[keyToMove].types,
-            typeStruct[keyToMove].isArray
+            typeStruct[keyToMove].types
             );
         return rowToDelete;
     }
@@ -162,15 +163,13 @@ contract dType{
     bytes32 indexed typeHash, 
     uint256 index, 
     string name, 
-    bytes32[] types,
-    bool isArray);
+    bytes32[] types);
     
     event LogUpdate(
     bytes32 indexed typeHash, 
     uint index, 
     string name, 
-    bytes32[] types,
-    bool isArray);
+    bytes32[] types);
     
     event LogRemove(
     bytes32 indexed typeHash, 
