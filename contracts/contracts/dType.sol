@@ -147,23 +147,25 @@ contract dType {
         return nameIndex[name];
     }
 
-    function update(string memory name, bytes32[] memory types)
+    function update(
+        bytes32 hash,
+        string memory newName,
+        bytes32[] memory newTypes
+    )
         public
         returns(bool success)
     {
-        bytes32 hash = keccak256(abi.encode(name, types));
-
         if (!isType(hash)) {
             revert("No such type inserted.");
         }
 
-        typeStruct[hash].name = name;
-        typeStruct[hash].types = types;
+        typeStruct[hash].name = newName;
+        typeStruct[hash].types = newTypes;
 
         emit LogUpdate(
             hash,
             typeStruct[hash].index,
-            name,
+            typeStruct[hash].name,
             typeStruct[hash].types
         );
 
