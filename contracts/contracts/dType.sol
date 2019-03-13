@@ -55,21 +55,13 @@ contract dType{
         return typeIndex.length-1;
     }
 
-    function getTypes(bytes32 hash) public view
-    returns(bytes32[] memory types)
+    function getTypes(bytes32 hash)
+        public
+        view
+        returns(bytes32[] memory types)
     {
-
-        if (typeStruct[hash].types.length == 1 && typeStruct[hash].types[0] == 0x00) return typeStruct[hash].types;
-        bytes32[] memory ttypes;
-        for (uint256 i = 0 ; i< typeStruct[hash].types.length; i++) {
-            for (uint256 j =0 ; j< typeStruct[hash].types.length; j++) {
-                ttypes[ttypes.length] = getTypes(typeStruct[hash].types[i])[j];
-                //ttypes.length = ttypes.length + 1;
-            }
-        }
-        return ttypes;
+       return typeStruct[hash].types;
     }
-
 
     function get(string memory aname, string memory astype) public view
     returns(string memory name, bytes32[] memory types, uint256 index)
