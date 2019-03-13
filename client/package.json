@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "ethers": "4.0.26",
     "vue": "^2.6.6",
     "vuetify": "^1.5.5"
   },
