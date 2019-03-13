@@ -57,23 +57,6 @@ export default {
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },
-        // async sendSignedTransaction(method) {
-        //     var encodedABI = method.encodeABI();
-        //     var tx = {
-        //         from: this.from.address,
-        //         to: this.contract.address,
-        //         gas: 2000000,
-        //         data: encodedABI,
-        //     };
-        //     console.log(tx,
-        //     this.from.privateKey);
-        //     let signed = await this.web3.eth.accounts.signTransaction(
-        //         tx,
-        //         this.from.privateKey,
-        //     );
-        //     console.log('signed', signed);
-        //     return web3.eth.sendSignedTransaction(signed.rawTransaction);
-        // }
     },
 };
 </script>

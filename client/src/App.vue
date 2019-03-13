@@ -49,26 +49,6 @@ export default {
                 wallet,
             );
         },
-        // async setStage2() {
-        //     // const web3 = new Web3('ws://127.0.0.1:7545');
-        //     const web3 = new Web3(Web3.givenProvider);
-        //
-        //     let networkId = String(await web3.eth.net.getId());
-        //
-        //     const account = web3.eth.accounts.privateKeyToAccount('0x' + DType.from.privateKey);
-        //     web3.eth.accounts.wallet.add(account);
-        //     web3.eth.defaultAccount = account.address;
-        //
-        //     this.web3 = web3;
-        //     this.contract = new web3.eth.Contract(
-        //         DType.contract.abi,
-        //         DType.contract.networks[networkId].address,
-        //     );
-        //     console.log('web3', web3);
-        //     console.log(networkId, DType.contract.networks[networkId].address);
-        //     console.log('contract', this.contract);
-        //     console.log('account', account);
-        // },
     },
 };
 </script>
