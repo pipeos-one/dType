@@ -1,10 +1,12 @@
 <template>
     <v-app>
         <v-content>
-            <TypeManagement
-                :contract="contract"
-                :from="from"
-            />
+            <v-container>
+                <TypeManagement
+                    :contract="contract"
+                    :from="from"
+                />
+            </v-container>
         </v-content>
     </v-app>
 </template>
