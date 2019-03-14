@@ -2,17 +2,25 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 contract dType {
-    struct Type {
-        string name;
-        bytes32[] types;
-        address contractAddress;
-        bytes32 source;
-        uint256 index;
-    }
-
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
     mapping(string =>  bytes32[]) nameIndex;
+    mapping(bytes32 => bytes32[]) public outputIndex;
+
+    enum LangChoices { Solidity, JavaScript, Python }
+    LangChoices constant defaultLang = LangChoices.Solidity;
+
+    struct Type {
+        LangChoices lang;
+        bool isEvent;
+        bool isFunction;
+        bool hasOutput;
+        address contractAddress;
+        bytes32 source;
+        uint256 index;
+        string name;
+        bytes32[] types;
+    }
 
     event LogNew(
         bytes32 indexed typeHash,
@@ -50,15 +58,18 @@ contract dType {
 
     function insert(
         string memory name,
-        // string memory ttype,
         bytes32[] memory types,
+        LangChoices lang,
+        bool isEvent,
+        bool isFunction,
+        bool hasOutput,
         address contractAddress,
         bytes32 source
     )
         public
         returns(uint256 index)
     {
-        bytes32 hash = keccak256(abi.encode(name, types));
+        bytes32 hash = keccak256(abi.encode(name, types, hasOutput));
         if (isType(hash)) {
             revert("This type exists. Use the extant type.");
         }
@@ -67,10 +78,12 @@ contract dType {
                 revert("A type in the composition does not exists. Use only extant types.");
             }
         }
+        typeStruct[hash].lang = lang;
+        typeStruct[hash].isEvent = isEvent;
+        typeStruct[hash].isFunction = isFunction;
+        typeStruct[hash].hasOutput = hasOutput;
         typeStruct[hash].name = name;
         typeStruct[hash].types = types;
-        //typeStruct[hash].ttype = ttype;
-        // typeStruct[hash].types = arrayOfEach(hash(type));
         typeStruct[hash].contractAddress = contractAddress;
         typeStruct[hash].source = source;
         typeStruct[hash].index = typeIndex.push(hash)-1;
@@ -85,6 +98,15 @@ contract dType {
         );
 
         return typeIndex.length-1;
+    }
+
+    function setOutputs(bytes32 hash, bytes32[] memory outputs) public {
+        require(typeStruct[hash].hasOutput == true);
+        outputIndex[hash] = outputs;
+    }
+
+    function getOutputs(bytes32 hash) view public returns (bytes32[] memory outputs) {
+        return outputIndex[hash];
     }
 
     function getTypes(bytes32 hash)
@@ -112,7 +134,6 @@ contract dType {
         public
         returns(
             string memory name,
-            //string memory ttype,
             bytes32[] memory types,
             uint256 index
         )
@@ -122,7 +143,6 @@ contract dType {
         }
         return(
             typeStruct[hash].name,
-            //typeStruct[hash].ttype,
             typeStruct[hash].types,
             typeStruct[hash].index
         );

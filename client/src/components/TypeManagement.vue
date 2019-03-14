@@ -27,6 +27,18 @@
                                     <v-text-field v-model='editedItem.types' label='types'></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
+                                    <v-text-field v-model='editedItem.lang' label='language'></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-text-field v-model='editedItem.isEvent' label='isEvent'></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-text-field v-model='editedItem.isFunction' label='isFunction'></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
+                                    <v-text-field v-model='editedItem.hasOutput' label='hasOutput'></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
                                     <v-text-field v-model='editedItem.contractAddress' label='address'></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
@@ -89,6 +101,10 @@
             <template v-slot:items='props'>
                 <td>{{ props.item.name }}</td>
                 <td class='text-xs-left'>{{ props.item.types }}</td>
+                <td class='text-xs-left'>{{ props.item.lang }}</td>
+                <td class='text-xs-left'>{{ props.item.isEvent }}</td>
+                <td class='text-xs-left'>{{ props.item.isFunction }}</td>
+                <td class='text-xs-left'>{{ props.item.hasOutput }}</td>
                 <td class='text-xs-left'>{{ props.item.contractAddress }}</td>
                 <td class='text-xs-left'>{{ props.item.source }}</td>
                 <td class='justify-center layout px-0'>
@@ -122,6 +138,10 @@ export default {
         headers: [
             {text: 'name', align: 'left', value: 'name'},  // sortable: false
             { text: 'types', value: 'types' },
+            { text: 'language', value: 'lang' },
+            { text: 'isEvent', value: 'isEvent' },
+            { text: 'isFunction', value: 'isFunction' },
+            { text: 'hasOutput', value: 'hasOutput' },
             { text: 'contract address', value: 'contractAddress' },
             { text: 'source', value: 'source' },
         ],
@@ -130,24 +150,40 @@ export default {
         editedItem: {
             name: '',
             types: ['0x0000000000000000000000000000000000000000000000000000000000000000'],
+            lang: 0,
+            isEvent: false,
+            isFunction: false,
+            hasOutput: false,
             contractAddress: '0x0000000000000000000000000000000000000000',
             source: '0x0000000000000000000000000000000000000000000000000000000000000000',
         },
         defaultItem: {
             name: '',
             types: ['0x0000000000000000000000000000000000000000000000000000000000000000'],
+            lang: 0,
+            isEvent: false,
+            isFunction: false,
+            hasOutput: false,
             contractAddress: '0x0000000000000000000000000000000000000000',
             source: '0x0000000000000000000000000000000000000000000000000000000000000000',
         },
         bulkInsert: JSON.stringify([{
                 name: "uint256",
                 types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                lang: 0,
+                isEvent: false,
+                isFunction: false,
+                hasOutput: false,
                 contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
                 source: "0x0000000000000000000000000000000000000000000000000000000000000000"
         }]),
         bulkInsertDefault: JSON.stringify([{
                 name: "uint256",
                 types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                lang: 0,
+                isEvent: false,
+                isFunction: false,
+                hasOutput: false,
                 contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
                 source: "0x0000000000000000000000000000000000000000000000000000000000000000"
         }]),
@@ -204,12 +240,13 @@ export default {
             let struct = await this.contract.typeStruct(hash);
             struct.types = await this.contract.getTypes(hash);
             struct.typeHash = hash;
+            console.log('getTypeStruct', struct);
             return struct;
         },
         async insert(dtype) {
-            let {name, types, contractAddress, source} = dtype;
-            console.log('insert dtype', name, types, contractAddress, source);
-            let tx = await this.contract.insert(name, types, contractAddress, source);
+            let {name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source} = dtype;
+            console.log('insert dtype', name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source);
+            let tx = await this.contract.insert(name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },
