@@ -224,17 +224,21 @@ export default {
             this.watchRemove();
         },
         async setData() {
-            let dtypes = [];
             let indexes = await this.contract.getIndex();
             for (let i = 0; i < indexes.length; i++) {
                 let hash = indexes[i];
-                dtypes.push(await this.getTypeStruct(hash));
+                this.dtypes.push(await this.getTypeStruct(hash));
             }
-            console.log('dtypes', dtypes);
-            this.dtypes = dtypes;
-            console.log(JSON.stringify(
-                dtypes.map(dt => [dt.name, dt.types, dt.contractAddress, dt.source])
-            ));
+            this.bulkInsert = JSON.stringify(
+                this.dtypes.map(dt => {
+                    let obj = {};
+                    Object.keys(this.defaultItem).forEach(key => {
+                        obj[key] = dt[key];
+                    });
+                    obj.typeHash = dt.typeHash;
+                    return obj;
+                })
+            );
         },
         async getTypeStruct(hash) {
             let struct = await this.contract.typeStruct(hash);
@@ -329,7 +333,6 @@ export default {
         },
         closeBulk() {
             this.dialogBulk = false;
-            this.bulkInsert = this.bulkInsertDefault;
         },
         saveBulk() {
             let bulk;
