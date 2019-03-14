@@ -167,6 +167,12 @@ export default {
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },
+        async delete(dtype) {
+            console.log('delete dtype', JSON.stringify(dtype));
+            let tx = await this.contract.remove(dtype.typeHash);
+            let receipt = await tx.wait(2);
+            console.log('receipt', receipt);
+        },
         watchInsert() {
             this.contract.on('LogNew', (typeHash, index, name, types) => {
                 console.log('LogNew', typeHash, index, name, types);
@@ -180,13 +186,20 @@ export default {
                 console.log('LogUpdate', typeHash, index, name, types);
                 let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
                 this.getTypeStruct(typeHash).then((struct) => {
-                    Object.assign(this.dtypes[typeIndex], struct);
+                    // We have a LogUpdate in remove(), this can log an empty struct
+                    if (struct) {
+                        Object.assign(this.dtypes[typeIndex], struct);
+                    }
                 });
             });
         },
         watchRemove() {
             this.contract.on('LogRemove', (typeHash, index) => {
                 console.log('LogRemove', typeHash, index);
+                let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
+                if (typeIndex > -1) {
+                    this.dtypes.splice(typeIndex, 1);
+                }
             });
         },
         removeWatchers() {
@@ -201,7 +214,7 @@ export default {
         },
         deleteItem (item) {
             const index = this.dtypes.indexOf(item)
-            confirm('Are you sure you want to delete this item?') && this.dtypes.splice(index, 1)
+            confirm('Are you sure you want to delete this item?') && this.delete(item);
         },
         close () {
             this.dialog = false
