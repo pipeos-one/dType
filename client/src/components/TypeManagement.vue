@@ -143,31 +143,45 @@ export default {
             }
             console.log('dtypes', dtypes);
             this.dtypes = dtypes;
+            console.log(JSON.stringify(
+                dtypes.map(dt => [dt.name, dt.types, dt.contractAddress, dt.source])
+            ));
         },
         async getTypeStruct(hash) {
             let struct = await this.contract.typeStruct(hash);
             struct.types = await this.contract.getTypes(hash);
+            struct.typeHash = hash;
             return struct;
         },
         async insert(dtype) {
-            console.log('dtype', JSON.stringify(dtype));
+            console.log('insert dtype', JSON.stringify(dtype));
             let {name, types, contractAddress, source} = dtype;
             let tx = await this.contract.insert(name, types, contractAddress, source);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
-            console.log(receipt.events[0].args);
+        },
+        async update(dtype) {
+            console.log('update dtype', JSON.stringify(dtype));
+            let {name, types, typeHash} = dtype;
+            let tx = await this.contract.update(typeHash, name, types);
+            let receipt = await tx.wait(2);
+            console.log('receipt', receipt);
         },
         watchInsert() {
             this.contract.on('LogNew', (typeHash, index, name, types) => {
                 console.log('LogNew', typeHash, index, name, types);
                 this.getTypeStruct(typeHash).then((struct) => {
                     this.dtypes.push(struct);
-                })
+                });
             });
         },
         watchUpdate() {
             this.contract.on('LogUpdate', (typeHash, index, name, types) => {
                 console.log('LogUpdate', typeHash, index, name, types);
+                let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
+                this.getTypeStruct(typeHash).then((struct) => {
+                    Object.assign(this.dtypes[typeIndex], struct);
+                });
             });
         },
         watchRemove() {
@@ -198,7 +212,7 @@ export default {
         },
         save () {
             if (this.editedIndex > -1) {
-                Object.assign(this.dtypes[this.editedIndex], this.editedItem)
+                this.update(this.editedItem);
             } else {
                 this.insert(this.editedItem);
             }
