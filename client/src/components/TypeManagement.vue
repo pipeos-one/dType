@@ -43,6 +43,43 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
+            <v-dialog v-model='dialogBulk' max-width='600px'>
+                <template v-slot:activator='{ on }'>
+                    <v-btn
+                        small flat fab
+                        v-on='on'
+                    >
+                        <v-icon>fa-folder-plus</v-icon>
+                    </v-btn>
+                </template>
+                <v-card>
+                    <v-card-title>
+                        <span class='headline'>Bulk Insert</span>
+                    </v-card-title>
+
+                    <v-card-text>
+                        <v-container grid-list-md>
+                            <v-layout wrap>
+                                <v-flex xs12>
+                                    <v-textarea
+                                        outline
+                                        name="bulkInsert"
+                                        v-model='bulkInsert'
+                                        label="array of types"
+                                        :placeholder="bulkInsertDefault"
+                                    ></v-textarea>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-card-text>
+
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color='blue darken-1' flat @click='closeBulk'>Cancel</v-btn>
+                        <v-btn color='blue darken-1' flat @click='saveBulk'>Save</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
         </v-toolbar>
         <v-data-table
             :headers='headers'
@@ -81,6 +118,7 @@ export default {
     props: ['contract', 'from'],
     data: () => ({
         dialog: false,
+        dialogBulk: false,
         headers: [
             {text: 'name', align: 'left', value: 'name'},  // sortable: false
             { text: 'types', value: 'types' },
@@ -101,6 +139,18 @@ export default {
             contractAddress: '0x0000000000000000000000000000000000000000',
             source: '0x0000000000000000000000000000000000000000000000000000000000000000',
         },
+        bulkInsert: JSON.stringify([{
+                name: "uint256",
+                types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
+                source: "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }]),
+        bulkInsertDefault: JSON.stringify([{
+                name: "uint256",
+                types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
+                source: "0x0000000000000000000000000000000000000000000000000000000000000000"
+        }]),
     }),
     computed: {
         formTitle () {
@@ -120,6 +170,9 @@ export default {
     watch: {
         dialog (val) {
             val || this.close();
+        },
+        dialogBulk (val) {
+            val || this.closeBulk();
         },
         contract() {
             if (this.contract) {
@@ -154,11 +207,17 @@ export default {
             return struct;
         },
         async insert(dtype) {
-            console.log('insert dtype', JSON.stringify(dtype));
             let {name, types, contractAddress, source} = dtype;
+            console.log('insert dtype', name, types, contractAddress, source);
             let tx = await this.contract.insert(name, types, contractAddress, source);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
+        },
+        async batchInsert(dtypeArray) {
+            console.log('batchInsert', dtypeArray);
+            for (let i = 0; i < dtypeArray.length; i++) {
+                await this.insert(dtypeArray[i]);
+            };
         },
         async update(dtype) {
             console.log('update dtype', JSON.stringify(dtype));
@@ -207,30 +266,44 @@ export default {
                 .removeAllListeners('LogUpdate')
                 .removeAllListeners('LogRemove');
         },
-        editItem (item) {
+        editItem(item) {
             this.editedIndex = this.dtypes.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialog = true
         },
-        deleteItem (item) {
+        deleteItem(item) {
             const index = this.dtypes.indexOf(item)
             confirm('Are you sure you want to delete this item?') && this.delete(item);
         },
-        close () {
-            this.dialog = false
+        close() {
+            this.dialog = false;
             setTimeout(() => {
-                this.editedItem = Object.assign({}, this.defaultItem)
-                this.editedIndex = -1
+                this.editedItem = Object.assign({}, this.defaultItem);
+                this.editedIndex = -1;
             }, 300)
         },
-        save () {
+        save() {
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
             } else {
                 this.insert(this.editedItem);
             }
-            this.close()
+            this.close();
         },
+        closeBulk() {
+            this.dialogBulk = false;
+            this.bulkInsert = this.bulkInsertDefault;
+        },
+        saveBulk() {
+            let bulk;
+            try {
+                bulk = JSON.parse(this.bulkInsert);
+                this.batchInsert(bulk);
+                this.closeBulk();
+            } catch (e) {
+                alert(`${e}`);
+            }
+        }
     },
 };
 </script>
