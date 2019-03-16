@@ -255,4 +255,24 @@ contract dType {
         }
         return (typeStruct[typeIndex[index]],  typeIndex[index]);
     }
+
+    function getSignature(bytes32 typeHash)
+        view
+        public
+        returns (bytes4 signature)
+    {
+        Type storage dtype = typeStruct[typeHash];
+        bytes memory encoded = abi.encodePacked(dtype.name, '(');
+
+        if (dtype.types.length > 1) {
+            for (uint256 i = 0; i < dtype.types.length - 1; i++)  {
+                encoded = abi.encodePacked(encoded, dtype.types[i], ',');
+            }
+        }
+        if (dtype.types.length > 0) {
+            encoded = abi.encodePacked(encoded, dtype.types[dtype.types.length - 1]);
+        }
+        encoded = abi.encodePacked(encoded, ')');
+        return bytes4(keccak256(encoded));
+    }
 }

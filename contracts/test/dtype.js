@@ -1,66 +1,68 @@
 const dType = artifacts.require('dType.sol')
+const testUtils = artifacts.require('TestUtils.sol')
 
 let inserts = [
     {
-        name: "uint256",
+        name: 'uint256',
         types: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
         hasOutput: false,
-        contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-        source: "0x0000000000000000000000000000000000000000000000000000000000000000",
+        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
+        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     },
     {
-        name: "int256",
+        name: 'int256',
         types: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
         hasOutput: false,
-        contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-        source: "0x0000000000000000000000000000000000000000000000000000000000000000",
+        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
+        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     },
     {
-        name: "string",
+        name: 'string',
         types: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
         hasOutput: false,
-        contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-        source: "0x0000000000000000000000000000000000000000000000000000000000000000",
+        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
+        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     },
     {
-        name: "bytes32",
+        name: 'bytes32',
         types: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
         hasOutput: false,
-        contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-        source: "0x0000000000000000000000000000000000000000000000000000000000000000",
+        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
+        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     },
 ]
 
-let insertWithOutput = {
-    name: "mapping",
-    types: [],
+let insertFunction = {
+    name: 'add',
+    types: ['uint256', 'uint256'],
     lang: 0,
     isEvent: false,
     isFunction: true,
     hasOutput: true,
-    contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-    source: "0x0000000000000000000000000000000000000000000000000000000000000000",
-    outputs: ["uint256"],
+    contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
+    source: '0x0000000000000000000000000000000000000000000000000000000000000000',
+    outputs: ['uint256'],
 }
 
 contract('dType', async (accounts) => {
-    let dtypeContract;
+    let dtypeContract, testUtilsContract;
     let typeHashes = [];
 
     it('deploy', async () => {
         dtypeContract = await dType.deployed({from: accounts[0]});
+        testUtilsContract = await testUtils.deployed({from: accounts[0]});
     });
 
     it('insert', async () => {
@@ -94,7 +96,7 @@ contract('dType', async (accounts) => {
         }
     });
 
-    it('insertWithOutput', async () => {
+    it('insertFunction', async () => {
         let dtype, typeHash, typeOutputs;
         let {
             name,
@@ -106,7 +108,7 @@ contract('dType', async (accounts) => {
             contractAddress,
             source,
             outputs
-        } = insertWithOutput;
+        } = insertFunction;
         await dtypeContract.insert(
             lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source,
             {from: accounts[0]}
@@ -118,7 +120,12 @@ contract('dType', async (accounts) => {
         dtype = await dtypeContract.get(lang, name);
         typeOutputs = await dtypeContract.getOutputs(typeHash);
         dtype.outputs = typeOutputs;
-        sameStructs(insertWithOutput, dtype);
+        sameStructs(insertFunction, dtype);
+
+        let signature = await dtypeContract.getSignature(typeHash);
+        let functionName = `${name}(${types.join(',')})`;
+        let signatureTest = await testUtilsContract.getSignature(functionName);
+        assert.equal(signature, signatureTest, `Signatures are not equal`);
     });
 
     it('update', async () => {
