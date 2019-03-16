@@ -988,5 +988,36 @@
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "balance",
+        "types": ["uint256"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "name",
+        "types": ["string", "string"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "add",
+        "types": ["uint256", "uint256"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": true,
+        "hasOutput": true,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": ["uint256"]
     }
 ]

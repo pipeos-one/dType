@@ -20873,10 +20873,85 @@
   },
   "networks": {
     "3": {
-      "events": {},
+      "events": {
+        "0xb984a93e20552bfa6c1c989cedccd9b5f688a362c7b804f8834f0b2899493df5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "typeHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "types",
+              "type": "string[]"
+            }
+          ],
+          "name": "LogNew",
+          "type": "event",
+          "signature": "0xb984a93e20552bfa6c1c989cedccd9b5f688a362c7b804f8834f0b2899493df5"
+        },
+        "0xf7ea479b7ed108965977a3f25432116419af44f06a10d2316a461dbb4bf54b17": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "typeHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "name": "types",
+              "type": "string[]"
+            }
+          ],
+          "name": "LogUpdate",
+          "type": "event",
+          "signature": "0xf7ea479b7ed108965977a3f25432116419af44f06a10d2316a461dbb4bf54b17"
+        },
+        "0x7aba1b7c67426c7ad78ea21a678946741a0c8795e99fa106728122a461e33cbc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "typeHash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "name": "index",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogRemove",
+          "type": "event",
+          "signature": "0x7aba1b7c67426c7ad78ea21a678946741a0c8795e99fa106728122a461e33cbc"
+        }
+      },
       "links": {},
-      "address": "0xC186d4BD3CA7c2bB55284f72613B74af84d473c2",
-      "transactionHash": "0x9a1bc5da12a58bc29d3febbf5e32c63a46d4a7cf55fc82a7e1debdbb4f117bcf"
+      "address": "0xE12B09c25631c1A132e63AB685A8A828dD859ef7",
+      "transactionHash": "0x3d118d5d500d1350e9ea2a9e349af5fae2232d62ca16fd00861b09e64fe61fef"
     },
     "5777": {
       "events": {},
@@ -20886,7 +20961,7 @@
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-03-16T18:06:25.511Z",
+  "updatedAt": "2019-03-16T18:50:07.289Z",
   "devdoc": {
     "methods": {}
   },

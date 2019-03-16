@@ -1,10 +1,32 @@
 const dType = artifacts.require("dType");
 const testUtils = artifacts.require('TestUtils.sol');
 
-module.exports = async function(deployer, network) {
+const dtypes = require('../data/dtypes.json');
+
+module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(dType);
 
     if (network == 'development') {
         await deployer.deploy(testUtils);
+    } else {
+        let dtypeContract = await dType.deployed();
+
+        for (let i = 0; i < dtypes.length; i++) {
+            let {
+                name,
+                types,
+                lang,
+                isEvent,
+                isFunction,
+                hasOutput,
+                contractAddress,
+                source,
+            } = dtypes[i];
+            console.log(`insert ${name}`);
+            let tx = await dtypeContract.insert(
+                lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source,
+                {from: accounts[0]}
+            );
+        }
     }
 };
