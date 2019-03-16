@@ -149,7 +149,7 @@ export default {
         editedIndex: -1,
         editedItem: {
             name: '',
-            types: ['0x0000000000000000000000000000000000000000000000000000000000000000'],
+            types: [],
             lang: 0,
             isEvent: false,
             isFunction: false,
@@ -159,7 +159,7 @@ export default {
         },
         defaultItem: {
             name: '',
-            types: ['0x0000000000000000000000000000000000000000000000000000000000000000'],
+            types: [],
             lang: 0,
             isEvent: false,
             isFunction: false,
@@ -169,7 +169,7 @@ export default {
         },
         bulkInsert: JSON.stringify([{
                 name: "uint256",
-                types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                types: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
@@ -179,7 +179,7 @@ export default {
         }]),
         bulkInsertDefault: JSON.stringify([{
                 name: "uint256",
-                types: ["0x0000000000000000000000000000000000000000000000000000000000000000"],
+                types: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
@@ -241,7 +241,7 @@ export default {
             );
         },
         async getTypeStruct(hash) {
-            let struct = await this.contract.typeStruct(hash);
+            let struct = await this.contract.getByHash(hash);
             struct.types = await this.contract.getTypes(hash);
             struct.typeHash = hash;
             console.log('getTypeStruct', struct);
@@ -250,7 +250,7 @@ export default {
         async insert(dtype) {
             let {name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source} = dtype;
             console.log('insert dtype', name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source);
-            let tx = await this.contract.insert(name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source);
+            let tx = await this.contract.insert(lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },

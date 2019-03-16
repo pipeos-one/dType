@@ -4,8 +4,7 @@ pragma experimental ABIEncoderV2;
 contract dType {
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
-    mapping(string =>  bytes32[]) nameIndex;
-    mapping(bytes32 => bytes32[]) public outputIndex;
+    mapping(bytes32 => string[]) public outputIndex;
 
     enum LangChoices { Solidity, JavaScript, Python }
     LangChoices constant defaultLang = LangChoices.Solidity;
@@ -19,21 +18,31 @@ contract dType {
         bytes32 source;
         uint256 index;
         string name;
-        bytes32[] types;
+        string[] types;
+    }
+
+    modifier typeExists (bytes32 typeHash) {
+        require(isType(typeHash), 'No such type inserted');
+        _;
+    }
+
+    modifier typeNotExists (bytes32 typeHash) {
+        require(!isType(typeHash), 'Type already exists');
+        _;
     }
 
     event LogNew(
         bytes32 indexed typeHash,
         uint256 index,
         string name,
-        bytes32[] types
+        string[] types
     );
 
     event LogUpdate(
         bytes32 indexed typeHash,
         uint index,
         string name,
-        bytes32[] types
+        string[] types
     );
 
     event LogRemove(
@@ -41,8 +50,176 @@ contract dType {
         uint256 index
     );
 
+    function insert(
+        LangChoices lang,
+        string memory name,
+        string[] memory types,
+        bool isEvent,
+        bool isFunction,
+        bool hasOutput,
+        address contractAddress,
+        bytes32 source
+    )
+        public
+        returns(uint256 index)
+    {
+        bytes32 typeHash = getTypeHash(lang, name);
+        require(!isType(typeHash), 'Type already exists');
+
+        for (uint256 i = 0 ; i < types.length; i++) {
+            if (!isType(getTypeHash(lang, types[i])) && bytes(types[i]).length > 0) {
+                revert("A type in the composition does not exists. Use only extant types.");
+            }
+        }
+        typeStruct[typeHash].lang = lang;
+        typeStruct[typeHash].isEvent = isEvent;
+        typeStruct[typeHash].isFunction = isFunction;
+        typeStruct[typeHash].hasOutput = hasOutput;
+        typeStruct[typeHash].name = name;
+        typeStruct[typeHash].types = types;
+        typeStruct[typeHash].contractAddress = contractAddress;
+        typeStruct[typeHash].source = source;
+        typeStruct[typeHash].index = typeIndex.push(typeHash)-1;
+
+        emit LogNew(
+            typeHash,
+            typeStruct[typeHash].index,
+            name,
+            types
+        );
+
+        return typeIndex.length-1;
+    }
+
+    function update(
+        bytes32 typeHash,
+        string memory newName,
+        string[] memory newTypes
+    )
+        public
+        returns(bool success)
+    {
+        return (
+            updateTypes(typeHash, newTypes) &&
+            updateName(typeHash, newName)
+        );
+    }
+
+    function updateTypes(
+        bytes32 typeHash,
+        string[] memory newTypes
+    )
+        typeExists(typeHash)
+        public
+        returns(bool success)
+    {
+        typeStruct[typeHash].types = newTypes;
+
+        emit LogUpdate(
+            typeHash,
+            typeStruct[typeHash].index,
+            typeStruct[typeHash].name,
+            typeStruct[typeHash].types
+        );
+
+        return true;
+    }
+
+    function updateName(
+        bytes32 typeHash,
+        string memory newName
+    )
+        typeExists(typeHash)
+        public
+        returns(bool success)
+    {
+        Type memory dtype = typeStruct[typeHash];
+        bytes32 newTypeHash = getTypeHash(dtype.lang, newName);
+
+        typeStruct[newTypeHash] = dtype;
+        typeStruct[newTypeHash].name = newName;
+        typeIndex[typeStruct[newTypeHash].index] = newTypeHash;
+        delete typeStruct[typeHash];
+
+        emit LogUpdate(
+            typeHash,
+            typeStruct[newTypeHash].index,
+            typeStruct[newTypeHash].name,
+            typeStruct[newTypeHash].types
+        );
+
+        return true;
+    }
+
+    function remove(bytes32 typeHash)
+        typeExists(typeHash)
+        public
+        returns(uint256 index)
+    {
+        uint rowToDelete = typeStruct[typeHash].index;
+        bytes32 keyToMove = typeIndex[typeIndex.length-1];
+        typeIndex[rowToDelete] = keyToMove;
+        typeStruct[keyToMove].index = rowToDelete;
+        typeIndex.length--;
+
+        // TODO remove outputIndex[typeHash]
+
+        emit LogRemove(typeHash, rowToDelete);
+        emit LogUpdate(
+            keyToMove,
+            rowToDelete,
+            typeStruct[keyToMove].name,
+            typeStruct[keyToMove].types
+        );
+        return rowToDelete;
+    }
+
+    function setOutputs(bytes32 typeHash, string[] memory outputs)
+        typeExists(typeHash)
+        public
+    {
+        Type storage dtype = typeStruct[typeHash];
+
+        require(typeStruct[typeHash].hasOutput == true, 'type has no output');
+
+        for (uint256 i = 0 ; i < outputs.length; i++) {
+            require(
+                isType(getTypeHash(dtype.lang, outputs[i])) &&
+                bytes(outputs[i]).length > 0,
+                'A type in the composition does not exists. Use only extant types.'
+            );
+        }
+        outputIndex[typeHash] = outputs;
+    }
+
+    function count() public view returns(uint256 counter)
+    {
+        return typeIndex.length;
+    }
+
     function getIndex() public view returns(bytes32[] memory indext) {
         return typeIndex;
+    }
+
+    function getTypeHash(LangChoices lang, string memory name)
+        pure
+        public
+        returns (bytes32 typeHash)
+    {
+        return keccak256(abi.encode(lang, name));
+    }
+
+    function getByHash(bytes32 typeHash) view public returns(Type memory dtype) {
+        return typeStruct[typeHash];
+    }
+
+    function get(LangChoices lang, string memory name)
+        view
+        public
+        returns(Type memory dtype)
+    {
+        bytes32 typeHash = getTypeHash(lang, name);
+        return getByHash(typeHash);
     }
 
     function isType(bytes32 typeHash)
@@ -56,166 +233,26 @@ contract dType {
         return (typeIndex[typeStruct[typeHash].index] == typeHash);
     }
 
-    function insert(
-        string memory name,
-        bytes32[] memory types,
-        LangChoices lang,
-        bool isEvent,
-        bool isFunction,
-        bool hasOutput,
-        address contractAddress,
-        bytes32 source
-    )
-        public
-        returns(uint256 index)
-    {
-        bytes32 hash = keccak256(abi.encode(name, types, hasOutput));
-        if (isType(hash)) {
-            revert("This type exists. Use the extant type.");
-        }
-        for (uint256 i =0 ; i< types.length; i++) {
-            if (!isType(types[i]) && types[i] != bytes32(0x0)) {
-                revert("A type in the composition does not exists. Use only extant types.");
-            }
-        }
-        typeStruct[hash].lang = lang;
-        typeStruct[hash].isEvent = isEvent;
-        typeStruct[hash].isFunction = isFunction;
-        typeStruct[hash].hasOutput = hasOutput;
-        typeStruct[hash].name = name;
-        typeStruct[hash].types = types;
-        typeStruct[hash].contractAddress = contractAddress;
-        typeStruct[hash].source = source;
-        typeStruct[hash].index = typeIndex.push(hash)-1;
-
-        nameIndex[name].push(hash);
-
-        emit LogNew(
-            hash,
-            typeStruct[hash].index,
-            name,
-            types
-        );
-
-        return typeIndex.length-1;
+    function getOutputs(bytes32 typeHash) view public returns (string[] memory outputs) {
+        return outputIndex[typeHash];
     }
 
-    function setOutputs(bytes32 hash, bytes32[] memory outputs) public {
-        require(typeStruct[hash].hasOutput == true);
-        outputIndex[hash] = outputs;
-    }
-
-    function getOutputs(bytes32 hash) view public returns (bytes32[] memory outputs) {
-        return outputIndex[hash];
-    }
-
-    function getTypes(bytes32 hash)
+    function getTypes(bytes32 typeHash)
         public
         view
-        returns(bytes32[] memory types)
+        returns(string[] memory types)
     {
-       return typeStruct[hash].types;
-    }
-
-    function get(
-        string memory aname,
-        string memory astype
-    )
-        view
-        public
-        returns(string memory name, bytes32[] memory types, uint256 index)
-    {
-        bytes32 hash = keccak256(abi.encode(aname, astype));
-        return getByHash(hash);
-    }
-
-    function getByHash(bytes32 hash)
-        view
-        public
-        returns(
-            string memory name,
-            bytes32[] memory types,
-            uint256 index
-        )
-    {
-        if (!isType(hash)) {
-            revert("No such type inserted.");
-        }
-        return(
-            typeStruct[hash].name,
-            typeStruct[hash].types,
-            typeStruct[hash].index
-        );
+       return typeStruct[typeHash].types;
     }
 
     function getByIndex(uint256 index)
         view
         public
-        returns(Type memory atype, bytes32 hash)
+        returns(Type memory dtype, bytes32 typeHash)
     {
         if(index > typeIndex.length ) {
             revert("Index too big.");
         }
         return (typeStruct[typeIndex[index]],  typeIndex[index]);
-    }
-
-    function getByName(string memory name)
-        view
-        public
-        returns(bytes32[] memory types)
-    {
-        return nameIndex[name];
-    }
-
-    function update(
-        bytes32 hash,
-        string memory newName,
-        bytes32[] memory newTypes
-    )
-        public
-        returns(bool success)
-    {
-        if (!isType(hash)) {
-            revert("No such type inserted.");
-        }
-
-        typeStruct[hash].name = newName;
-        typeStruct[hash].types = newTypes;
-
-        emit LogUpdate(
-            hash,
-            typeStruct[hash].index,
-            typeStruct[hash].name,
-            typeStruct[hash].types
-        );
-
-        return true;
-    }
-
-    function remove(bytes32 hash) public returns(uint256 index)
-    {
-        if (!isType(hash)) {
-            revert("Not deleted because not extant.");
-        }
-
-        uint rowToDelete = typeStruct[hash].index;
-        bytes32 keyToMove = typeIndex[typeIndex.length-1];
-        typeIndex[rowToDelete] = keyToMove;
-        typeStruct[keyToMove].index = rowToDelete;
-        typeIndex.length--;
-
-        emit LogRemove(hash, rowToDelete);
-        emit LogUpdate(
-            keyToMove,
-            rowToDelete,
-            typeStruct[keyToMove].name,
-            typeStruct[keyToMove].types
-        );
-        return rowToDelete;
-    }
-
-    function count() public view returns(uint256 counter)
-    {
-        return typeIndex.length;
     }
 }
