@@ -189,7 +189,7 @@ export default {
         }]),
     }),
     computed: {
-        formTitle () {
+        formTitle() {
             return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
         },
     },
