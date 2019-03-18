@@ -25,7 +25,7 @@ contract TypeStorage  {// is TypeStorageInterface {
 
 
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
-        if(typeIndex[typeStruct[hash].index].length == 0) return false;
+        if(typeIndex.length == 0) return false;
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
