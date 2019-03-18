@@ -17,14 +17,33 @@
                         <span class='headline'>{{ formTitle }}</span>
                     </v-card-title>
 
-                    <v-card-text>
+                    <v-card-text v-if="editedItem">
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12>
                                     <v-text-field v-model='editedItem.name' label='name'></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
-                                    <v-text-field v-model='editedItem.types' label='types'></v-text-field>
+                                    <v-layout row wrap>
+                                    <v-flex xs6>
+                                    <!-- <v-text-field v-model='editedItem.types' label='types'></v-text-field> -->
+                                    <v-chip close
+                                        v-for="(type, i) in editedItem.types"
+                                        v-on:input="onRemovedType(type, i)"
+                                    >
+                                        {{type}}
+                                    </v-chip>
+                                    </v-flex>
+                                    <v-flex xs6>
+                                    <dTypeSearch
+                                        label='types'
+                                        itemKey='name'
+                                        itemValue='name'
+                                        :items='dtypes'
+                                        v-on:change="onSelectedType"
+                                    />
+                                    </v-flex>
+                                </v-layout>
                                 </v-flex>
                                 <v-flex xs12>
                                     <v-text-field v-model='editedItem.lang' label='language'></v-text-field>
@@ -128,10 +147,14 @@
 </template>
 
 <script>
+import dTypeSearch from './dTypeSearch';
 // object = {typeFullName: hash}
 // types name
 export default {
     props: ['contract', 'from'],
+    components: {
+        dTypeSearch,
+    },
     data: () => ({
         dialog: false,
         dialogBulk: false,
@@ -244,7 +267,7 @@ export default {
             let struct = await this.contract.getByHash(hash);
             struct.types = await this.contract.getTypes(hash);
             struct.typeHash = hash;
-            console.log('getTypeStruct', struct);
+            // console.log('getTypeStruct', struct);
             return struct;
         },
         async insert(dtype) {
@@ -343,6 +366,13 @@ export default {
             } catch (e) {
                 alert(`${e}`);
             }
+        },
+        onSelectedType(values) {
+            values = this.editedItem.types.concat(values);
+            this.editedItem.types = values;
+        },
+        onRemovedType(value, i) {
+            this.editedItem.types.splice(i, 1);
         }
     },
 };
