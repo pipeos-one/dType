@@ -1,7 +1,7 @@
 const dType = artifacts.require("dType");
 const testUtils = artifacts.require('TestUtils.sol');
 
-const dtypes = require('../data/dtypes.json');
+const dtypes = require('../data/dtypes_test.json');
 
 module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(dType);

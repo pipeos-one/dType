@@ -136,6 +136,8 @@ contract dType {
         Type memory dtype = typeStruct[typeHash];
         bytes32 newTypeHash = getTypeHash(dtype.lang, newName);
 
+        if (newTypeHash == typeHash) return false;
+
         typeStruct[newTypeHash] = dtype;
         typeStruct[newTypeHash].name = newName;
         typeIndex[typeStruct[newTypeHash].index] = newTypeHash;
