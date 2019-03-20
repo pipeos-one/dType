@@ -39,7 +39,7 @@ contract dType {
 
     function insert(dTypeLib.Type1 memory data)
         public
-        returns (bytes32 dataHash, uint256 index)
+        returns (bytes32 dataHash)
     {
         bytes32 typeHash = getTypeHash(data.lang, data.name);
         require(!isType(typeHash), 'Type already exists');
@@ -55,7 +55,7 @@ contract dType {
 
         emit LogNew(typeHash, typeStruct[typeHash].index);
 
-        return (typeHash, typeStruct[typeHash].index);
+        return typeHash;
     }
 
     function updateTypes(
@@ -75,7 +75,7 @@ contract dType {
 
     function update(bytes32 typeHash, dTypeLib.Type1 memory data)
         public
-        returns(bytes32 hash, uint256 index)
+        returns(bytes32 hash)
     {
         remove(typeHash);
         return insert(data);
@@ -247,8 +247,8 @@ contract dType {
 
     function run(bytes32 funcHash, bytes32[] memory dataHash)
         public
-        // bytes32[] outputDataHash 
-        returns(bytes32 dataHash2, uint256 index2)
+        // bytes32[] outputDataHash
+        returns(bytes32 dataHash2)
     {
         Type storage dtype = typeStruct[funcHash];
 
@@ -277,6 +277,6 @@ contract dType {
         );
         require(success2 == true);
 
-        return abi.decode(result, (bytes32, uint256));
+        return abi.decode(result, (bytes32));
     }
 }

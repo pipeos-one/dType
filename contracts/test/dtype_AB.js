@@ -83,7 +83,7 @@ contract('dTypeAB', async (accounts) => {
         // console.log('data', data);
         ({logs} = await dtype.run(stakedFunctionHash, [hash]));
         console.log('logs', logs);
-        ({hash, index} = logs[0].args);
+        ({hash} = logs[0].args);
         typeBStruct = await typeB.getByHash(hash);
         assert.equal(typeBStruct.staked, 5, 'run function incorrect');
     });

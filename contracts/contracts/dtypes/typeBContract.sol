@@ -23,7 +23,7 @@ contract typeBContract {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function insert(typeBLib.TypeB memory data) public returns (bytes32 hasho, uint256 index) {
+    function insert(typeBLib.TypeB memory data) public returns (bytes32 hasho) {
 
         // for data integrity
         bytes32 hash = keccak256(abi.encode(data));
@@ -33,10 +33,10 @@ contract typeBContract {
         typeStruct[hash].data = data;
         typeStruct[hash].index = typeIndex.push(hash) - 1;
         emit LogNew(hash, typeStruct[hash].index);
-        return (hash, typeStruct[hash].index);
+        return hash;
     }
 
-    function insertBytes(bytes memory data) public returns (bytes32 hasho, uint256 index) {
+    function insertBytes(bytes memory data) public returns (bytes32 hasho) {
         return insert(typeBLib.structureBytes(data));
     }
 
@@ -55,7 +55,7 @@ contract typeBContract {
 
     function update(bytes32 hashi, typeBLib.TypeB memory data)
         public
-        returns(bytes32 hash, uint256 index)
+        returns(bytes32 hash)
     {
         remove(hashi);
         return insert(data);
