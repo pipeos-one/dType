@@ -68,77 +68,53 @@ contract('dType', async (accounts) => {
     it('insert', async () => {
         for (let i = 0; i < inserts.length; i++) {
             let dtype, typeHash, typesOnChain;
-            let {
-                name,
-                types,
-                lang,
-                isEvent,
-                isFunction,
-                hasOutput,
-                contractAddress,
-                source,
-            } = inserts[i];
-            await dtypeContract.insert(
-                lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source,
-                {from: accounts[0]}
-            );
+
+            await dtypeContract.insert(inserts[i], {from: accounts[0]});
 
             ({dtype, typeHash} = await dtypeContract.getByIndex(i));
             // console.log('dtype, typeHash', dtype, typeHash);
-            sameStructs(inserts[i], dtype);
+            sameStructs(inserts[i], dtype.data);
 
-            dtype = await dtypeContract.get(lang, name);
-            sameStructs(inserts[i], dtype);
+            dtype = await dtypeContract.get(inserts[i].lang,inserts[i]. name);
+            sameStructs(inserts[i], dtype.data);
 
             typesOnChain = await dtypeContract.getTypes(typeHash);
-            assert.sameMembers(typesOnChain, types, 'unexpected types');
+            assert.sameMembers(typesOnChain, inserts[i].types, 'unexpected types');
             typeHashes.push(typeHash);
         }
     });
 
     it('insertFunction', async () => {
         let dtype, typeHash, typeOutputs;
-        let {
-            name,
-            types,
-            lang,
-            isEvent,
-            isFunction,
-            hasOutput,
-            contractAddress,
-            source,
-            outputs
-        } = insertFunction;
-        await dtypeContract.insert(
-            lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source,
-            {from: accounts[0]}
-        );
 
-        typeHash = await dtypeContract.getTypeHash(lang, name);
-        await dtypeContract.setOutputs(typeHash, outputs);
+        await dtypeContract.insert(insertFunction, {from: accounts[0]});
 
-        dtype = await dtypeContract.get(lang, name);
+        typeHash = await dtypeContract.getTypeHash(insertFunction.lang, insertFunction.name);
+        await dtypeContract.setOutputs(typeHash, insertFunction.outputs);
+
+        dtype = await dtypeContract.get(insertFunction.lang, insertFunction.name);
         typeOutputs = await dtypeContract.getOutputs(typeHash);
-        dtype.outputs = typeOutputs;
-        sameStructs(insertFunction, dtype);
+        dtype.data.outputs = typeOutputs;
+        sameStructs(insertFunction, dtype.data);
 
         let signature = await dtypeContract.getSignature(typeHash);
-        let functionName = `${name}(${types.join(',')})`;
+        let functionName = `${insertFunction.name}(${insertFunction.types.join(',')})`;
         let signatureTest = await testUtilsContract.getSignature(functionName);
         assert.equal(signature, signatureTest, `Signatures are not equal`);
     });
 
     it('update', async () => {
         let dtype;
-        let newName = 'newname';
-        let newTypes = [inserts[1].name];
+        let newdType = Object.assign({}, inserts[0]);
+        newdType.name = 'newname';
+        newdType.types = [inserts[1].name];
         // console.log('typeHashes', typeHashes);
 
-        await dtypeContract.update(typeHashes[0], newName, newTypes, {from: accounts[0]});
+        await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
 
-        dtype = await dtypeContract.get(inserts[1].lang, newName);
-        assert.equal(dtype.name, newName, 'wrong newName');
-        assert.sameMembers(dtype.types, newTypes, 'unexpected types');
+        dtype = await dtypeContract.get(newdType.lang, newdType.name);
+        assert.equal(dtype.data.name, newdType.name, 'wrong newName');
+        assert.sameMembers(dtype.data.types, newdType.types, 'unexpected types');
     });
 
     it('remove', async () => {
