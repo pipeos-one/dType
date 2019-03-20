@@ -200,12 +200,19 @@ contract dType {
         uint256 length = dtype.data.types.length;
 
         if (length > 1) {
-            for (uint256 i = 0; i < length - 1; i++)  {
-                encoded = abi.encodePacked(encoded, dtype.data.types[i], ',');
+            for (uint256 i = 0; i < length - 1; i++) {
+                encoded = abi.encodePacked(
+                    encoded,
+                    getEncodedType(dtype.data.lang, dtype.data.types[i]),
+                    ','
+                );
             }
         }
         if (length > 0) {
-            encoded = abi.encodePacked(encoded, dtype.data.types[length - 1]);
+            encoded = abi.encodePacked(
+                encoded,
+                getEncodedType(dtype.data.lang, dtype.data.types[length - 1])
+            );
         }
         return abi.encodePacked('(', encoded, ')');
     }
