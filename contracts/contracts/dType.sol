@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 import './dTypeLib.sol';
 
 contract dType {
-    using dTypeLib for dTypeLib.Type1;
+    using dTypeLib for dTypeLib.DType;
     using dTypeLib for dTypeLib.LangChoices;
 
     address rootContract;
@@ -15,7 +15,7 @@ contract dType {
     dTypeLib.LangChoices constant defaultLang = dTypeLib.LangChoices.Solidity;
 
     struct Type {
-        dTypeLib.Type1 data;
+        dTypeLib.DType data;
         uint256 index;
     }
 
@@ -37,7 +37,7 @@ contract dType {
         rootContract = rootC;
     }
 
-    function insert(dTypeLib.Type1 memory data)
+    function insert(dTypeLib.DType memory data)
         public
         returns (bytes32 dataHash)
     {
@@ -73,7 +73,7 @@ contract dType {
         return true;
     }
 
-    function update(bytes32 typeHash, dTypeLib.Type1 memory data)
+    function update(bytes32 typeHash, dTypeLib.DType memory data)
         public
         returns(bytes32 hash)
     {
