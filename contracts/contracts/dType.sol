@@ -43,6 +43,7 @@ contract dType {
     {
         bytes32 typeHash = getTypeHash(data.lang, data.name);
         require(!isType(typeHash), 'Type already exists');
+        require(data.types.length == data.labels.length);
 
         for (uint256 i = 0 ; i < data.types.length; i++) {
             require(

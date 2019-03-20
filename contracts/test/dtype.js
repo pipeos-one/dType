@@ -63,6 +63,7 @@ contract('dType', async (accounts) => {
         let newdType = Object.assign({}, insertsBase[0]);
         newdType.name = 'newname';
         newdType.types = [insertsBase[1].name];
+        newdType.labels = ['label'];
 
         await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
 
