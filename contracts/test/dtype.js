@@ -5,6 +5,7 @@ let inserts = [
     {
         name: 'uint256',
         types: [],
+        labels: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
@@ -15,6 +16,7 @@ let inserts = [
     {
         name: 'int256',
         types: [],
+        labels: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
@@ -25,6 +27,7 @@ let inserts = [
     {
         name: 'string',
         types: [],
+        labels: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
@@ -35,6 +38,7 @@ let inserts = [
     {
         name: 'bytes32',
         types: [],
+        labels: [],
         lang: 0,
         isEvent: false,
         isFunction: false,
@@ -47,6 +51,7 @@ let inserts = [
 let insertFunction = {
     name: 'add',
     types: ['uint256', 'uint256'],
+    labels: ['a', 'b'],
     lang: 0,
     isEvent: false,
     isFunction: true,

@@ -14,50 +14,40 @@ library dTypeLib {
         bytes32 source;
         string name;
         string[] types;
+        string[] labels;
     }
 
     function structure(
-        string memory name,
         LangChoices lang,
-        string[] memory types,
         bool isEvent,
         bool isFunction,
         bool hasOutput,
         address contractAddress,
-        bytes32 source
+        bytes32 source,
+        string memory name,
+        string[] memory types,
+        string[] memory labels
     )
         public
         pure
         returns(Type1 memory type1)
     {
-        return Type1(lang, isEvent, isFunction, hasOutput, contractAddress, source, name, types);
+        return Type1(lang, isEvent, isFunction, hasOutput, contractAddress, source, name, types, labels);
     }
 
-    function destructure(Type1 memory type1)
-        public
+    function structureBytes(bytes memory data)
         pure
-        returns (
-            string memory name,
-            LangChoices lang,
-            string[] memory types,
-            bool isEvent,
-            bool isFunction,
-            bool hasOutput,
-            address contractAddress,
-            bytes32 source
-        )
+        internal
+        returns(Type1 memory type1)
     {
-        return (
-            type1.name,
-            type1.lang,
-            type1.types,
-            type1.isEvent,
-            type1.isFunction,
-            type1.hasOutput,
-            type1.contractAddress,
-            type1.source
-        );
+        (type1) = abi.decode(data, (Type1));
     }
 
-
+    function destructureBytes(Type1 memory type1)
+        pure
+        internal
+        returns(bytes memory data)
+    {
+        return abi.encode(type1);
+    }
 }
