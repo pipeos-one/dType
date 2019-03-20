@@ -1,0 +1,13 @@
+[
+    {
+        "name": "DType",
+        "types": ["uint8","bool","bool","bool","address","bytes32","string","string[]","string[]"],
+        "labels": ["lang", "isEvent", "isFunction", "hasOutput", "contractAddress", "source", "name", "types", "labels"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    }
+]

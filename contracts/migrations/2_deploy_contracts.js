@@ -6,6 +6,7 @@ const typeABLogic = artifacts.require('typeABLogic.sol')
 
 const dtypesBase = require('../data/dtypes_test.json');
 const dtypesComposed = require('../data/dtypes_composed.json');
+const dtypesCore = require('../data/dtypes_core.json');
 
 module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(dType);
@@ -20,6 +21,10 @@ module.exports = async function(deployer, network, accounts) {
 
     for (let i = 0; i < dtypesBase.length; i++) {
         let tx = await dtypeContract.insert(dtypesBase[i], {from: accounts[0]});
+    }
+
+    for (let i = 0; i < dtypesCore.length; i++) {
+        let tx = await dtypeContract.insert(dtypesCore[i], {from: accounts[0]});
     }
 
     for (let i = 0; i < dtypesComposed.length; i++) {

@@ -121,15 +121,12 @@
             class='elevation-1'
         >
             <template v-slot:items='props'>
-                <td>{{ props.item.name }}</td>
-                <td class='text-xs-left'>{{ props.item.types }}</td>
-                <td class='text-xs-left'>{{ props.item.labels }}</td>
-                <td class='text-xs-left'>{{ props.item.lang }}</td>
-                <td class='text-xs-left'>{{ props.item.isEvent }}</td>
-                <td class='text-xs-left'>{{ props.item.isFunction }}</td>
-                <td class='text-xs-left'>{{ props.item.hasOutput }}</td>
-                <td class='text-xs-left'>{{ props.item.contractAddress }}</td>
-                <td class='text-xs-left'>{{ props.item.source }}</td>
+
+                <template
+                    v-for="header in headers"
+                >
+                    <td class='text-xs-left'>{{ props.item[header.value] }}</td>
+                </template>
                 <td class='justify-center layout px-0'>
                     <v-icon
                         small
@@ -162,17 +159,7 @@ export default {
     data: () => ({
         dialog: false,
         dialogBulk: false,
-        headers: [
-            {text: 'name', align: 'left', value: 'name'},  // sortable: false
-            { text: 'types', value: 'types' },
-            { text: 'labels', value: 'labels' },
-            { text: 'language', value: 'lang' },
-            { text: 'isEvent', value: 'isEvent' },
-            { text: 'isFunction', value: 'isFunction' },
-            { text: 'hasOutput', value: 'hasOutput' },
-            { text: 'contract address', value: 'contractAddress' },
-            { text: 'source', value: 'source' },
-        ],
+        headers: [],
         dtypes: [],
         editedIndex: -1,
         editedItem: {
@@ -256,6 +243,11 @@ export default {
             this.watchRemove();
         },
         async setData() {
+            // Set headers from DType type
+            let dtype = await this.contract.get(0, 'DType');
+            this.headers = dtype.data.labels.map(label => ({text: label, value: label}));
+
+            // Populate browser with onchain types
             let indexes = await this.contract.getIndex();
             for (let i = 0; i < indexes.length; i++) {
                 let hash = indexes[i];
