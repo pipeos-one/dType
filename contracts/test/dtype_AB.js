@@ -61,11 +61,11 @@ contract('dTypeAB', async (accounts) => {
     }
 
     it('deploy', async () => {
-        dtype = await dType.deployed({from: accounts[0]});
-        typeA = await typeAContract.deployed({from: accounts[0]});
-        typeB = await typeBContract.deployed({from: accounts[0]});
-        typeAB = await typeABLogic.deployed({from: accounts[0]});
-        utils = await testUtils.deployed({from: accounts[0]});
+        dtype = await dType.new();
+        typeA = await typeAContract.new();
+        typeB = await typeBContract.new();
+        typeAB = await typeABLogic.new();
+        utils = await testUtils.new();
     });
 
     it('insert dtype AB', async () => {

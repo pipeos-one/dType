@@ -1,52 +1,7 @@
 const dType = artifacts.require('dType.sol')
 const testUtils = artifacts.require('TestUtils.sol')
 
-let inserts = [
-    {
-        name: 'uint256',
-        types: [],
-        labels: [],
-        lang: 0,
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
-        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    },
-    {
-        name: 'int256',
-        types: [],
-        labels: [],
-        lang: 0,
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
-        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    },
-    {
-        name: 'string',
-        types: [],
-        labels: [],
-        lang: 0,
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
-        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    },
-    {
-        name: 'bytes32',
-        types: [],
-        labels: [],
-        lang: 0,
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
-        source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    },
-]
+const insertsBase = require('../data/dtypes_test.json');
 
 let insertFunction = {
     name: 'add',
@@ -71,20 +26,15 @@ contract('dType', async (accounts) => {
     });
 
     it('insert', async () => {
-        for (let i = 0; i < inserts.length; i++) {
+        for (let i = 0; i < insertsBase.length; i++) {
             let dtype, typeHash, typesOnChain;
 
-            await dtypeContract.insert(inserts[i], {from: accounts[0]});
-
-            ({dtype, typeHash} = await dtypeContract.getByIndex(i));
-            // console.log('dtype, typeHash', dtype, typeHash);
-            sameStructs(inserts[i], dtype.data);
-
-            dtype = await dtypeContract.get(inserts[i].lang,inserts[i]. name);
-            sameStructs(inserts[i], dtype.data);
+            typeHash = await dtypeContract.getTypeHash(insertsBase[i].lang, insertsBase[i].name);
+            dtype = await dtypeContract.get(insertsBase[i].lang, insertsBase[i].name);
+            sameStructs(insertsBase[i], dtype.data);
 
             typesOnChain = await dtypeContract.getTypes(typeHash);
-            assert.sameMembers(typesOnChain, inserts[i].types, 'unexpected types');
+            assert.sameMembers(typesOnChain, insertsBase[i].types, 'unexpected types');
             typeHashes.push(typeHash);
         }
     });
@@ -110,10 +60,9 @@ contract('dType', async (accounts) => {
 
     it('update', async () => {
         let dtype;
-        let newdType = Object.assign({}, inserts[0]);
+        let newdType = Object.assign({}, insertsBase[0]);
         newdType.name = 'newname';
-        newdType.types = [inserts[1].name];
-        // console.log('typeHashes', typeHashes);
+        newdType.types = [insertsBase[1].name];
 
         await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
 
@@ -125,7 +74,7 @@ contract('dType', async (accounts) => {
     it('remove', async () => {
         let typeHash;
 
-        typeHash = await dtypeContract.getTypeHash(inserts[2].lang, inserts[2].name);
+        typeHash = await dtypeContract.getTypeHash(insertsBase[2].lang, insertsBase[2].name);
         assert.isOk(await dtypeContract.isType(typeHash), 'no dtype to remove');
 
         await dtypeContract.remove(typeHash);

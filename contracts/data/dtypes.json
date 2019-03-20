@@ -2,6 +2,7 @@
     {
         "name": "string",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -12,6 +13,7 @@
     {
         "name": "bool",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -22,6 +24,7 @@
     {
         "name": "address",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -32,6 +35,7 @@
     {
         "name": "uint256",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -42,6 +46,7 @@
     {
         "name": "uint248",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -52,6 +57,7 @@
     {
         "name": "uint240",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -62,6 +68,7 @@
     {
         "name": "uint232",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -72,6 +79,7 @@
     {
         "name": "uint224",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -82,6 +90,7 @@
     {
         "name": "uint216",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -92,6 +101,7 @@
     {
         "name": "uint208",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -102,6 +112,7 @@
     {
         "name": "uint200",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -112,6 +123,7 @@
     {
         "name": "uint192",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -122,6 +134,7 @@
     {
         "name": "uint184",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -132,6 +145,7 @@
     {
         "name": "uint176",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -142,6 +156,7 @@
     {
         "name": "uint168",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -152,6 +167,7 @@
     {
         "name": "uint160",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -162,6 +178,7 @@
     {
         "name": "uint152",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -172,6 +189,7 @@
     {
         "name": "uint144",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -182,6 +200,7 @@
     {
         "name": "uint136",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -192,6 +211,7 @@
     {
         "name": "uint128",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -202,6 +222,7 @@
     {
         "name": "uint120",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -212,6 +233,7 @@
     {
         "name": "uint112",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -222,6 +244,7 @@
     {
         "name": "uint104",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -232,6 +255,7 @@
     {
         "name": "uint96",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -242,6 +266,7 @@
     {
         "name": "uint88",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -252,6 +277,7 @@
     {
         "name": "uint80",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -262,6 +288,7 @@
     {
         "name": "uint72",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -272,6 +299,7 @@
     {
         "name": "uint64",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -282,6 +310,7 @@
     {
         "name": "uint56",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -292,6 +321,7 @@
     {
         "name": "uint48",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -302,6 +332,7 @@
     {
         "name": "uint40",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -312,6 +343,7 @@
     {
         "name": "uint32",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -322,6 +354,7 @@
     {
         "name": "uint24",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -332,6 +365,7 @@
     {
         "name": "uint16",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -342,6 +376,7 @@
     {
         "name": "uint8",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -352,6 +387,7 @@
     {
         "name": "int256",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -362,6 +398,7 @@
     {
         "name": "int248",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -372,6 +409,7 @@
     {
         "name": "int240",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -382,6 +420,7 @@
     {
         "name": "int232",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -392,6 +431,7 @@
     {
         "name": "int224",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -402,6 +442,7 @@
     {
         "name": "int216",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -412,6 +453,7 @@
     {
         "name": "int208",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -422,6 +464,7 @@
     {
         "name": "int200",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -432,6 +475,7 @@
     {
         "name": "int192",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -442,6 +486,7 @@
     {
         "name": "int184",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -452,6 +497,7 @@
     {
         "name": "int176",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -462,6 +508,7 @@
     {
         "name": "int168",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -472,6 +519,7 @@
     {
         "name": "int160",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -482,6 +530,7 @@
     {
         "name": "int152",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -492,6 +541,7 @@
     {
         "name": "int144",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -502,6 +552,7 @@
     {
         "name": "int136",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -512,6 +563,7 @@
     {
         "name": "int128",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -522,6 +574,7 @@
     {
         "name": "int120",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -532,6 +585,7 @@
     {
         "name": "int112",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -542,6 +596,7 @@
     {
         "name": "int104",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -552,6 +607,7 @@
     {
         "name": "int96",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -562,6 +618,7 @@
     {
         "name": "int88",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -572,6 +629,7 @@
     {
         "name": "int80",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -582,6 +640,7 @@
     {
         "name": "int72",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -592,6 +651,7 @@
     {
         "name": "int64",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -602,6 +662,7 @@
     {
         "name": "int56",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -612,6 +673,7 @@
     {
         "name": "int48",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -622,6 +684,7 @@
     {
         "name": "int40",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -632,6 +695,7 @@
     {
         "name": "int32",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -642,6 +706,7 @@
     {
         "name": "int24",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -652,6 +717,7 @@
     {
         "name": "int16",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -662,6 +728,7 @@
     {
         "name": "int8",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -672,6 +739,7 @@
     {
         "name": "bytes32",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -682,6 +750,7 @@
     {
         "name": "bytes31",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -692,6 +761,7 @@
     {
         "name": "bytes30",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -702,6 +772,7 @@
     {
         "name": "bytes29",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -712,6 +783,7 @@
     {
         "name": "bytes28",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -722,6 +794,7 @@
     {
         "name": "bytes27",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -732,6 +805,7 @@
     {
         "name": "bytes26",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -742,6 +816,7 @@
     {
         "name": "bytes25",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -752,6 +827,7 @@
     {
         "name": "bytes24",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -762,6 +838,7 @@
     {
         "name": "bytes23",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -772,6 +849,7 @@
     {
         "name": "bytes22",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -782,6 +860,7 @@
     {
         "name": "bytes21",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -792,6 +871,7 @@
     {
         "name": "bytes20",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -802,6 +882,7 @@
     {
         "name": "bytes19",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -812,6 +893,7 @@
     {
         "name": "bytes18",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -822,6 +904,7 @@
     {
         "name": "bytes17",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -832,6 +915,7 @@
     {
         "name": "bytes16",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -842,6 +926,7 @@
     {
         "name": "bytes15",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -852,6 +937,7 @@
     {
         "name": "bytes14",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -862,6 +948,7 @@
     {
         "name": "bytes13",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -872,6 +959,7 @@
     {
         "name": "bytes12",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -882,6 +970,7 @@
     {
         "name": "bytes11",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -892,6 +981,7 @@
     {
         "name": "bytes10",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -902,6 +992,7 @@
     {
         "name": "bytes9",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -912,6 +1003,7 @@
     {
         "name": "bytes8",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -922,6 +1014,7 @@
     {
         "name": "bytes7",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -932,6 +1025,7 @@
     {
         "name": "bytes6",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -942,6 +1036,7 @@
     {
         "name": "bytes5",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -952,6 +1047,7 @@
     {
         "name": "bytes4",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -962,6 +1058,7 @@
     {
         "name": "bytes3",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -972,6 +1069,7 @@
     {
         "name": "bytes2",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -982,6 +1080,7 @@
     {
         "name": "bytes1",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -990,8 +1089,9 @@
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
     {
-        "name": "balance",
+        "name": "Balance",
         "types": ["uint256"],
+        "labels": ["balance"],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -1002,6 +1102,7 @@
     {
         "name": "name",
         "types": ["string", "string"],
+        "labels": ["firstName", "lastName"],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -1012,6 +1113,7 @@
     {
         "name": "add",
         "types": ["uint256", "uint256"],
+        "labels": ["a", "b"],
         "lang": 0,
         "isEvent": false,
         "isFunction": true,

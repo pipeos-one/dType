@@ -2,6 +2,7 @@
     {
         "name": "string",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -12,6 +13,7 @@
     {
         "name": "bool",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -22,6 +24,7 @@
     {
         "name": "address",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -32,6 +35,7 @@
     {
         "name": "uint256",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -42,6 +46,7 @@
     {
         "name": "uint248",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -52,6 +57,7 @@
     {
         "name": "uint240",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -62,6 +68,7 @@
     {
         "name": "uint232",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -72,6 +79,7 @@
     {
         "name": "bytes32",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -82,6 +90,7 @@
     {
         "name": "bytes2",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
@@ -92,42 +101,12 @@
     {
         "name": "bytes1",
         "types": [],
+        "labels": [],
         "lang": 0,
         "isEvent": false,
         "isFunction": false,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "balance",
-        "types": ["uint256"],
-        "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
-        "hasOutput": false,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "name",
-        "types": ["string", "string"],
-        "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
-        "hasOutput": false,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "add",
-        "types": ["uint256", "uint256"],
-        "lang": 0,
-        "isEvent": false,
-        "isFunction": true,
-        "hasOutput": true,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "outputs": ["uint256"]
     }
 ]
