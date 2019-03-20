@@ -26,6 +26,50 @@ struct Type {
 The rest of type management is coded in contract file dType.sol [https://github.com/ctzurcanu/dType/blob/master/contracts/dType.sol] .
 
 
+## Development
 
+### Contracts
 
+Prerequisites:
 
+```
+npm install -g truffle
+```
+
+Compile:
+
+```
+cd contracts
+truffle compile
+```
+
+Test:
+
+```
+truffle test
+truffle test test/dtype.js
+```
+
+Deployment prerequisites:
+
+```
+mkdir private
+cd private
+touch infuraKey.txt
+touch privateKey.txt
+touch privateKey.json
+```
+
+Deployment commands:
+
+```
+truffle migrate --network ganache
+```
+
+Start client app:
+
+```
+cd client
+npm install
+npm run start
+```

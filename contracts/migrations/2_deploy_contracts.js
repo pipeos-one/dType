@@ -1,34 +1,40 @@
 const dType = artifacts.require("dType");
 const testUtils = artifacts.require('TestUtils.sol');
-const TypeStorage = artifacts.require('TypeStorage.sol');
+const typeAContract = artifacts.require('typeAContract.sol')
+const typeBContract = artifacts.require('typeBContract.sol')
+const typeABLogic = artifacts.require('typeABLogic.sol')
 
-const dtypes = require('../data/dtypes_test.json');
+const dtypesBase = require('../data/dtypes_test.json');
+const dtypesComposed = require('../data/dtypes_composed.json');
 
 module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(dType);
+    await deployer.deploy(typeAContract);
+    await deployer.deploy(typeBContract);
+    await deployer.deploy(typeABLogic);
+
+    let dtypeContract = await dType.deployed();
+    let typeA = await typeAContract.deployed();
+    let typeB = await typeBContract.deployed();
+    let typeAB = await typeABLogic.deployed();
+
+    for (let i = 0; i < dtypesBase.length; i++) {
+        let tx = await dtypeContract.insert(dtypesBase[i], {from: accounts[0]});
+    }
+
+    for (let i = 0; i < dtypesComposed.length; i++) {
+        switch (dtypesComposed[i].name) {
+            case 'TypeA':
+                dtypesComposed[i].contractAddress = typeA.address;
+            case 'TypeB':
+                dtypesComposed[i].contractAddress = typeB.address;
+            case 'setStaked':
+                dtypesComposed[i].contractAddress = typeAB.address;
+        }
+        let tx = await dtypeContract.insert(dtypesComposed[i], {from: accounts[0]});
+    }
 
     if (network == 'development') {
         await deployer.deploy(testUtils);
-        await deployer.deploy(TypeStorage);
-    } else {
-        let dtypeContract = await dType.deployed();
-
-        for (let i = 0; i < dtypes.length; i++) {
-            let {
-                name,
-                types,
-                lang,
-                isEvent,
-                isFunction,
-                hasOutput,
-                contractAddress,
-                source,
-            } = dtypes[i];
-            console.log(`insert ${name}`);
-            let tx = await dtypeContract.insert(
-                lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source,
-                {from: accounts[0]}
-            );
-        }
     }
 };

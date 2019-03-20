@@ -46,6 +46,9 @@
                                 </v-layout>
                                 </v-flex>
                                 <v-flex xs12>
+                                    <v-text-field v-model='editedItem.labels' label='labels'></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
                                     <v-text-field v-model='editedItem.lang' label='language'></v-text-field>
                                 </v-flex>
                                 <v-flex xs12>
@@ -120,6 +123,7 @@
             <template v-slot:items='props'>
                 <td>{{ props.item.name }}</td>
                 <td class='text-xs-left'>{{ props.item.types }}</td>
+                <td class='text-xs-left'>{{ props.item.labels }}</td>
                 <td class='text-xs-left'>{{ props.item.lang }}</td>
                 <td class='text-xs-left'>{{ props.item.isEvent }}</td>
                 <td class='text-xs-left'>{{ props.item.isFunction }}</td>
@@ -161,6 +165,7 @@ export default {
         headers: [
             {text: 'name', align: 'left', value: 'name'},  // sortable: false
             { text: 'types', value: 'types' },
+            { text: 'labels', value: 'labels' },
             { text: 'language', value: 'lang' },
             { text: 'isEvent', value: 'isEvent' },
             { text: 'isFunction', value: 'isFunction' },
@@ -173,6 +178,7 @@ export default {
         editedItem: {
             name: '',
             types: [],
+            labels: [],
             lang: 0,
             isEvent: false,
             isFunction: false,
@@ -183,6 +189,7 @@ export default {
         defaultItem: {
             name: '',
             types: [],
+            labels: [],
             lang: 0,
             isEvent: false,
             isFunction: false,
@@ -193,6 +200,7 @@ export default {
         bulkInsert: JSON.stringify([{
                 name: "uint256",
                 types: [],
+                labels: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
@@ -203,6 +211,7 @@ export default {
         bulkInsertDefault: JSON.stringify([{
                 name: "uint256",
                 types: [],
+                labels: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
@@ -266,14 +275,13 @@ export default {
         async getTypeStruct(hash) {
             let struct = await this.contract.getByHash(hash);
             struct.types = await this.contract.getTypes(hash);
-            struct.typeHash = hash;
+            struct.data.typeHash = hash;
             // console.log('getTypeStruct', struct);
-            return struct;
+            return struct.data;
         },
         async insert(dtype) {
-            let {name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source} = dtype;
-            console.log('insert dtype', name, types, lang, isEvent, isFunction, hasOutput, contractAddress, source);
-            let tx = await this.contract.insert(lang, name, types, isEvent, isFunction, hasOutput, contractAddress, source);
+            console.log('insert dtype', JSON.stringify(dtype));
+            let tx = await this.contract.insert(dtype);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },
@@ -285,8 +293,7 @@ export default {
         },
         async update(dtype) {
             console.log('update dtype', JSON.stringify(dtype));
-            let {name, types, typeHash} = dtype;
-            let tx = await this.contract.update(typeHash, name, types);
+            let tx = await this.contract.update(dtype.typeHash, dtype);
             let receipt = await tx.wait(2);
             console.log('receipt', receipt);
         },
@@ -297,28 +304,32 @@ export default {
             console.log('receipt', receipt);
         },
         watchInsert() {
-            this.contract.on('LogNew', (typeHash, index, name, types) => {
-                console.log('LogNew', typeHash, index, name, types);
+            this.contract.on('LogNew', (typeHash, index) => {
+                console.log('LogNew', typeHash, index);
+                let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
+                if (typeIndex !== -1) return;
                 this.getTypeStruct(typeHash).then((struct) => {
                     this.dtypes.push(struct);
                 });
             });
         },
         watchUpdate() {
-            this.contract.on('LogUpdate', (typeHash, index, name, types) => {
-                console.log('LogUpdate', typeHash, index, name, types);
+            this.contract.on('LogUpdate', (typeHash, index) => {
+                console.log('LogUpdate', typeHash, index, index.toNumber());
                 let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
+
+                if (typeIndex === -1) return;
                 this.getTypeStruct(typeHash).then((struct) => {
                     // We have a LogUpdate in remove(), this can log an empty struct
-                    if (struct) {
+                    if (struct && this.dtypes[typeIndex]) {
                         Object.assign(this.dtypes[typeIndex], struct);
                     }
                 });
             });
         },
         watchRemove() {
-            this.contract.on('LogRemove', (typeHash, index) => {
-                console.log('LogRemove', typeHash, index);
+            this.contract.on('LogRemove', (typeHash) => {
+                console.log('LogRemove', typeHash);
                 let typeIndex = this.dtypes.findIndex((dtype) => dtype.typeHash === typeHash);
                 if (typeIndex > -1) {
                     this.dtypes.splice(typeIndex, 1);
@@ -347,6 +358,7 @@ export default {
             }, 300)
         },
         save() {
+            this.editedItem.labels = this.editedItem.labels.split(',');
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
             } else {

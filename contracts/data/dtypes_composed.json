@@ -1,0 +1,36 @@
+[
+    {
+        "name": "TypeA",
+        "types": ["uint256", "address"],
+        "labels": ["balance", "token"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "TypeB",
+        "types": ["uint256", "TypeA"],
+        "labels": ["staked", "typeA"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "setStaked",
+        "types": ["TypeA"],
+        "labels": ["typeA"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": true,
+        "hasOutput": true,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": ["TypeB"]
+    }
+]
