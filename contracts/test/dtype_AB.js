@@ -16,10 +16,20 @@ contract('dTypeAB', async (accounts) => {
         source: '0x0',
         contractAddress: '0x0000000000000000000000000000000000000000',
     }
+    let typeaddress = {
+        name: 'address',
+        lang: 0,
+        types: [],
+        isEvent: false,
+        isFunction: false,
+        hasOutput: false,
+        source: '0x0',
+        contractAddress: '0x0000000000000000000000000000000000000000',
+    }
     let typeAStruct = {
         name: 'typeA',
         lang: 0,
-        types: ['uint256'],
+        types: ['uint256', 'address'],
         isEvent: false,
         isFunction: false,
         hasOutput: false,
@@ -28,7 +38,7 @@ contract('dTypeAB', async (accounts) => {
     let typeBStruct = {
         name: 'typeB',
         lang: 0,
-        types: ['uint256'],
+        types: ['uint256', 'typeA'],
         isEvent: false,
         isFunction: false,
         hasOutput: false,
@@ -60,6 +70,7 @@ contract('dTypeAB', async (accounts) => {
         typeBStruct.contractAddress = typeB.address;
         stakedFunction.contractAddress = typeAB.address;
         await dtype.insert(typeuint256);
+        await dtype.insert(typeaddress);
 
         ({logs} = await dtype.insert(typeAStruct));
         ({hash, index} = logs[0].args);
@@ -75,16 +86,19 @@ contract('dTypeAB', async (accounts) => {
 
     it('run AB function', async () => {
         let logs, hash, index;
+        let tokenAddress = '0xEAd8C52989b587B0c6a8478f8B6dd447E2fc8B1f';
 
-        ({logs} = await typeA.insert({balance: 10}));
+        ({logs} = await typeA.insert({balance: 10, token: tokenAddress}));
         ({hash, index} = logs[0].args);
         let stakedFunctionHash = await dtype.getTypeHash(stakedFunction.lang, stakedFunction.name);
         let data = await typeA.getByHash(hash);
-        // console.log('data', data);
+
         ({logs} = await dtype.run(stakedFunctionHash, [hash]));
-        console.log('logs', logs);
         ({hash} = logs[0].args);
         typeBStruct = await typeB.getByHash(hash);
-        assert.equal(typeBStruct.staked, 5, 'run function incorrect');
+
+        assert.equal(typeBStruct.staked, 5, 'run function incorrect output - staked');
+        assert.equal(typeBStruct.typeA.balance, 10, 'run function incorrect output - typeA.balance');
+        assert.equal(typeBStruct.typeA.token, tokenAddress, 'run function incorrect output - typeA.token');
     });
 });

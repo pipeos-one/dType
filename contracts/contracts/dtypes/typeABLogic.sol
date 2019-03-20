@@ -14,6 +14,7 @@ contract typeABLogic {
         returns(typeBLib.TypeB memory typeB)
     {
         typeB.staked = typeA.balance / 2;
+        typeB.typeA = typeA;
         return typeB;
     }
 }
