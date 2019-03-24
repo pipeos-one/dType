@@ -25,6 +25,40 @@ contract('dType', async (accounts) => {
         testUtilsContract = await testUtils.deployed({from: accounts[0]});
     });
 
+    it('signature', async () => {
+        let isArray, functionRecord, fhash;
+        let signature, signatureTest;
+
+        isArray = await dtypeContract.typeIsArray("[]");
+        assert.equal(isArray, true);
+
+        isArray = await dtypeContract.typeIsArray("TypeA[]");
+        assert.equal(isArray, true);
+
+        isArray = await dtypeContract.typeIsArray("string[]l");
+        assert.equal(isArray, false);
+
+        functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF1';
+        functionRecord.types = ['string[]'];
+        functionRecord.labels = ['label'];
+        await dtypeContract.insert(functionRecord);
+        fhash = await dtypeContract.getTypeHash(0, 'newF1');
+        signature = await dtypeContract.getSignature(fhash);
+        signatureTest = await testUtilsContract.getSignature('newF1(string[])');
+        assert.equal(signature, signatureTest, `newF1 signatures are not equal`);
+
+        functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF2';
+        functionRecord.types = ['TypeA[]'];
+        functionRecord.labels = ['label'];
+
+        await dtypeContract.insert(functionRecord);
+        fhash = await dtypeContract.getTypeHash(0, 'newF2');
+
+        signature = await dtypeContract.getSignature(fhash);
+        signatureTest = await testUtilsContract.getSignature('newF2((uint256,address)[])');
+        assert.equal(signature, signatureTest, `newF2 signatures are not equal`);
+    });
+
     it('insert', async () => {
         for (let i = 0; i < insertsBase.length; i++) {
             let dtype, typeHash, typesOnChain;

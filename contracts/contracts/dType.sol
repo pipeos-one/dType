@@ -7,7 +7,7 @@ contract dType {
     using dTypeLib for dTypeLib.DType;
     using dTypeLib for dTypeLib.LangChoices;
 
-    address rootContract;
+    address rootAddress;
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
     mapping(bytes32 => string[]) public outputIndex;
@@ -33,8 +33,8 @@ contract dType {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function setRootContract(address rootC) public {
-        rootContract = rootC;
+    function setRootAddress(address root) public {
+        rootAddress = root;
     }
 
     function insert(dTypeLib.DType memory data)
@@ -193,6 +193,19 @@ contract dType {
         return abi.encodePacked(dtype.data.name);
     }
 
+    function typeIsArray(string memory name) pure public returns(bool isArray) {
+        bytes memory encoded = bytes(name);
+        uint256 length = encoded.length;
+
+        if (
+            encoded[length-2] == bytes1(0x5b) &&
+            encoded[length-1] == bytes1(0x5d)
+        ) {
+            return true;
+        }
+        return false;
+    }
+
     function getEncodedTypes(Type storage dtype)
         view
         internal
@@ -215,7 +228,14 @@ contract dType {
                 getEncodedType(dtype.data.lang, dtype.data.types[length - 1])
             );
         }
-        return abi.encodePacked('(', encoded, ')');
+
+        // If type is an array, we need to append [] instead of enclosing in brackets
+        if (typeIsArray(dtype.data.name)) {
+            encoded = abi.encodePacked(encoded, '[]');
+        } else {
+            encoded = abi.encodePacked('(', encoded, ')');
+        }
+        return encoded;
     }
 
     function getSignature(bytes32 typeHash)
@@ -242,8 +262,8 @@ contract dType {
                 getEncodedType(dtype.data.lang, dtype.data.types[length - 1])
             );
         }
-
-        return bytes4(keccak256(abi.encodePacked(dtype.data.name, '(', encoded, ')')));
+        encoded = abi.encodePacked(dtype.data.name, '(', encoded, ')');
+        return bytes4(keccak256(encoded));
     }
 
     function run(bytes32 funcHash, bytes32[] memory dataHash)
@@ -257,6 +277,7 @@ contract dType {
 
         require(dataHash.length == dtype.data.types.length);
 
+        // Retrieve inputs for calling the function at funcHash
         for (uint256 i = 0; i < dtype.data.types.length; i++) {
             bytes32 typeHash = getTypeHash(dtype.data.lang, dtype.data.types[i]);
             Type storage ttype = typeStruct[typeHash];
@@ -268,9 +289,11 @@ contract dType {
             encodedInputs = abi.encodePacked(encodedInputs, inputData);
         }
 
+        // Calling the function determined by funcHash
         (bool success, bytes memory outputData) = dtype.data.contractAddress.call(encodedInputs);
         require(success == true);
 
+        // Inserting the funcHash outputs into the corresponding type storage
         // TODO multiple outputs, safe guards
         bytes32 outputHash = getTypeHash(dtype.data.lang, outputIndex[funcHash][0]);
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
