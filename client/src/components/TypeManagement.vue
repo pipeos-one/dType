@@ -131,6 +131,13 @@
                     <v-icon
                         small
                         class='mr-2'
+                        @click='goRoute(props.item.typeHash)'
+                    >
+                        launch
+                    </v-icon>
+                    <v-icon
+                        small
+                        class='mr-2'
                         @click='editItem(props.item)'
                     >
                         edit
@@ -377,7 +384,11 @@ export default {
         },
         onRemovedType(value, i) {
             this.editedItem.types.splice(i, 1);
-        }
+        },
+        goRoute(typeHash) {
+            let route = this.$router.resolve({path: `dtype/${typeHash}`});
+            window.open(route.href, '_blank');
+        },
     },
 };
 </script>
