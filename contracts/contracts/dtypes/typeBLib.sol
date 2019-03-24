@@ -34,4 +34,12 @@ library typeBLib {
     {
         (typeB) = abi.decode(data, (TypeB));
     }
+
+    function destructureBytes(TypeB memory typeB)
+        pure
+        internal
+        returns(bytes memory data)
+    {
+        return abi.encode(typeB);
+    }
 }

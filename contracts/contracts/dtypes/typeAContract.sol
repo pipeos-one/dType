@@ -36,6 +36,10 @@ contract typeAContract {
         return hash;
     }
 
+    function insertBytes(bytes memory data) public returns (bytes32 hasho) {
+        return insert(typeALib.structureBytes(data));
+    }
+
     function remove(bytes32 hash) public returns(uint256 index) {
         if(!isStored(hash)) revert("Not deleted: not extant.");
         uint rowToDelete = typeStruct[hash].index;
