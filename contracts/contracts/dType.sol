@@ -7,7 +7,7 @@ contract dType {
     using dTypeLib for dTypeLib.DType;
     using dTypeLib for dTypeLib.LangChoices;
 
-    address rootContract;
+    address rootAddress;
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
     mapping(bytes32 => string[]) public outputIndex;
@@ -33,8 +33,8 @@ contract dType {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function setRootContract(address rootC) public {
-        rootContract = rootC;
+    function setRootAddress(address root) public {
+        rootAddress = root;
     }
 
     function insert(dTypeLib.DType memory data)
