@@ -17,7 +17,8 @@ module.exports = {
     'func-names': ['error', 'never'],
     'import/prefer-default-export': 'off',
     'no-console': 'off',
-    "import/extensions": 'off',
+    'import/extensions': 'off',
+    'arrow-body-style': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
