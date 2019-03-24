@@ -125,7 +125,12 @@
                 <template
                     v-for="header in headers"
                 >
-                    <td class='text-xs-left'>{{ props.item[header.value] }}</td>
+                    <td class='text-xs-left'>
+                        <dTypeBrowseField
+                            :field="header.value"
+                            :value="props.item[header.value]"
+                        />
+                    </td>
                 </template>
                 <td class='justify-center layout px-0'>
                     <v-icon
@@ -156,12 +161,14 @@
 
 <script>
 import dTypeSearch from './dTypeSearch';
+import dTypeBrowseField from './dTypeBrowseField';
 // object = {typeFullName: hash}
 // types name
 export default {
     props: ['contract', 'from'],
     components: {
         dTypeSearch,
+        dTypeBrowseField,
     },
     data: () => ({
         dialog: false,
