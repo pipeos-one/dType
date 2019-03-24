@@ -22,6 +22,17 @@
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
     {
+        "name": "TypeA[]",
+        "types": ["TypeA"],
+        "labels": ["l_data"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": false,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
         "name": "setStaked",
         "types": ["TypeA"],
         "labels": ["typeA"],
@@ -32,5 +43,17 @@
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": ["TypeB"]
+    },
+    {
+        "name": "doubleBalances",
+        "types": ["TypeA[]"],
+        "labels": ["data"],
+        "lang": 0,
+        "isEvent": false,
+        "isFunction": true,
+        "hasOutput": true,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": ["TypeA[]"]
     }
 ]
