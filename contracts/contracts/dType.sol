@@ -277,6 +277,7 @@ contract dType {
 
         require(dataHash.length == dtype.data.types.length);
 
+        // Retrieve inputs for calling the function at funcHash
         for (uint256 i = 0; i < dtype.data.types.length; i++) {
             bytes32 typeHash = getTypeHash(dtype.data.lang, dtype.data.types[i]);
             Type storage ttype = typeStruct[typeHash];
@@ -288,9 +289,11 @@ contract dType {
             encodedInputs = abi.encodePacked(encodedInputs, inputData);
         }
 
+        // Calling the function determined by funcHash
         (bool success, bytes memory outputData) = dtype.data.contractAddress.call(encodedInputs);
         require(success == true);
 
+        // Inserting the funcHash outputs into the corresponding type storage
         // TODO multiple outputs, safe guards
         bytes32 outputHash = getTypeHash(dtype.data.lang, outputIndex[funcHash][0]);
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
