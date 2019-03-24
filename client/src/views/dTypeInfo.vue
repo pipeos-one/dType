@@ -70,11 +70,11 @@ export default {
         },
         async prepDtype(dtype) {
             let dtypePrep = {};
-            Object.keys(dtype || {})
+            Object.keys(dtype.data || {})
                 .filter(key => !parseInt(key))
-                .forEach(key => dtypePrep[key] = dtype[key]);
+                .forEach(key => dtypePrep[key] = dtype.data[key]);
             dtypePrep.typeHash = this.hash;
-            dtypePrep.index = dtypePrep.index.toNumber();
+            dtypePrep.index = dtype.index.toNumber();
 
             dtypePrep.typesHashes = [];
             for (let i = 0; i < dtypePrep.types.length; i++) {
