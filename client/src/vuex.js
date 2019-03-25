@@ -66,11 +66,19 @@ const dTypeStore = new Vuex.Store({
             let struct = await state.contract.getByHash(hash);
             struct.types = await state.contract.getTypes(hash);
             struct.data.typeHash = hash;
+            struct.data.index = struct.index.toNumber();
             // console.log('getTypeStruct', struct);
             return struct.data;
         },
         async setTypes({dispatch, commit, state}) {
-            return state.contract.get(0, 'DType').then((dtype) => {
+            return state.contract.getTypeHash(0, 'DType').then((hash) => {
+                return dispatch('getTypeStruct', hash);
+            }).then(async (dtype) => {
+                dtype.typesHashes = [];
+                for (let i = 0; i < dtype.types.length; i++) {
+                    let typeHash = await state.contract.getTypeHash(dtype.lang, dtype.types[i]);
+                    dtype.typesHashes.push(typeHash);
+                }
                 commit('setType', dtype);
             }).then(() => {
                 return state.contract.getIndex();
