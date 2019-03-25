@@ -27,7 +27,7 @@ contract('dType', async (accounts) => {
 
     it('signature', async () => {
         let isArray, functionRecord, fhash;
-        let signature, signatureTest;
+        let signature, signatureTest, hash, typeSignature;
 
         isArray = await dtypeContract.typeIsArray("[]");
         assert.equal(isArray, true);
@@ -37,6 +37,14 @@ contract('dType', async (accounts) => {
 
         isArray = await dtypeContract.typeIsArray("string[]l");
         assert.equal(isArray, false);
+
+        hash = await dtypeContract.getTypeHash(0, 'TypeA');
+        typeSignature = await dtypeContract.getTypeSignature(hash);
+        assert.equal(typeSignature, '(uint256,address)');
+
+        hash = await dtypeContract.getTypeHash(0, 'TypeA[]');
+        typeSignature = await dtypeContract.getTypeSignature(hash);
+        assert.equal(typeSignature, '(uint256,address)[]');
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF1';
         functionRecord.types = ['string[]'];

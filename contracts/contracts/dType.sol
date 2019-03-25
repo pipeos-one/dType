@@ -180,6 +180,15 @@ contract dType {
         return (typeStruct[typeIndex[index]], typeIndex[index]);
     }
 
+    function getTypeSignature(bytes32 typeHash)
+        view
+        public
+        returns(string memory typeSignature)
+    {
+        // Type storage dtype = typeStruct[typeHash];
+        return string(getEncodedTypes(typeStruct[typeHash]));
+    }
+
     function getEncodedType(dTypeLib.LangChoices lang, string memory name)
         view
         internal
