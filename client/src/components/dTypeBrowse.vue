@@ -1,7 +1,6 @@
 <template>
     <div>
         <v-toolbar flat color='white'>
-            <v-toolbar-title>dTypes</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-dialog v-model='dialog' max-width='600px'>
                 <template v-slot:activator='{ on }'>
@@ -39,7 +38,7 @@
                                         label='types'
                                         itemKey='name'
                                         itemValue='name'
-                                        :items='dtypes'
+                                        :items='items'
                                         v-on:change="onSelectedType"
                                     />
                                     </v-flex>
@@ -117,7 +116,7 @@
         </v-toolbar>
         <v-data-table
             :headers='headers'
-            :items='dtypes'
+            :items='items'
             class='elevation-1'
         >
             <template v-slot:items='props'>
@@ -126,20 +125,18 @@
                     v-for="header in headers"
                 >
                     <td class='text-xs-left'>
-                        <dTypeBrowseField
+                        <template v-if="header.value == 'name'">
+                            <router-link :to="`/dtype/${props.item.lang}/${props.item.name}`">
+                                {{props.item.name}}
+                            </router-link>
+                        </template>
+                        <dTypeBrowseField v-else
                             :field="header.value"
                             :value="props.item[header.value]"
                         />
                     </td>
                 </template>
                 <td class='justify-center layout px-0'>
-                    <v-icon
-                        small
-                        class='mr-2'
-                        @click='goRoute(props.item.typeHash)'
-                    >
-                        launch
-                    </v-icon>
                     <v-icon
                         small
                         class='mr-2'
@@ -165,76 +162,54 @@ import dTypeBrowseField from '../components/dTypeBrowseField';
 
 export default {
     name: 'dTypeBrowse',
+    props: ['headers', 'items'],
     components: {
         dTypeSearch,
         dTypeBrowseField,
     },
-    data: () => ({
-        dialog: false,
-        dialogBulk: false,
-        editedIndex: -1,
-        editedItem: {
-            name: '',
-            types: [],
-            labels: [],
-            lang: 0,
-            isEvent: false,
-            isFunction: false,
-            hasOutput: false,
-            contractAddress: '0x0000000000000000000000000000000000000000',
-            source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-        },
-        defaultItem: {
-            name: '',
-            types: [],
-            labels: [],
-            lang: 0,
-            isEvent: false,
-            isFunction: false,
-            hasOutput: false,
-            contractAddress: '0x0000000000000000000000000000000000000000',
-            source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-        },
-        bulkInsert: JSON.stringify([{
-                name: "uint256",
+    data() {
+        let data = {
+            dialog: false,
+            dialogBulk: false,
+            editedIndex: -1,
+            editedItem: {
+                name: '',
                 types: [],
                 labels: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
                 hasOutput: false,
-                contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-                source: "0x0000000000000000000000000000000000000000000000000000000000000000"
-        }]),
-        bulkInsertDefault: JSON.stringify([{
-                name: "uint256",
+                contractAddress: '0x0000000000000000000000000000000000000000',
+                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
+            },
+            defaultItem: {
+                name: '',
                 types: [],
                 labels: [],
                 lang: 0,
                 isEvent: false,
                 isFunction: false,
                 hasOutput: false,
-                contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-                source: "0x0000000000000000000000000000000000000000000000000000000000000000"
-        }]),
-    }),
+                contractAddress: '0x0000000000000000000000000000000000000000',
+                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
+            },
+            bulkInsertDefault: JSON.stringify([{
+                    name: "uint256",
+                    types: [],
+                    labels: [],
+                    lang: 0,
+                    isEvent: false,
+                    isFunction: false,
+                    hasOutput: false,
+                    contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
+                    source: "0x0000000000000000000000000000000000000000000000000000000000000000"
+            }]),
+        }
+        data.bulkInsert = this.items.length > 0 ? JSON.stringify(this.items) : data.bulkInsertDefault;
+        return data;
+    },
     computed: {
-        contract() {
-            console.log('dTypeBrowse contract', this.$store.state.contract);
-            return this.$store.state.contract;
-        },
-        dtype() {
-            console.log('dTypeBrowse dtype', this.$store.state.dtype);
-            return this.$store.state.dtype;
-        },
-        dtypes() {
-            return this.$store.state.dtypes;
-        },
-        headers() {
-            return !this.dtype ? [] : this.dtype.data.labels.map(
-                label => ({text: label, value: label})
-            );
-        },
         formTitle() {
             return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
         },
@@ -246,14 +221,14 @@ export default {
         dialogBulk (val) {
             val || this.closeBulk();
         },
-        dtypes() {
+        items() {
             this.setBulkInsert();
         },
     },
     methods: {
         setBulkInsert() {
             this.bulkInsert = JSON.stringify(
-                this.dtypes.map(dt => {
+                this.items.map(dt => {
                     let obj = {};
                     Object.keys(this.defaultItem).forEach(key => {
                         obj[key] = dt[key];
@@ -264,24 +239,24 @@ export default {
             );
         },
         async insert(dtype) {
-            this.$store.dispatch('insertType', dtype);
+            this.$emit('insert', dtype);
         },
         async batchInsert(dtypeArray) {
-            this.$store.dispatch('insertBatchType', dtypeArray);
+            this.$emit('batchInsert', dtypeArray);
         },
         async update(dtype) {
-            this.$store.dispatch('updateType', dtype);
+            this.$emit('update', dtype);
         },
         async delete(dtype) {
-            this.$store.dispatch('removeType', dtype);
+            this.$emit('remove', dtype);
         },
         editItem(item) {
-            this.editedIndex = this.dtypes.indexOf(item)
+            this.editedIndex = this.items.indexOf(item)
             this.editedItem = Object.assign({}, item)
             this.dialog = true
         },
         deleteItem(item) {
-            const index = this.dtypes.indexOf(item)
+            const index = this.items.indexOf(item)
             confirm('Are you sure you want to delete this item?') && this.delete(item);
         },
         close() {
@@ -319,10 +294,6 @@ export default {
         },
         onRemovedType(value, i) {
             this.editedItem.types.splice(i, 1);
-        },
-        goRoute(typeHash) {
-            let route = this.$router.resolve({path: `dtype/${typeHash}`});
-            window.open(route.href, '_blank');
         },
     },
 };

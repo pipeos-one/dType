@@ -2,7 +2,7 @@
     <v-app>
         <v-content>
             <div>
-                <router-link to="/">Browse</router-link>
+                <router-link to="/">Root</router-link>
             </div>
             <router-view></router-view>
         </v-content>

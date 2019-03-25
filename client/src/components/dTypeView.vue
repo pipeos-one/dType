@@ -1,5 +1,8 @@
 <template>
     <div>
+        <v-toolbar flat color='white' v-if="dtype">
+            <v-toolbar-title>{{dtype.name}}</v-toolbar-title>
+        </v-toolbar>
         {{dtype}}
         <template v-if="dtype">
             <router-link
