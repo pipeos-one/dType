@@ -125,31 +125,35 @@
                     v-for="header in headers"
                 >
                     <td class='text-xs-left'>
-                        <template v-if="header.value == 'name'">
-                            <router-link :to="`/dtype/${props.item.lang}/${props.item.name}`">
-                                {{props.item.name}}
-                            </router-link>
-                        </template>
-                        <dTypeBrowseField v-else
+                        <dTypeBrowseField
                             :field="header.value"
                             :value="props.item[header.value]"
                         />
                     </td>
                 </template>
                 <td class='justify-center layout px-0'>
-                    <v-icon
-                        small
-                        class='mr-2'
+                    <v-btn
+                        flat icon small
+                        color="blue darken-4"
+                        :to="`/dtype/${props.item.lang}/${props.item.name}`"
+                    >
+                        <v-icon>link</v-icon>
+                    </v-btn>
+
+                    <v-btn
+                        flat icon small
+                        color="grey darken-2"
                         @click='editItem(props.item)'
                     >
-                        edit
-                    </v-icon>
-                    <v-icon
-                        small
+                        <v-icon>edit</v-icon>
+                    </v-btn>
+                    <v-btn
+                        flat icon small
+                        color="grey darken-2"
                         @click='deleteItem(props.item)'
                     >
-                        delete
-                    </v-icon>
+                        <v-icon>delete</v-icon>
+                    </v-btn>
                 </td>
             </template>
         </v-data-table>

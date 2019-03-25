@@ -2,7 +2,7 @@
     <v-app>
         <v-content>
             <div>
-                <router-link to="/">Root</router-link>
+                <router-link to="/">dType</router-link>
             </div>
             <router-view></router-view>
         </v-content>
