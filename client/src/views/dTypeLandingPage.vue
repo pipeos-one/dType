@@ -2,6 +2,7 @@
     <div>
         <dTypeView :dtype="typeStruct"
             :parentHeaders="dtypeHeaders"
+            :dtypes="dtypes"
         />
         <dTypeBrowse
             :headers="headers"
