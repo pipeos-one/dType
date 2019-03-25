@@ -8,10 +8,10 @@
 
         <template v-if="dtype">
             <router-link
-                v-for="(hash, i) in dtype.typesHashes"
-                :to="`/dtype/${hash}`"
+                v-for="typeName in dtype.types"
+                :to="`/dtype/${dtype.lang}/${typeName}`"
             >
-                {{dtype.types[i]}}
+                {{typeName}}
             </router-link>
         </template>
 
