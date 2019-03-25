@@ -19,6 +19,8 @@ module.exports = {
     'no-console': 'off',
     'import/extensions': 'off',
     'arrow-body-style': 'off',
+    'no-param-reassign': 'off',
+    'space-before-function-paren': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',

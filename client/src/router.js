@@ -7,19 +7,20 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            name: 'browse',
-            component: () => import(/* webpackChunkName: "about" */ './views/dTypeBrowse.vue'),
+            name: 'main',
+            // component: () => import(/* webpackChunkName: "about" */ './views/dTypeBrowse.vue'),
+            redirect: '/dtype/0/DType',
         },
         {
             path: '/dtype/:hash',
-            name: 'dtype',
-            component: () => import(/* webpackChunkName: "about" */ './views/dTypeInfo.vue'),
+            name: 'dtypeHash',
+            component: () => import(/* webpackChunkName: "about" */ './views/dTypeLandingPage.vue'),
             props: route => ({hash: route.params.hash}),
         },
         {
             path: '/dtype/:lang/:name',
-            name: 'dtype',
-            component: () => import(/* webpackChunkName: "about" */ './views/dTypeInfo.vue'),
+            name: 'dtypeName',
+            component: () => import(/* webpackChunkName: "about" */ './views/dTypeLandingPage.vue'),
             props: route => ({lang: route.params.lang, name: route.params.name}),
         },
     ],

@@ -1,12 +1,12 @@
 <template>
     <div>
-        <template v-if="field.match(/address/gi)">
+        <template v-if="type == 'address'">
             <BytesValueField
                 :value="value"
                 baseUrl="https://ropsten.etherscan.io/address/"
             />
         </template>
-        <template v-else-if="field.match(/source/gi)">
+        <template v-else-if="type == 'bytes32'">
             <BytesValueField
                 :value="value.substring(2)"
                 baseUrl="https://swarm-gateways.net/bzz-raw:/"
@@ -22,7 +22,7 @@
 import BytesValueField from './BytesValueField';
 
 export default {
-    props: ['field', 'value'],
+    props: ['type', 'value'],
     components: {BytesValueField},
 }
 </script>
