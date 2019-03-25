@@ -1,6 +1,8 @@
 <template>
     <div>
-        <dTypeView :dtype="typeStruct" />
+        <dTypeView :dtype="typeStruct"
+            :parentHeaders="dtypeHeaders"
+        />
         <dTypeBrowse
             :headers="headers"
             :items="items"
@@ -28,6 +30,7 @@ export default {
         typeStruct: null,
         items: [],
         headers: [],
+        dtypeHeaders: [],
         isRoot: false,
     }),
     computed: mapState({
@@ -57,32 +60,31 @@ export default {
             await this.setContract();
         },
         async setContract() {
+            this.dtypeHeaders = this.dtype.labels.map((label, i) => {
+                return {
+                    text: `${label}\n${this.dtype.types[i]}`,
+                    value: label,
+                    type: this.dtype.types[i],
+                };
+            });
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
                 this.isRoot = true;
                 this.typeContract = this.contract;
                 this.typeStruct = this.dtype;
                 this.items = this.dtypes;
-                this.headers = this.dtype.labels.map((label, i) => {
-                    return {
-                        text: `${label}\n${this.dtype.types[i]}`,
-                        value: label,
-                        type: this.dtype.types[i],
-                    };
-                });
-                return;
-            }
-            let dtype;
-            if (this.hash) {
-                dtype = await this.contract.getByHash(this.hash);
+                this.headers = this.dtypeHeaders;
             } else {
-                dtype = await this.contract.get(this.lang, this.name);
+                let hash = this.hash;
+                if (this.name) {
+                    hash = await this.contract.getTypeHash(this.lang, this.name);
+                }
+                this.typeStruct = await this.$store.dispatch('getTypeStruct', hash);
+                this.typeContract = null;
+                this.items = [];
+                this.headers = [];
+                this.isRoot = false;
             }
-            this.typeStruct = dtype;
-            this.typeContract = null;
-            this.items = [];
-            this.headers = [];
-            this.isRoot = false;
             // TODO set contract & storage items
             // TODO event watchers
         },
