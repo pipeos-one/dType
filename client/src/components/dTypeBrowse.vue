@@ -126,7 +126,7 @@
                 >
                     <td class='text-xs-left'>
                         <dTypeBrowseField
-                            :field="header.value"
+                            :type="header.type"
                             :value="props.item[header.value]"
                         />
                     </td>

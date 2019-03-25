@@ -66,7 +66,8 @@ export default {
                 this.headers = this.dtype.labels.map((label, i) => {
                     return {
                         text: `${label}\n${this.dtype.types[i]}`,
-                        value: label
+                        value: label,
+                        type: this.dtype.types[i],
                     };
                 });
                 return;
