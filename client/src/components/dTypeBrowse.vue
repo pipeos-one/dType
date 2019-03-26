@@ -234,6 +234,11 @@ export default {
                     if (typeof this.editedItem[header.value] === 'string') {
                         this.editedItem[header.value] = this.editedItem[header.value].split(',');
                     }
+                } else {
+                    let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type);
+                    if (dtype.types.length) {
+                        this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
+                    }
                 }
             });
             if (this.editedIndex > -1) {
