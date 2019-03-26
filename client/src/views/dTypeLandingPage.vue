@@ -8,6 +8,7 @@
         <dTypeBrowse
             :headers="headers"
             :items="items"
+            :defaultItem="defaultItem"
             v-on:insert="insert"
             v-on:batchInsert="batchInsert"
             v-on:update="update"
@@ -20,6 +21,7 @@
 import { mapState } from 'vuex';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
+import {buildDefaultItem} from '../blockchain';
 
 export default {
     props: ['hash', 'lang', 'name'],
@@ -34,6 +36,7 @@ export default {
         headers: [],
         dtypeHeaders: [],
         isRoot: false,
+        defaultItem: {},
     }),
     computed: mapState({
         contract: 'contract',
@@ -89,6 +92,7 @@ export default {
             }
             // TODO set contract & storage items
             // TODO event watchers
+            this.defaultItem = buildDefaultItem(this.typeStruct);
         },
         teardown() {
             if (!this.typeContract) return;

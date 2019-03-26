@@ -166,7 +166,7 @@ import dTypeBrowseField from '../components/dTypeBrowseField';
 
 export default {
     name: 'dTypeBrowse',
-    props: ['headers', 'items'],
+    props: ['headers', 'items', 'defaultItem'],
     components: {
         dTypeSearch,
         dTypeBrowseField,
@@ -176,41 +176,11 @@ export default {
             dialog: false,
             dialogBulk: false,
             editedIndex: -1,
-            editedItem: {
-                name: '',
-                types: [],
-                labels: [],
-                lang: 0,
-                isEvent: false,
-                isFunction: false,
-                hasOutput: false,
-                contractAddress: '0x0000000000000000000000000000000000000000',
-                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-            },
-            defaultItem: {
-                name: '',
-                types: [],
-                labels: [],
-                lang: 0,
-                isEvent: false,
-                isFunction: false,
-                hasOutput: false,
-                contractAddress: '0x0000000000000000000000000000000000000000',
-                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-            },
-            bulkInsertDefault: JSON.stringify([{
-                    name: "uint256",
-                    types: [],
-                    labels: [],
-                    lang: 0,
-                    isEvent: false,
-                    isFunction: false,
-                    hasOutput: false,
-                    contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-                    source: "0x0000000000000000000000000000000000000000000000000000000000000000"
-            }]),
+            editedItem: {},
+            bulkInsertDefault: '{}',
+            bulkInsert: '{}',
+
         }
-        data.bulkInsert = this.items.length > 0 ? JSON.stringify(this.items) : data.bulkInsertDefault;
         return data;
     },
     computed: {
@@ -228,8 +198,16 @@ export default {
         items() {
             this.setBulkInsert();
         },
+        defaultItem() {
+            this.setDefaults();
+        }
     },
     methods: {
+        setDefaults() {
+            this.editedItem = Object.assign({}, this.defaultItem);
+            this.bulkInsertDefault = JSON.stringify([this.defaultItem]);
+            this.bulkInsert = this.items.length > 0 ? JSON.stringify(this.items) : this.bulkInsertDefault;
+        },
         setBulkInsert() {
             this.bulkInsert = JSON.stringify(
                 this.items.map(dt => {
