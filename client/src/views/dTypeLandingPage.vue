@@ -3,7 +3,6 @@
         <dTypeView :dtype="typeStruct"
             :parentHeaders="dtypeHeaders"
             :dtypes="dtypes"
-            :storageItems="items"
         />
         <dTypeBrowse
             :headers="headers"
@@ -23,7 +22,13 @@ import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
 import {EMPTY_ADDRESS} from '../constants_utils';
 import {buildTypeAbi} from '../dtype_utils';
-import {getContract, buildStructAbi, buildDefaultItem} from '../blockchain';
+import {
+    getContract,
+    buildStructAbi,
+    buildDefaultItem,
+    getDataItem,
+    getDataItems,
+} from '../blockchain';
 
 export default {
     props: ['hash', 'lang', 'name'],
@@ -73,6 +78,11 @@ export default {
         },
         async setContract() {
             this.dtypeHeaders = this.getHeaders(this.dtype);
+            this.dtypeHeaders.push({
+                text: 'outputs\nstring[]',
+                value: 'outputs',
+                type: 'string[]',
+            });
 
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
@@ -103,7 +113,9 @@ export default {
                         this.$store.state.wallet,
                     );
 
-                    this.setDataItems();
+                    getDataItems(this.typeContract, (dataItem) => {
+                        this.items.push(dataItem);
+                    });
                     this.watchAll();
                 }
             }
@@ -115,7 +127,7 @@ export default {
                 const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
 
                 if (typeIndex !== -1) return;
-                let typeData = await this.setDataItem(typeHash, index);
+                let typeData = await getDataItem(this.typeContract, typeHash, index);
                 this.items.push(typeData);
             });
             this.typeContract.on('LogUpdate', async (typeHash, index) => {
@@ -123,7 +135,7 @@ export default {
                 const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
 
                 if (typeIndex === -1) return;
-                let typeData = await this.setDataItem(typeHash, index);
+                let typeData = await getDataItem(this.typeContract, typeHash, index);
                 if (typeData && this.items[index]) {
                     Object.assign(this.items[index], typeData);
                 }
@@ -187,22 +199,6 @@ export default {
                 };
             });
         },
-        async setDataItem(hash, i) {
-            let typeData = await this.typeContract.getByHash(hash);
-            typeData.index = i;
-            typeData.typeHash = hash;
-            return typeData;
-        },
-        async setDataItems() {
-            let hash, typeData;
-            let count = await this.typeContract.count();
-
-            for (let i = 0; i < count; i++) {
-                hash = await this.typeContract.typeIndex(i);
-                let typeData = await this.setDataItem(hash, i);
-                this.items.push(typeData);
-            }
-        }
     },
 }
 </script>

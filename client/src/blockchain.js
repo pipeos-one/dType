@@ -1,5 +1,6 @@
 import {ethers} from 'ethers';
 import {waitAsync} from './utils';
+import {buildTypeAbi} from './dtype_utils';
 
 const defaults = {
     '[]': [],
@@ -37,17 +38,49 @@ export const getContract = async function(address, abi, wallet) {
     return contract;
 };
 
+export const getDataItem = async function(contract, hash, index) {
+    let typeData = await contract.getByHash(hash);
+    typeData.index = index;
+    typeData.typeHash = hash;
+    return typeData;
+};
+
+export const getDataItems = async function(contract, callback) {
+    let hash;
+    let typeData;
+    const count = await contract.count();
+
+    for (let i = 0; i < count; i++) {
+        hash = await contract.typeIndex(i);
+        typeData = await getDataItem(contract, hash, i);
+        callback(typeData);
+    }
+};
+
+export const getDataItemsByTypeHash = async function(dtypeContract, wallet, typeStruct, callback) {
+    const dtypeAbi = await buildStructAbi(dtypeContract, typeStruct.typeHash);
+    const abi = buildTypeAbi(dtypeAbi);
+    const typeContract = await getContract(
+        typeStruct.contractAddress,
+        abi,
+        wallet,
+    );
+
+    getDataItems(typeContract, callback);
+};
+
 export const buildStructAbi = async function(dtypeContract, typeHash, parentLabel) {
     const dtype = await dtypeContract.getByHash(typeHash);
     const {length} = dtype.data.name.length;
     let abi = {};
 
+    abi.name = parentLabel;
+
     if (dtype.data.types.length === 0) {
-        abi.name = parentLabel;
         abi.type = dtype.data.name;
         return abi;
     }
-    abi.name = dtype.data.name;
+
     abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
     abi.components = [];
     for (let i = 0; i < dtype.data.types.length; i++) {
