@@ -102,6 +102,8 @@ export default {
                         abi,
                         this.$store.state.wallet,
                     );
+
+                    this.setDataItems();
                 }
             }
             // TODO set contract & storage items
@@ -143,6 +145,22 @@ export default {
                 };
             });
         },
+        async setDataItem(hash, i) {
+            let typeData = await this.typeContract.getByHash(hash);
+            typeData.index = i;
+            typeData.typeHash = hash;
+            return typeData;
+        },
+        async setDataItems() {
+            let hash, typeData;
+            let count = await this.typeContract.count();
+
+            for (let i = 0; i < count; i++) {
+                hash = await this.typeContract.typeIndex(i);
+                let typeData = await this.setDataItem(hash, i);
+                this.items.push(typeData);
+            }
+        }
     },
 }
 </script>
