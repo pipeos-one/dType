@@ -72,13 +72,8 @@ export default {
             await this.setContract();
         },
         async setContract() {
-            this.dtypeHeaders = this.dtype.labels.map((label, i) => {
-                return {
-                    text: `${label}\n${this.dtype.types[i]}`,
-                    value: label,
-                    type: this.dtype.types[i],
-                };
-            });
+            this.dtypeHeaders = this.getHeaders(this.dtype);
+
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
                 this.isRoot = true;
@@ -87,6 +82,7 @@ export default {
                 this.items = this.dtypes;
                 this.headers = this.dtypeHeaders;
             } else {
+                console.log('not Root');
                 let hash = this.hash;
                 if (this.name) {
                     hash = await this.contract.getTypeHash(this.lang, this.name);
@@ -94,7 +90,7 @@ export default {
                 this.typeStruct = await this.$store.dispatch('getTypeStruct', hash);
                 this.typeContract = null;
                 this.items = [];
-                this.headers = [];
+                this.headers = this.getHeaders(this.typeStruct);
                 this.isRoot = false;
 
                 if (this.typeStruct.contractAddress && this.typeStruct.contractAddress !== EMPTY_ADDRESS) {
@@ -137,6 +133,15 @@ export default {
             if (this.isRoot) {
                 this.$store.dispatch('removeType', dtype);
             }
+        },
+        getHeaders(dtype) {
+            return dtype.labels.map((label, i) => {
+                return {
+                    text: `${label}\n${dtype.types[i]}`,
+                    value: label,
+                    type: dtype.types[i],
+                };
+            });
         },
     },
 }
