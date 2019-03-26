@@ -91,11 +91,9 @@ const dTypeStore = new Vuex.Store({
         },
         insertType({state}, dtype) {
             console.log('insert dtype', JSON.stringify(dtype));
-            return state.contract.insert(dtype).then((tx) => {
-                return tx.wait(2);
-            }).then((receipt) => {
-                console.log('receipt', receipt);
-            });
+            return state.contract.insert(dtype)
+                .then(tx => tx.wait(2))
+                .then(console.log);
         },
         insertBatchType({dispatch}, dtypeArray) {
             console.log('batchInsert', dtypeArray);
@@ -105,19 +103,15 @@ const dTypeStore = new Vuex.Store({
         },
         updateType({state}, dtype) {
             console.log('update dtype', JSON.stringify(dtype));
-            return state.contract.update(dtype.typeHash, dtype).then((tx) => {
-                return tx.wait(2);
-            }).then((receipt) => {
-                console.log('receipt', receipt);
-            });
+            return state.contract.update(dtype.typeHash, dtype)
+                .then(tx => tx.wait(2))
+                .then(console.log);
         },
         removeType({state}, dtype) {
             console.log('delete dtype', JSON.stringify(dtype));
-            return state.contract.remove(dtype.typeHash).then((tx) => {
-                return tx.wait(2);
-            }).then((receipt) => {
-                console.log('receipt', receipt);
-            });
+            return state.contract.remove(dtype.typeHash)
+                .then(tx => tx.wait(2))
+                .then(console.log);
         },
         watchAll({dispatch}) {
             return dispatch('watchInsert').then(() => {

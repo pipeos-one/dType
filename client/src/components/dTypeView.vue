@@ -118,6 +118,7 @@ export default {
             });
         },
         relatedFunctions() {
+            if (!this.dtype) return [];
             return this.dtypes.filter((dtype) => {
                 return dtype.types.indexOf(this.dtype.name) > -1 && dtype.isFunction;
             });
