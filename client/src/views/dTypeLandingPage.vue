@@ -21,7 +21,9 @@
 import { mapState } from 'vuex';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
-import {buildDefaultItem} from '../blockchain';
+import {EMPTY_ADDRESS} from '../constants_utils';
+import {buildTypeAbi} from '../dtype_utils';
+import {getContract, buildStructAbi, buildDefaultItem} from '../blockchain';
 
 export default {
     props: ['hash', 'lang', 'name'],
@@ -59,6 +61,11 @@ export default {
             this.teardown();
             this.setData();
         },
+        contract() {
+            this.teardown();
+            if (!this.dtype) return;
+            this.setData();
+        },
     },
     methods: {
         async setData() {
@@ -89,6 +96,17 @@ export default {
                 this.items = [];
                 this.headers = [];
                 this.isRoot = false;
+
+                if (this.typeStruct.contractAddress && this.typeStruct.contractAddress !== EMPTY_ADDRESS) {
+                    const dtypeAbi = await buildStructAbi(this.contract, this.typeStruct.typeHash);
+
+                    const abi = buildTypeAbi(dtypeAbi);
+                    this.typeContract = await getContract(
+                        this.typeStruct.contractAddress,
+                        abi,
+                        this.$store.state.wallet,
+                    );
+                }
             }
             // TODO set contract & storage items
             // TODO event watchers

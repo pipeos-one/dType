@@ -37,6 +37,30 @@ export const getContract = async function(address, abi, wallet) {
     return contract;
 };
 
+export const buildStructAbi = async function(dtypeContract, typeHash, parentLabel) {
+    const dtype = await dtypeContract.getByHash(typeHash);
+    const {length} = dtype.data.name.length;
+    let abi = {};
+
+    if (dtype.data.types.length === 0) {
+        abi.name = parentLabel;
+        abi.type = dtype.data.name;
+        return abi;
+    }
+    abi.name = dtype.data.name;
+    abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
+    abi.components = [];
+    for (let i = 0; i < dtype.data.types.length; i++) {
+        const hash = await dtypeContract.getTypeHash(dtype.data.lang, dtype.data.types[i]);
+        abi.components.push(await buildStructAbi(
+            dtypeContract,
+            hash,
+            dtype.data.labels[i],
+        ));
+    }
+    return abi;
+};
+
 export const buildDefaultItem = (dtype) => {
     let item = {};
     dtype.types.forEach((type, i) => {
