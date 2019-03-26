@@ -9,7 +9,7 @@ export default new VueRouter({
             path: '/',
             name: 'main',
             // component: () => import(/* webpackChunkName: "about" */ './views/dTypeBrowse.vue'),
-            redirect: '/dtype/0/DType',
+            redirect: '/dtype/0/dType',
         },
         {
             path: '/dtype/:hash',

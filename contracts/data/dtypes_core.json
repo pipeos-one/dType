@@ -1,6 +1,6 @@
 [
     {
-        "name": "DType",
+        "name": "dType",
         "types": ["uint8","bool","bool","bool","address","bytes32","string","string[]","string[]"],
         "labels": ["lang", "isEvent", "isFunction", "hasOutput", "contractAddress", "source", "name", "types", "labels"],
         "lang": 0,
