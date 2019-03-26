@@ -42,12 +42,13 @@ export const buildStructAbi = async function(dtypeContract, typeHash, parentLabe
     const {length} = dtype.data.name.length;
     let abi = {};
 
+    abi.name = parentLabel;
+
     if (dtype.data.types.length === 0) {
-        abi.name = parentLabel;
         abi.type = dtype.data.name;
         return abi;
     }
-    abi.name = dtype.data.name;
+
     abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
     abi.components = [];
     for (let i = 0; i < dtype.data.types.length; i++) {
