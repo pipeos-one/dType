@@ -9,7 +9,8 @@
                 chips
                 :label="label"
                 :item-text="itemKey"
-                :item-value="itemKey"
+                :item-value="itemValue"
+                :return-object="returnObject"
                 placeholder="uint256"
                 append-icon="search"
                 no-data-text=""
@@ -31,8 +32,11 @@
                     </template>
                     <template v-else>
                         <v-list-tile-content>
-                            <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-                            <v-list-tile-sub-title v-html="data.item.group"></v-list-tile-sub-title>
+                            <v-list-tile-title v-if="returnObject"
+                                v-html="JSON.stringify(data.item)"
+                            ></v-list-tile-title>
+                            <v-list-tile-sub-title v-else v-html="data.item.name"></v-list-tile-sub-title>
+                            <!-- <v-list-tile-sub-title v-html="data.item.group"></v-list-tile-sub-title> -->
                         </v-list-tile-content>
                     </template>
                 </template>
@@ -44,23 +48,31 @@
 <script>
 export default {
     name: 'dTypeView',
-    props: ['label', 'items', 'itemKey', 'itemKey'],
+    props: ['label', 'items', 'itemKey', 'itemValue', 'searchLengthP', 'returnObjectP'],
     data() {
+        const searchLength = this.searchLengthP || 2;
         return {
             selected: [],
-            currentItems: [],
+            currentItems: searchLength > 1 ? [] : this.items,
             search: null,
+            searchLength,
+            returnObject: this.returnObjectP || false,
         };
     },
     watch: {
         search (val) {
-            if (!val || val.length < 2) {
+            if ((!val || val.length < this.searchLength) && this.searchLength > 1) {
                 this.currentItems = [];
             } else {
                 this.currentItems = this.items.filter(item => {
                     return item.name.indexOf(val) === 0;
                 });
             }
+        },
+        items() {
+            if (this.searchLength <= 1) {
+                this.currentItems = this.items;
+            };
         },
     },
     methods: {

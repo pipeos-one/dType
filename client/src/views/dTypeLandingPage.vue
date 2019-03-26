@@ -3,7 +3,6 @@
         <dTypeView :dtype="typeStruct"
             :parentHeaders="dtypeHeaders"
             :dtypes="dtypes"
-            :storageItems="items"
         />
         <dTypeBrowse
             :headers="headers"

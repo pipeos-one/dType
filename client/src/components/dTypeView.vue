@@ -78,7 +78,6 @@
                                         <FunctionRun
                                             v-if="runFunctionDialog"
                                             :functionType="props.item"
-                                            :functionData="storageItems"
                                         />
                                     </v-card-text>
                                 </v-card>
@@ -98,7 +97,7 @@ import FunctionRun from './FunctionRun';
 
 export default {
     name: 'dTypeView',
-    props: ['dtype', 'parentHeaders', 'dtypes', 'storageItems'],
+    props: ['dtype', 'parentHeaders', 'dtypes'],
     components: {dTypeBrowseField, FunctionRun},
     data() {
         return {runFunctionDialog: false};
@@ -122,11 +121,6 @@ export default {
             return this.dtypes.filter((dtype) => {
                 return dtype.types.indexOf(this.dtype.name) > -1 && dtype.isFunction;
             });
-        },
-    },
-    methods: {
-        runSource() {
-            console.log('runSource');
         },
     },
 }
