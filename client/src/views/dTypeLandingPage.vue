@@ -145,21 +145,37 @@ export default {
         insert(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('insertType', dtype);
+            } else {
+                this.typeContract.insert(dtype)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
         batchInsert(dtypeArray) {
             if (this.isRoot) {
                 this.$store.dispatch('insertBatchType', dtypeArray);
+            } else {
+                for (let i = 0; i < dtypeArray.length; i++) {
+                    this.insert(dtypeArray[i]);
+                }
             }
         },
         update(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('updateType', dtype);
+            } else {
+                this.typeContract.update(dtype.typeHash, dtype)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
         remove(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('removeType', dtype);
+            } else {
+                this.typeContract.remove(dtype.typeHash)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
         getHeaders(dtype) {
