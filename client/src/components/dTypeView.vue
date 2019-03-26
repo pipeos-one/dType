@@ -60,13 +60,29 @@
                             >
                                 <v-icon>link</v-icon>
                             </v-btn>
-                            <v-btn
-                                flat icon small
-                                color="grey darken-2"
-                                @click='runSource(props.item)'
-                            >
-                                <v-icon>play_circle_filled</v-icon>
-                            </v-btn>
+                            <v-dialog v-model='runFunctionDialog' max-width='600px'>
+                                <template v-slot:activator='{ on }'>
+                                    <v-btn
+                                        flat icon small
+                                        color="grey darken-2"
+                                        v-on='on'
+                                    >
+                                        <v-icon>play_circle_filled</v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-card>
+                                    <v-card-title>
+                                        <span class='headline'>Run {{props.item.name}}</span>
+                                    </v-card-title>
+                                    <v-card-text>
+                                        <FunctionRun
+                                            v-if="runFunctionDialog"
+                                            :functionType="props.item"
+                                            :functionData="storageItems"
+                                        />
+                                    </v-card-text>
+                                </v-card>
+                            </v-dialog>
                         </td>
                     </template>
                 </v-data-table>
@@ -78,10 +94,15 @@
 
 <script>
 import dTypeBrowseField from './dTypeBrowseField';
+import FunctionRun from './FunctionRun';
+
 export default {
     name: 'dTypeView',
-    props: ['dtype', 'parentHeaders', 'dtypes'],
-    components: {dTypeBrowseField},
+    props: ['dtype', 'parentHeaders', 'dtypes', 'storageItems'],
+    components: {dTypeBrowseField, FunctionRun},
+    data() {
+        return {runFunctionDialog: false};
+    },
     computed: {
         headers() {
             return [{value: 'key', text: 'key'}, {value: 'value', text: 'value'}];
@@ -97,6 +118,7 @@ export default {
             });
         },
         relatedFunctions() {
+            if (!this.dtype) return [];
             return this.dtypes.filter((dtype) => {
                 return dtype.types.indexOf(this.dtype.name) > -1 && dtype.isFunction;
             });

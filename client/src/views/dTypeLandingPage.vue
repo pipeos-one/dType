@@ -3,10 +3,12 @@
         <dTypeView :dtype="typeStruct"
             :parentHeaders="dtypeHeaders"
             :dtypes="dtypes"
+            :storageItems="items"
         />
         <dTypeBrowse
             :headers="headers"
             :items="items"
+            :defaultItem="defaultItem"
             v-on:insert="insert"
             v-on:batchInsert="batchInsert"
             v-on:update="update"
@@ -19,6 +21,9 @@
 import { mapState } from 'vuex';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
+import {EMPTY_ADDRESS} from '../constants_utils';
+import {buildTypeAbi} from '../dtype_utils';
+import {getContract, buildStructAbi, buildDefaultItem} from '../blockchain';
 
 export default {
     props: ['hash', 'lang', 'name'],
@@ -33,6 +38,7 @@ export default {
         headers: [],
         dtypeHeaders: [],
         isRoot: false,
+        defaultItem: {},
     }),
     computed: mapState({
         contract: 'contract',
@@ -55,19 +61,19 @@ export default {
             this.teardown();
             this.setData();
         },
+        contract() {
+            this.teardown();
+            if (!this.dtype) return;
+            this.setData();
+        },
     },
     methods: {
         async setData() {
             await this.setContract();
         },
         async setContract() {
-            this.dtypeHeaders = this.dtype.labels.map((label, i) => {
-                return {
-                    text: `${label}\n${this.dtype.types[i]}`,
-                    value: label,
-                    type: this.dtype.types[i],
-                };
-            });
+            this.dtypeHeaders = this.getHeaders(this.dtype);
+
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
                 this.isRoot = true;
@@ -76,6 +82,7 @@ export default {
                 this.items = this.dtypes;
                 this.headers = this.dtypeHeaders;
             } else {
+                console.log('not Root');
                 let hash = this.hash;
                 if (this.name) {
                     hash = await this.contract.getTypeHash(this.lang, this.name);
@@ -83,11 +90,51 @@ export default {
                 this.typeStruct = await this.$store.dispatch('getTypeStruct', hash);
                 this.typeContract = null;
                 this.items = [];
-                this.headers = [];
+                this.headers = this.getHeaders(this.typeStruct);
                 this.isRoot = false;
+
+                if (this.typeStruct.contractAddress && this.typeStruct.contractAddress !== EMPTY_ADDRESS) {
+                    const dtypeAbi = await buildStructAbi(this.contract, this.typeStruct.typeHash);
+
+                    const abi = buildTypeAbi(dtypeAbi);
+                    this.typeContract = await getContract(
+                        this.typeStruct.contractAddress,
+                        abi,
+                        this.$store.state.wallet,
+                    );
+
+                    this.setDataItems();
+                    this.watchAll();
+                }
             }
-            // TODO set contract & storage items
-            // TODO event watchers
+            this.defaultItem = buildDefaultItem(this.typeStruct);
+        },
+        async watchAll() {
+            this.typeContract.on('LogNew', async (typeHash, index) => {
+                console.log('LogNew Data', typeHash, index);
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+
+                if (typeIndex !== -1) return;
+                let typeData = await this.setDataItem(typeHash, index);
+                this.items.push(typeData);
+            });
+            this.typeContract.on('LogUpdate', async (typeHash, index) => {
+                console.log('LogUpdate  Data', typeHash, index, index.toNumber());
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+
+                if (typeIndex === -1) return;
+                let typeData = await this.setDataItem(typeHash, index);
+                if (typeData && this.items[index]) {
+                    Object.assign(this.items[index], typeData);
+                }
+            });
+            this.typeContract.on('LogRemove', async (typeHash) => {
+                console.log('LogRemove Data', typeHash);
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+                if (typeIndex > -1) {
+                    this.items.splice(typeIndex, 1);
+                }
+            });
         },
         teardown() {
             if (!this.typeContract) return;
@@ -98,23 +145,64 @@ export default {
         insert(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('insertType', dtype);
+            } else {
+                this.typeContract.insert(dtype)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
         batchInsert(dtypeArray) {
             if (this.isRoot) {
                 this.$store.dispatch('insertBatchType', dtypeArray);
+            } else {
+                for (let i = 0; i < dtypeArray.length; i++) {
+                    this.insert(dtypeArray[i]);
+                }
             }
         },
         update(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('updateType', dtype);
+            } else {
+                this.typeContract.update(dtype.typeHash, dtype)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
         remove(dtype) {
             if (this.isRoot) {
                 this.$store.dispatch('removeType', dtype);
+            } else {
+                this.typeContract.remove(dtype.typeHash)
+                    .then(tx => tx.wait(2))
+                    .then(console.log);
             }
         },
+        getHeaders(dtype) {
+            return dtype.labels.map((label, i) => {
+                return {
+                    text: `${label}\n${dtype.types[i]}`,
+                    value: label,
+                    type: dtype.types[i],
+                };
+            });
+        },
+        async setDataItem(hash, i) {
+            let typeData = await this.typeContract.getByHash(hash);
+            typeData.index = i;
+            typeData.typeHash = hash;
+            return typeData;
+        },
+        async setDataItems() {
+            let hash, typeData;
+            let count = await this.typeContract.count();
+
+            for (let i = 0; i < count; i++) {
+                hash = await this.typeContract.typeIndex(i);
+                let typeData = await this.setDataItem(hash, i);
+                this.items.push(typeData);
+            }
+        }
     },
 }
 </script>

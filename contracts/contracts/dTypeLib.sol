@@ -5,7 +5,7 @@ library dTypeLib {
 
     enum LangChoices { Solidity, JavaScript, Python }
 
-    struct DType {
+    struct dType {
         LangChoices lang;
         bool isEvent;
         bool isFunction;
@@ -30,20 +30,20 @@ library dTypeLib {
     )
         public
         pure
-        returns(DType memory dtype)
+        returns(dType memory dtype)
     {
-        return DType(lang, isEvent, isFunction, hasOutput, contractAddress, source, name, types, labels);
+        return dType(lang, isEvent, isFunction, hasOutput, contractAddress, source, name, types, labels);
     }
 
     function structureBytes(bytes memory data)
         pure
         internal
-        returns(DType memory dtype)
+        returns(dType memory dtype)
     {
-        (dtype) = abi.decode(data, (DType));
+        (dtype) = abi.decode(data, (dType));
     }
 
-    function destructureBytes(DType memory dtype)
+    function destructureBytes(dType memory dtype)
         pure
         internal
         returns(bytes memory data)

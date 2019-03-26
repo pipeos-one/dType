@@ -19,52 +19,32 @@
                     <v-card-text v-if="editedItem">
                         <v-container grid-list-md>
                             <v-layout wrap>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.name' label='name'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-layout row wrap>
-                                    <v-flex xs6>
-                                    <!-- <v-text-field v-model='editedItem.types' label='types'></v-text-field> -->
-                                    <v-chip close
-                                        v-for="(type, i) in editedItem.types"
-                                        v-on:input="onRemovedType(type, i)"
-                                    >
-                                        {{type}}
-                                    </v-chip>
+                                <template v-for="header in headers">
+                                    <v-flex xs12 v-if="header.value === 'types'">
+                                        <v-layout row wrap>
+                                            <v-flex xs6>
+                                            <v-chip close
+                                                v-for="(type, i) in editedItem.types"
+                                                v-on:input="onRemovedType(type, i)"
+                                            >
+                                                {{type}}
+                                            </v-chip>
+                                            </v-flex>
+                                            <v-flex xs6>
+                                            <dTypeSearch
+                                                label='types'
+                                                itemKey='name'
+                                                itemValue='name'
+                                                :items='items'
+                                                v-on:change="onSelectedType"
+                                            />
+                                            </v-flex>
+                                        </v-layout>
                                     </v-flex>
-                                    <v-flex xs6>
-                                    <dTypeSearch
-                                        label='types'
-                                        itemKey='name'
-                                        itemValue='name'
-                                        :items='items'
-                                        v-on:change="onSelectedType"
-                                    />
+                                    <v-flex xs12 v-else>
+                                        <v-text-field v-model='editedItem[header.value]' :label='header.value'></v-text-field>
                                     </v-flex>
-                                </v-layout>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.labels' label='labels'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.lang' label='language'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.isEvent' label='isEvent'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.isFunction' label='isFunction'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.hasOutput' label='hasOutput'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.contractAddress' label='address'></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                    <v-text-field v-model='editedItem.source' label='source'></v-text-field>
-                                </v-flex>
+                                </template>
                             </v-layout>
                         </v-container>
                     </v-card-text>
@@ -166,7 +146,7 @@ import dTypeBrowseField from '../components/dTypeBrowseField';
 
 export default {
     name: 'dTypeBrowse',
-    props: ['headers', 'items'],
+    props: ['headers', 'items', 'defaultItem'],
     components: {
         dTypeSearch,
         dTypeBrowseField,
@@ -176,41 +156,11 @@ export default {
             dialog: false,
             dialogBulk: false,
             editedIndex: -1,
-            editedItem: {
-                name: '',
-                types: [],
-                labels: [],
-                lang: 0,
-                isEvent: false,
-                isFunction: false,
-                hasOutput: false,
-                contractAddress: '0x0000000000000000000000000000000000000000',
-                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-            },
-            defaultItem: {
-                name: '',
-                types: [],
-                labels: [],
-                lang: 0,
-                isEvent: false,
-                isFunction: false,
-                hasOutput: false,
-                contractAddress: '0x0000000000000000000000000000000000000000',
-                source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-            },
-            bulkInsertDefault: JSON.stringify([{
-                    name: "uint256",
-                    types: [],
-                    labels: [],
-                    lang: 0,
-                    isEvent: false,
-                    isFunction: false,
-                    hasOutput: false,
-                    contractAddress: "0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b",
-                    source: "0x0000000000000000000000000000000000000000000000000000000000000000"
-            }]),
+            editedItem: {},
+            bulkInsertDefault: '{}',
+            bulkInsert: '{}',
+
         }
-        data.bulkInsert = this.items.length > 0 ? JSON.stringify(this.items) : data.bulkInsertDefault;
         return data;
     },
     computed: {
@@ -228,8 +178,16 @@ export default {
         items() {
             this.setBulkInsert();
         },
+        defaultItem() {
+            this.setDefaults();
+        }
     },
     methods: {
+        setDefaults() {
+            this.editedItem = Object.assign({}, this.defaultItem);
+            this.bulkInsertDefault = JSON.stringify([this.defaultItem]);
+            this.bulkInsert = this.items.length > 0 ? JSON.stringify(this.items) : this.bulkInsertDefault;
+        },
         setBulkInsert() {
             this.bulkInsert = JSON.stringify(
                 this.items.map(dt => {
@@ -271,7 +229,13 @@ export default {
             }, 300)
         },
         save() {
-            this.editedItem.labels = this.editedItem.labels.split(',');
+            this.headers.forEach((header) => {
+                if (header.type.indexOf('[]') > -1) {
+                    if (typeof this.editedItem[header.value] === 'string') {
+                        this.editedItem[header.value] = this.editedItem[header.value].split(',');
+                    }
+                }
+            });
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
             } else {

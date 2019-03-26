@@ -21,6 +21,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'no-param-reassign': 'off',
     'space-before-function-paren': 'off',
+    'no-await-in-loop': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
