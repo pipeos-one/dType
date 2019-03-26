@@ -104,11 +104,37 @@ export default {
                     );
 
                     this.setDataItems();
+                    this.watchAll();
                 }
             }
-            // TODO set contract & storage items
-            // TODO event watchers
             this.defaultItem = buildDefaultItem(this.typeStruct);
+        },
+        async watchAll() {
+            this.typeContract.on('LogNew', async (typeHash, index) => {
+                console.log('LogNew Data', typeHash, index);
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+
+                if (typeIndex !== -1) return;
+                let typeData = await this.setDataItem(typeHash, index);
+                this.items.push(typeData);
+            });
+            this.typeContract.on('LogUpdate', async (typeHash, index) => {
+                console.log('LogUpdate  Data', typeHash, index, index.toNumber());
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+
+                if (typeIndex === -1) return;
+                let typeData = await this.setDataItem(typeHash, index);
+                if (typeData && this.items[index]) {
+                    Object.assign(this.items[index], typeData);
+                }
+            });
+            this.typeContract.on('LogRemove', async (typeHash) => {
+                console.log('LogRemove Data', typeHash);
+                const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
+                if (typeIndex > -1) {
+                    this.items.splice(typeIndex, 1);
+                }
+            });
         },
         teardown() {
             if (!this.typeContract) return;
