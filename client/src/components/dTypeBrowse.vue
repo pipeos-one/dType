@@ -143,6 +143,7 @@
 <script>
 import dTypeSearch from '../components/dTypeSearch';
 import dTypeBrowseField from '../components/dTypeBrowseField';
+import {normalizeEthersObject} from '../blockchain';
 
 export default {
     name: 'dTypeBrowse',
@@ -212,10 +213,23 @@ export default {
         async delete(dtype) {
             this.$emit('remove', dtype);
         },
-        editItem(item) {
-            this.editedIndex = this.items.indexOf(item)
-            this.editedItem = Object.assign({}, item)
-            this.dialog = true
+        editItem(obj) {
+            let item = Object.assign({}, obj);
+            Object.keys(item)
+                .filter(key => !Number(key) && Number(key) != 0)
+                .forEach((key) => {
+                    const header = this.headers.find(header => header.value === key);
+                    if (header) {
+                        let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type);
+
+                        if (dtype.types.length) {
+                            item[key] = JSON.stringify(normalizeEthersObject(item[key]));
+                        }
+                    }
+                });
+            this.editedIndex = this.items.indexOf(obj);
+            this.editedItem = Object.assign({}, item);
+            this.dialog = true;
         },
         deleteItem(item) {
             const index = this.items.indexOf(item)
@@ -236,6 +250,7 @@ export default {
                     }
                 } else {
                     let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type);
+
                     if (dtype.types.length) {
                         this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
                     }

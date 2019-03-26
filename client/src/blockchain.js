@@ -106,3 +106,24 @@ export const buildDefaultItem = (dtype) => {
     });
     return item;
 };
+
+export const normalizeEthersObject = (item) => {
+    let obj = {};
+
+    Object.keys(item)
+        .filter(key => !Number(key) && Number(key) !== 0)
+        .forEach((key) => {
+            if (item[key] instanceof Object && item[key].toNumber) {
+                obj[key] = item[key].toNumber();
+            } else if (
+                item[key] instanceof Object &&
+                !(item[key] instanceof Array) &&
+                !item[key].toNumber
+            ) {
+                obj[key] = normalizeEthersObject(item[key]);
+            } else {
+                obj[key] = item[key];
+            }
+        });
+    return obj;
+};
