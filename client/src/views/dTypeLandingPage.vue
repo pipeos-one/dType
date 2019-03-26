@@ -78,6 +78,11 @@ export default {
         },
         async setContract() {
             this.dtypeHeaders = this.getHeaders(this.dtype);
+            this.dtypeHeaders.push({
+                text: 'outputs\nstring[]',
+                value: 'outputs',
+                type: 'string[]',
+            });
 
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
