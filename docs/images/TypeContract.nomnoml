@@ -1,0 +1,25 @@
+[ <package> TypeContract |
+
+[TypeContract |
+address TypeLib
+address TypeStorage
+]
+
+[TypeContract]-->[TypeLib | |
+  structure(bytes)
+  destructure(Type data)
+  map(Function func, Type\[\] dataArray)
+
+]
+[TypeContract]-->[TypeStorage]
+
+[TypeStorage|
+TypeCollection data\[\]|
+insert(Type data)
+get(bytes32 dataHash)
+delete(bytes32 dataHash)
+update(bytes32 dataHash, Type data)
+count()
+]
+
+]

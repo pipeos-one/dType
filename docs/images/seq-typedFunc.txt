@@ -1,0 +1,16 @@
+Title: Running a Typed Function
+
+Participant Exterior
+Participant dType
+participant TypeStorage
+Participant Function
+
+Exterior->dType: run(bytes32 funcHash, arguments[])
+dType->TypeStorage: getAllArgs(bytes32[] argHash)
+TypeStorage->dType: return(typedArgs[])
+dType->dType: get(bytes32 funcHash)
+dType->Function: call(contract, sign, typedArgs[])
+Function->dType: return(outputs)
+dType->TypeStorage: upsert(outputs)
+TypeStorage->dType: return(outputHashes)
+dType->Exterior: return(outputHashes)
