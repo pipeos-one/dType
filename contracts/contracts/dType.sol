@@ -294,13 +294,13 @@ contract dType {
             (bool success, bytes memory inputData) = ttype.data.contractAddress.call(
                 abi.encodeWithSignature("getByHash(bytes32)", dataHash[i])
             );
-            require(success == true);
+            require(success == true, 'Retrieving input failed');
             encodedInputs = abi.encodePacked(encodedInputs, inputData);
         }
 
         // Calling the function determined by funcHash
         (bool success, bytes memory outputData) = dtype.data.contractAddress.call(encodedInputs);
-        require(success == true);
+        require(success == true, 'Running function failed');
 
         // Inserting the funcHash outputs into the corresponding type storage
         // TODO multiple outputs, safe guards
@@ -308,7 +308,7 @@ contract dType {
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
             abi.encodeWithSignature("insertBytes(bytes)", outputData)
         );
-        require(success2 == true);
+        require(success2 == true, 'Inserting output failed');
 
         return abi.decode(result, (bytes32));
     }
