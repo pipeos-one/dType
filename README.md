@@ -62,14 +62,18 @@ touch privateKey.json
 
 Deployment commands:
 
+Ganache is set on port 8545.
+
 ```
 truffle migrate --network ganache
 ```
 
-Start client app:
+### Client app:
 
 ```
 cd client
 npm install
 npm run start
 ```
+
+For the client app to run correctly, you need to first deploy the contracts with `truffle migrate` and connect with Metamask to the testnet/private network.
