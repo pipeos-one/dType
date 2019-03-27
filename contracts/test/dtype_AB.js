@@ -6,93 +6,13 @@ const testUtils = artifacts.require('TestUtils.sol');
 
 contract('dTypeAB', async (accounts) => {
     let dtype, typeA, typeB, typeAB, utils;
-    let typeuint256 = {
-        name: 'uint256',
-        lang: 0,
-        types: [],
-        labels: [],
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        source: '0x0',
-        contractAddress: '0x0000000000000000000000000000000000000000',
-    }
-    let typeaddress = {
-        name: 'address',
-        lang: 0,
-        types: [],
-        labels: [],
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        source: '0x0',
-        contractAddress: '0x0000000000000000000000000000000000000000',
-    }
-    let typeAStruct = {
-        name: 'TypeA',
-        lang: 0,
-        types: ['uint256', 'address'],
-        labels: ['balance', 'token'],
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        source: '0x0',
-    }
-    let typeBStruct = {
-        name: 'TypeB',
-        lang: 0,
-        types: ['uint256', 'TypeA'],
-        labels: ['staked', 'typeA'],
-        isEvent: false,
-        isFunction: false,
-        hasOutput: false,
-        source: '0x0',
-    }
-    let stakedFunction = {
-        name: 'setStaked',
-        lang: 0,
-        types: ['TypeA'],
-        labels: ['typeA'],
-        isEvent: false,
-        isFunction: true,
-        hasOutput: true,
-        source: '0x0',
-        outputs: ['TypeB'],
-    }
 
     it('deploy', async () => {
-        dtype = await dType.new();
-        typeA = await typeAContract.new();
-        typeB = await typeBContract.new();
-        typeAB = await typeABLogic.new();
+        dtype = await dType.deployed();
+        typeA = await typeAContract.deployed();
+        typeB = await typeBContract.deployed();
+        typeAB = await typeABLogic.deployed();
         utils = await testUtils.new();
-    });
-
-    it('insert dtype AB', async () => {
-        let logs, hash, index;
-
-        // Insert base types
-        await dtype.insert(typeuint256);
-        await dtype.insert(typeaddress);
-
-        // Insert TypeA, TypeB types + function
-        typeAStruct.contractAddress = typeA.address;
-        typeBStruct.contractAddress = typeB.address;
-        stakedFunction.contractAddress = typeAB.address;
-
-        // TypeA
-        ({logs} = await dtype.insert(typeAStruct));
-        ({hash, index} = logs[0].args);
-        typeAData = await dtype.getByHash(hash);
-        assert.equal(typeA.address, typeAData.data.contractAddress);
-
-        // TypeB
-        await dtype.insert(typeBStruct);
-
-        // Function
-        ({logs} = await dtype.insert(stakedFunction));
-        ({hash, index} = logs[0].args);
-        await dtype.setOutputs(hash, stakedFunction.outputs);
     });
 
     it('insert data', async() => {
@@ -112,8 +32,11 @@ contract('dTypeAB', async (accounts) => {
     });
 
     it('run AB function', async () => {
-        let logs, hash, index;
+        let logs, hash, index, stakedFunction;
         let tokenAddress = '0xEAd8C52989b587B0c6a8478f8B6dd447E2fc8B1f';
+
+        stakedFunction = await dtype.get(0, 'setStaked');
+        stakedFunction = stakedFunction.data;
 
         ({logs} = await typeA.insert({balance: 10, token: tokenAddress}));
         ({hash, index} = logs[0].args);
