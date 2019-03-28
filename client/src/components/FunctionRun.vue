@@ -26,16 +26,29 @@
                 </v-flex>
             </v-layout>
         </template>
-        <v-btn
-            flat icon small
-            @click="run"
-        >
-            <v-icon>play_circle_filled</v-icon>
-        </v-btn>
+        <v-layout wrap>
+            <v-flex xs4>
+                <v-btn
+                    flat icon small
+                    @click="run"
+                >
+                    <v-icon>play_circle_filled</v-icon>
+                </v-btn>
+            </v-flex>
+            <v-flex xs6 v-if="txSuccess">
+                <router-link
+                    v-for="typeName in functionType.outputs"
+                    :to="`/dtype/${functionType.lang}/${typeName}`"
+                >
+                    {{typeName}}
+                </router-link>
+            </v-flex>
+        </v-layout>
     </div>
 </template>
 
 <script>
+import {ethers} from 'ethers';
 import dTypeSearch from '../components/dTypeSearch';
 import {buildDefaultItem, getDataItemsByTypeHash} from '../blockchain';
 
@@ -58,6 +71,7 @@ export default {
             selectedItems,
             selectedValues,
             functionData,
+            txSuccess: false,
         };
     },
     created() {
@@ -76,7 +90,7 @@ export default {
                         name: this.functionType.types[i],
                     }
                 );
-                console.log('subType', subType);
+
                 this.selectedItems[label] = subType.labels;
                 this.selectedValues[label] = subType.labels[0];
 
@@ -85,7 +99,6 @@ export default {
                     this.$store.state.wallet,
                     subType,
                     (dataItem) => {
-                        console.log('dataItem', dataItem, this.selectedValues[label]);
                         this.functionData[label].push(dataItem);
                     },
                 );
@@ -96,8 +109,20 @@ export default {
 
             const tx = await this.$store.state.contract.run(this.functionType.typeHash, dataHashes);
             console.log('tx', tx);
-            const receipt = tx.wait(2);
-            console.log('receipt', receipt);
+            tx.wait(2).then((receipt) => {
+                console.log('receipt', receipt);
+                if (receipt.status == 1) {
+                    this.txSuccess = true;
+                }
+            });
+
+            this.$store.state.provider.waitForTransaction(tx.hash).then((receipt) => {
+                console.log('Transaction Mined: ' + receipt.transactionHash);
+                console.log(receipt);
+                if (receipt.status == 1) {
+                    this.txSuccess = true;
+                }
+            });
         },
         setDataItem(label, event) {
             if (!event || !event[0]) return;
