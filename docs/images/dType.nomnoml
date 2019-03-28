@@ -1,0 +1,42 @@
+[ <package> dType Registry |
+
+[dType |
+[dTypeStruct |
+address contractAddress
+bytes32 source
+string name
+string\[\] types
+string\[\] labels
+]o-[<state>types]
+[types] ...1..*->[dTypeStruct]
+
+|
+typeCollection (typeHash -> dTypeStruct)
+|
+insert(dType data)
+get(typeHash)
+delete(typeHash)
+count()
+]
+
+
+[dType]->contractAddress[TypeContract]
+
+[TypeContract]-->[TypeLib | |
+  structure(bytes)
+  destructure(Type data)
+  map(Function func, Type\[\] dataArray)
+
+]
+[TypeContract]-->[TypeStorage]
+
+[TypeStorage|
+dataStorage data\[\]|
+insert(Type data)
+get(bytes32 dataHash)
+delete(bytes32 dataHash)
+update(bytes32 dataHash, Type data)
+count()
+]
+
+]
