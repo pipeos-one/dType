@@ -7,12 +7,24 @@
         </v-toolbar>
 
         <template v-if="dtype">
-            <router-link
-                v-for="typeName in dtype.types"
-                :to="`/dtype/${dtype.lang}/${typeName}`"
-            >
-                {{typeName}}
-            </router-link>
+            <v-layout wrap>
+                <v-flex xs4>
+                    <router-link
+                        v-for="typeName in dtype.types"
+                        :to="`/dtype/${dtype.lang}/${typeName}`"
+                    >
+                        {{typeName}}
+                    </router-link>
+                </v-flex>
+                <v-flex xs4>
+                    <router-link
+                        v-for="typeName in dtype.outputs"
+                        :to="`/dtype/${dtype.lang}/${typeName}`"
+                    >
+                        {{typeName}}
+                    </router-link>
+                </v-flex>
+            </v-layout>
         </template>
 
         <v-layout wrap>
