@@ -84,7 +84,7 @@
                                 </template>
                                 <v-card>
                                     <v-card-title>
-                                        <span class='headline'>Run {{props.item.name}}</span>
+                                        <p class='headline'>Run <span class='font-italic'>{{props.item.name}}</span> function</p>
                                     </v-card-title>
                                     <v-card-text>
                                         <FunctionRun
