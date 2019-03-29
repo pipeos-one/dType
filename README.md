@@ -56,7 +56,6 @@ Deployment prerequisites:
 mkdir private
 cd private
 touch infuraKey.txt
-touch privateKey.txt
 touch privateKey.json
 ```
 
