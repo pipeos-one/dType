@@ -1,29 +1,34 @@
 # dType
-Proposals and specs for a decentralized type system.
 
-This is primarily for Solidity and introduces a transpiler dTypeSol to Solidity.
+We are proposing a Decentralized Type System for Ethereum, to introduce data definition (and therefore ABI) consistency.
 
-## dTypeSol
+In-work EIP proposal and discussions at: https://github.com/ethereum/EIPs/issues/1882
 
-dTypeSol is a flavor of Solidity that accepts the types published on chain and transpils them into classic Solidity types or adds all necessay inclusions if developer wants to use the structures instead of atomic types (uint256, string, boolean, etc.)
+A video demo of the current implementation (a more extended version of the ERC-1882 proposal), can be seen at https://youtu.be/pcqi4yWBDuQ.
 
-## Types Contract
+## Vision
 
-The struct for storing the types could be of the form:
+System Registry for The World Computer: https://medium.com/@loredana.cirstea/a-vision-of-a-system-registry-for-the-world-computer-be1dc2da7cae
+
+
+## Specs
+
+
+### Type Registry Contract
+
 
 ```
-struct Type {
-    string name;
-    bytes32[] types;
-    bool isArray;
+struct dType {
     address contractAddress;
     bytes32 source;
-    uint256 index;
+    string name;
+    string[] types;
+    string[] labels;
 }
 
 ```
 
-The rest of type management is coded in contract file dType.sol [https://github.com/ctzurcanu/dType/blob/master/contracts/dType.sol] .
+See [dType.sol](/contracts/dType.sol).
 
 
 ## Development
