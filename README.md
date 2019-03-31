@@ -13,8 +13,11 @@ System Registry for The World Computer: https://medium.com/@loredana.cirstea/a-v
 
 ## Specs
 
+![dType](/docs/images/dType.png)
 
-### Type Registry Contract
+### dType Registry Contract
+
+Types are registered in the `dType` contract. See [dType.sol](/contracts/contracts/dType.sol).
 
 
 ```
@@ -28,8 +31,34 @@ struct dType {
 
 ```
 
-See [dType.sol](/contracts/dType.sol).
+### Type Contract
 
+A type must implement a library and a contract that stores the Ethereum address of that library, along with other contract addresses related to that type (e.g. smart contract for storing the data entries for that type).
+
+```
+contract TypeRootContract {
+  address public libraryAddress;
+  address public storageAddress;
+
+  constructor(address _library, address _storage) public {
+    require(_library != address(0x0));
+    libraryAddress = _library;
+    storageAddress = _storage;
+  }
+}
+```
+
+A type library contains the definition of the type, along with helper functions.
+Example [typeALib.sol](/contracts/contracts/dtypes/typeALib.sol).
+
+A type storage contract contains data entries for the type.
+Example [typeAContract.sol](/contracts/contracts/dtypes/typeAContract.sol).
+
+### Functional Programming Pattern
+
+Example for functional programming with `dType.run()`.
+
+![runExample](/docs/images/seq-typedFunc.svg)
 
 ## Development
 
