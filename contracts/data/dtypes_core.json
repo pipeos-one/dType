@@ -1,11 +1,10 @@
 [
     {
         "name": "dType",
-        "types": ["uint8","bool","bool","bool","address","bytes32","string","string[]","string[]"],
-        "labels": ["lang", "isEvent", "isFunction", "hasOutput", "contractAddress", "source", "name", "types", "labels"],
+        "types": ["uint8","uint8","bool","address","bytes32","string","string[]","string[]"],
+        "labels": ["lang", "typeChoice", "hasOutput", "contractAddress", "source", "name", "types", "labels"],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
