@@ -176,7 +176,7 @@ contract dType {
         public
         returns(Type memory dtype, bytes32 typeHash)
     {
-        require(index <= typeIndex.length, "Index too big.");
+        require(index <= typeIndex.length, 'Index too big.');
         return (typeStruct[typeIndex[index]], typeIndex[index]);
     }
 
@@ -292,7 +292,7 @@ contract dType {
             Type storage ttype = typeStruct[typeHash];
 
             (bool success, bytes memory inputData) = ttype.data.contractAddress.call(
-                abi.encodeWithSignature("getByHash(bytes32)", dataHash[i])
+                abi.encodeWithSignature('getByHash(bytes32)', dataHash[i])
             );
             require(success == true, 'Retrieving input failed');
             encodedInputs = abi.encodePacked(encodedInputs, inputData);
@@ -306,7 +306,7 @@ contract dType {
         // TODO multiple outputs, safe guards
         bytes32 outputHash = getTypeHash(dtype.data.lang, outputIndex[funcHash][0]);
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
-            abi.encodeWithSignature("insertBytes(bytes)", outputData)
+            abi.encodeWithSignature('insertBytes(bytes)', outputData)
         );
         require(success2 == true, 'Inserting output failed');
 
