@@ -48,7 +48,6 @@
 </template>
 
 <script>
-import {ethers} from 'ethers';
 import dTypeSearch from '../components/dTypeSearch';
 import {buildDefaultItem, getDataItemsByTypeHash} from '../blockchain';
 
@@ -106,19 +105,20 @@ export default {
         },
         async run() {
             const dataHashes = this.functionType.labels.map((label) => this.dataArguments[label]);
+            console.log('run', this.$store.state.contract.address, this.functionType.typeHash, dataHashes);
 
-            const tx = await this.$store.state.contract.run(this.functionType.typeHash, dataHashes);
-            console.log('tx', tx);
+            // TODO fix gas estimation for Ganache
+            const tx = await this.$store.state.contract.run(this.functionType.typeHash, dataHashes, {gasLimit: 4000000});
+
             tx.wait(2).then((receipt) => {
-                console.log('receipt', receipt);
+                console.log('run receipt', receipt);
                 if (receipt.status == 1) {
                     this.txSuccess = true;
                 }
             });
 
             this.$store.state.provider.waitForTransaction(tx.hash).then((receipt) => {
-                console.log('Transaction Mined: ' + receipt.transactionHash);
-                console.log(receipt);
+                console.log('Transaction Mined: ' + receipt.transactionHash, receipt);
                 if (receipt.status == 1) {
                     this.txSuccess = true;
                 }
