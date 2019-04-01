@@ -4,8 +4,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -15,8 +14,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -26,8 +24,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -37,8 +34,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -48,8 +44,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -59,8 +54,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -70,8 +64,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -81,8 +74,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -92,8 +84,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -103,8 +94,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -114,8 +104,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -125,8 +114,7 @@
         "types": [],
         "labels": [],
         "lang": 0,
-        "isEvent": false,
-        "isFunction": false,
+        "typeChoice": 0,
         "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"

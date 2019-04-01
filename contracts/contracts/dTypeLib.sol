@@ -5,10 +5,18 @@ library dTypeLib {
 
     enum LangChoices { Solidity, JavaScript, Python }
 
+    enum TypeChoices {
+        Type,
+        Event,
+        PayableFunction,
+        StateFunction,
+        ViewFunction,
+        PureFunction
+    }
+
     struct dType {
         LangChoices lang;
-        bool isEvent;
-        bool isFunction;
+        TypeChoices typeChoice;
         bool hasOutput;
         address contractAddress;
         bytes32 source;
@@ -19,8 +27,7 @@ library dTypeLib {
 
     function structure(
         LangChoices lang,
-        bool isEvent,
-        bool isFunction,
+        TypeChoices typeChoice,
         bool hasOutput,
         address contractAddress,
         bytes32 source,
@@ -32,7 +39,7 @@ library dTypeLib {
         pure
         returns(dType memory dtype)
     {
-        return dType(lang, isEvent, isFunction, hasOutput, contractAddress, source, name, types, labels);
+        return dType(lang, typeChoice, hasOutput, contractAddress, source, name, types, labels);
     }
 
     function structureBytes(bytes memory data)
