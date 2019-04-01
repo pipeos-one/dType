@@ -42,4 +42,26 @@ library typeBLib {
     {
         return abi.encode(typeB);
     }
+
+    function map(
+        address callbackAddr,
+        bytes4 callbackSig,
+        TypeB[] memory typeAarr
+    )
+        view
+        internal
+        returns (TypeB[] memory result)
+    {
+        uint length = typeAarr.length;
+        result = new TypeB[](length);
+
+        for (uint i = 0; i < length; i++) {
+            (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, typeAarr[i]));
+
+            require(success, "Map callback failed");
+            result[i] = structureBytes(data);
+        }
+
+        return result;
+    }
 }
