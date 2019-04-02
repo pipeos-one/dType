@@ -2,7 +2,6 @@
     {
         "name": "string",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -12,7 +11,6 @@
     {
         "name": "bool",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -22,7 +20,6 @@
     {
         "name": "address",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -32,7 +29,6 @@
     {
         "name": "uint256",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -42,7 +38,6 @@
     {
         "name": "uint248",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -52,7 +47,6 @@
     {
         "name": "uint240",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -62,7 +56,6 @@
     {
         "name": "uint232",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -72,7 +65,6 @@
     {
         "name": "uint224",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -82,7 +74,6 @@
     {
         "name": "uint216",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -92,7 +83,6 @@
     {
         "name": "uint208",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -102,7 +92,6 @@
     {
         "name": "uint200",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -112,7 +101,6 @@
     {
         "name": "uint192",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -122,7 +110,6 @@
     {
         "name": "uint184",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -132,7 +119,6 @@
     {
         "name": "uint176",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -142,7 +128,6 @@
     {
         "name": "uint168",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -152,7 +137,6 @@
     {
         "name": "uint160",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -162,7 +146,6 @@
     {
         "name": "uint152",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -172,7 +155,6 @@
     {
         "name": "uint144",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -182,7 +164,6 @@
     {
         "name": "uint136",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -192,7 +173,6 @@
     {
         "name": "uint128",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -202,7 +182,6 @@
     {
         "name": "uint120",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -212,7 +191,6 @@
     {
         "name": "uint112",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -222,7 +200,6 @@
     {
         "name": "uint104",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -232,7 +209,6 @@
     {
         "name": "uint96",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -242,7 +218,6 @@
     {
         "name": "uint88",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -252,7 +227,6 @@
     {
         "name": "uint80",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -262,7 +236,6 @@
     {
         "name": "uint72",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -272,7 +245,6 @@
     {
         "name": "uint64",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -282,7 +254,6 @@
     {
         "name": "uint56",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -292,7 +263,6 @@
     {
         "name": "uint48",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -302,7 +272,6 @@
     {
         "name": "uint40",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -312,7 +281,6 @@
     {
         "name": "uint32",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -322,7 +290,6 @@
     {
         "name": "uint24",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -332,7 +299,6 @@
     {
         "name": "uint16",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -342,7 +308,6 @@
     {
         "name": "uint8",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -352,7 +317,6 @@
     {
         "name": "int256",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -362,7 +326,6 @@
     {
         "name": "int248",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -372,7 +335,6 @@
     {
         "name": "int240",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -382,7 +344,6 @@
     {
         "name": "int232",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -392,7 +353,6 @@
     {
         "name": "int224",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -402,7 +362,6 @@
     {
         "name": "int216",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -412,7 +371,6 @@
     {
         "name": "int208",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -422,7 +380,6 @@
     {
         "name": "int200",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -432,7 +389,6 @@
     {
         "name": "int192",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -442,7 +398,6 @@
     {
         "name": "int184",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -452,7 +407,6 @@
     {
         "name": "int176",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -462,7 +416,6 @@
     {
         "name": "int168",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -472,7 +425,6 @@
     {
         "name": "int160",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -482,7 +434,6 @@
     {
         "name": "int152",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -492,7 +443,6 @@
     {
         "name": "int144",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -502,7 +452,6 @@
     {
         "name": "int136",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -512,7 +461,6 @@
     {
         "name": "int128",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -522,7 +470,6 @@
     {
         "name": "int120",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -532,7 +479,6 @@
     {
         "name": "int112",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -542,7 +488,6 @@
     {
         "name": "int104",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -552,7 +497,6 @@
     {
         "name": "int96",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -562,7 +506,6 @@
     {
         "name": "int88",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -572,7 +515,6 @@
     {
         "name": "int80",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -582,7 +524,6 @@
     {
         "name": "int72",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -592,7 +533,6 @@
     {
         "name": "int64",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -602,7 +542,6 @@
     {
         "name": "int56",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -612,7 +551,6 @@
     {
         "name": "int48",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -622,7 +560,6 @@
     {
         "name": "int40",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -632,7 +569,6 @@
     {
         "name": "int32",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -642,7 +578,6 @@
     {
         "name": "int24",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -652,7 +587,6 @@
     {
         "name": "int16",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -662,7 +596,6 @@
     {
         "name": "int8",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -672,7 +605,6 @@
     {
         "name": "bytes32",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -682,7 +614,6 @@
     {
         "name": "bytes31",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -692,7 +623,6 @@
     {
         "name": "bytes30",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -702,7 +632,6 @@
     {
         "name": "bytes29",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -712,7 +641,6 @@
     {
         "name": "bytes28",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -722,7 +650,6 @@
     {
         "name": "bytes27",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -732,7 +659,6 @@
     {
         "name": "bytes26",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -742,7 +668,6 @@
     {
         "name": "bytes25",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -752,7 +677,6 @@
     {
         "name": "bytes24",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -762,7 +686,6 @@
     {
         "name": "bytes23",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -772,7 +695,6 @@
     {
         "name": "bytes22",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -782,7 +704,6 @@
     {
         "name": "bytes21",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -792,7 +713,6 @@
     {
         "name": "bytes20",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -802,7 +722,6 @@
     {
         "name": "bytes19",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -812,7 +731,6 @@
     {
         "name": "bytes18",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -822,7 +740,6 @@
     {
         "name": "bytes17",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -832,7 +749,6 @@
     {
         "name": "bytes16",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -842,7 +758,6 @@
     {
         "name": "bytes15",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -852,7 +767,6 @@
     {
         "name": "bytes14",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -862,7 +776,6 @@
     {
         "name": "bytes13",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -872,7 +785,6 @@
     {
         "name": "bytes12",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -882,7 +794,6 @@
     {
         "name": "bytes11",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -892,7 +803,6 @@
     {
         "name": "bytes10",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -902,7 +812,6 @@
     {
         "name": "bytes9",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -912,7 +821,6 @@
     {
         "name": "bytes8",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -922,7 +830,6 @@
     {
         "name": "bytes7",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -932,7 +839,6 @@
     {
         "name": "bytes6",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -942,7 +848,6 @@
     {
         "name": "bytes5",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -952,7 +857,6 @@
     {
         "name": "bytes4",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -962,7 +866,6 @@
     {
         "name": "bytes3",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -972,7 +875,6 @@
     {
         "name": "bytes2",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -982,7 +884,6 @@
     {
         "name": "bytes1",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -991,8 +892,9 @@
     },
     {
         "name": "Balance",
-        "types": ["uint256"],
-        "labels": ["balance"],
+        "types": [
+            {"name": "uint256", "label": "balance", "relation":0}
+        ],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -1001,8 +903,10 @@
     },
     {
         "name": "name",
-        "types": ["string", "string"],
-        "labels": ["firstName", "lastName"],
+        "types": [
+            {"name": "string", "label": "firstName", "relation":0},
+            {"name": "string", "label": "lastName", "relation":0}
+        ],
         "lang": 0,
         "isEvent": false,
         "typeChoice": 0,
@@ -1011,8 +915,10 @@
     },
     {
         "name": "add",
-        "types": ["uint256", "uint256"],
-        "labels": ["a", "b"],
+        "types": [
+            {"name": "uint256", "label": "a", "relation":0},
+            {"name": "uint256", "label": "b", "relation":0}
+        ],
         "lang": 0,
         "typeChoice": 5,
         "hasOutput": true,

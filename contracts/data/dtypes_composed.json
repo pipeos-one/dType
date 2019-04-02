@@ -1,8 +1,10 @@
 [
     {
         "name": "TypeA",
-        "types": ["uint256", "address"],
-        "labels": ["balance", "token"],
+        "types": [
+            {"name": "uint256", "label": "balance", "relation": 0},
+            {"name": "address", "label": "token", "relation": 0}
+        ],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -11,8 +13,10 @@
     },
     {
         "name": "TypeB",
-        "types": ["uint256", "TypeA"],
-        "labels": ["staked", "typeA"],
+        "types": [
+            {"name": "uint256", "label": "staked", "relation": 0},
+            {"name": "TypeA", "label": "typeA", "relation": 0}
+        ],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -21,8 +25,9 @@
     },
     {
         "name": "TypeA[]",
-        "types": ["TypeA"],
-        "labels": ["l_data"],
+        "types": [
+            {"name": "TypeA", "label": "data", "relation":1}
+        ],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -31,8 +36,9 @@
     },
     {
         "name": "setStaked",
-        "types": ["TypeA"],
-        "labels": ["typeA"],
+        "types": [
+            {"name": "TypeA", "label": "typeA", "relation":0}
+        ],
         "lang": 0,
         "typeChoice": 5,
         "hasOutput": true,
@@ -42,8 +48,9 @@
     },
     {
         "name": "doubleBalances",
-        "types": ["TypeA[]"],
-        "labels": ["data"],
+        "types": [
+            {"name": "TypeA[]", "label": "data", "relation":0}
+        ],
         "lang": 0,
         "typeChoice": 5,
         "hasOutput": true,
