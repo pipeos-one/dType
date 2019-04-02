@@ -220,7 +220,7 @@ export default {
                 .forEach((key) => {
                     const header = this.headers.find(header => header.value === key);
                     if (header) {
-                        let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type);
+                        let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
                         if (dtype.types.length) {
                             item[key] = JSON.stringify(normalizeEthersObject(item[key]));
@@ -244,14 +244,14 @@ export default {
         },
         save() {
             this.headers.forEach((header) => {
-                if (header.type.indexOf('[]') > -1) {
+                if (header.type.name.indexOf('[]') > -1) {
                     if (typeof this.editedItem[header.value] === 'string') {
                         this.editedItem[header.value] = this.editedItem[header.value].split(',');
                     }
                 } else {
-                    let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type);
+                    let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
-                    if (dtype.types.length) {
+                    if (dtype && dtype.types.length) {
                         this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
                     }
                 }
