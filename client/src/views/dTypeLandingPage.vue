@@ -191,10 +191,10 @@ export default {
             }
         },
         getHeaders(dtype) {
-            return dtype.labels.map((label, i) => {
+            return dtype.types.map((type, i) => {
                 return {
-                    text: `${label}\n${dtype.types[i]}`,
-                    value: label,
+                    text: `${type.label}\n${dtype.types[i].name}`,
+                    value: type.label,
                     type: dtype.types[i],
                 };
             });

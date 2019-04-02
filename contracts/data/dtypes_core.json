@@ -1,8 +1,39 @@
 [
     {
+        "name": "dTypes",
+        "types": [
+            {"name": "string", "label": "name", "relation":0},
+            {"name": "string", "label": "label", "relation":0},
+            {"name": "uint8", "label": "relation", "relation":0}
+        ],
+        "lang": 0,
+        "typeChoice": 0,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "dTypes[]",
+        "types": [
+            {"name": "dTypes", "label": "dtypes", "relation":1}
+        ],
+        "lang": 0,
+        "typeChoice": 0,
+        "hasOutput": false,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
         "name": "dType",
-        "types": ["uint8","uint8","bool","address","bytes32","string","string[]","string[]"],
-        "labels": ["lang", "typeChoice", "hasOutput", "contractAddress", "source", "name", "types", "labels"],
+        "types": [
+            {"name": "uint8", "label": "lang", "relation":0},
+            {"name": "uint8", "label": "typeChoice", "relation":0},
+            {"name": "bool", "label": "hasOutput", "relation":0},
+            {"name": "address", "label": "contractAddress", "relation":0},
+            {"name": "bytes32", "label": "source", "relation":0},
+            {"name": "string", "label": "name", "relation":0},
+            {"name": "dTypes[]", "label": "types", "relation":0}
+        ],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,

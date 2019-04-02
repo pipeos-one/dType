@@ -5,8 +5,10 @@ const insertsBase = require('../data/dtypes_test.json');
 
 let insertFunction = {
     name: 'add',
-    types: ['uint256', 'uint256'],
-    labels: ['a', 'b'],
+    types: [
+        {name: "uint256", label: "a", relation:0},
+        {name: "uint256", label: "b", relation:0},
+    ],
     lang: 0,
     typeChoice: 5,
     hasOutput: true,
@@ -46,8 +48,9 @@ contract('dType', async (accounts) => {
         assert.equal(typeSignature, '(uint256,address)[]');
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF1';
-        functionRecord.types = ['string[]'];
-        functionRecord.labels = ['label'];
+        functionRecord.types = [
+            {name: "string[]", label: "label", relation:0},
+        ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF1');
         signature = await dtypeContract.getSignature(fhash);
@@ -55,9 +58,9 @@ contract('dType', async (accounts) => {
         assert.equal(signature, signatureTest, `newF1 signatures are not equal`);
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF2';
-        functionRecord.types = ['TypeA[]'];
-        functionRecord.labels = ['label'];
-
+        functionRecord.types = [
+            {name: "TypeA[]", label: "label", relation:0},
+        ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF2');
 
@@ -74,8 +77,7 @@ contract('dType', async (accounts) => {
             dtype = await dtypeContract.get(insertsBase[i].lang, insertsBase[i].name);
             sameStructs(insertsBase[i], dtype.data);
 
-            typesOnChain = await dtypeContract.getTypes(typeHash);
-            assert.sameMembers(typesOnChain, insertsBase[i].types, 'unexpected types');
+            assert.sameMembers(dtype.data.types, insertsBase[i].types, 'unexpected types');
             typeHashes.push(typeHash);
         }
     });
@@ -94,7 +96,9 @@ contract('dType', async (accounts) => {
         sameStructs(insertFunction, dtype.data);
 
         let signature = await dtypeContract.getSignature(typeHash);
-        let functionName = `${insertFunction.name}(${insertFunction.types.join(',')})`;
+        let functionName = `${insertFunction.name}(${
+            insertFunction.types.map(type => type.name).join(',')
+        })`;
         let signatureTest = await testUtilsContract.getSignature(functionName);
         assert.equal(signature, signatureTest, `Signatures are not equal`);
     });
@@ -103,19 +107,19 @@ contract('dType', async (accounts) => {
         let dtype;
         let newdType = Object.assign({}, insertsBase[0]);
         newdType.name = 'newname';
-        newdType.types = [insertsBase[1].name];
-        newdType.labels = ['label'];
+        newdType.types = [
+            {name: insertsBase[1].name, label: "label", relation:0},
+        ];
 
         await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
 
         dtype = await dtypeContract.get(newdType.lang, newdType.name);
-        assert.equal(dtype.data.name, newdType.name, 'wrong newName');
-        assert.sameMembers(dtype.data.types, newdType.types, 'unexpected types');
+        sameStructs(newdType, dtype.data);
     });
 
     it('remove', async () => {
         let typeHash;
-
+    
         typeHash = await dtypeContract.getTypeHash(insertsBase[2].lang, insertsBase[2].name);
         assert.isOk(await dtypeContract.isType(typeHash), 'no dtype to remove');
 
@@ -124,17 +128,18 @@ contract('dType', async (accounts) => {
     });
 });
 
-function sameStructs(dtype1, dtype2) {
-    Object.keys(dtype1).forEach((key) => {
-        // console.log('sameStructs key', key);
-        let method = 'equal';
-        if (dtype1[key] instanceof Array) {
-            method = 'sameMembers';
-        }
-        assert[method](
-            dtype1[key],
-            dtype2[key],
-            `wrong ${key}, should be ${dtype1[key]} instead of ${dtype2[key]}`,
-        );
-    });
+function sameStructs(shouldBe, current) {
+    Object.keys(shouldBe)
+        .filter(key => !Number(key) && Number(key) != 0)
+        .forEach((key) => {
+            if (shouldBe[key] instanceof Array) {
+                sameStructs(shouldBe[key], current[key]);
+            } else {
+                assert.equal(
+                    current[key],
+                    shouldBe[key],
+                    `wrong ${key}, should be ${shouldBe[key]} instead of ${current[key]}`,
+                );
+            }
+        });
 }

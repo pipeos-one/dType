@@ -84,11 +84,11 @@ export const buildStructAbi = async function(dtypeContract, typeHash, parentLabe
     abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
     abi.components = [];
     for (let i = 0; i < dtype.data.types.length; i++) {
-        const hash = await dtypeContract.getTypeHash(dtype.data.lang, dtype.data.types[i]);
+        const hash = await dtypeContract.getTypeHash(dtype.data.lang, dtype.data.types[i].name);
         abi.components.push(await buildStructAbi(
             dtypeContract,
             hash,
-            dtype.data.labels[i],
+            dtype.data.types[i].label,
         ));
     }
     return abi;
@@ -97,11 +97,11 @@ export const buildStructAbi = async function(dtypeContract, typeHash, parentLabe
 export const buildDefaultItem = (dtype) => {
     let item = {};
     dtype.types.forEach((type, i) => {
-        item[dtype.labels[i]] = defaults[type];
-        if (!item[dtype.labels[i]]) {
-            const key = Object.keys(defaults).find(deftype => type.indexOf(deftype) > -1);
-            if (key) item[dtype.labels[i]] = defaults[key];
-            else item[dtype.labels[i]] = '';
+        item[type.label] = defaults[type.name];
+        if (!item[type.label]) {
+            const key = Object.keys(defaults).find(deftype => type.name.indexOf(deftype) > -1);
+            if (key) item[type.label] = defaults[key];
+            else item[type.label] = '';
         }
     });
     return item;

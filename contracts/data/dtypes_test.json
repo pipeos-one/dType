@@ -2,7 +2,6 @@
     {
         "name": "string",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -12,7 +11,6 @@
     {
         "name": "bool",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -22,7 +20,6 @@
     {
         "name": "address",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -32,7 +29,6 @@
     {
         "name": "uint256",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -42,7 +38,6 @@
     {
         "name": "uint248",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -52,7 +47,6 @@
     {
         "name": "uint240",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -62,7 +56,6 @@
     {
         "name": "uint232",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -72,7 +65,6 @@
     {
         "name": "uint8",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -82,7 +74,6 @@
     {
         "name": "bytes32",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -92,7 +83,6 @@
     {
         "name": "bytes2",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -102,7 +92,6 @@
     {
         "name": "bytes1",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
@@ -112,7 +101,6 @@
     {
         "name": "string[]",
         "types": [],
-        "labels": [],
         "lang": 0,
         "typeChoice": 0,
         "hasOutput": false,
