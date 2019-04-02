@@ -11,10 +11,11 @@ let insertFunction = {
     ],
     lang: 0,
     typeChoice: 5,
-    hasOutput: true,
     contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
     source: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    outputs: ['uint256'],
+    outputs: [
+        {name: "uint256", label: "result", relation:0},
+    ]
 }
 
 contract('dType', async (accounts) => {
@@ -88,10 +89,10 @@ contract('dType', async (accounts) => {
         await dtypeContract.insert(insertFunction, {from: accounts[0]});
 
         typeHash = await dtypeContract.getTypeHash(insertFunction.lang, insertFunction.name);
-        await dtypeContract.setOutputs(typeHash, insertFunction.outputs);
+        await dtypeContract.setOptionals(typeHash, insertFunction.outputs);
 
         dtype = await dtypeContract.get(insertFunction.lang, insertFunction.name);
-        typeOutputs = await dtypeContract.getOutputs(typeHash);
+        typeOutputs = await dtypeContract.getOptionals(typeHash);
         dtype.data.outputs = typeOutputs;
         sameStructs(insertFunction, dtype.data);
 
@@ -119,7 +120,7 @@ contract('dType', async (accounts) => {
 
     it('remove', async () => {
         let typeHash;
-    
+
         typeHash = await dtypeContract.getTypeHash(insertsBase[2].lang, insertsBase[2].name);
         assert.isOk(await dtypeContract.isType(typeHash), 'no dtype to remove');
 

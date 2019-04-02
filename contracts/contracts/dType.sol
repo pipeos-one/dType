@@ -2,15 +2,17 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './dTypeLib.sol';
+import './dTypesLib.sol';
 
 contract dType {
     using dTypeLib for dTypeLib.dType;
     using dTypeLib for dTypeLib.LangChoices;
+    using dTypesLib for dTypesLib.dTypes;
 
     address rootAddress;
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
-    mapping(bytes32 => string[]) public outputIndex;
+    mapping(bytes32 => dTypesLib.dTypes[]) public optionals;
 
     dTypeLib.LangChoices constant defaultLang = dTypeLib.LangChoices.Solidity;
 
@@ -80,29 +82,30 @@ contract dType {
         typeStruct[keyToMove].index = rowToDelete;
         typeIndex.length--;
 
-        // TODO remove outputIndex[typeHash]
+        // TODO remove optionals[typeHash]
 
         emit LogRemove(typeHash, rowToDelete);
         emit LogUpdate(keyToMove, rowToDelete);
         return rowToDelete;
     }
 
-    function setOutputs(bytes32 typeHash, string[] memory outputs)
+    function setOptionals(bytes32 typeHash, dTypesLib.dTypes[] memory optionalValues)
         typeExists(typeHash)
         public
     {
         Type storage dtype = typeStruct[typeHash];
 
-        require(typeStruct[typeHash].data.hasOutput == true, 'type has no output');
-
-        for (uint256 i = 0 ; i < outputs.length; i++) {
+        for (uint256 i = 0 ; i < optionalValues.length; i++) {
             require(
-                isType(getTypeHash(dtype.data.lang, outputs[i])) &&
-                bytes(outputs[i]).length > 0,
-                'A type in the composition does not exists. Use only extant types.'
+                isType(getTypeHash(dtype.data.lang, optionalValues[i].name)),
+                'A type in the composition does not exists'
             );
+            require(bytes(optionalValues[i].name).length > 0, 'Empty type name');
+            require(bytes(optionalValues[i].label).length > 0, 'Empty label name');
         }
-        outputIndex[typeHash] = outputs;
+        for (uint256 i = 0 ; i < optionalValues.length; i++) {
+            optionals[typeHash].push(optionalValues[i]);
+        }
     }
 
     function count() public view returns(uint256 counter)
@@ -146,8 +149,8 @@ contract dType {
         return (typeIndex[typeStruct[typeHash].index] == typeHash);
     }
 
-    function getOutputs(bytes32 typeHash) view public returns (string[] memory outputs) {
-        return outputIndex[typeHash];
+    function getOptionals(bytes32 typeHash) view public returns (dTypesLib.dTypes[] memory optionalValues) {
+        return optionals[typeHash];
     }
 
     function getByIndex(uint256 index)
@@ -164,7 +167,6 @@ contract dType {
         public
         returns(string memory typeSignature)
     {
-        // Type storage dtype = typeStruct[typeHash];
         return string(getEncodedTypes(typeStruct[typeHash]));
     }
 
@@ -283,7 +285,7 @@ contract dType {
 
         // Inserting the funcHash outputs into the corresponding type storage
         // TODO multiple outputs, safe guards
-        bytes32 outputHash = getTypeHash(dtype.data.lang, outputIndex[funcHash][0]);
+        bytes32 outputHash = getTypeHash(dtype.data.lang, optionals[funcHash][0].name);
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
             abi.encodeWithSignature('insertBytes(bytes)', outputData)
         );

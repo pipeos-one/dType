@@ -55,7 +55,7 @@ module.exports = async function(deployer, network, accounts) {
         let tx = await dtypeContract.insert(dtypesComposed[i], {from: accounts[0]});
         if (dtypesComposed[i].outputs) {
             let typeHash = await dtypeContract.getTypeHash(dtypesComposed[i].lang, dtypesComposed[i].name);
-            await dtypeContract.setOutputs(typeHash, dtypesComposed[i].outputs);
+            await dtypeContract.setOptionals(typeHash, dtypesComposed[i].outputs);
         }
     }
 
