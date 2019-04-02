@@ -7,7 +7,6 @@
         ],
         "lang": 0,
         "typeChoice": 0,
-        "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
@@ -19,7 +18,6 @@
         ],
         "lang": 0,
         "typeChoice": 0,
-        "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
@@ -30,7 +28,6 @@
         ],
         "lang": 0,
         "typeChoice": 0,
-        "hasOutput": false,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
     },
@@ -41,10 +38,11 @@
         ],
         "lang": 0,
         "typeChoice": 5,
-        "hasOutput": true,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "outputs": ["TypeB"]
+        "outputs": [
+            {"name": "TypeB", "label": "typeB", "relation":0}
+        ]
     },
     {
         "name": "doubleBalances",
@@ -53,9 +51,10 @@
         ],
         "lang": 0,
         "typeChoice": 5,
-        "hasOutput": true,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
-        "outputs": ["TypeA[]"]
+        "outputs": [
+            {"name": "TypeA[]", "label": "typeAarr", "relation":0}
+        ]
     }
 ]

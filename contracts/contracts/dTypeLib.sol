@@ -20,7 +20,6 @@ library dTypeLib {
     struct dType {
         LangChoices lang;
         TypeChoices typeChoice;
-        bool hasOutput;
         address contractAddress;
         bytes32 source;
         string name;
@@ -30,7 +29,6 @@ library dTypeLib {
     function insert(dType storage self, dType memory dtype) internal {
         self.lang = dtype.lang;
         self.typeChoice = dtype.typeChoice;
-        self.hasOutput = dtype.hasOutput;
         self.contractAddress = dtype.contractAddress;
         self.source = dtype.source;
         self.name = dtype.name;
@@ -41,7 +39,6 @@ library dTypeLib {
     function structure(
         LangChoices lang,
         TypeChoices typeChoice,
-        bool hasOutput,
         address contractAddress,
         bytes32 source,
         string memory name,
@@ -51,7 +48,7 @@ library dTypeLib {
         pure
         returns(dType memory dtype)
     {
-        return dType(lang, typeChoice, hasOutput, contractAddress, source, name, types);
+        return dType(lang, typeChoice, contractAddress, source, name, types);
     }
 
     function structureBytes(bytes memory data)
