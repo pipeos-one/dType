@@ -1,7 +1,10 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import './dTypesLib.sol';
+
 library dTypeLib {
+    using dTypesLib for dTypesLib.dTypes;
 
     enum LangChoices { Solidity, JavaScript, Python }
 
@@ -21,8 +24,18 @@ library dTypeLib {
         address contractAddress;
         bytes32 source;
         string name;
-        string[] types;
-        string[] labels;
+        dTypesLib.dTypes[] types;
+    }
+
+    function insert(dType storage self, dType memory dtype) internal {
+        self.lang = dtype.lang;
+        self.typeChoice = dtype.typeChoice;
+        self.hasOutput = dtype.hasOutput;
+        self.contractAddress = dtype.contractAddress;
+        self.source = dtype.source;
+        self.name = dtype.name;
+
+        dTypesLib.insertArray(self.types, dtype.types);
     }
 
     function structure(
@@ -32,14 +45,13 @@ library dTypeLib {
         address contractAddress,
         bytes32 source,
         string memory name,
-        string[] memory types,
-        string[] memory labels
+        dTypesLib.dTypes[] memory types
     )
         public
         pure
         returns(dType memory dtype)
     {
-        return dType(lang, typeChoice, hasOutput, contractAddress, source, name, types, labels);
+        return dType(lang, typeChoice, hasOutput, contractAddress, source, name, types);
     }
 
     function structureBytes(bytes memory data)
