@@ -37,7 +37,7 @@
             {"name": "TypeA", "label": "typeA", "relation":0}
         ],
         "lang": 0,
-        "typeChoice": 5,
+        "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
@@ -50,7 +50,7 @@
             {"name": "TypeA[]", "label": "data", "relation":0}
         ],
         "lang": 0,
-        "typeChoice": 5,
+        "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
