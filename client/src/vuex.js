@@ -68,7 +68,7 @@ const dTypeStore = new Vuex.Store({
         },
         async getTypeStruct({state}, hash) {
             let struct = await state.contract.getByHash(hash);
-            struct.data.outputs = await state.contract.getOutputs(hash);
+            struct.data.outputs = await state.contract.getOptionals(hash);
             struct.data.typeHash = hash;
             struct.data.index = struct.index.toNumber();
             // console.log('getTypeStruct', struct.data.name, struct.data);
