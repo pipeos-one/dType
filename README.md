@@ -2,7 +2,8 @@
 
 We are proposing a Decentralized Type System for Ethereum, to introduce data definition (and therefore ABI) consistency.
 
-In-work EIP proposal and discussions at: https://github.com/ethereum/EIPs/issues/1882
+In-work EIP proposal: https://github.com/ethereum/EIPs/pull/1900
+Discussions at: https://github.com/ethereum/EIPs/issues/1882
 
 A video demo of the current implementation (a more extended version of the ERC-1882 proposal), can be seen at https://youtu.be/pcqi4yWBDuQ.
 
