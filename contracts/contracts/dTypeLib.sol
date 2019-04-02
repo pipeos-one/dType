@@ -9,7 +9,7 @@ library dTypeLib {
     enum LangChoices { Solidity, JavaScript, Python }
 
     enum TypeChoices {
-        Type,
+        BaseType,
         PayableFunction,
         StateFunction,
         ViewFunction,
