@@ -10,7 +10,7 @@ let insertFunction = {
         {name: "uint256", label: "b", relation:0},
     ],
     lang: 0,
-    typeChoice: 5,
+    typeChoice: 4,
     contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
     source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     outputs: [

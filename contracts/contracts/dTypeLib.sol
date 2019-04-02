@@ -10,11 +10,12 @@ library dTypeLib {
 
     enum TypeChoices {
         Type,
-        Event,
         PayableFunction,
         StateFunction,
         ViewFunction,
-        PureFunction
+        PureFunction,
+        Event,
+        MappingType
     }
 
     struct dType {
