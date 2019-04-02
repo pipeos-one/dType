@@ -86,7 +86,7 @@ export default {
                     'getTypeStructByName',
                     {
                         lang: this.functionType.lang,
-                        name: this.functionType.types[i],
+                        name: this.functionType.types[i].name,
                     }
                 );
 

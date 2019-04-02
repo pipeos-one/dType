@@ -10,10 +10,10 @@
             <v-layout wrap>
                 <v-flex xs4>
                     <router-link
-                        v-for="typeName in dtype.types"
-                        :to="`/dtype/${dtype.lang}/${typeName}`"
+                        v-for="typeObj in dtype.types"
+                        :to="`/dtype/${dtype.lang}/${typeObj.name}`"
                     >
-                        {{typeName}}
+                        {{typeObj.name}}
                     </router-link>
                 </v-flex>
                 <v-flex xs4>
@@ -131,7 +131,7 @@ export default {
         relatedFunctions() {
             if (!this.dtype) return [];
             return this.dtypes.filter((dtype) => {
-                return dtype.types.indexOf(this.dtype.name) > -1 && dtype.isFunction;
+                return dtype.types.find(type => type.name === this.dtype.name) && dtype.isFunction;
             });
         },
     },
