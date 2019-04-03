@@ -291,4 +291,13 @@ contract dType {
 
         return abi.decode(result, (bytes32));
     }
+
+    function map(bytes32 funcHash, bytes32[][] memory inDataHash)
+        public
+        returns(bytes32[] outDataHash)
+    {
+        for (uint256 i = 0; i < inDataHash.length; i++) {
+            outDataHash[i] = run(funcHash, inDataHash[i]);
+        }
+    }
 }
