@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DType from './constants';
-import {getProvider, getContract} from './blockchain';
+import {getProvider, getContract, normalizeEthersObject} from './blockchain';
 
 Vue.use(Vuex);
 
@@ -71,8 +71,7 @@ const dTypeStore = new Vuex.Store({
             struct.data.outputs = await state.contract.getOptionals(hash);
             struct.data.typeHash = hash;
             struct.data.index = struct.index.toNumber();
-            // console.log('getTypeStruct', struct.data.name, struct.data);
-            return struct.data;
+            return normalizeEthersObject(struct.data);
         },
         async setTypes({dispatch, commit, state}) {
             return state.contract.getTypeHash(0, state.DType.rootName).then((hash) => {

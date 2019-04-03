@@ -13,28 +13,16 @@
             />
         </template>
         <template v-else>
-            {{ preppedValue }}
+            {{ value }}
         </template>
     </div>
 </template>
 
 <script>
-import {normalizeEthersObject} from '../blockchain';
 import BytesValueField from './BytesValueField';
 
 export default {
     props: ['type', 'value'],
     components: {BytesValueField},
-    computed: {
-        preppedValue() {
-            let preppedValue;
-            if (this.value instanceof Array) {
-                // TODO display arrays of objects in a nice way
-                // return this.value.map(item => normalizeEthersObject(item));
-                return this.value.map(item => item.name);
-            }
-            return this.value;
-        }
-    },
 }
 </script>

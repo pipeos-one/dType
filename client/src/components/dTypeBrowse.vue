@@ -148,7 +148,6 @@
 <script>
 import dTypeSearch from '../components/dTypeSearch';
 import dTypeBrowseField from '../components/dTypeBrowseField';
-import {normalizeEthersObject} from '../blockchain';
 
 export default {
     name: 'dTypeBrowse',
@@ -226,10 +225,6 @@ export default {
                     const header = this.headers.find(header => header.value === key);
                     if (header) {
                         let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
-
-                        if (dtype && dtype.types.length && key !== 'types') {
-                            item[key] = JSON.stringify(normalizeEthersObject(item[key]));
-                        }
                     }
                 });
             if (item.types) {

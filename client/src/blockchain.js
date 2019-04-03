@@ -42,7 +42,7 @@ export const getDataItem = async function(contract, hash, index) {
     let typeData = await contract.getByHash(hash);
     typeData.index = index;
     typeData.typeHash = hash;
-    return typeData;
+    return normalizeEthersObject(typeData);
 };
 
 export const getDataItems = async function(contract, callback) {
