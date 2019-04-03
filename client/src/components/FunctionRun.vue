@@ -1,14 +1,14 @@
 <template>
     <div>
-        <template v-for="(label, i) in functionType.labels">
+        <template v-for="(type, i) in functionType.types">
             <v-layout wrap>
                 <v-flex xs4>
-                    <v-text-field v-model='dataArguments[label]' :label='label'></v-text-field>
+                    <v-text-field v-model='dataArguments[type.label]' :label='type.label'></v-text-field>
                 </v-flex>
                 <v-flex xs4>
                     <v-select
-                        v-model="selectedValues[label]"
-                        :items="selectedItems[label]"
+                        v-model="selectedValues[type.label]"
+                        :items="selectedItems[type.label]"
                         label="Outline style"
                         outline
                     ></v-select>
@@ -16,12 +16,12 @@
                 <v-flex xs4>
                     <dTypeSearch
                         label='types'
-                        :itemKey='selectedValues[label]'
+                        :itemKey='selectedValues[type.label]'
                         itemValue='typeHash'
-                        :items='functionData[label]'
+                        :items='functionData[type.label]'
                         searchLengthP="1"
                         :returnObjectP="true"
-                        @change="setDataItem(label, $event)"
+                        @change="setDataItem(type.label, $event)"
                     />
                 </v-flex>
             </v-layout>
@@ -37,10 +37,10 @@
             </v-flex>
             <v-flex xs6 v-if="txSuccess">
                 <router-link
-                    v-for="typeName in functionType.outputs"
-                    :to="`/dtype/${functionType.lang}/${typeName}`"
+                    v-for="typeObj in functionType.outputs"
+                    :to="`/dtype/${functionType.lang}/${typeObj.name}`"
                 >
-                    {{typeName}}
+                    {{typeObj.name}}
                 </router-link>
             </v-flex>
         </v-layout>
@@ -59,11 +59,12 @@ export default {
         let selectedItems = {};
         let selectedValues = {};
         let functionData = {};
-        this.functionType.labels.forEach((label) => {
-            dataArguments[label] = ''; buildDefaultItem(this.functionType);
-            selectedItems[label] = [];
-            selectedValues[label] = '';
-            functionData[label] = [];
+
+        this.functionType.types.forEach((type) => {
+            dataArguments[type.label] = ''; buildDefaultItem(this.functionType);
+            selectedItems[type.label] = [];
+            selectedValues[type.label] = '';
+            functionData[type.label] = [];
         });
         return {
             dataArguments,
@@ -74,13 +75,12 @@ export default {
         };
     },
     created() {
-        console.log('functionType', this.functionType);
         this.setData();
     },
     methods: {
         async setData() {
-            for (let i = 0; i < this.functionType.labels.length; i++) {
-                let label = this.functionType.labels[i];
+            for (let i = 0; i < this.functionType.types.length; i++) {
+                let label = this.functionType.types[i].label;
 
                 let subType = await this.$store.dispatch(
                     'getTypeStructByName',
@@ -90,8 +90,8 @@ export default {
                     }
                 );
 
-                this.selectedItems[label] = subType.labels;
-                this.selectedValues[label] = subType.labels[0];
+                this.selectedItems[label] = subType.types.map(type => type.label);
+                this.selectedValues[label] = this.selectedItems[label][0];
 
                 getDataItemsByTypeHash(
                     this.$store.state.contract,
@@ -104,7 +104,7 @@ export default {
             };
         },
         async run() {
-            const dataHashes = this.functionType.labels.map((label) => this.dataArguments[label]);
+            const dataHashes = this.functionType.types.map((type) => this.dataArguments[type.label]);
             console.log('run', this.$store.state.contract.address, this.functionType.typeHash, dataHashes);
 
             // TODO fix gas estimation for Ganache

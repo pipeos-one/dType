@@ -27,7 +27,7 @@
                                                 v-for="(type, i) in editedItem.types"
                                                 v-on:input="onRemovedType(type, i)"
                                             >
-                                                {{type}}
+                                                {{type.name}}
                                             </v-chip>
                                             </v-flex>
                                             <v-flex xs6>
@@ -38,6 +38,11 @@
                                                 :items='items'
                                                 v-on:change="onSelectedType"
                                             />
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs12>
+                                                <v-text-field v-model='editedItem.labels' label='labels'></v-text-field>
                                             </v-flex>
                                         </v-layout>
                                     </v-flex>
@@ -222,11 +227,14 @@ export default {
                     if (header) {
                         let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
-                        if (dtype.types.length) {
+                        if (dtype && dtype.types.length && key !== 'types') {
                             item[key] = JSON.stringify(normalizeEthersObject(item[key]));
                         }
                     }
                 });
+            if (item.types) {
+                item.labels = item.types.map(type => type.label);
+            }
             this.editedIndex = this.items.indexOf(obj);
             this.editedItem = Object.assign({}, item);
             this.dialog = true;
@@ -256,6 +264,17 @@ export default {
                     }
                 }
             });
+            if (this.editedItem.types && this.editedItem.labels) {
+                let labels = this.editedItem.labels;
+                if (typeof labels === 'string') {
+                    labels = labels.split(',');
+                }
+                this.editedItem.types.forEach((type, i) => {
+                    this.editedItem.types[i].label = labels[i];
+                });
+                delete this.editedItem.labels;
+            }
+
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
             } else {
@@ -277,7 +296,9 @@ export default {
             }
         },
         onSelectedType(values) {
-            values = this.editedItem.types.concat(values);
+            values = this.editedItem.types.concat(values.map((value) => {
+                return {name: value, label: '', relation: 0};
+            }));
             this.editedItem.types = values;
         },
         onRemovedType(value, i) {
