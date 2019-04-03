@@ -81,7 +81,11 @@ export default {
             this.dtypeHeaders.push({
                 text: 'outputs\nstring[]',
                 value: 'outputs',
-                type: 'string[]',
+                type: {
+                    name: 'string[]',
+                    label: 'outputs',
+                    relation: 0,
+                },
             });
 
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
@@ -120,6 +124,9 @@ export default {
                 }
             }
             this.defaultItem = buildDefaultItem(this.typeStruct);
+            if (this.defaultItem.types) {
+                this.defaultItem.labels = [];
+            }
         },
         async watchAll() {
             this.typeContract.on('LogNew', async (typeHash, index) => {
