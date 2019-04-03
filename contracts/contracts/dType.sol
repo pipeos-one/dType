@@ -265,7 +265,7 @@ contract dType {
 
         bytes memory encodedInputs = abi.encodePacked(getSignature(funcHash));
 
-        require(dataHash.length == dtype.data.types.length);
+        require(dataHash.length == dtype.data.types.length, 'Incorrect number of inputs');
 
         // Retrieve inputs for calling the function at funcHash
         for (uint256 i = 0; i < dtype.data.types.length; i++) {
