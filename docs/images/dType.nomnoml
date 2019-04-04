@@ -1,14 +1,26 @@
-[ <package> dType Registry |
+#font: Calibri
+#fontSize: 12
+#fill: #ffffff; #ffffff
 
-[dType |
+[ <package> dType |
+
+[dType Registry |
+[dSubType |
+string name
+string label
+uint8 relation
+]
 [dTypeStruct |
+uint8 lang
+uint8 typeChoice
 address contractAddress
 bytes32 source
 string name
-string\[\] types
-string\[\] labels
-]o-[<state>types]
-[types] ...1..*->[dTypeStruct]
+dSubType\[\] types
+]
+[dTypeStruct]+-> 0..*[dSubType]
+[dTypeStruct]o-[<state>types]
+[types] ....1..*->[dTypeStruct]
 
 |
 typeCollection (typeHash -> dTypeStruct)
@@ -20,18 +32,20 @@ count()
 ]
 
 
-[dType]->contractAddress[TypeContract]
+[dType Registry]->contractAddress[TypeContract]
 
 [TypeContract]-->[TypeLib | |
   structure(bytes)
   destructure(Type data)
-  map(Function func, Type\[\] dataArray)
+  map(Type\[\] dataArray, Function callb)
 
 ]
 [TypeContract]-->[TypeStorage]
 
 [TypeStorage|
-dataStorage data\[\]|
+bytes32\[\] public dataIndex
+mapping(bytes32 => Type) public dataStorage
+|
 insert(Type data)
 get(bytes32 dataHash)
 delete(bytes32 dataHash)
