@@ -10,6 +10,7 @@ A video demo of the current implementation (a more extended version of the ERC-1
 ## Vision
 
 System Registry for The World Computer: https://medium.com/@loredana.cirstea/a-vision-of-a-system-registry-for-the-world-computer-be1dc2da7cae
+dType — Decentralized Type System & Functional Programming on Ethereum: https://medium.com/@loredana.cirstea/dtype-decentralized-type-system-functional-programming-on-ethereum-4f7666377c9f
 
 
 ## Specs
