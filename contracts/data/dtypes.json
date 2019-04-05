@@ -794,7 +794,7 @@
     {
         "name": "Balance",
         "types": [
-            {"name": "uint256", "label": "balance", "relation":0}
+            {"name": "uint256", "label": "balance", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 0,
@@ -804,8 +804,8 @@
     {
         "name": "name",
         "types": [
-            {"name": "string", "label": "firstName", "relation":0},
-            {"name": "string", "label": "lastName", "relation":0}
+            {"name": "string", "label": "firstName", "relation":0, "dimensions":[]},
+            {"name": "string", "label": "lastName", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "isEvent": false,
@@ -816,15 +816,15 @@
     {
         "name": "add",
         "types": [
-            {"name": "uint256", "label": "a", "relation":0},
-            {"name": "uint256", "label": "b", "relation":0}
+            {"name": "uint256", "label": "a", "relation":0, "dimensions":[]},
+            {"name": "uint256", "label": "b", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
-            {"name": "uint256", "label": "result", "relation":0}
+            {"name": "uint256", "label": "result", "relation":0, "dimensions":[]}
         ]
     }
 ]

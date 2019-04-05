@@ -2,19 +2,9 @@
     {
         "name": "dTypes",
         "types": [
-            {"name": "string", "label": "name", "relation":0},
-            {"name": "string", "label": "label", "relation":0},
-            {"name": "uint8", "label": "relation", "relation":0}
-        ],
-        "lang": 0,
-        "typeChoice": 0,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "dTypes[]",
-        "types": [
-            {"name": "dTypes", "label": "dtypes", "relation":1}
+            {"name": "string", "label": "name", "relation":0, "dimensions":[]},
+            {"name": "string", "label": "label", "relation":0, "dimensions":[]},
+            {"name": "uint8", "label": "relation", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 0,
@@ -24,12 +14,12 @@
     {
         "name": "dType",
         "types": [
-            {"name": "uint8", "label": "lang", "relation":0},
-            {"name": "uint8", "label": "typeChoice", "relation":0},
-            {"name": "address", "label": "contractAddress", "relation":0},
-            {"name": "bytes32", "label": "source", "relation":0},
-            {"name": "string", "label": "name", "relation":0},
-            {"name": "dTypes[]", "label": "types", "relation":0}
+            {"name": "uint8", "label": "lang", "relation":0, "dimensions":[]},
+            {"name": "uint8", "label": "typeChoice", "relation":0, "dimensions":[]},
+            {"name": "address", "label": "contractAddress", "relation":0, "dimensions":[]},
+            {"name": "bytes32", "label": "source", "relation":0, "dimensions":[]},
+            {"name": "string", "label": "name", "relation":0, "dimensions":[]},
+            {"name": "dTypes", "label": "types", "relation":0, "dimensions":["0"]}
         ],
         "lang": 0,
         "typeChoice": 0,
