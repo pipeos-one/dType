@@ -259,7 +259,7 @@ export default {
                 } else {
                     let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
-                    if (dtype && dtype.types.length) {
+                    if (dtype && dtype.types.length && typeof this.editedItem[header.value] == 'string') {
                         this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
                     }
                 }
@@ -297,7 +297,7 @@ export default {
         },
         onSelectedType(values) {
             values = this.editedItem.types.concat(values.map((value) => {
-                return {name: value, label: '', relation: 0};
+                return {name: value, label: '', relation: 0, dimensions: []};
             }));
             this.editedItem.types = values;
         },

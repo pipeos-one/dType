@@ -98,6 +98,7 @@ export const buildDefaultItem = (dtype) => {
     let item = {};
     dtype.types.forEach((type, i) => {
         item[type.label] = defaults[type.name];
+        if (type.dimensions.length > 0) item[type.label] = [];
         if (!item[type.label]) {
             const key = Object.keys(defaults).find(deftype => type.name.indexOf(deftype) > -1);
             if (key) item[type.label] = defaults[key];
