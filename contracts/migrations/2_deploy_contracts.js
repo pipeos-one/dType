@@ -1,5 +1,6 @@
 const dType = artifacts.require("dType");
 const testUtils = artifacts.require('TestUtils.sol');
+const typeALib = artifacts.require('typeALib.sol');
 const typeAContract = artifacts.require('typeAContract.sol');
 const typeBContract = artifacts.require('typeBContract.sol');
 const typeABLogic = artifacts.require('typeABLogic.sol');
@@ -12,10 +13,13 @@ const dtypesCore = require('../data/dtypes_core.json');
 
 module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(dType);
+    await deployer.deploy(typeALib);
+    await deployer.link(typeALib, typeAContract);
     await deployer.deploy(typeAContract);
     await deployer.deploy(typeBContract);
     await deployer.deploy(typeABLogic);
     await deployer.deploy(typeAArrayContract);
+    await deployer.link(typeALib, typeAAFunctions);
     await deployer.deploy(typeAAFunctions);
 
     let dtypeContract = await dType.deployed();

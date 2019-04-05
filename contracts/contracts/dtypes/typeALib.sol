@@ -10,7 +10,7 @@ library typeALib {
 
     function structure(uint256 balance, address token)
         pure
-        internal
+        public
         returns(TypeA memory typeA)
     {
         return TypeA(balance, token);
@@ -18,7 +18,7 @@ library typeALib {
 
     function destructure(TypeA memory typeA)
         pure
-        internal
+        public
         returns (uint256 balance, address token)
     {
         return (typeA.balance, typeA.token);
@@ -26,7 +26,7 @@ library typeALib {
 
     function structureBytes(bytes memory data)
         pure
-        internal
+        public
         returns(TypeA memory typeA)
     {
         (typeA) = abi.decode(data, (TypeA));
@@ -34,7 +34,7 @@ library typeALib {
 
     function destructureBytes(TypeA memory typeA)
         pure
-        internal
+        public
         returns(bytes memory data)
     {
         return abi.encode(typeA);
@@ -46,7 +46,7 @@ library typeALib {
         TypeA[] memory typeAarr
     )
         view
-        internal
+        public
         returns (TypeA[] memory result)
     {
         uint length = typeAarr.length;
