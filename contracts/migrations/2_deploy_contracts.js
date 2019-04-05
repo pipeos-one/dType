@@ -4,7 +4,6 @@ const typeALib = artifacts.require('typeALib.sol');
 const typeAContract = artifacts.require('typeAContract.sol');
 const typeBContract = artifacts.require('typeBContract.sol');
 const typeABLogic = artifacts.require('typeABLogic.sol');
-const typeAArrayContract = artifacts.require('typeAArrayContract.sol');
 const typeAAFunctions = artifacts.require('typeAAFunctions');
 
 const dtypesBase = require('../data/dtypes_test.json');
@@ -18,7 +17,6 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(typeAContract);
     await deployer.deploy(typeBContract);
     await deployer.deploy(typeABLogic);
-    await deployer.deploy(typeAArrayContract);
     await deployer.link(typeALib, typeAAFunctions);
     await deployer.deploy(typeAAFunctions);
 
@@ -26,7 +24,6 @@ module.exports = async function(deployer, network, accounts) {
     let typeA = await typeAContract.deployed();
     let typeB = await typeBContract.deployed();
     let typeAB = await typeABLogic.deployed();
-    let typeAArray = await typeAArrayContract.deployed();
     let typeAAF = await typeAAFunctions.deployed();
 
 
@@ -48,9 +45,6 @@ module.exports = async function(deployer, network, accounts) {
                 break;
             case 'setStaked':
                 dtypesComposed[i].contractAddress = typeAB.address;
-                break;
-            case 'TypeA[]':
-                dtypesComposed[i].contractAddress = typeAArray.address;
                 break;
             case 'doubleBalances':
                 dtypesComposed[i].contractAddress = typeAAF.address;
