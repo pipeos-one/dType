@@ -2,8 +2,8 @@
     {
         "name": "TypeA",
         "types": [
-            {"name": "uint256", "label": "balance", "relation": 0},
-            {"name": "address", "label": "token", "relation": 0}
+            {"name": "uint256", "label": "balance", "relation": 0, "dimensions":[]},
+            {"name": "address", "label": "token", "relation": 0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 0,
@@ -13,18 +13,8 @@
     {
         "name": "TypeB",
         "types": [
-            {"name": "uint256", "label": "staked", "relation": 0},
-            {"name": "TypeA", "label": "typeA", "relation": 0}
-        ],
-        "lang": 0,
-        "typeChoice": 0,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "TypeA[]",
-        "types": [
-            {"name": "TypeA", "label": "data", "relation":1}
+            {"name": "uint256", "label": "staked", "relation": 0, "dimensions":[]},
+            {"name": "TypeA", "label": "typeA", "relation": 0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 0,
@@ -34,27 +24,27 @@
     {
         "name": "setStaked",
         "types": [
-            {"name": "TypeA", "label": "typeA", "relation":0}
+            {"name": "TypeA", "label": "typeA", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
-            {"name": "TypeB", "label": "typeB", "relation":0}
+            {"name": "TypeB", "label": "typeB", "relation":0, "dimensions":[]}
         ]
     },
     {
         "name": "doubleBalances",
         "types": [
-            {"name": "TypeA[]", "label": "data", "relation":0}
+            {"name": "TypeA", "label": "data", "relation":0, "dimensions":["0"]}
         ],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
-            {"name": "TypeA[]", "label": "typeAarr", "relation":0}
+            {"name": "TypeA", "label": "typeAarr", "relation":0, "dimensions":["0"]}
         ]
     }
 ]

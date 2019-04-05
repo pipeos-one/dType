@@ -170,30 +170,35 @@ contract dType {
         return string(getEncodedTypes(typeStruct[typeHash]));
     }
 
-    function getEncodedType(dTypeLib.LangChoices lang, string memory name)
+    function getEncodedType(dTypeLib.LangChoices lang, string memory name, string[] memory dimensions)
         view
-        internal
+        public
         returns(bytes memory encoded)
     {
         Type storage dtype = typeStruct[getTypeHash(lang, name)];
 
-        if (dtype.data.types.length > 0) {
-            return getEncodedTypes(dtype);
+        if (dtype.data.types.length == 0) {
+            encoded = abi.encodePacked(dtype.data.name);
+            return abi.encodePacked(encoded, typeDimensionsToString(dimensions));
         }
-        return abi.encodePacked(dtype.data.name);
+
+        encoded = getEncodedTypes(dtype);
+        encoded = abi.encodePacked('(', encoded, ')');
+        encoded = abi.encodePacked(encoded, typeDimensionsToString(dimensions));
     }
 
-    function typeIsArray(string memory name) pure public returns(bool isArray) {
-        bytes memory encoded = bytes(name);
-        uint256 length = encoded.length;
-
-        if (
-            encoded[length-2] == bytes1(0x5b) &&
-            encoded[length-1] == bytes1(0x5d)
-        ) {
-            return true;
+    function typeDimensionsToString(string[] memory dimensions)
+        pure
+        public
+        returns(bytes memory encoded)
+    {
+        for (uint256 i = 0; i < dimensions.length; i++) {
+            encoded = abi.encodePacked(encoded, '[');
+            if (keccak256(abi.encodePacked(dimensions[i])) != keccak256(abi.encodePacked("0"))) {
+                encoded = abi.encodePacked(encoded, dimensions[i]);
+            }
+            encoded = abi.encodePacked(encoded, ']');
         }
-        return false;
     }
 
     function getEncodedTypes(Type storage dtype)
@@ -207,7 +212,11 @@ contract dType {
             for (uint256 i = 0; i < length - 1; i++) {
                 encoded = abi.encodePacked(
                     encoded,
-                    getEncodedType(dtype.data.lang, dtype.data.types[i].name),
+                    getEncodedType(
+                        dtype.data.lang,
+                        dtype.data.types[i].name,
+                        dtype.data.types[i].dimensions
+                    ),
                     ','
                 );
             }
@@ -215,17 +224,13 @@ contract dType {
         if (length > 0) {
             encoded = abi.encodePacked(
                 encoded,
-                getEncodedType(dtype.data.lang, dtype.data.types[length - 1].name)
+                getEncodedType(
+                    dtype.data.lang,
+                    dtype.data.types[length - 1].name,
+                    dtype.data.types[length - 1].dimensions
+                )
             );
         }
-
-        // If type is an array, we need to append [] instead of enclosing in brackets
-        if (typeIsArray(dtype.data.name)) {
-            encoded = abi.encodePacked(encoded, '[]');
-        } else {
-            encoded = abi.encodePacked('(', encoded, ')');
-        }
-        return encoded;
     }
 
     function getSignature(bytes32 typeHash)
@@ -241,7 +246,11 @@ contract dType {
             for (uint256 i = 0; i < length - 1; i++)  {
                 encoded = abi.encodePacked(
                     encoded,
-                    getEncodedType(dtype.data.lang, dtype.data.types[i].name),
+                    getEncodedType(
+                        dtype.data.lang,
+                        dtype.data.types[i].name,
+                        dtype.data.types[i].dimensions
+                    ),
                     ','
                 );
             }
@@ -249,7 +258,11 @@ contract dType {
         if (length > 0) {
             encoded = abi.encodePacked(
                 encoded,
-                getEncodedType(dtype.data.lang, dtype.data.types[length - 1].name)
+                getEncodedType(
+                    dtype.data.lang,
+                    dtype.data.types[length - 1].name,
+                    dtype.data.types[length - 1].dimensions
+                )
             );
         }
         encoded = abi.encodePacked(dtype.data.name, '(', encoded, ')');

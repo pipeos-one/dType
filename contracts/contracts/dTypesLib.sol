@@ -9,12 +9,16 @@ library dTypesLib {
         string name;
         string label;
         dTypeRelation relation;
+        string[] dimensions;
     }
 
     function insert(dTypes storage self, dTypes memory dtypes) internal {
         self.name = dtypes.name;
         self.label = dtypes.label;
         self.relation = dtypes.relation;
+        if (dtypes.dimensions.length > 0) {
+            self.dimensions = dtypes.dimensions;
+        }
     }
 
     function insertArray(dTypes[] storage self, dTypes[] memory dtypes) internal {
@@ -24,12 +28,12 @@ library dTypesLib {
         }
     }
 
-    function structure(string memory name, string memory label, dTypeRelation relation)
+    function structure(string memory name, string memory label, dTypeRelation relation, string[] memory dimensions)
         public
         pure
         returns(dTypes memory dtypes)
     {
-        return dTypes(name, label, relation);
+        return dTypes(name, label, relation, dimensions);
     }
 
     function structureBytes(bytes memory data)

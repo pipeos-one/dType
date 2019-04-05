@@ -6,15 +6,15 @@ const insertsBase = require('../data/dtypes_test.json');
 let insertFunction = {
     name: 'add',
     types: [
-        {name: "uint256", label: "a", relation:0},
-        {name: "uint256", label: "b", relation:0},
+        {name: "uint256", label: "a", relation:0, dimensions:[]},
+        {name: "uint256", label: "b", relation:0, dimensions:[]},
     ],
     lang: 0,
     typeChoice: 4,
     contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
     source: '0x0000000000000000000000000000000000000000000000000000000000000000',
     outputs: [
-        {name: "uint256", label: "result", relation:0},
+        {name: "uint256", label: "result", relation:0, dimensions:[]},
     ]
 }
 
@@ -31,26 +31,39 @@ contract('dType', async (accounts) => {
         let isArray, functionRecord, fhash;
         let signature, signatureTest, hash, typeSignature;
 
-        isArray = await dtypeContract.typeIsArray("[]");
-        assert.equal(isArray, true);
+        assert.equal(
+            null,
+            await dtypeContract.typeDimensionsToString([])
+        );
+        assert.equal(
+            '[]',
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["0"])),
+        );
+        assert.equal(
+            '[2]',
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["2"])),
+        );
+        assert.equal(
+            '[][]',
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["0", "0"])),
+        );
+        assert.equal(
+            '[2][5]',
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["2", "5"])),
+        );
 
-        isArray = await dtypeContract.typeIsArray("TypeA[]");
-        assert.equal(isArray, true);
-
-        isArray = await dtypeContract.typeIsArray("string[]l");
-        assert.equal(isArray, false);
-
-        hash = await dtypeContract.getTypeHash(0, 'TypeA');
-        typeSignature = await dtypeContract.getTypeSignature(hash);
-        assert.equal(typeSignature, '(uint256,address)');
-
-        hash = await dtypeContract.getTypeHash(0, 'TypeA[]');
-        typeSignature = await dtypeContract.getTypeSignature(hash);
-        assert.equal(typeSignature, '(uint256,address)[]');
+        assert.equal(
+            '(uint256,address)',
+            web3.utils.hexToAscii(await dtypeContract.getEncodedType(0, 'TypeA', [])),
+        );
+        assert.equal(
+            '(uint256,address)[]',
+            web3.utils.hexToAscii(await dtypeContract.getEncodedType(0, 'TypeA', ["0"])),
+        );
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF1';
         functionRecord.types = [
-            {name: "string[]", label: "label", relation:0},
+            {name: "string", label: "label", relation:0, dimensions: ["0"]},
         ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF1');
@@ -60,7 +73,7 @@ contract('dType', async (accounts) => {
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF2';
         functionRecord.types = [
-            {name: "TypeA[]", label: "label", relation:0},
+            {name: "TypeA", label: "label", relation:0, dimensions: ["0"]},
         ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF2');
@@ -109,7 +122,7 @@ contract('dType', async (accounts) => {
         let newdType = Object.assign({}, insertsBase[0]);
         newdType.name = 'newname';
         newdType.types = [
-            {name: insertsBase[1].name, label: "label", relation:0},
+            {name: insertsBase[1].name, label: "label", relation:0, dimensions: []},
         ];
 
         await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
