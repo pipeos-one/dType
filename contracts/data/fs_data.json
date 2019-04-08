@@ -5,7 +5,8 @@
                 "name": "Root",
                 "extension": 0,
                 "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-                "parentKey": null
+                "parentKey": null,
+                "filesPerFolder": []
             },
             "files": []
         },
@@ -14,18 +15,21 @@
                 "name": "Folder1",
                 "extension": 0,
                 "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-                "parentKey": 0
+                "parentKey": 0,
+                "filesPerFolder": []
             },
             "files": [
                 {
                     "name": "File1",
                     "extension": 1,
-                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/"
+                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                    "filesPerFolder": []
                 },
                 {
                     "name": "File2",
                     "extension": 1,
-                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/"
+                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                    "filesPerFolder": []
                 }
             ]
         },
@@ -34,14 +38,16 @@
                 "name": "Folder2",
                 "extension": 0,
                 "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-                "parentKey": 0
+                "parentKey": 0,
+                "filesPerFolder": []
             },
             "files": [
                 {
                     "name": "File3",
                     "extension": 1,
                     "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-                    "parentKey": 2
+                    "parentKey": 2,
+                    "filesPerFolder": []
                 }
             ]
         }
@@ -51,7 +57,8 @@
             "name": "File4",
             "extension": 1,
             "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-            "parentKey": null
+            "parentKey": null,
+            "filesPerFolder": []
         }
     ]
 }

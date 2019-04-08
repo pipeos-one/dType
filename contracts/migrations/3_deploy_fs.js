@@ -55,6 +55,6 @@ module.exports = async function(deployer, network, accounts) {
         }
 
         // Set file keys in each folder
-        await fileStorage.setOptionals(hash, fileKeys);
+        await fileStorage.setFiles(hash, fileKeys);
     }
 };

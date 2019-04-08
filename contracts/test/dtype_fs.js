@@ -22,13 +22,15 @@ contract('filesystem', async (accounts) => {
             "name": "TestFile",
             "extension": 1,
             "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-            "parentKey": null
+            "parentKey": null,
+            filesPerFolder: []
         };
         let folder = {
             "name": "TestFolder",
             "extension": 0,
             "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-            "parentKey": "0x00"
+            "parentKey": "0x00",
+            filesPerFolder: []
         };
         ({logs} = await fileStorage.insert(folder));
         folderHash = logs[0].args.hash;
@@ -43,7 +45,7 @@ contract('filesystem', async (accounts) => {
         assert.equal(file.source, insertedFile.source, 'insertedFile.source incorrect');
         assert.equal(file.parentKey, insertedFile.parentKey, 'insertedFile.parentKey incorrect');
 
-        ({logs} = await fileStorage.setOptionals(folderHash, [fileHash]));
+        ({logs} = await fileStorage.setFiles(folderHash, [fileHash]));
 
         // Test standalone changeName
         changedFile = await fileFunctions.contract.methods.changeName(file).call();
