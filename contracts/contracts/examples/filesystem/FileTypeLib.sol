@@ -1,26 +1,31 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './ExtensionLib.sol';
+// import './ExtensionLib.sol';
 
-library FSBaseTypeLib {
+library FileTypeLib {
 
-    struct FSBaseType {
+    struct FileType {
         string name;
-        ExtensionLib.Extension extension;
+        // ExtensionLib.Extension extension;
+        uint8 extension;
         string source;  // swarm/ipfs url; will be a type in itself
         bytes32 parentKey;  // string path
+    }
+
+    function getDataHash(FileType memory fsbase) pure public returns(bytes32 hash) {
+        return keccak256(abi.encode(fsbase));
     }
 
     function structureBytes(bytes memory data)
         pure
         public
-        returns(FSBaseType memory fsbase)
+        returns(FileType memory fsbase)
     {
-        (fsbase) = abi.decode(data, (FSBaseType));
+        (fsbase) = abi.decode(data, (FileType));
     }
 
-    function destructureBytes(FSBaseType memory fsbase)
+    function destructureBytes(FileType memory fsbase)
         pure
         public
         returns(bytes memory data)
@@ -31,14 +36,14 @@ library FSBaseTypeLib {
     function map(
         address callbackAddr,
         bytes4 callbackSig,
-        FSBaseType[] memory fsbaseAarr
+        FileType[] memory fsbaseAarr
     )
         view
         public
-        returns (FSBaseType[] memory result)
+        returns (FileType[] memory result)
     {
         uint length = fsbaseAarr.length;
-        result = new FSBaseType[](length);
+        result = new FileType[](length);
 
         for (uint i = 0; i < length; i++) {
             (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, fsbaseAarr[i]));

@@ -1,16 +1,19 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './FSBaseTypeLib.sol';
+import './FileTypeLib.sol';
 
 contract FileTypeStorage {
-    using FSBaseTypeLib for FSBaseTypeLib.FSBaseType;
+    using FileTypeLib for FileTypeLib.FileType;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
+    // Used for folders, to keep references to their files
+    mapping(bytes32 => bytes32[]) public optionals;
+
     struct Type {
-        FSBaseTypeLib.FSBaseType data;
+        FileTypeLib.FileType data;
         uint256 index;
     }
 
@@ -23,10 +26,10 @@ contract FileTypeStorage {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function insert(FSBaseTypeLib.FSBaseType memory data) public returns (bytes32 hasho) {
+    function insert(FileTypeLib.FileType memory data) public returns (bytes32 hasho) {
 
         // for data integrity
-        bytes32 hash = keccak256(abi.encode(data));
+        bytes32 hash = data.getDataHash();
 
         if(isStored(hash)) revert("This data exists. Use the extant data.");
 
@@ -36,8 +39,23 @@ contract FileTypeStorage {
         return hash;
     }
 
+    function setOptionals(bytes32 typeHash, bytes32[] memory optionalValues)
+        dataIsStored(typeHash)
+        public
+    {
+        for (uint256 i = 0 ; i < optionalValues.length; i++) {
+            require(
+                isStored(optionalValues[i]),
+                'A file in the composition does not exists'
+            );
+        }
+        for (uint256 i = 0 ; i < optionalValues.length; i++) {
+            optionals[typeHash].push(optionalValues[i]);
+        }
+    }
+
     function insertBytes(bytes memory data) public returns (bytes32 hasho) {
-        return insert(FSBaseTypeLib.structureBytes(data));
+        return insert(FileTypeLib.structureBytes(data));
     }
 
     function remove(bytes32 hash) public returns(uint256 index) {
@@ -53,7 +71,7 @@ contract FileTypeStorage {
         return rowToDelete;
     }
 
-    function update(bytes32 hashi, FSBaseTypeLib.FSBaseType memory data)
+    function update(bytes32 hashi, FileTypeLib.FileType memory data)
         public
         returns(bytes32 hash)
     {
@@ -66,9 +84,13 @@ contract FileTypeStorage {
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
-    function getByHash(bytes32 hash) public view returns(FSBaseTypeLib.FSBaseType memory data) {
+    function getByHash(bytes32 hash) public view returns(FileTypeLib.FileType memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
         return(typeStruct[hash].data);
+    }
+
+    function getOptionals(bytes32 typeHash) view public returns (bytes32[] memory optionalValues) {
+        return optionals[typeHash];
     }
 
     function count() public view returns(uint256 counter) {

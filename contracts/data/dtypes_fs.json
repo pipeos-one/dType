@@ -1,22 +1,11 @@
 [
     {
-        "name": "FSBaseType",
+        "name": "FileType",
         "types": [
             {"name": "string", "label": "name", "relation": 0, "dimensions":[]},
             {"name": "uint8", "label": "extension", "relation": 0, "dimensions":[]},
-            {"name": "bytes32", "label": "source", "relation": 0, "dimensions":[]},
+            {"name": "string", "label": "source", "relation": 0, "dimensions":[]},
             {"name": "bytes32", "label": "parentKey", "relation": 0, "dimensions":[]}
-        ],
-        "lang": 0,
-        "typeChoice": 0,
-        "contractAddress": "0x0000000000000000000000000000000000000000",
-        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
-    },
-    {
-        "name": "FolderType",
-        "types": [
-            {"name": "FSBaseType", "label": "fsBase", "relation": 1, "dimensions":[]},
-            {"name": "bytes32", "label": "fileKeys", "relation": 0, "dimensions":["0"]}
         ],
         "lang": 0,
         "typeChoice": 0,
