@@ -1,0 +1,15 @@
+[
+    {
+        "name": "changeName",
+        "types": [
+            {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
+        ]
+    }
+]
