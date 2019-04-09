@@ -21,7 +21,7 @@ import { mapState } from 'vuex';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
 import {EMPTY_ADDRESS} from '../constants_utils';
-import {buildTypeAbi} from '../dtype_utils';
+import {buildTypeAbi, typeDimensionsToString} from '../dtype_utils';
 import {
     getContract,
     buildStructAbi,
@@ -189,8 +189,10 @@ export default {
             }
         },
         getHeader(type, required = true) {
+            let dimensionsString = typeDimensionsToString(type.dimensions);
+            type.fullName = type.name + dimensionsString;
             return {
-                text: `${type.label}\n${type.name}`,
+                text: `${type.label}\n${type.fullName}`,
                 value: type.label,
                 type,
                 required,
