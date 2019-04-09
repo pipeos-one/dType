@@ -1,4 +1,5 @@
-const dType = artifacts.require("dType");
+const dTypeLib = artifacts.require('dTypeLib.sol');
+const dType = artifacts.require("dType.sol");
 const testUtils = artifacts.require('TestUtils.sol');
 const typeALib = artifacts.require('typeALib.sol');
 const typeAContract = artifacts.require('typeAContract.sol');
@@ -11,6 +12,8 @@ const dtypesComposed = require('../data/dtypes_composed.json');
 const dtypesCore = require('../data/dtypes_core.json');
 
 module.exports = async function(deployer, network, accounts) {
+    await deployer.deploy(dTypeLib);
+    await deployer.link(dTypeLib, dType);
     await deployer.deploy(dType);
     await deployer.deploy(typeALib);
     await deployer.link(typeALib, typeAContract);
@@ -51,10 +54,6 @@ module.exports = async function(deployer, network, accounts) {
                 break;
         }
         let tx = await dtypeContract.insert(dtypesComposed[i], {from: accounts[0]});
-        if (dtypesComposed[i].outputs) {
-            let typeHash = await dtypeContract.getTypeHash(dtypesComposed[i].lang, dtypesComposed[i].name);
-            await dtypeContract.setOptionals(typeHash, dtypesComposed[i].outputs);
-        }
     }
 
     if (network == 'development') {

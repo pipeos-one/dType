@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 import {waitAsync} from './utils';
-import {buildTypeAbi} from './dtype_utils';
+import {buildTypeAbi, typeDimensionsToString} from './dtype_utils';
 
 const defaults = {
     '[]': [],
@@ -38,9 +38,8 @@ export const getContract = async function(address, abi, wallet) {
     return contract;
 };
 
-export const getDataItem = async function(contract, hash, index) {
+export const getDataItem = async function(contract, hash) {
     let typeData = await contract.getByHash(hash);
-    typeData.index = index;
     typeData.typeHash = hash;
     return normalizeEthersObject(typeData);
 };
@@ -69,26 +68,33 @@ export const getDataItemsByTypeHash = async function(dtypeContract, wallet, type
     getDataItems(typeContract, callback);
 };
 
-export const buildStructAbi = async function(dtypeContract, typeHash, parentLabel) {
+function setTypeName(type) {
+    type.fullName = type.name + typeDimensionsToString(type.dimensions);
+    return type;
+}
+
+export const buildStructAbi = async function(dtypeContract, typeHash, parentLabel, dimensions) {
     const dtype = await dtypeContract.getByHash(typeHash);
-    const {length} = dtype.data.name.length;
+    const {length} = dtype.name.length;
     let abi = {};
+    let types = dtype.types.concat(dtype.optionals).map(type => setTypeName(type));
 
     abi.name = parentLabel;
 
-    if (dtype.data.types.length === 0) {
-        abi.type = dtype.data.name;
+    if (types.length === 0) {
+        abi.type = dtype.name + typeDimensionsToString(dimensions);
         return abi;
     }
 
-    abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
+    abi.type = dtype.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
     abi.components = [];
-    for (let i = 0; i < dtype.data.types.length; i++) {
-        const hash = await dtypeContract.getTypeHash(dtype.data.lang, dtype.data.types[i].name);
+    for (let i = 0; i < types.length; i++) {
+        const hash = await dtypeContract.getTypeHash(dtype.lang, types[i].name);
         abi.components.push(await buildStructAbi(
             dtypeContract,
             hash,
-            dtype.data.types[i].label,
+            types[i].label,
+            types[i].dimensions,
         ));
     }
     return abi;
@@ -96,11 +102,12 @@ export const buildStructAbi = async function(dtypeContract, typeHash, parentLabe
 
 export const buildDefaultItem = (dtype) => {
     let item = {};
-    dtype.types.forEach((type, i) => {
-        item[type.label] = defaults[type.name];
+    let types = dtype.types.concat(dtype.optionals).map(type => setTypeName(type));
+    types.forEach((type, i) => {
+        item[type.label] = defaults[type.fullName];
         if (type.dimensions.length > 0) item[type.label] = [];
         if (!item[type.label]) {
-            const key = Object.keys(defaults).find(deftype => type.name.indexOf(deftype) > -1);
+            const key = Object.keys(defaults).find(deftype => type.fullName.indexOf(deftype) > -1);
             if (key) item[type.label] = defaults[key];
             else item[type.label] = '';
         }

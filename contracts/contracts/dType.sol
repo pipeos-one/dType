@@ -6,6 +6,7 @@ import './dTypesLib.sol';
 
 contract dType {
     using dTypeLib for dTypeLib.dType;
+    using dTypeLib for dTypeLib.dTypeRequired;
     using dTypeLib for dTypeLib.LangChoices;
     using dTypesLib for dTypesLib.dTypes;
 
@@ -13,11 +14,12 @@ contract dType {
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
     mapping(bytes32 => dTypesLib.dTypes[]) public optionals;
+    mapping(bytes32 => dTypesLib.dTypes[]) public outputs;
 
     dTypeLib.LangChoices constant defaultLang = dTypeLib.LangChoices.Solidity;
 
     struct Type {
-        dTypeLib.dType data;
+        dTypeLib.dTypeRequired data;
         uint256 index;
     }
 
@@ -46,17 +48,13 @@ contract dType {
         bytes32 typeHash = getTypeHash(data.lang, data.name);
         require(!isType(typeHash), 'Type already exists');
 
-        for (uint256 i = 0 ; i < data.types.length; i++) {
-            require(
-                isType(getTypeHash(data.lang, data.types[i].name)),
-                'A type in the composition does not exists'
-            );
-            require(bytes(data.types[i].name).length > 0, 'Empty type name');
-            require(bytes(data.types[i].label).length > 0, 'Empty label name');
-        }
+        checkTypesExist(data.lang, data.types);
 
         typeStruct[typeHash].data.insert(data);
         typeStruct[typeHash].index = typeIndex.push(typeHash)-1;
+
+        setOptionals(typeHash, data.optionals);
+        setOutputs(typeHash, data.outputs);
 
         emit LogNew(typeHash, typeStruct[typeHash].index);
 
@@ -82,7 +80,8 @@ contract dType {
         typeStruct[keyToMove].index = rowToDelete;
         typeIndex.length--;
 
-        // TODO remove optionals[typeHash]
+        delete optionals[typeHash];
+        delete outputs[typeHash];
 
         emit LogRemove(typeHash, rowToDelete);
         emit LogUpdate(keyToMove, rowToDelete);
@@ -94,17 +93,22 @@ contract dType {
         public
     {
         Type storage dtype = typeStruct[typeHash];
+        checkTypesExist(dtype.data.lang, optionalValues);
 
         for (uint256 i = 0 ; i < optionalValues.length; i++) {
-            require(
-                isType(getTypeHash(dtype.data.lang, optionalValues[i].name)),
-                'A type in the composition does not exists'
-            );
-            require(bytes(optionalValues[i].name).length > 0, 'Empty type name');
-            require(bytes(optionalValues[i].label).length > 0, 'Empty label name');
-        }
-        for (uint256 i = 0 ; i < optionalValues.length; i++) {
             optionals[typeHash].push(optionalValues[i]);
+        }
+    }
+
+    function setOutputs(bytes32 typeHash, dTypesLib.dTypes[] memory outputValues)
+        typeExists(typeHash)
+        public
+    {
+        Type storage dtype = typeStruct[typeHash];
+        checkTypesExist(dtype.data.lang, outputValues);
+
+        for (uint256 i = 0 ; i < outputValues.length; i++) {
+            outputs[typeHash].push(outputValues[i]);
         }
     }
 
@@ -125,14 +129,17 @@ contract dType {
         return keccak256(abi.encode(lang, name));
     }
 
-    function getByHash(bytes32 typeHash) view public returns(Type memory dtype) {
-        return typeStruct[typeHash];
+    function getByHash(bytes32 typeHash) view public returns(dTypeLib.dType memory dtype) {
+        return typeStruct[typeHash].data.getFull(
+            getOptionals(typeHash),
+            getOutputs(typeHash)
+        );
     }
 
     function get(dTypeLib.LangChoices lang, string memory name)
         view
         public
-        returns(Type memory dtype)
+        returns(dTypeLib.dType memory dtype)
     {
         bytes32 typeHash = getTypeHash(lang, name);
         return getByHash(typeHash);
@@ -153,13 +160,31 @@ contract dType {
         return optionals[typeHash];
     }
 
+    function getOutputs(bytes32 typeHash) view public returns (dTypesLib.dTypes[] memory outputValues) {
+        return outputs[typeHash];
+    }
+
     function getByIndex(uint256 index)
         view
         public
-        returns(Type memory dtype, bytes32 typeHash)
+        returns(dTypeLib.dType memory dtype, bytes32 typeHash)
     {
         require(index <= typeIndex.length, 'Index too big.');
-        return (typeStruct[typeIndex[index]], typeIndex[index]);
+        return (getByHash(typeIndex[index]), typeIndex[index]);
+    }
+
+    function checkTypesExist(dTypeLib.LangChoices lang, dTypesLib.dTypes[] memory types)
+        view
+        public
+    {
+        for (uint256 i = 0 ; i < types.length; i++) {
+            require(
+                isType(getTypeHash(lang, types[i].name)),
+                'A type in the composition does not exists'
+            );
+            require(bytes(types[i].name).length > 0, 'Empty type name');
+            require(bytes(types[i].label).length > 0, 'Empty label name');
+        }
     }
 
     function getTypeSignature(bytes32 typeHash)
@@ -207,30 +232,64 @@ contract dType {
         returns(bytes memory encoded)
     {
         uint256 length = dtype.data.types.length;
+        dTypesLib.dTypes[] storage typeOptionals = optionals[typeIndex[dtype.index]];
+        uint256 lengthOpt = typeOptionals.length;
 
-        if (length > 1) {
-            for (uint256 i = 0; i < length - 1; i++) {
-                encoded = abi.encodePacked(
-                    encoded,
-                    getEncodedType(
-                        dtype.data.lang,
-                        dtype.data.types[i].name,
-                        dtype.data.types[i].dimensions
-                    ),
-                    ','
-                );
-            }
-        }
-        if (length > 0) {
+        for (uint256 i = 0; i < length; i++) {
             encoded = abi.encodePacked(
                 encoded,
                 getEncodedType(
                     dtype.data.lang,
-                    dtype.data.types[length - 1].name,
-                    dtype.data.types[length - 1].dimensions
+                    dtype.data.types[i].name,
+                    dtype.data.types[i].dimensions
                 )
             );
+            if (i < length - 1 || lengthOpt > 0) {
+                encoded = abi.encodePacked(encoded, ',');
+            }
         }
+
+        for (uint256 i = 0; i < lengthOpt; i++) {
+            encoded = abi.encodePacked(
+                encoded,
+                getEncodedType(
+                    dtype.data.lang,
+                    typeOptionals[i].name,
+                    typeOptionals[i].dimensions
+                )
+            );
+            if (i < lengthOpt - 1) {
+                encoded = abi.encodePacked(encoded, ',');
+            }
+        }
+    }
+
+    function getSignatureFull(bytes32 typeHash)
+        view
+        public
+        returns (bytes memory signature)
+    {
+        Type storage dtype = typeStruct[typeHash];
+        bytes memory encoded;
+        uint256 length = dtype.data.types.length;
+        uint256 lengthOpt = optionals[typeHash].length;
+
+        for (uint256 i = 0; i < length; i++)  {
+            encoded = abi.encodePacked(
+                encoded,
+                getEncodedType(
+                    dtype.data.lang,
+                    dtype.data.types[i].name,
+                    dtype.data.types[i].dimensions
+                )
+            );
+            if (i < length - 1 || lengthOpt > 0) {
+                encoded = abi.encodePacked(encoded, ',');
+            }
+        }
+
+        encoded = abi.encodePacked(dtype.data.name, '(', encoded, ')');
+        return encoded;
     }
 
     function getSignature(bytes32 typeHash)
@@ -238,35 +297,7 @@ contract dType {
         public
         returns (bytes4 signature)
     {
-        Type storage dtype = typeStruct[typeHash];
-        bytes memory encoded;
-        uint256 length = dtype.data.types.length;
-
-        if (length > 1) {
-            for (uint256 i = 0; i < length - 1; i++)  {
-                encoded = abi.encodePacked(
-                    encoded,
-                    getEncodedType(
-                        dtype.data.lang,
-                        dtype.data.types[i].name,
-                        dtype.data.types[i].dimensions
-                    ),
-                    ','
-                );
-            }
-        }
-        if (length > 0) {
-            encoded = abi.encodePacked(
-                encoded,
-                getEncodedType(
-                    dtype.data.lang,
-                    dtype.data.types[length - 1].name,
-                    dtype.data.types[length - 1].dimensions
-                )
-            );
-        }
-        encoded = abi.encodePacked(dtype.data.name, '(', encoded, ')');
-        return bytes4(keccak256(encoded));
+        return bytes4(keccak256(getSignatureFull(typeHash)));
     }
 
     function run(bytes32 funcHash, bytes32[] memory inDataHash)
@@ -296,7 +327,7 @@ contract dType {
         require(success == true, 'Running function failed');
 
         // Inserting the funcHash outputs into the corresponding type storage
-        bytes32 outputHash = getTypeHash(dtype.data.lang, optionals[funcHash][0].name);
+        bytes32 outputHash = getTypeHash(dtype.data.lang, outputs[funcHash][0].name);
         (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
             abi.encodeWithSignature('insertBytes(bytes)', outputData)
         );

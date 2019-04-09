@@ -18,7 +18,7 @@ library dTypeLib {
         MappingType
     }
 
-    struct dType {
+    struct dTypeRequired {
         LangChoices lang;
         TypeChoices typeChoice;
         address contractAddress;
@@ -27,7 +27,21 @@ library dTypeLib {
         dTypesLib.dTypes[] types;
     }
 
-    function insert(dType storage self, dType memory dtype) internal {
+    struct dType {
+        LangChoices lang;
+        TypeChoices typeChoice;
+        address contractAddress;
+        bytes32 source;
+        string name;
+        // required types
+        dTypesLib.dTypes[] types;
+        // optional types
+        dTypesLib.dTypes[] optionals;
+        // function outputs
+        dTypesLib.dTypes[] outputs;
+    }
+
+    function insert(dTypeRequired storage self, dType memory dtype) internal {
         self.lang = dtype.lang;
         self.typeChoice = dtype.typeChoice;
         self.contractAddress = dtype.contractAddress;
@@ -37,19 +51,32 @@ library dTypeLib {
         dTypesLib.insertArray(self.types, dtype.types);
     }
 
-    function structure(
-        LangChoices lang,
-        TypeChoices typeChoice,
-        address contractAddress,
-        bytes32 source,
-        string memory name,
-        dTypesLib.dTypes[] memory types
-    )
-        public
-        pure
-        returns(dType memory dtype)
-    {
-        return dType(lang, typeChoice, contractAddress, source, name, types);
+    function getRequired(dType memory dtypeFull) pure public returns(dTypeRequired memory dtype) {
+        return dTypeRequired(
+            dtypeFull.lang,
+            dtypeFull.typeChoice,
+            dtypeFull.contractAddress,
+            dtypeFull.source,
+            dtypeFull.name,
+            dtypeFull.types
+        );
+    }
+
+    function getFull(
+        dTypeRequired memory dtype,
+        dTypesLib.dTypes[] memory optionals,
+        dTypesLib.dTypes[] memory outputs
+    ) pure public returns(dType memory dtypeFull) {
+        return dType(
+            dtype.lang,
+            dtype.typeChoice,
+            dtype.contractAddress,
+            dtype.source,
+            dtype.name,
+            dtype.types,
+            optionals,
+            outputs
+        );
     }
 
     function structureBytes(bytes memory data)

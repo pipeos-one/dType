@@ -36,7 +36,6 @@ contract('dTypeAB', async (accounts) => {
         let tokenAddress = '0xEAd8C52989b587B0c6a8478f8B6dd447E2fc8B1f';
 
         stakedFunction = await dtype.get(0, 'setStaked');
-        stakedFunction = stakedFunction.data;
 
         ({logs} = await typeA.insert({balance: 10, token: tokenAddress}));
         ({hash, index} = logs[0].args);

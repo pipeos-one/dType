@@ -5,6 +5,8 @@
             {"name": "uint256", "label": "balance", "relation": 0, "dimensions":[]},
             {"name": "address", "label": "token", "relation": 0, "dimensions":[]}
         ],
+        "optionals": [],
+        "outputs": [],
         "lang": 0,
         "typeChoice": 0,
         "contractAddress": "0x0000000000000000000000000000000000000000",
@@ -16,6 +18,8 @@
             {"name": "uint256", "label": "staked", "relation": 0, "dimensions":[]},
             {"name": "TypeA", "label": "typeA", "relation": 0, "dimensions":[]}
         ],
+        "optionals": [],
+        "outputs": [],
         "lang": 0,
         "typeChoice": 0,
         "contractAddress": "0x0000000000000000000000000000000000000000",
@@ -26,6 +30,7 @@
         "types": [
             {"name": "TypeA", "label": "typeA", "relation":0, "dimensions":[]}
         ],
+        "optionals": [],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
@@ -39,6 +44,7 @@
         "types": [
             {"name": "TypeA", "label": "data", "relation":0, "dimensions":["0"]}
         ],
+        "optionals": [],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",

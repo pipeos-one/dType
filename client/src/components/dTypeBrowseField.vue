@@ -6,7 +6,7 @@
                 baseUrl="https://ropsten.etherscan.io/address/"
             />
         </template>
-        <template v-else-if="type.name == 'bytes32'">
+        <template v-else-if="type.fullName == 'bytes32'">
             <BytesValueField
                 :value="value.substring(2)"
                 baseUrl="https://swarm-gateways.net/bzz-raw:/"

@@ -7,6 +7,10 @@
             {"name": "string", "label": "source", "relation": 0, "dimensions":[]},
             {"name": "bytes32", "label": "parentKey", "relation": 0, "dimensions":[]}
         ],
+        "optionals": [
+            {"name": "bytes32", "label": "filesPerFolder", "relation": 0, "dimensions":["0"]}
+        ],
+        "outputs": [],
         "lang": 0,
         "typeChoice": 0,
         "contractAddress": "0x0000000000000000000000000000000000000000",

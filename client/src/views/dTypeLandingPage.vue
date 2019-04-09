@@ -21,7 +21,7 @@ import { mapState } from 'vuex';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
 import {EMPTY_ADDRESS} from '../constants_utils';
-import {buildTypeAbi} from '../dtype_utils';
+import {buildTypeAbi, typeDimensionsToString} from '../dtype_utils';
 import {
     getContract,
     buildStructAbi,
@@ -78,15 +78,6 @@ export default {
         },
         async setContract() {
             this.dtypeHeaders = this.getHeaders(this.dtype);
-            this.dtypeHeaders.push({
-                text: 'outputs\nstring[]',
-                value: 'outputs',
-                type: {
-                    name: 'string[]',
-                    label: 'outputs',
-                    relation: 0,
-                },
-            });
 
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
@@ -197,14 +188,19 @@ export default {
                     .then(console.log);
             }
         },
+        getHeader(type, required = true) {
+            let dimensionsString = typeDimensionsToString(type.dimensions);
+            type.fullName = type.name + dimensionsString;
+            return {
+                text: `${type.label}\n${type.fullName}`,
+                value: type.label,
+                type,
+                required,
+            }
+        },
         getHeaders(dtype) {
-            return dtype.types.map((type, i) => {
-                return {
-                    text: `${type.label}\n${dtype.types[i].name}`,
-                    value: type.label,
-                    type: dtype.types[i],
-                };
-            });
+            return dtype.types.map(type => this.getHeader(type))
+                .concat(dtype.optionals.map(type => this.getHeader(type, false)));
         },
     },
 }

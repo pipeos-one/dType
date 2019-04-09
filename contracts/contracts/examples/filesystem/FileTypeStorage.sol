@@ -5,15 +5,16 @@ import './FileTypeLib.sol';
 
 contract FileTypeStorage {
     using FileTypeLib for FileTypeLib.FileType;
+    using FileTypeLib for FileTypeLib.FileTypeRequired;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
     // Used for folders, to keep references to their files
-    mapping(bytes32 => bytes32[]) public optionals;
+    mapping(bytes32 => bytes32[]) public filesPerFolder;
 
     struct Type {
-        FileTypeLib.FileType data;
+        FileTypeLib.FileTypeRequired data;
         uint256 index;
     }
 
@@ -33,24 +34,27 @@ contract FileTypeStorage {
 
         if(isStored(hash)) revert("This data exists. Use the extant data.");
 
-        typeStruct[hash].data = data;
+        typeStruct[hash].data.insert(data);
         typeStruct[hash].index = typeIndex.push(hash) - 1;
+
+        setFiles(hash, data.filesPerFolder);
+
         emit LogNew(hash, typeStruct[hash].index);
         return hash;
     }
 
-    function setOptionals(bytes32 typeHash, bytes32[] memory optionalValues)
+    function setFiles(bytes32 typeHash, bytes32[] memory fileRefs)
         dataIsStored(typeHash)
         public
     {
-        for (uint256 i = 0 ; i < optionalValues.length; i++) {
+        for (uint256 i = 0 ; i < fileRefs.length; i++) {
             require(
-                isStored(optionalValues[i]),
+                isStored(fileRefs[i]),
                 'A file in the composition does not exists'
             );
         }
-        for (uint256 i = 0 ; i < optionalValues.length; i++) {
-            optionals[typeHash].push(optionalValues[i]);
+        for (uint256 i = 0 ; i < fileRefs.length; i++) {
+            filesPerFolder[typeHash].push(fileRefs[i]);
         }
     }
 
@@ -86,11 +90,11 @@ contract FileTypeStorage {
 
     function getByHash(bytes32 hash) public view returns(FileTypeLib.FileType memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
-        return(typeStruct[hash].data);
+        return typeStruct[hash].data.getFull(getFiles(hash));
     }
 
-    function getOptionals(bytes32 typeHash) view public returns (bytes32[] memory optionalValues) {
-        return optionals[typeHash];
+    function getFiles(bytes32 typeHash) view public returns (bytes32[] memory fileRefs) {
+        return filesPerFolder[typeHash];
     }
 
     function count() public view returns(uint256 counter) {

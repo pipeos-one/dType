@@ -19,3 +19,7 @@ export const buildTypeAbi = (typeAbi) => {
         return funcObject;
     });
 };
+
+export const typeDimensionsToString = (dimensions) => {
+    return dimensions.reduce((str, dim) => `${str}[${Number(dim) ? dim : ''}]`, '');
+};

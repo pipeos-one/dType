@@ -5,7 +5,7 @@ pragma experimental ABIEncoderV2;
 
 library FileTypeLib {
 
-    struct FileType {
+    struct FileTypeRequired {
         string name;
         // ExtensionLib.Extension extension;
         uint8 extension;
@@ -13,40 +13,74 @@ library FileTypeLib {
         bytes32 parentKey;  // string path
     }
 
-    function getDataHash(FileType memory fsbase) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(fsbase));
+    struct FileType {
+        string name;
+        uint8 extension;
+        string source;
+        bytes32 parentKey;
+        bytes32[] filesPerFolder;
+    }
+
+    function insert(FileTypeRequired storage self, FileType memory file) internal {
+        self.name = file.name;
+        self.extension = file.extension;
+        self.source = file.source;
+        self.parentKey = file.parentKey;
+    }
+
+    function getDataHash(FileType memory file) pure public returns(bytes32 hash) {
+        return keccak256(abi.encode(file));
+    }
+
+    function getRequired(FileType memory fileFull) pure public returns(FileTypeRequired memory file) {
+        return FileTypeRequired(
+            fileFull.name,
+            fileFull.extension,
+            fileFull.source,
+            fileFull.parentKey
+        );
+    }
+
+    function getFull(FileTypeRequired memory file, bytes32[] memory filesPerFolder) pure public returns(FileType memory fileFull) {
+        return FileType(
+            file.name,
+            file.extension,
+            file.source,
+            file.parentKey,
+            filesPerFolder
+        );
     }
 
     function structureBytes(bytes memory data)
         pure
         public
-        returns(FileType memory fsbase)
+        returns(FileType memory file)
     {
-        (fsbase) = abi.decode(data, (FileType));
+        (file) = abi.decode(data, (FileType));
     }
 
-    function destructureBytes(FileType memory fsbase)
+    function destructureBytes(FileType memory file)
         pure
         public
         returns(bytes memory data)
     {
-        return abi.encode(fsbase);
+        return abi.encode(file);
     }
 
     function map(
         address callbackAddr,
         bytes4 callbackSig,
-        FileType[] memory fsbaseAarr
+        FileType[] memory fileAarr
     )
         view
         public
         returns (FileType[] memory result)
     {
-        uint length = fsbaseAarr.length;
+        uint length = fileAarr.length;
         result = new FileType[](length);
 
         for (uint i = 0; i < length; i++) {
-            (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, fsbaseAarr[i]));
+            (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, fileAarr[i]));
 
             require(success, "Map callback failed");
             result[i] = structureBytes(data);
