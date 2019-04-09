@@ -157,6 +157,10 @@ contract dType {
         return optionals[typeHash];
     }
 
+    function getOutputs(bytes32 typeHash) view public returns (dTypesLib.dTypes[] memory outputValues) {
+        return outputs[typeHash];
+    }
+
     function getByIndex(uint256 index)
         view
         public
