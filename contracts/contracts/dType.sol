@@ -80,7 +80,8 @@ contract dType {
         typeStruct[keyToMove].index = rowToDelete;
         typeIndex.length--;
 
-        // TODO remove optionals[typeHash]
+        delete optionals[typeHash];
+        delete outputs[typeHash];
 
         emit LogRemove(typeHash, rowToDelete);
         emit LogUpdate(keyToMove, rowToDelete);
