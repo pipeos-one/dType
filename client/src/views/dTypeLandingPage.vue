@@ -78,15 +78,6 @@ export default {
         },
         async setContract() {
             this.dtypeHeaders = this.getHeaders(this.dtype);
-            this.dtypeHeaders.push({
-                text: 'outputs\nstring[]',
-                value: 'outputs',
-                type: {
-                    name: 'string[]',
-                    label: 'outputs',
-                    relation: 0,
-                },
-            });
 
             if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
                 console.log('isRoot');
@@ -197,14 +188,17 @@ export default {
                     .then(console.log);
             }
         },
+        getHeader(type, required = true) {
+            return {
+                text: `${type.label}\n${type.name}`,
+                value: type.label,
+                type,
+                required,
+            }
+        },
         getHeaders(dtype) {
-            return dtype.types.map((type, i) => {
-                return {
-                    text: `${type.label}\n${dtype.types[i].name}`,
-                    value: type.label,
-                    type: dtype.types[i],
-                };
-            });
+            return dtype.types.map(type => this.getHeader(type))
+                .concat(dtype.optionals.map(type => this.getHeader(type, false)));
         },
     },
 }

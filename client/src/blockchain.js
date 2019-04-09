@@ -38,9 +38,8 @@ export const getContract = async function(address, abi, wallet) {
     return contract;
 };
 
-export const getDataItem = async function(contract, hash, index) {
+export const getDataItem = async function(contract, hash) {
     let typeData = await contract.getByHash(hash);
-    typeData.index = index;
     typeData.typeHash = hash;
     return normalizeEthersObject(typeData);
 };
@@ -71,24 +70,24 @@ export const getDataItemsByTypeHash = async function(dtypeContract, wallet, type
 
 export const buildStructAbi = async function(dtypeContract, typeHash, parentLabel) {
     const dtype = await dtypeContract.getByHash(typeHash);
-    const {length} = dtype.data.name.length;
+    const {length} = dtype.name.length;
     let abi = {};
 
     abi.name = parentLabel;
 
-    if (dtype.data.types.length === 0) {
-        abi.type = dtype.data.name;
+    if (dtype.types.length === 0) {
+        abi.type = dtype.name;
         return abi;
     }
 
-    abi.type = dtype.data.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
+    abi.type = dtype.name.substring(length - 2) === '[]' ? 'tuple[]' : 'tuple';
     abi.components = [];
-    for (let i = 0; i < dtype.data.types.length; i++) {
-        const hash = await dtypeContract.getTypeHash(dtype.data.lang, dtype.data.types[i].name);
+    for (let i = 0; i < dtype.types.length; i++) {
+        const hash = await dtypeContract.getTypeHash(dtype.lang, dtype.types[i].name);
         abi.components.push(await buildStructAbi(
             dtypeContract,
             hash,
-            dtype.data.types[i].label,
+            dtype.types[i].label,
         ));
     }
     return abi;
