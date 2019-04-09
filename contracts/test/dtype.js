@@ -90,9 +90,9 @@ contract('dType', async (accounts) => {
 
             typeHash = await dtypeContract.getTypeHash(insertsBase[i].lang, insertsBase[i].name);
             dtype = await dtypeContract.get(insertsBase[i].lang, insertsBase[i].name);
-            sameStructs(insertsBase[i], dtype.data);
+            sameStructs(insertsBase[i], dtype);
 
-            assert.sameMembers(dtype.data.types, insertsBase[i].types, 'unexpected types');
+            assert.sameMembers(dtype.types, insertsBase[i].types, 'unexpected types');
             typeHashes.push(typeHash);
         }
     });
@@ -105,9 +105,7 @@ contract('dType', async (accounts) => {
         typeHash = await dtypeContract.getTypeHash(insertFunction.lang, insertFunction.name);
 
         dtype = await dtypeContract.get(insertFunction.lang, insertFunction.name);
-        typeOutputs = await dtypeContract.getOptionals(typeHash);
-        dtype.data.outputs = typeOutputs;
-        sameStructs(insertFunction, dtype.data);
+        sameStructs(insertFunction, dtype);
 
         let signature = await dtypeContract.getSignature(typeHash);
         let functionName = `${insertFunction.name}(${
@@ -128,7 +126,7 @@ contract('dType', async (accounts) => {
         await dtypeContract.update(typeHashes[0], newdType, {from: accounts[0]});
 
         dtype = await dtypeContract.get(newdType.lang, newdType.name);
-        sameStructs(newdType, dtype.data);
+        sameStructs(newdType, dtype);
     });
 
     it('remove', async () => {

@@ -23,7 +23,10 @@
             {"name": "string", "label": "name", "relation":0, "dimensions":[]},
             {"name": "dTypes", "label": "types", "relation":0, "dimensions":["0"]}
         ],
-        "optionals": [],
+        "optionals": [
+            {"name": "dTypes", "label": "optionals", "relation":0, "dimensions":["0"]},
+            {"name": "dTypes", "label": "outputs", "relation":0, "dimensions":["0"]}
+        ],
         "outputs": [],
         "lang": 0,
         "typeChoice": 0,

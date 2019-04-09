@@ -90,7 +90,7 @@ contract FileTypeStorage {
 
     function getByHash(bytes32 hash) public view returns(FileTypeLib.FileType memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
-        return(typeStruct[hash].data.getFull(getFiles(hash)));
+        return typeStruct[hash].data.getFull(getFiles(hash));
     }
 
     function getFiles(bytes32 typeHash) view public returns (bytes32[] memory fileRefs) {

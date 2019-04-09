@@ -129,14 +129,17 @@ contract dType {
         return keccak256(abi.encode(lang, name));
     }
 
-    function getByHash(bytes32 typeHash) view public returns(Type memory dtype) {
-        return typeStruct[typeHash];
+    function getByHash(bytes32 typeHash) view public returns(dTypeLib.dType memory dtype) {
+        return typeStruct[typeHash].data.getFull(
+            getOptionals(typeHash),
+            getOutputs(typeHash)
+        );
     }
 
     function get(dTypeLib.LangChoices lang, string memory name)
         view
         public
-        returns(Type memory dtype)
+        returns(dTypeLib.dType memory dtype)
     {
         bytes32 typeHash = getTypeHash(lang, name);
         return getByHash(typeHash);
@@ -164,10 +167,10 @@ contract dType {
     function getByIndex(uint256 index)
         view
         public
-        returns(Type memory dtype, bytes32 typeHash)
+        returns(dTypeLib.dType memory dtype, bytes32 typeHash)
     {
         require(index <= typeIndex.length, 'Index too big.');
-        return (typeStruct[typeIndex[index]], typeIndex[index]);
+        return (getByHash(typeIndex[index]), typeIndex[index]);
     }
 
     function checkTypesExist(dTypeLib.LangChoices lang, dTypesLib.dTypes[] memory types)
