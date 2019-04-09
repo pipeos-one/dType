@@ -15,6 +15,19 @@ contract('filesystem', async (accounts) => {
         fileFunctions = await FSPureFunctions.deployed();
     });
 
+    it('check data', async () => {
+        let index = 0;
+        for (let i = 0; i < fsData.folders.length; i++) {
+            folder = fsData.folders[i];
+            index += i;
+
+            let folderStruct = await fileStorage.getByHash(await fileStorage.typeIndex(index));
+            assert.equal(folderStruct.filesPerFolder.length, folder.files.length, 'wrong length for filesPerFolder');
+
+            index += folder.files.length ? folder.files.length - 1 : 0;
+        }
+    });
+
     it('changeName', async () => {
         let logs, folderHash, fileHash;
         let changedFile;
