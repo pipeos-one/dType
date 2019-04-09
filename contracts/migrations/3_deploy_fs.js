@@ -27,9 +27,6 @@ module.exports = async function(deployer, network, accounts) {
     dtypesComposed.forEach(async (data) => {
         data.contractAddress = fsFunctions.address;
         await dtypeContract.insert(data);
-
-        let typeHash = await dtypeContract.getTypeHash(data.lang, data.name);
-        await dtypeContract.setOptionals(typeHash, data.outputs);
     });
 
     // Insert example data records in storage contracts

@@ -10,6 +10,7 @@
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
             {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
-        ]
+        ],
+        "optionals": []
     }
 ]

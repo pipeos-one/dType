@@ -9,6 +9,7 @@ let insertFunction = {
         {name: "uint256", label: "a", relation:0, dimensions:[]},
         {name: "uint256", label: "b", relation:0, dimensions:[]},
     ],
+    optionals: [],
     lang: 0,
     typeChoice: 4,
     contractAddress: '0xCd9492Cdae7E8F8B5a648c6E15c4005C4cd9028b',
@@ -102,7 +103,6 @@ contract('dType', async (accounts) => {
         await dtypeContract.insert(insertFunction, {from: accounts[0]});
 
         typeHash = await dtypeContract.getTypeHash(insertFunction.lang, insertFunction.name);
-        await dtypeContract.setOptionals(typeHash, insertFunction.outputs);
 
         dtype = await dtypeContract.get(insertFunction.lang, insertFunction.name);
         typeOutputs = await dtypeContract.getOptionals(typeHash);
