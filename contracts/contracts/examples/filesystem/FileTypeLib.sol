@@ -28,6 +28,13 @@ library FileTypeLib {
         self.parentKey = file.parentKey;
     }
 
+    function insertArray(FileTypeRequired[] storage self, FileType[] memory files) internal {
+        uint256 length = files.length;
+        for (uint256 i = 0; i < length; i++) {
+            insert(self[i], files[i]);
+        }
+    }
+
     function getDataHash(FileType memory file) pure public returns(bytes32 hash) {
         return keccak256(abi.encode(file));
     }
