@@ -4,7 +4,8 @@
         "types": [
             {"name": "string", "label": "name", "relation":0, "dimensions":[]},
             {"name": "string", "label": "label", "relation":0, "dimensions":[]},
-            {"name": "uint8", "label": "relation", "relation":0, "dimensions":[]}
+            {"name": "uint8", "label": "relation", "relation":0, "dimensions":[]},
+            {"name": "string", "label": "dimensions", "relation":0, "dimensions":["0"]}
         ],
         "optionals": [],
         "outputs": [],
