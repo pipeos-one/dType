@@ -22,27 +22,20 @@
                                 <template v-for="header in headers">
                                     <v-flex xs12 v-if="header.value === 'types'">
                                         <v-layout row wrap>
-                                            <v-flex xs6>
-                                            <v-chip close
+                                            <dTypeTypeEdit
                                                 v-for="(type, i) in editedItem.types"
-                                                v-on:input="onRemovedType(type, i)"
-                                            >
-                                                {{type.name}}
-                                            </v-chip>
-                                            </v-flex>
-                                            <v-flex xs6>
-                                            <dTypeSearch
-                                                label='types'
-                                                itemKey='name'
-                                                itemValue='name'
-                                                :items='items'
-                                                v-on:change="onSelectedType"
+                                                :type="type"
+                                                v-on:change="onChangedType($event, i)"
+                                                v-on:remove="onRemovedType(type, i)"
                                             />
-                                            </v-flex>
-                                        </v-layout>
-                                        <v-layout row wrap>
                                             <v-flex xs12>
-                                                <v-text-field v-model='editedItem.labels' label='labels'></v-text-field>
+                                                <dTypeSearch
+                                                    label='types'
+                                                    itemKey='name'
+                                                    itemValue='name'
+                                                    :items='items'
+                                                    v-on:change="onSelectedType"
+                                                />
                                             </v-flex>
                                         </v-layout>
                                     </v-flex>
@@ -148,6 +141,7 @@
 <script>
 import dTypeSearch from '../components/dTypeSearch';
 import dTypeBrowseField from '../components/dTypeBrowseField';
+import dTypeTypeEdit from '../components/dTypeTypeEdit';
 
 export default {
     name: 'dTypeBrowse',
@@ -155,6 +149,7 @@ export default {
     components: {
         dTypeSearch,
         dTypeBrowseField,
+        dTypeTypeEdit,
     },
     data() {
         let data = {
@@ -233,7 +228,10 @@ export default {
                     }
                 });
             if (item.types) {
-                item.labels = item.types.map(type => type.label);
+                item.types = item.types.map(type => {
+                    type.dimensions = JSON.stringify(type.dimensions);
+                    return type;
+                });
             }
             this.editedIndex = this.items.indexOf(obj);
             this.editedItem = Object.assign({}, item);
@@ -252,29 +250,25 @@ export default {
         },
         save() {
             this.headers.forEach((header) => {
-                if (header.type.name.indexOf('[]') > -1) {
+                // If the type is an array, and value is a string, we need to split
+                if (header.type.dimensions.length > 0) {
                     if (typeof this.editedItem[header.value] === 'string') {
-                        this.editedItem[header.value] = this.editedItem[header.value].split(',');
+                        this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
                     }
-                } else {
+                }// else {
                     let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
                     if (dtype && dtype.types.length && typeof this.editedItem[header.value] == 'string') {
                         this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
                     }
-                }
+                //}
             });
-            if (this.editedItem.types && this.editedItem.labels) {
-                let labels = this.editedItem.labels;
-                if (typeof labels === 'string') {
-                    labels = labels.split(',');
-                }
-                this.editedItem.types.forEach((type, i) => {
-                    this.editedItem.types[i].label = labels[i];
-                });
-                delete this.editedItem.labels;
+            if (this.editedItem.types) {
+                this.editedItem.types = this.editedItem.types.map(type => {
+                    type.dimensions = JSON.parse(type.dimensions);
+                    return type;
+                })
             }
-
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
             } else {
@@ -300,6 +294,9 @@ export default {
                 return {name: value, label: '', relation: 0, dimensions: []};
             }));
             this.editedItem.types = values;
+        },
+        onChangedType(changed, i) {
+            this.editedItem.types[i][changed[0]] = changed[1];
         },
         onRemovedType(value, i) {
             this.editedItem.types.splice(i, 1);
