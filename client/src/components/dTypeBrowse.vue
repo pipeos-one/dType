@@ -20,21 +20,23 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <template v-for="header in headers">
-                                    <v-flex xs12 v-if="header.value === 'types'">
+                                    <v-flex xs12
+                                        v-if="header.value === 'types' || header.value === 'optionals' || header.value === 'outputs'"
+                                    >
                                         <v-layout row wrap>
                                             <dTypeTypeEdit
-                                                v-for="(type, i) in editedItem.types"
+                                                v-for="(type, i) in editedItem[header.value]"
                                                 :type="type"
-                                                v-on:change="onChangedType($event, i)"
-                                                v-on:remove="onRemovedType(type, i)"
+                                                v-on:change="onChangedType(header.value, $event, i)"
+                                                v-on:remove="onRemovedType(header.value,type, i)"
                                             />
                                             <v-flex xs12>
                                                 <dTypeSearch
-                                                    label='types'
+                                                    :label='header.value'
                                                     itemKey='name'
                                                     itemValue='name'
                                                     :items='items'
-                                                    v-on:change="onSelectedType"
+                                                    v-on:change="onSelectedType(header.value, $event)"
                                                 />
                                             </v-flex>
                                         </v-layout>
@@ -221,7 +223,7 @@ export default {
                     if (header) {
                         let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
 
-                        if (dtype && dtype.types.length && key !== 'types') {
+                        if (dtype && dtype.types.length && ['types', 'optionals', 'outputs'].indexOf(key) === -1 ) {
                             item[key] = JSON.stringify(item[key]);
                         }
 
@@ -229,6 +231,14 @@ export default {
                 });
             if (item.types) {
                 item.types = item.types.map(type => {
+                    type.dimensions = JSON.stringify(type.dimensions);
+                    return type;
+                });
+                item.optionals = item.optionals.map(type => {
+                    type.dimensions = JSON.stringify(type.dimensions);
+                    return type;
+                });
+                item.outputs = item.outputs.map(type => {
                     type.dimensions = JSON.stringify(type.dimensions);
                     return type;
                 });
@@ -267,7 +277,15 @@ export default {
                 this.editedItem.types = this.editedItem.types.map(type => {
                     type.dimensions = JSON.parse(type.dimensions);
                     return type;
-                })
+                });
+                this.editedItem.optionals = this.editedItem.optionals.map(type => {
+                    type.dimensions = JSON.parse(type.dimensions);
+                    return type;
+                });
+                this.editedItem.outputs = this.editedItem.outputs.map(type => {
+                    type.dimensions = JSON.parse(type.dimensions);
+                    return type;
+                });
             }
             if (this.editedIndex > -1) {
                 this.update(this.editedItem);
@@ -289,17 +307,17 @@ export default {
                 alert(`${e}`);
             }
         },
-        onSelectedType(values) {
-            values = this.editedItem.types.concat(values.map((value) => {
+        onSelectedType(key, values) {
+            values = this.editedItem[key].concat(values.map((value) => {
                 return {name: value, label: '', relation: 0, dimensions: []};
             }));
-            this.editedItem.types = values;
+            this.editedItem[key] = values;
         },
-        onChangedType(changed, i) {
-            this.editedItem.types[i][changed[0]] = changed[1];
+        onChangedType(key, changed, i) {
+            this.editedItem[key][i][changed[0]] = changed[1];
         },
-        onRemovedType(value, i) {
-            this.editedItem.types.splice(i, 1);
+        onRemovedType(key, value, i) {
+            this.editedItem[key].splice(i, 1);
         },
     },
 };

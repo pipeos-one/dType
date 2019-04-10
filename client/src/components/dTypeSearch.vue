@@ -11,7 +11,6 @@
                 :item-text="itemKey"
                 :item-value="itemValue"
                 :return-object="returnObject"
-                placeholder="uint256"
                 append-icon="search"
                 no-data-text=""
                 multiple

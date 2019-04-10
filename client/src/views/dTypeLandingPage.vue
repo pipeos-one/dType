@@ -115,9 +115,6 @@ export default {
                 }
             }
             this.defaultItem = buildDefaultItem(this.typeStruct);
-            if (this.defaultItem.types) {
-                this.defaultItem.labels = [];
-            }
         },
         async watchAll() {
             this.typeContract.on('LogNew', async (typeHash, index) => {
