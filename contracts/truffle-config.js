@@ -71,7 +71,7 @@ module.exports = {
     ropsten: {
         provider: () => new HDWalletProvider(privateKey, `https://ropsten.infura.io/v3/${infuraKey}`),
         network_id: 3,
-        gas: 5500000,
+        gas: 6500000,
         confirmations: 2,
         timeoutBlocks: 200,
         skipDryRun: true
@@ -80,7 +80,7 @@ module.exports = {
     kovan: {
         provider: () => new HDWalletProvider(privateKey, `https://kovan.infura.io/v3/${infuraKey}`),
         network_id:42,
-        gas: 5500000,
+        gas: 6500000,
         confirmations: 2,
         timeoutBlocks: 200,
         skipDryRun: true
@@ -89,7 +89,7 @@ module.exports = {
     rinkeby: {
         provider: () => new HDWalletProvider(privateKey, `https://rinkeby.infura.io/v3/${infuraKey}`),
         network_id: 4,
-        gas: 5500000,
+        gas: 6500000,
         confirmations: 2,
         timeoutBlocks: 200,
         skipDryRun: true
@@ -98,7 +98,7 @@ module.exports = {
     goerli: {
         provider: () => new HDWalletProvider(privateKey, `https://goerli.infura.io/v3/${infuraKey}`),
         network_id: 5,
-        gas: 5500000,
+        gas: 6500000,
         confirmations: 2,
         timeoutBlocks: 200,
         skipDryRun: true
