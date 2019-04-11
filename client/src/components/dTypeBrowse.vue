@@ -98,6 +98,7 @@
             :headers='headers'
             :items='items'
             class='elevation-1'
+            :pagination.sync="paginationBrowse"
         >
             <template v-slot:items='props'>
 
@@ -161,6 +162,7 @@ export default {
             editedItem: {},
             bulkInsertDefault: '{}',
             bulkInsert: '{}',
+            paginationBrowse: {rowsPerPage: 25},
 
         }
         return data;

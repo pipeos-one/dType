@@ -32,6 +32,7 @@
                 <v-data-table
                     :headers="headers"
                     :items="items"
+                    :pagination.sync="paginationHeaders"
                     class="elevation-1"
                 >
                     <template v-slot:items="props">
@@ -51,6 +52,7 @@
                 <v-data-table
                     :headers="parentHeaders"
                     :items="relatedFunctions"
+                    :pagination.sync="paginationFunctions"
                     class="elevation-1"
                 >
                     <template v-slot:items="props">
@@ -112,7 +114,11 @@ export default {
     props: ['dtype', 'parentHeaders', 'dtypes'],
     components: {dTypeBrowseField, FunctionRun},
     data() {
-        return {runFunctionDialog: false};
+        return {
+            runFunctionDialog: false,
+            paginationHeaders: {rowsPerPage: -1},
+            paginationFunctions: {rowsPerPage: 10},
+        };
     },
     computed: {
         headers() {
