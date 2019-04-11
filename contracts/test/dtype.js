@@ -38,7 +38,7 @@ contract('dType', async (accounts) => {
         );
         assert.equal(
             '[]',
-            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["0"])),
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString([""])),
         );
         assert.equal(
             '[2]',
@@ -46,7 +46,7 @@ contract('dType', async (accounts) => {
         );
         assert.equal(
             '[][]',
-            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["0", "0"])),
+            web3.utils.hexToAscii(await dtypeContract.typeDimensionsToString(["", ""])),
         );
         assert.equal(
             '[2][5]',
@@ -59,12 +59,12 @@ contract('dType', async (accounts) => {
         );
         assert.equal(
             '(uint256,address)[]',
-            web3.utils.hexToAscii(await dtypeContract.getEncodedType(0, 'TypeA', ["0"])),
+            web3.utils.hexToAscii(await dtypeContract.getEncodedType(0, 'TypeA', [""])),
         );
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF1';
         functionRecord.types = [
-            {name: "string", label: "label", relation:0, dimensions: ["0"]},
+            {name: "string", label: "label", relation:0, dimensions: [""]},
         ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF1');
@@ -74,7 +74,7 @@ contract('dType', async (accounts) => {
 
         functionRecord = JSON.parse(JSON.stringify(insertFunction)); functionRecord.name = 'newF2';
         functionRecord.types = [
-            {name: "TypeA", label: "label", relation:0, dimensions: ["0"]},
+            {name: "TypeA", label: "label", relation:0, dimensions: [""]},
         ];
         await dtypeContract.insert(functionRecord);
         fhash = await dtypeContract.getTypeHash(0, 'newF2');

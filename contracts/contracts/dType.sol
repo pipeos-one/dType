@@ -218,11 +218,7 @@ contract dType {
         returns(bytes memory encoded)
     {
         for (uint256 i = 0; i < dimensions.length; i++) {
-            encoded = abi.encodePacked(encoded, '[');
-            if (keccak256(abi.encodePacked(dimensions[i])) != keccak256(abi.encodePacked("0"))) {
-                encoded = abi.encodePacked(encoded, dimensions[i]);
-            }
-            encoded = abi.encodePacked(encoded, ']');
+            encoded = abi.encodePacked(encoded, '[', dimensions[i], ']');
         }
     }
 

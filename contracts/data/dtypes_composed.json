@@ -42,7 +42,7 @@
     {
         "name": "doubleBalances",
         "types": [
-            {"name": "TypeA", "label": "data", "relation":0, "dimensions":["0"]}
+            {"name": "TypeA", "label": "data", "relation":0, "dimensions":[""]}
         ],
         "optionals": [],
         "lang": 0,
@@ -50,7 +50,7 @@
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
-            {"name": "TypeA", "label": "typeAarr", "relation":0, "dimensions":["0"]}
+            {"name": "TypeA", "label": "typeAarr", "relation":0, "dimensions":[""]}
         ]
     }
 ]

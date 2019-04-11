@@ -8,7 +8,7 @@
             {"name": "bytes32", "label": "parentKey", "relation": 0, "dimensions":[]}
         ],
         "optionals": [
-            {"name": "bytes32", "label": "filesPerFolder", "relation": 0, "dimensions":["0"]}
+            {"name": "bytes32", "label": "filesPerFolder", "relation": 0, "dimensions":[""]}
         ],
         "outputs": [],
         "lang": 0,
