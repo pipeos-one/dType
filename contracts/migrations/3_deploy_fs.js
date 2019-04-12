@@ -53,12 +53,16 @@ module.exports = async function(deployer, network, accounts) {
         if (typeof folder.parentKey == 'number') {
             folder.parentKey = await fileStorage.typeIndex(folder.parentKey);
         } else {
-            folder.parentKey = "0x00";
+            folder.parentKey = '0x00';
         }
 
         // Insert folder data
         ({logs} = await fileStorage.insert(folder));
         ({hash} = logs[0].args);
+
+        if (folder.parentKey !== '0x00') {
+            await fileStorage.addFile(folder.parentKey, hash);
+        }
 
         // Insert files
         for (file of files) {

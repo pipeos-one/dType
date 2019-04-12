@@ -43,18 +43,20 @@ contract FileTypeStorage {
         return hash;
     }
 
-    function setFiles(bytes32 typeHash, bytes32[] memory fileRefs)
+    function addFile(bytes32 typeHash, bytes32 fileHash)
         dataIsStored(typeHash)
         public
     {
+        require(
+            isStored(fileHash),
+            'A file in the composition does not exists'
+        );
+        filesPerFolder[typeHash].push(fileHash);
+    }
+
+    function setFiles(bytes32 typeHash, bytes32[] memory fileRefs) public {
         for (uint256 i = 0 ; i < fileRefs.length; i++) {
-            require(
-                isStored(fileRefs[i]),
-                'A file in the composition does not exists'
-            );
-        }
-        for (uint256 i = 0 ; i < fileRefs.length; i++) {
-            filesPerFolder[typeHash].push(fileRefs[i]);
+            addFile(typeHash, fileRefs[i]);
         }
     }
 
