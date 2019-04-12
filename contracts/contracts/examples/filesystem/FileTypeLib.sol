@@ -1,30 +1,24 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-// import './ExtensionLib.sol';
+import './FilePointerLib.sol';
 
 library FileTypeLib {
+    using FilePointerLib for FilePointerLib.FilePointer;
 
     struct FileTypeRequired {
-        string name;
-        // ExtensionLib.Extension extension;
-        uint8 extension;
-        string source;  // swarm/ipfs url; will be a type in itself
+        FilePointerLib.FilePointer pointer;
         bytes32 parentKey;  // string path
     }
 
     struct FileType {
-        string name;
-        uint8 extension;
-        string source;
+        FilePointerLib.FilePointer pointer;
         bytes32 parentKey;
         bytes32[] filesPerFolder;
     }
 
     function insert(FileTypeRequired storage self, FileType memory file) internal {
-        self.name = file.name;
-        self.extension = file.extension;
-        self.source = file.source;
+        self.pointer = file.pointer;
         self.parentKey = file.parentKey;
     }
 
@@ -41,18 +35,14 @@ library FileTypeLib {
 
     function getRequired(FileType memory fileFull) pure public returns(FileTypeRequired memory file) {
         return FileTypeRequired(
-            fileFull.name,
-            fileFull.extension,
-            fileFull.source,
+            fileFull.pointer,
             fileFull.parentKey
         );
     }
 
     function getFull(FileTypeRequired memory file, bytes32[] memory filesPerFolder) pure public returns(FileType memory fileFull) {
         return FileType(
-            file.name,
-            file.extension,
-            file.source,
+            file.pointer,
             file.parentKey,
             filesPerFolder
         );
