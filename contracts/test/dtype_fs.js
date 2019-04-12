@@ -32,16 +32,27 @@ contract('filesystem', async (accounts) => {
         let logs, folderHash, fileHash;
         let changedFile;
         let file = {
-            "name": "TestFile",
-            "extension": 1,
-            "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
-            "parentKey": null,
+            "pointer": {
+                "name": "TestFile",
+                "extension": 1,
+                "swarm": {
+                    "protocol": 1,
+                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                },
+                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+            },
             filesPerFolder: []
         };
         let folder = {
-            "name": "TestFolder",
-            "extension": 0,
-            "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+            "pointer": {
+                "name": "TestFolder",
+                "extension": 0,
+                "swarm": {
+                    "protocol": 1,
+                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                },
+                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+            },
             "parentKey": "0x00",
             filesPerFolder: []
         };
@@ -53,18 +64,20 @@ contract('filesystem', async (accounts) => {
         fileHash = logs[0].args.hash;
 
         let insertedFile = await fileStorage.getByHash(fileHash);
-        assert.equal(file.name, insertedFile.name, 'insertedFile.name incorrect');
-        assert.equal(file.extension, insertedFile.extension, 'insertedFile.extension incorrect');
-        assert.equal(file.source, insertedFile.source, 'insertedFile.source incorrect');
+        assert.equal(file.pointer.name, insertedFile.pointer.name, 'insertedFile.name incorrect');
+        assert.equal(file.pointer.extension, insertedFile.pointer.extension, 'insertedFile.extension incorrect');
+        assert.equal(file.pointer.swarm.protocol, insertedFile.pointer.swarm.protocol, 'insertedFile.swarm incorrect');
+        assert.equal(file.pointer.swarm.filehash, insertedFile.pointer.swarm.filehash, 'insertedFile.filehash incorrect');
         assert.equal(file.parentKey, insertedFile.parentKey, 'insertedFile.parentKey incorrect');
 
         ({logs} = await fileStorage.setFiles(folderHash, [fileHash]));
 
         // Test standalone changeName
         changedFile = await fileFunctions.contract.methods.changeName(file).call();
-        assert.equal(file.name + '1', changedFile.name);
-        assert.equal(file.extension, changedFile.extension);
-        assert.equal(file.source, changedFile.source);
+        assert.equal(file.pointer.name + '1', changedFile.pointer.name);
+        assert.equal(file.pointer.extension, changedFile.pointer.extension);
+        assert.equal(file.pointer.swarm.protocol, changedFile.pointer.swarm.protocol, 'changedFile.swarm incorrect');
+        assert.equal(file.pointer.swarm.filehash, changedFile.pointer.swarm.filehash, 'changedFile.filehash incorrect');
         assert.equal(file.parentKey, changedFile.parentKey);
 
         let funcHash = await dtype.getTypeHash(0, 'changeName');
@@ -72,9 +85,10 @@ contract('filesystem', async (accounts) => {
         ({logs} = await dtype.run(funcHash, [fileHash]));
 
         changedFile = await fileStorage.getByHash(logs[0].args.hash);
-        assert.equal(file.name + '1', changedFile.name, 'changedFile.name incorrect');
-        assert.equal(file.extension, changedFile.extension);
-        assert.equal(file.source, changedFile.source);
+        assert.equal(file.pointer.name + '1', changedFile.pointer.name, 'changedFile.name incorrect');
+        assert.equal(file.pointer.extension, changedFile.pointer.extension);
+        assert.equal(file.pointer.swarm.protocol, changedFile.pointer.swarm.protocol, 'changedFile.swarm incorrect');
+        assert.equal(file.pointer.swarm.filehash, changedFile.pointer.swarm.filehash, 'changedFile.filehash incorrect');
         assert.equal(file.parentKey, changedFile.parentKey);
     });
 });

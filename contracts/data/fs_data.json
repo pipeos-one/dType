@@ -2,9 +2,15 @@
     "folders": [
         {
             "folder": {
-                "name": "Root",
-                "extension": 0,
-                "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                "pointer": {
+                    "name": "Root",
+                    "extension": 0,
+                    "swarm": {
+                        "protocol": 1,
+                        "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                    },
+                    "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                },
                 "parentKey": null,
                 "filesPerFolder": []
             },
@@ -12,40 +18,70 @@
         },
         {
             "folder": {
-                "name": "Folder1",
-                "extension": 0,
-                "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                "pointer": {
+                    "name": "Folder1",
+                    "extension": 0,
+                    "swarm": {
+                        "protocol": 1,
+                        "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                    },
+                    "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                },
                 "parentKey": 0,
                 "filesPerFolder": []
             },
             "files": [
                 {
-                    "name": "File1",
-                    "extension": 1,
-                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                    "pointer": {
+                        "name": "File1",
+                        "extension": 1,
+                        "swarm": {
+                            "protocol": 1,
+                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                        },
+                        "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                    },
                     "filesPerFolder": []
                 },
                 {
-                    "name": "File2",
-                    "extension": 1,
-                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                    "pointer": {
+                        "name": "File2",
+                        "extension": 1,
+                        "swarm": {
+                            "protocol": 1,
+                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                        },
+                        "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                    },
                     "filesPerFolder": []
                 }
             ]
         },
         {
             "folder": {
-                "name": "Folder2",
-                "extension": 0,
-                "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                "pointer": {
+                    "name": "Folder2",
+                    "extension": 0,
+                    "swarm": {
+                        "protocol": 1,
+                        "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                    },
+                    "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                },
                 "parentKey": 0,
                 "filesPerFolder": []
             },
             "files": [
                 {
-                    "name": "File3",
-                    "extension": 1,
-                    "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+                    "pointer": {
+                        "name": "File3",
+                        "extension": 1,
+                        "swarm": {
+                            "protocol": 1,
+                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                        },
+                        "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                    },
                     "parentKey": 2,
                     "filesPerFolder": []
                 }
@@ -54,9 +90,15 @@
     ],
     "files": [
         {
-            "name": "File4",
-            "extension": 1,
-            "source": "/bzz-raw:/9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189/",
+            "pointer": {
+                "name": "File4",
+                "extension": 1,
+                "swarm": {
+                    "protocol": 1,
+                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                },
+                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+            },
             "parentKey": null,
             "filesPerFolder": []
         }

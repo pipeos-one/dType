@@ -1,4 +1,6 @@
 const dType = artifacts.require("dType");
+const FilePointerLib = artifacts.require('FilePointerLib.sol');
+const FilePointerStorage = artifacts.require('FilePointerStorage.sol');
 const FileTypeLib = artifacts.require('FileTypeLib.sol');
 const FileTypeStorage = artifacts.require('FileTypeStorage.sol');
 const FSPureFunctions = artifacts.require('FSPureFunctions.sol');
@@ -8,6 +10,10 @@ const dtypesComposed = require('../data/dtypes_fs_composed.json');
 const fsData = require('../data/fs_data.json');
 
 module.exports = async function(deployer, network, accounts) {
+    await deployer.deploy(FilePointerLib);
+    await deployer.link(FilePointerLib, FilePointerStorage);
+    await deployer.deploy(FilePointerStorage);
+
     await deployer.deploy(FileTypeLib);
     await deployer.link(FileTypeLib, FileTypeStorage);
     await deployer.deploy(FileTypeStorage);
@@ -16,12 +22,22 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(FSPureFunctions);
 
     let dtypeContract = await dType.deployed();
+    let filePointer = await FilePointerStorage.deployed();
     let fileStorage = await FileTypeStorage.deployed();
     let fsFunctions = await FSPureFunctions.deployed();
 
     // Insert base FS types
-    dtypesFS[0].contractAddress = fileStorage.address;
-    await dtypeContract.insert(dtypesFS[0], {from: accounts[0]});
+    dtypesFS.forEach(async (data) => {
+        switch(data.name) {
+            case "FilePointer":
+                data.contractAddress = filePointer.address;
+                break;
+            case "FileType":
+                data.contractAddress = fileStorage.address;
+                break;
+        }
+        await dtypeContract.insert(data);
+    });
 
     // Insert pure functions
     dtypesComposed.forEach(async (data) => {
