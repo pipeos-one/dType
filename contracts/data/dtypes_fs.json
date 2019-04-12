@@ -1,10 +1,63 @@
 [
     {
-        "name": "FileType",
+        "name": "SwarmPointer",
+        "types": [
+            {"name": "uint8", "label": "protocol", "relation": 0, "dimensions":[]},
+            {"name": "bytes32", "label": "filehash", "relation": 0, "dimensions":[]}
+        ],
+        "optionals": [],
+        "outputs": [],
+        "lang": 0,
+        "typeChoice": 0,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "IpfsPointer",
+        "types": [
+            {"name": "uint8", "label": "protocol", "relation": 0, "dimensions":[]},
+            {"name": "bytes32", "label": "filehash", "relation": 0, "dimensions":[]}
+        ],
+        "optionals": [],
+        "outputs": [],
+        "lang": 0,
+        "typeChoice": 0,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "UriPointer",
+        "types": [
+            {"name": "string", "label": "uri", "relation": 0, "dimensions":[]}
+        ],
+        "optionals": [],
+        "outputs": [],
+        "lang": 0,
+        "typeChoice": 0,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "FilePointer",
         "types": [
             {"name": "string", "label": "name", "relation": 0, "dimensions":[]},
-            {"name": "uint8", "label": "extension", "relation": 0, "dimensions":[]},
-            {"name": "string", "label": "source", "relation": 0, "dimensions":[]},
+            {"name": "uint8", "label": "extension", "relation": 0, "dimensions":[]}
+        ],
+        "optionals": [
+            {"name": "SwarmPointer", "label": "swarm", "relation": 0, "dimensions":[]},
+            {"name": "IpfsPointer", "label": "ipfs", "relation": 0, "dimensions":[]},
+            {"name": "UriPointer", "label": "uri", "relation": 0, "dimensions":[]}
+        ],
+        "outputs": [],
+        "lang": 0,
+        "typeChoice": 0,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+        "name": "FileType",
+        "types": [
+            {"name": "FilePointer", "label": "pointer", "relation": 0, "dimensions":[]},
             {"name": "bytes32", "label": "parentKey", "relation": 0, "dimensions":[]}
         ],
         "optionals": [

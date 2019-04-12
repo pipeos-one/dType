@@ -11,7 +11,7 @@ contract FSPureFunctions {
         public
         returns (FileTypeLib.FileType memory changedFile)
     {
-        file.name = string(abi.encodePacked(file.name, "1"));
+        file.pointer.name = string(abi.encodePacked(file.pointer.name, "1"));
         return file;
     }
 }
