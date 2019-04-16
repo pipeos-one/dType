@@ -1,5 +1,7 @@
 # dType
 
+[![Join the chat at https://gitter.im/pipeos-one/dType](https://badges.gitter.im/pipeos-one/dType.svg)](https://gitter.im/pipeos-one/dType?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 We are proposing a Decentralized Type System for Ethereum, to introduce data definition (and therefore ABI) consistency.
 
 In-work EIP proposal: https://github.com/ethereum/EIPs/pull/1900
