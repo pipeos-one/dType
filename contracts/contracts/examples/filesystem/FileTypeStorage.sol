@@ -66,14 +66,18 @@ contract FileTypeStorage {
 
     function remove(bytes32 hash) public returns(uint256 index) {
         if(!isStored(hash)) revert("Not deleted: not extant.");
+
         uint rowToDelete = typeStruct[hash].index;
         bytes32 keyToMove = typeIndex[typeIndex.length-1];
         typeIndex[rowToDelete] = keyToMove;
         typeStruct[keyToMove].index = rowToDelete;
         typeIndex.length--;
-        emit LogRemove(hash, rowToDelete);
 
+        delete typeStruct[hash];
+
+        emit LogRemove(hash, rowToDelete);
         emit LogUpdate(keyToMove, rowToDelete);
+
         return rowToDelete;
     }
 
