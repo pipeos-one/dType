@@ -1,0 +1,15 @@
+[
+    {
+        "name": "VotingMechanism",
+        "types": [
+            {"name": "bytes32", "label": "processVoteFunctions", "relation": 0, "dimensions":[""]},
+            {"name": "bytes32", "label": "processStateFunctions", "relation": 0, "dimensions":[""]}
+        ],
+        "optionals": [],
+        "outputs": [],
+        "lang": 0,
+        "typeChoice": 0,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    }
+]
