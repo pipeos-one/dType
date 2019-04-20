@@ -52,6 +52,9 @@ module.exports = async function(deployer, network, accounts) {
             case 'doubleBalances':
                 dtypesComposed[i].contractAddress = typeAAF.address;
                 break;
+            case 'double':
+                dtypesComposed[i].contractAddress = typeAAF.address;
+                break;
         }
         let tx = await dtypeContract.insert(dtypesComposed[i], {from: accounts[0]});
     }
