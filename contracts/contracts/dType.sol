@@ -300,6 +300,44 @@ contract dType {
         public
         returns(bytes32 outDataHash)
     {
+        bytes memory outputData = runView(funcHash, inDataHash);
+        Type storage dtype = typeStruct[funcHash];
+
+        // Inserting the funcHash outputs into the corresponding type storage
+        bytes32 outputHash = getTypeHash(dtype.data.lang, outputs[funcHash][0].name);
+        (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
+            abi.encodeWithSignature('insertBytes(bytes)', outputData)
+        );
+        require(success2 == true, 'Inserting output failed');
+
+        return abi.decode(result, (bytes32));
+    }
+
+    function pipeView(bytes32[] memory inDataHash, bytes32[] memory funcHash)
+        public
+        view
+        returns(bytes memory result)
+    {
+        result = runView(funcHash[0], inDataHash);
+
+        for (uint256 i = 1; i < funcHash.length; i++) {
+            Type storage dtype = typeStruct[funcHash[i]];
+
+            bytes memory encodedInputs = abi.encodePacked(getSignature(funcHash[i]), result);
+
+            (bool success, bytes memory outputData) = dtype.data.contractAddress.staticcall(encodedInputs);
+            require(success == true, 'Running function failed');
+            
+            result = outputData;
+        }
+        return result;
+    }
+
+    function runView(bytes32 funcHash, bytes32[] memory inDataHash)
+        public
+        view
+        returns(bytes memory result)
+    {
         Type storage dtype = typeStruct[funcHash];
 
         bytes memory encodedInputs = abi.encodePacked(getSignature(funcHash));
@@ -311,7 +349,7 @@ contract dType {
             bytes32 typeHash = getTypeHash(dtype.data.lang, dtype.data.types[i].name);
             Type storage ttype = typeStruct[typeHash];
 
-            (bool success, bytes memory inputData) = ttype.data.contractAddress.call(
+            (bool success, bytes memory inputData) = ttype.data.contractAddress.staticcall(
                 abi.encodeWithSignature('getByHash(bytes32)', inDataHash[i])
             );
             require(success == true, 'Retrieving input failed');
@@ -319,16 +357,9 @@ contract dType {
         }
 
         // Calling the function determined by funcHash
-        (bool success, bytes memory outputData) = dtype.data.contractAddress.call(encodedInputs);
+        (bool success, bytes memory outputData) = dtype.data.contractAddress.staticcall(encodedInputs);
         require(success == true, 'Running function failed');
 
-        // Inserting the funcHash outputs into the corresponding type storage
-        bytes32 outputHash = getTypeHash(dtype.data.lang, outputs[funcHash][0].name);
-        (bool success2, bytes memory result) =  typeStruct[outputHash].data.contractAddress.call(
-            abi.encodeWithSignature('insertBytes(bytes)', outputData)
-        );
-        require(success2 == true, 'Inserting output failed');
-
-        return abi.decode(result, (bytes32));
+        return outputData;
     }
 }
