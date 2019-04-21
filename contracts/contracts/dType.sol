@@ -318,17 +318,11 @@ contract dType {
         view
         returns(bytes memory result)
     {
-        result = runView(funcHash[0], inDataHash);
+        result = getPackedInputs(typeStruct[funcHash[0]], inDataHash);
 
-        for (uint256 i = 1; i < funcHash.length; i++) {
+        for (uint256 i = 0; i < funcHash.length; i++) {
             Type storage dtype = typeStruct[funcHash[i]];
-
-            bytes memory encodedInputs = abi.encodePacked(getSignature(funcHash[i]), result);
-
-            (bool success, bytes memory outputData) = dtype.data.contractAddress.staticcall(encodedInputs);
-            require(success == true, 'Running function failed');
-            
-            result = outputData;
+            result = runViewRaw(funcHash[i], dtype, result);
         }
         return result;
     }
@@ -339,9 +333,28 @@ contract dType {
         returns(bytes memory result)
     {
         Type storage dtype = typeStruct[funcHash];
+        return runViewRaw(funcHash, dtype, getPackedInputs(dtype, inDataHash));
+    }
 
-        bytes memory encodedInputs = abi.encodePacked(getSignature(funcHash));
+    function runViewRaw(
+        bytes32 funcHash,
+        Type storage dtype,
+        bytes memory inputs
+    )
+        private
+        view
+        returns(bytes memory outputData)
+    {
+        inputs = abi.encodePacked(getSignature(funcHash), inputs);
 
+        // Calling the function determined by funcHash
+        (bool success, bytes memory result) = dtype.data.contractAddress.staticcall(inputs);
+        require(success == true, 'Running function failed');
+
+        return result;
+    }
+
+    function getPackedInputs(Type storage dtype, bytes32[] memory inDataHash) private view returns(bytes memory inputs) {
         require(inDataHash.length == dtype.data.types.length, 'Incorrect number of inputs');
 
         // Retrieve inputs for calling the function at funcHash
@@ -353,13 +366,7 @@ contract dType {
                 abi.encodeWithSignature('getByHash(bytes32)', inDataHash[i])
             );
             require(success == true, 'Retrieving input failed');
-            encodedInputs = abi.encodePacked(encodedInputs, inputData);
+            inputs = abi.encodePacked(inputs, inputData);
         }
-
-        // Calling the function determined by funcHash
-        (bool success, bytes memory outputData) = dtype.data.contractAddress.staticcall(encodedInputs);
-        require(success == true, 'Running function failed');
-
-        return outputData;
     }
 }
