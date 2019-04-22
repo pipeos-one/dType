@@ -1,6 +1,7 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import "./lib/ECVerify.sol";
 import './dTypeLib.sol';
 import './dTypesLib.sol';
 
@@ -313,6 +314,17 @@ contract dType {
         return abi.decode(result, (bytes32));
     }
 
+    function runSecure(bytes32 funcHash, bytes32[] memory inDataHash, bytes memory freeInputs, bytes memory signature)
+        public
+        returns(bytes32 outDataHash)
+    {
+        address senderAddress = recoverAddress(freeInputs, signature);
+        Type storage dtype = typeStruct[funcHash];
+
+        freeInputs = abi.encodePacked(freeInputs, abi.encode(senderAddress));
+        return run(funcHash, inDataHash, freeInputs);
+    }
+
     function pipeView(bytes32[] memory inDataHash, bytes32[] memory funcHash)
         public
         view
@@ -372,5 +384,12 @@ contract dType {
             require(success == true, 'Retrieving input failed');
             inputs = abi.encodePacked(inputs, inputData);
         }
+    }
+
+    function recoverAddress(bytes memory data, bytes memory signature) private pure returns(address senderAddress) {
+        // TODO fix signature security
+        // chain_id, some identifiers for the purpose of the function
+        // ideally a nonce (tx.nonce ftw!);
+        senderAddress = ECVerify.ecverify(keccak256(data), signature);
     }
 }
