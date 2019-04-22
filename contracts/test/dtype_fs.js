@@ -1,3 +1,5 @@
+const CT = require('./constants.js');
+
 const dType = artifacts.require('dType.sol');
 const FileTypeLib = artifacts.require('FileTypeLib.sol');
 const FileTypeStorage = artifacts.require('FileTypeStorage.sol');
@@ -82,7 +84,7 @@ contract('filesystem', async (accounts) => {
 
         let funcHash = await dtype.getTypeHash(0, 'changeName');
 
-        ({logs} = await dtype.run(funcHash, [fileHash]));
+        ({logs} = await dtype.run(funcHash, [fileHash], CT.EMPTY_BYTES));
 
         changedFile = await fileStorage.getByHash(logs[0].args.hash);
         assert.equal(file.pointer.name + '1', changedFile.pointer.name, 'changedFile.name incorrect');

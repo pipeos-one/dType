@@ -296,11 +296,11 @@ contract dType {
         return bytes4(keccak256(getSignatureFull(typeHash)));
     }
 
-    function run(bytes32 funcHash, bytes32[] memory inDataHash)
+    function run(bytes32 funcHash, bytes32[] memory inDataHash, bytes memory freeInputs)
         public
         returns(bytes32 outDataHash)
     {
-        bytes memory outputData = runView(funcHash, inDataHash);
+        bytes memory outputData = runView(funcHash, inDataHash, freeInputs);
         Type storage dtype = typeStruct[funcHash];
 
         // Inserting the funcHash outputs into the corresponding type storage
@@ -327,13 +327,17 @@ contract dType {
         return result;
     }
 
-    function runView(bytes32 funcHash, bytes32[] memory inDataHash)
+    function runView(bytes32 funcHash, bytes32[] memory inDataHash, bytes memory freeInputs)
         public
         view
         returns(bytes memory result)
     {
         Type storage dtype = typeStruct[funcHash];
-        return runViewRaw(funcHash, dtype, getPackedInputs(dtype, inDataHash));
+        return runViewRaw(
+            funcHash,
+            dtype,
+            abi.encodePacked(getPackedInputs(dtype, inDataHash), freeInputs)
+        );
     }
 
     function runViewRaw(

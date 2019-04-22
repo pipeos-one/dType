@@ -1,3 +1,5 @@
+const CT = require('./constants.js');
+
 const dType = artifacts.require('dType.sol')
 const typeAContract = artifacts.require('typeAContract.sol')
 const typeBContract = artifacts.require('typeBContract.sol')
@@ -42,7 +44,7 @@ contract('dTypeAB', async (accounts) => {
         let stakedFunctionHash = await dtype.getTypeHash(stakedFunction.lang, stakedFunction.name);
         let data = await typeA.getByHash(hash);
 
-        ({logs} = await dtype.run(stakedFunctionHash, [hash]));
+        ({logs} = await dtype.run(stakedFunctionHash, [hash], CT.EMPTY_BYTES));
         ({hash} = logs[0].args);
         typeBStruct = await typeB.getByHash(hash);
 
