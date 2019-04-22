@@ -314,7 +314,7 @@ contract dType {
         return abi.decode(result, (bytes32));
     }
 
-    function runSecure(bytes32 funcHash, bytes32[] memory inDataHash, bytes memory freeInputs, bytes memory signature)
+    function run(bytes32 funcHash, bytes32[] memory inDataHash, bytes memory freeInputs, bytes memory signature)
         public
         returns(bytes32 outDataHash)
     {
