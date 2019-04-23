@@ -3,8 +3,9 @@ pragma experimental ABIEncoderV2;
 
 library VoteTypeLib {
 
-    struct Vote {
-        address senderAddress;
+    struct UserVote {
         bool vote;
+        uint256 voteWeight;
+        address senderAddress;
     }
 }

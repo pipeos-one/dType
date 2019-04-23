@@ -8,7 +8,7 @@ contract PermissionTypeStorage {
     using PermissionTypeLib for PermissionTypeLib.PermissionTypeRequired;
 
     bytes32[] public typeIndex;
-    mapping(bytes32 => PermissionTypeLib.PermissionTypeRequired) public typeStruct;
+    mapping(bytes32 => Type) public typeStruct;
 
     struct Type {
         PermissionTypeLib.PermissionTypeRequired data;
@@ -36,7 +36,7 @@ contract PermissionTypeStorage {
         typeStruct[hash].index = typeIndex.push(hash) - 1;
         typeStruct[hash].enabled = false;
 
-        emit LogNew(hash);
+        emit LogNew(hash, typeStruct[hash].index);
         return hash;
     }
 
@@ -78,13 +78,9 @@ contract PermissionTypeStorage {
         return isStored(hash) && typeStruct[hash].enabled;
     }
 
-    function getByHash(bytes32 hash) public view returns(PermissionTypeLib.PermissionType memory data) {
+    function getByHash(bytes32 hash) public view returns(PermissionTypeLib.PermissionTypeRequired memory data) {
         if(!isEnabled(hash)) revert("No such data inserted.");
-        return typeStruct[hash].data.getFull(getFiles(hash));
-    }
-
-    function getFiles(bytes32 typeHash) view public returns (bytes32[] memory fileRefs) {
-        return filesPerFolder[typeHash];
+        return typeStruct[hash].data;
     }
 
     function count() public view returns(uint256 counter) {

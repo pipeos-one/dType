@@ -7,69 +7,61 @@ library VoteResourceTypeLib {
         address contractAddress;
         // can be bytes if data is not inserted
         bytes32 dataHash;
-        uint256 score;
-        mapping(address => bool) voted;
+        uint256 scoreyes;
+        uint256 scoreno;
     }
 
-    function insert(FilePointerRequired storage self, FilePointer memory pointer) internal {
-        self.name = pointer.name;
-        self.extension = pointer.extension;
+    function insert(VoteResource storage self, VoteResource memory data) internal {
+        self.contractAddress = data.contractAddress;
+        self.dataHash = data.dataHash;
+        self.scoreyes = 0;
+        self.scoreno = 0;
     }
 
-    function insertArray(FilePointerRequired[] storage self, FilePointer[] memory pointers) internal {
-        uint256 length = pointers.length;
-        for (uint256 i = 0; i < length; i++) {
-            insert(self[i], pointers[i]);
-        }
-    }
-
-    function getDataHash(FilePointer memory pointer) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(pointer));
+    function getDataHash(VoteResource memory data) pure public returns(bytes32 hash) {
+        return keccak256(abi.encode(data.contractAddress, data.dataHash));
     }
 
     function getFull(
-        FilePointerRequired memory pointer,
-        SwarmPointerLib.SwarmPointer memory swarm,
-        IpfsPointerLib.IpfsPointer memory ipfs,
-        UriPointerLib.UriPointer memory uri
+        VoteResource memory data
     )
         pure
         public
-        returns(FilePointer memory pointerFull)
+        returns(VoteResource memory dataFull)
     {
-        return FilePointer(pointer.name, pointer.extension, swarm, ipfs, uri);
+        return data;
     }
 
     function structureBytes(bytes memory data)
         pure
         public
-        returns(FilePointer memory pointer)
+        returns(VoteResource memory dataStruct)
     {
-        (pointer) = abi.decode(data, (FilePointer));
+        (dataStruct) = abi.decode(data, (VoteResource));
     }
 
-    function destructureBytes(FilePointer memory pointer)
+    function destructureBytes(VoteResource memory dataStruct)
         pure
         public
         returns(bytes memory data)
     {
-        return abi.encode(pointer);
+        return abi.encode(dataStruct);
     }
 
     function map(
         address callbackAddr,
         bytes4 callbackSig,
-        FilePointer[] memory pointerArr
+        VoteResource[] memory dataArr
     )
         view
         public
-        returns (FilePointer[] memory result)
+        returns (VoteResource[] memory result)
     {
-        uint length = pointerArr.length;
-        result = new FilePointer[](length);
+        uint length = dataArr.length;
+        result = new VoteResource[](length);
 
         for (uint i = 0; i < length; i++) {
-            (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, pointerArr[i]));
+            (bool success, bytes memory data) = callbackAddr.staticcall(abi.encodeWithSelector(callbackSig, dataArr[i]));
 
             require(success, "Map callback failed");
             result[i] = structureBytes(data);

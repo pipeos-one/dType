@@ -74,7 +74,7 @@ contract VotingMechanismTypeStorage {
 
     function getByHash(bytes32 hash) public view returns(VotingMechanismTypeLib.VotingMechanism memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
-        return typeStruct[hash].data.getFull(swarm[hash], ipfs[hash], uri[hash]);
+        return typeStruct[hash].data;
     }
 
     function count() public view returns(uint256 counter) {
@@ -82,7 +82,7 @@ contract VotingMechanismTypeStorage {
     }
 
     function insert(
-        VotingMechanismTypeLib.VotingMechanismUser data,
+        VotingMechanismTypeLib.VotingMechanismUser memory data,
         bytes32 dataHash
     )
         public
@@ -92,12 +92,12 @@ contract VotingMechanismTypeStorage {
         mechanismMap[hash]  = dataHash;
     }
 
-    function getByHash(VotingMechanismTypeLib.VotingMechanismUser data)
+    function getByHash(VotingMechanismTypeLib.VotingMechanismUser memory userdata)
         public
         view
         returns(VotingMechanismTypeLib.VotingMechanism memory data)
     {
-        bytes32 hash = data.getDataHash();
-        return typeStruct[hash];
+        bytes32 hash = userdata.getDataHash();
+        return typeStruct[hash].data;
     }
 }

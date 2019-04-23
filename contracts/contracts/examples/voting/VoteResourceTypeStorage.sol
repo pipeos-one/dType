@@ -2,16 +2,19 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './VoteTypeLib.sol';
+import './VoteResourceTypeLib.sol';
 
-contract VoteTypeStorage {
-    using VoteTypeLib for VoteTypeLib.VoteType;
+contract VoteResourceTypeStorage {
+    using VoteTypeLib for VoteTypeLib.UserVote;
+    using VoteResourceTypeLib for VoteResourceTypeLib.VoteResource;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
     struct Type {
-        FilePointerLib.FilePointerRequired data;
+        VoteResourceTypeLib.VoteResource data;
         uint256 index;
+        mapping(address => bool) voted;
     }
 
     modifier dataIsStored (bytes32 hash) {
@@ -23,7 +26,7 @@ contract VoteTypeStorage {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function insert(FilePointerLib.FilePointer memory data) public returns (bytes32 hasho) {
+    function insert(VoteResourceTypeLib.VoteResource memory data) public returns (bytes32 hasho) {
 
         // for data integrity
         bytes32 hash = data.getDataHash();
@@ -33,16 +36,12 @@ contract VoteTypeStorage {
         typeStruct[hash].data.insert(data);
         typeStruct[hash].index = typeIndex.push(hash) - 1;
 
-        swarm[hash] = data.swarm;
-        ipfs[hash] = data.ipfs;
-        uri[hash] = data.uri;
-
         emit LogNew(hash, typeStruct[hash].index);
         return hash;
     }
 
     function insertBytes(bytes memory data) public returns (bytes32 hasho) {
-        return insert(FilePointerLib.structureBytes(data));
+        return insert(VoteResourceTypeLib.structureBytes(data));
     }
 
     function remove(bytes32 hash) public returns(uint256 index) {
@@ -53,9 +52,7 @@ contract VoteTypeStorage {
         typeStruct[keyToMove].index = rowToDelete;
         typeIndex.length--;
 
-        delete swarm[hash];
-        delete ipfs[hash];
-        delete uri[hash];
+        delete typeStruct[hash];
 
         emit LogRemove(hash, rowToDelete);
 
@@ -63,12 +60,16 @@ contract VoteTypeStorage {
         return rowToDelete;
     }
 
-    function update(bytes32 hashi, FilePointerLib.FilePointer memory data)
+    function update(bytes32 hash, VoteTypeLib.UserVote memory vote)
         public
-        returns(bytes32 hash)
     {
-        remove(hashi);
-        return insert(data);
+        require(typeStruct[hash].voted[vote.senderAddress] == false, 'Already voted');
+        typeStruct[hash].voted[vote.senderAddress] = true;
+        if (vote.vote == true) {
+            typeStruct[hash].data.scoreyes += vote.voteWeight;
+        } else {
+            typeStruct[hash].data.scoreno += vote.voteWeight;
+        }
     }
 
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
@@ -76,9 +77,9 @@ contract VoteTypeStorage {
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
-    function getByHash(bytes32 hash) public view returns(FilePointerLib.FilePointer memory data) {
+    function getByHash(bytes32 hash) public view returns(VoteResourceTypeLib.VoteResource memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
-        return typeStruct[hash].data.getFull(swarm[hash], ipfs[hash], uri[hash]);
+        return typeStruct[hash].data;
     }
 
     function count() public view returns(uint256 counter) {

@@ -13,7 +13,7 @@ library VotingMechanismTypeLib {
         bytes4 signature;
     }
 
-    function insert(VotingMechanismRequired storage self, VotingMechanism memory data) internal {
+    function insert(VotingMechanism storage self, VotingMechanism memory data) internal {
         self.processVoteFunctions = data.processVoteFunctions;
         self.processStateFunctions = data.processStateFunctions;
     }
