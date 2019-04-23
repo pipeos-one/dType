@@ -319,7 +319,6 @@ contract dType {
         returns(bytes32 outDataHash)
     {
         address senderAddress = recoverAddress(freeInputs, signature);
-        Type storage dtype = typeStruct[funcHash];
 
         freeInputs = abi.encodePacked(freeInputs, abi.encode(senderAddress));
         return run(funcHash, inDataHash, freeInputs);
