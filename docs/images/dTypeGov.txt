@@ -1,0 +1,66 @@
+#font: Calibri
+#fontSize: 12
+#fill: #ffffff; #ffffff
+
+
+[dTypeRegistry
+	|
+    runView()
+    pipeView()
+]
+
+[VotingMechanismRegistry
+	|
+    [Parameters
+    	|
+        uint256 importance
+        uint256 cutoff
+        uint256 golive
+        uint256 godead
+    ]
+    [VotingMechanism
+    	|
+        bytes32\[\] processVoteFunctions
+    	bytes32\[\] processStateFunctions
+    	Parameters parameters
+    ]
+    |
+    VotingMechanism\[\] data
+]
+
+[PermissionRegistry
+	|
+    [Permission
+    	|
+        bool public
+        address allowed
+        bytes4 temporaryAction
+        bytes32 votingProcessDataHash
+    ]
+    |
+    mapping(bytes32(contract, funcHash) => Permission)
+    |
+    run(address contract, bytes32 funcHash, bytes data)
+]
+
+[VoteStateContract]
+
+[ActionContract
+	|
+    [VotingProcess
+    	|
+        bytes32 votingMechanismDataHash
+        bytes32 funcHashYes
+        bytes32 funcHashNo
+    ]
+    |
+    mapping(bytes32(contract, funcHash) => VotingProcess)
+    |
+    newVoteResource(contract, dataHash)
+    vote()
+]
+
+[dTypeRegistry]<--[ActionContract]
+[VotingMechanismRegistry]<--[ActionContract]
+[VoteStateContract]<--[ActionContract]
+[PermissionRegistry]<->[ActionContract]
