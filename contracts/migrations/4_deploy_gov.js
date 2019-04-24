@@ -1,15 +1,26 @@
 const dType = artifacts.require("dType");
-const VotingMechanismLib = artifacts.require('VotingMechanismLib.sol');
-const VotingMechanismStorage = artifacts.require('VotingMechanismStorage.sol');
+const VoteResourceTypeLib = artifacts.require('VoteResourceTypeLib.sol');
+const VoteResourceTypeStorage = artifacts.require('VoteResourceTypeStorage.sol');
+const VotingFunctions = artifacts.require('VotingFunctions.sol');
+const VotingMechanismLib = artifacts.require('VotingMechanismTypeLib.sol');
+const VotingMechanismStorage = artifacts.require('VotingMechanismTypeStorage.sol');
 
 const dtypesGov = require('../data/dtypes_gov.json');
+const dtypesComposed = require('../data/dtypes_gov_composed.json');
 
 module.exports = async function(deployer, network, accounts) {
+    await deployer.deploy(VoteResourceTypeLib);
+    await deployer.link(VoteResourceTypeLib, VoteResourceTypeStorage);
+    await deployer.deploy(VoteResourceTypeStorage);
+    await deployer.deploy(VotingFunctions);
+
     await deployer.deploy(VotingMechanismLib);
     await deployer.link(VotingMechanismLib, VotingMechanismStorage);
     await deployer.deploy(VotingMechanismStorage);
 
     let dtypeContract = await dType.deployed();
+    let resourceStorage = await VoteResourceTypeStorage.deployed();
+    let votingfunc = await VotingFunctions.deployed();
     let vmStorage = await VotingMechanismStorage.deployed();
 
     // Insert base FS types
@@ -19,6 +30,12 @@ module.exports = async function(deployer, network, accounts) {
                 data.contractAddress = vmStorage.address;
                 break;
         }
+        await dtypeContract.insert(data);
+    });
+
+    // Insert pure functions
+    dtypesComposed.forEach(async (data) => {
+        data.contractAddress = votingfunc.address;
         await dtypeContract.insert(data);
     });
 };

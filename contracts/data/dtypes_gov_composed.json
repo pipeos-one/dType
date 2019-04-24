@@ -1,0 +1,16 @@
+[
+    {
+        "name": "setWeight",
+        "types": [
+            {"name": "UserVote", "label": "vote", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "UserVote", "label": "newVote", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    }
+]
