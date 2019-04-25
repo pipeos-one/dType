@@ -80,6 +80,39 @@ contract('voting functions', async (accounts) => {
             assert.sameOrderedMembers([scoreyes.toNumber(), scoreno.toNumber()], [10, i]);
         }
     });
+
+    it('voteTriggeredAction', async () => {
+        let triggerAction, actionType;
+        let vote = JSON.parse(JSON.stringify(defaultVote));
+
+        vote = mockvotes(vote, 5, 3, true);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [false, 0], `wrong outcome for 5, 3, true`);
+
+        vote = mockvotes(vote, 6, 3, true);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [true, 1], `wrong outcome for 6, 3, true`);
+
+        vote = mockvotes(vote, 7, 3, true);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [false, 0], `wrong outcome for 7, 3, true`);
+
+        vote = mockvotes(vote, 7, 4, false);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [false, 0], `wrong outcome for 7, 4, true`);
+
+        vote = mockvotes(vote, 7, 4, false);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [false, 0], `wrong outcome for 7, 4, true`);
+
+        vote = mockvotes(vote, 7, 14, false);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [true, 0], `wrong outcome for 7, 14, true`);
+
+        vote = mockvotes(vote, 7, 15, false);
+        ({triggerAction, actionType} = await votingfunc.voteTriggeredAction([vote.resource, vote.vote, vote.parameters]));
+        assert.sameOrderedMembers([triggerAction, actionType.toNumber()], [false, 0], `wrong outcome for 7, 15, true`);
+    });
 });
 
 function mockvote(vote, choice) {
@@ -89,5 +122,12 @@ function mockvote(vote, choice) {
     } else {
         vote.resource.scoreno ++;
     }
+    return vote;
+}
+
+function mockvotes(vote, yesvotes, novotes, lastchoice) {
+    vote.vote.vote = lastchoice;
+    vote.resource.scoreyes = yesvotes;
+    vote.resource.scoreno = novotes;
     return vote;
 }
