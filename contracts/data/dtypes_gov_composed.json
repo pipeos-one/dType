@@ -1,0 +1,31 @@
+[
+    {
+        "name": "setWeight",
+        "types": [
+            {"name": "UserVote", "label": "vote", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "UserVote", "label": "newVote", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "voteTriggeredAction",
+        "types": [
+            {"name": "VoteState", "label": "vote", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "bool", "label": "triggerAction", "relation":0, "dimensions":[]},
+            {"name": "uint8", "label": "actionType", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    }
+]
