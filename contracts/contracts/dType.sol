@@ -1,11 +1,12 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import './dTypeInterface.sol';
 import "./lib/ECVerify.sol";
 import './dTypeLib.sol';
 import './dTypesLib.sol';
 
-contract dType {
+contract dType is dTypeInterface {
     using dTypeLib for dTypeLib.dType;
     using dTypeLib for dTypeLib.dTypeRequired;
     using dTypeLib for dTypeLib.LangChoices;
