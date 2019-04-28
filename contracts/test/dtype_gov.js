@@ -40,7 +40,7 @@ contract('gov', async (accounts) => {
             [newperm],
         );
 
-        let permission = await permStorage.get([permStorage.address, UTILS.getSignature(permStorage.abi, 'insert')]);
+        let permission = await permStorage.get(permStorage.address, UTILS.getSignature(permStorage.abi, 'insert'));
         // console.log('permission', permission);
 
         let {logs} = await action.run(

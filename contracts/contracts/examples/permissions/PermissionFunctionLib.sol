@@ -19,11 +19,6 @@ library PermissionFunctionLib {
         bytes32 votingProcessDataHash;
     }
 
-    struct PermissionFunctionIdentifier {
-        address contractAddress;
-        bytes4 functionSig;
-    }
-
     function insert(PermissionFunctionRequired storage self, PermissionFunction memory permission) internal {
         self.anyone = permission.anyone;
         self.allowed = permission.allowed;
@@ -35,13 +30,6 @@ library PermissionFunctionLib {
         return keccak256(abi.encode(
             permission.contractAddress,
             permission.functionSig
-        ));
-    }
-
-    function getDataHash(PermissionFunctionIdentifier memory identifier) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(
-            identifier.contractAddress,
-            identifier.functionSig
         ));
     }
 

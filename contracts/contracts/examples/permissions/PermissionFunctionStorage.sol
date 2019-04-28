@@ -1,12 +1,12 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import './PermissionFunctionInterface.sol';
 import './PermissionFunctionLib.sol';
 
-contract PermissionFunctionStorage {
+contract PermissionFunctionStorage is PermissionFunctionInterface {
     using PermissionFunctionLib for PermissionFunctionLib.PermissionFunction;
     using PermissionFunctionLib for PermissionFunctionLib.PermissionFunctionRequired;
-    using PermissionFunctionLib for PermissionFunctionLib.PermissionFunctionIdentifier;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
@@ -94,8 +94,8 @@ contract PermissionFunctionStorage {
         return typeStruct[hash].data;
     }
 
-    function get(PermissionFunctionLib.PermissionFunctionIdentifier memory identifier) public view returns(PermissionFunctionLib.PermissionFunctionRequired memory data) {
-        return getByHash(identifier.getDataHash());
+    function get(address contractAddress, bytes4 functionSig) public view returns(PermissionFunctionLib.PermissionFunctionRequired memory data) {
+        return getByHash(keccak256(abi.encode(contractAddress, functionSig)));
     }
 
     function count() public view returns(uint256 counter) {
