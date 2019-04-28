@@ -1,0 +1,99 @@
+<svg width="2516" height="722" version="1.1" baseProfile="full" viewbox="0 0 2516 722" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:3;stroke-linejoin:round;stroke-linecap:round"><path d="M83.5 384.5 L83.5 463.5 L686.5 551.6 L686.5 551.6 " style="stroke:#33322E;fill:none;stroke-dasharray:6 6;"></path>
+<path d="M88.8 397.8 L83.5 391.2 L78.2 397.8 L83.5 384.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M439 407.5 L439 463.5 L686.5 522.8 L686.5 522.8 " style="stroke:#33322E;fill:none;stroke-dasharray:6 6;"></path>
+<path d="M444.3 420.8 L439 414.2 L433.7 420.8 L439 407.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M2216.5 443 L2216.5 463.5 L1301.5 563 L1301.5 563 " style="stroke:#33322E;fill:none;stroke-dasharray:6 6;"></path>
+<path d="M2221.8 456.3 L2216.5 449.7 L2211.2 456.3 L2216.5 443 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M994 443.5 L994 463.5 L994 483.5 L994 483.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M988.7 470.2 L994 476.8 L999.3 470.2 L994 483.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M999.3 456.8 L994 450.2 L988.7 456.8 L994 443.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M1596.5 428.5 L1596.5 463.5 L1301.5 528.6 L1301.5 528.6 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M1313.4 520.5 L1308 527.2 L1315.7 531 L1301.5 528.6 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M1601.8 441.8 L1596.5 435.2 L1591.2 441.8 L1596.5 428.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M439 208.5 L439 228.5 L439 284.5 L439 284.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M444.3 221.8 L439 215.2 L433.7 221.8 L439 208.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<rect x="13.5" y="307.5" height="77" width="140" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="21.8" y="329" style="">dTypeRegistry</text>
+<path d="M13.5 338.5 L153.5 338.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="360" style="font-weight:normal;">runView()</text>
+<text x="21.5" y="375" style="font-weight:normal;">pipeView()</text>
+<rect x="157.5" y="13.5" height="195" width="564" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="328" y="35" style="">VotingMechanismRegistry</text>
+<path d="M157.5 44.5 L721.5 44.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="170.5" y="57.5" height="107" width="187" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="216.5" y="79" style="">Parameters</text>
+<path d="M170.5 88.5 L357.5 88.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="178.5" y="110" style="font-weight:normal;">uint256 importance</text>
+<text x="178.5" y="125" style="font-weight:normal;">uint256 cutoff</text>
+<text x="178.5" y="140" style="font-weight:normal;">uint256 golive</text>
+<text x="178.5" y="155" style="font-weight:normal;">uint256 godead</text>
+<rect x="397.5" y="65.5" height="92" width="311" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="479.5" y="87" style="">VotingMechanism</text>
+<path d="M397.5 96.5 L708.5 96.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="405.5" y="118" style="font-weight:normal;">bytes32[] processVoteFunctions</text>
+<text x="405.5" y="133" style="font-weight:normal;">bytes32[] processStateFunctions</text>
+<text x="405.5" y="148" style="font-weight:normal;">Parameters parameters</text>
+<path d="M157.5 177.5 L721.5 177.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="165.5" y="199" style="font-weight:normal;">VotingMechanism[] data</text>
+<rect x="193.5" y="284.5" height="123" width="491" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="377.3" y="306" style="">VotingProcess</text>
+<path d="M193.5 315.5 L684.5 315.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="201.5" y="337" style="font-weight:normal;">bytes32 votingMechanismDataHash</text>
+<text x="201.5" y="352" style="font-weight:normal;">bytes4 funcHashYes</text>
+<text x="201.5" y="367" style="font-weight:normal;">bytes4 funcHashNo</text>
+<path d="M193.5 376.5 L684.5 376.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="201.5" y="398" style="font-weight:normal;">mapping(bytes32(address, bytes4) =&gt; VotingProcess)</text>
+<rect x="724.5" y="248.5" height="195" width="539" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="870.5" y="270" style="">PermissionFunctionRegistry</text>
+<path d="M724.5 279.5 L1263.5 279.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="737.5" y="292.5" height="107" width="292" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="798" y="314" style="">PermissionFunction</text>
+<path d="M737.5 323.5 L1029.5 323.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="745.5" y="345" style="font-weight:normal;">bool anyone</text>
+<text x="745.5" y="360" style="font-weight:normal;">address allowed</text>
+<text x="745.5" y="375" style="font-weight:normal;">bytes4 temporaryAction</text>
+<text x="745.5" y="390" style="font-weight:normal;">bytes32 votingProcessDataHash</text>
+<path d="M724.5 412.5 L1263.5 412.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="732.5" y="434" style="font-weight:normal;">mapping(bytes32(address, bytes4) =&gt; PermissionFunction)</text>
+<rect x="1303.5" y="263.5" height="165" width="586" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="1492" y="285" style="">PermissionDataRegistry</text>
+<path d="M1303.5 294.5 L1889.5 294.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1316.5" y="307.5" height="77" width="159" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="1329.5" y="329" style="">PermissionData</text>
+<path d="M1316.5 338.5 L1475.5 338.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1324.5" y="360" style="font-weight:normal;">bool anyone</text>
+<text x="1324.5" y="375" style="font-weight:normal;">address allowed</text>
+<path d="M1303.5 397.5 L1889.5 397.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1311.5" y="419" style="font-weight:normal;">mapping(bytes32(address, bytes4, bytes32) =&gt; PermissionData)</text>
+<rect x="1929.5" y="249.5" height="194" width="574" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="2126.3" y="271" style="">VoteResourceStorage</text>
+<path d="M1929.5 280.5 L2503.5 280.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1942.5" y="293.5" height="137" width="292" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="2031.5" y="315" style="">VoteResource</text>
+<path d="M1942.5 324.5 L2234.5 324.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1950.5" y="346" style="font-weight:normal;">address proponent</text>
+<text x="1950.5" y="361" style="font-weight:normal;">address contractAddress</text>
+<text x="1950.5" y="376" style="font-weight:normal;">bytes32 dataHash</text>
+<text x="1950.5" y="391" style="font-weight:normal;">bytes32 votingProcessDataHash</text>
+<text x="1950.5" y="406" style="font-weight:normal;">uint256 scoreyes</text>
+<text x="1950.5" y="421" style="font-weight:normal;">uint256 scoreno</text>
+<rect x="2274.5" y="316.5" height="92" width="216" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="2344.5" y="338" style="">UserVote</text>
+<path d="M2274.5 347.5 L2490.5 347.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="2282.5" y="369" style="font-weight:normal;">bool vote</text>
+<text x="2282.5" y="384" style="font-weight:normal;">uint256 voteWeight</text>
+<text x="2282.5" y="399" style="font-weight:normal;">address senderAddress</text>
+<rect x="686.5" y="483.5" height="226" width="615" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="927.5" y="505" style="">ActionContract</text>
+<path d="M686.5 514.5 L1301.5 514.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="699.5" y="527.5" height="92" width="315" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="795.3" y="549" style="">VotingProcess</text>
+<path d="M699.5 558.5 L1014.5 558.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="707.5" y="580" style="font-weight:normal;">bytes32 votingMechanismDataHash</text>
+<text x="707.5" y="595" style="font-weight:normal;">bytes32 funcHashYes</text>
+<text x="707.5" y="610" style="font-weight:normal;">bytes32 funcHashNo</text>
+<path d="M686.5 632.5 L1301.5 632.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="694.5" y="654" style="font-weight:normal;">mapping(bytes32(contract, funcHash) =&gt; VotingProcess)</text>
+<path d="M686.5 663.5 L1301.5 663.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="694.5" y="685" style="font-weight:normal;">run(address contractAddress, bytes4 funcSig, bytes memory data)</text>
+<text x="694.5" y="700" style="font-weight:normal;">vote(bytes32 votingResourceHash, bytes memory voteData)</text></svg>
