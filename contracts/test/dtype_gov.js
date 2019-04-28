@@ -41,26 +41,36 @@ contract('gov', async (accounts) => {
         );
 
         let permission = await permStorage.get(permStorage.address, UTILS.getSignature(permStorage.abi, 'insert'));
-        // console.log('permission', permission);
+        assert.exists(permission.temporaryAction);
+        assert.exists(permission.votingProcessDataHash);
 
-        let {logs} = await action.run(
+        let votingProcess = await vpStorage.getByHash(permission.votingProcessDataHash);
+        assert.exists(votingProcess.votingMechanismDataHash);
+        assert.exists(votingProcess.funcHashYes);
+        assert.exists(votingProcess.funcHashNo);
+
+        let votingMechanism = await vmStorage.getByHash(votingProcess.votingMechanismDataHash);
+        assert.exists(votingMechanism.processVoteFunctions);
+        assert.exists(votingMechanism.processStateFunctions);
+        assert.exists(votingMechanism.parameters);
+
+        await action.run(
             permStorage.address,
             UTILS.getSignature(permStorage.abi, 'insert'),
             encodedParams,
+            {from: accounts[0]}
         );
-        console.log('logs run', logs);
 
-        let votingResourceHash = await resourceStorage.typeIndex(0)
+        let votingResourceHash = await resourceStorage.typeIndex(0);
         let votingResource = await resourceStorage.getByHash(votingResourceHash);
-        // console.log('votingResource', votingResource);
+        assert.equal(votingResource.proponent, accounts[0]);
+        assert.equal(votingResource.contractAddress, permStorage.address);
+        assert.exists(votingResource.dataHash);
+        assert.equal(votingResource.votingProcessDataHash, permission.votingProcessDataHash);
+        assert.equal(votingResource.scoreyes, 0);
+        assert.equal(votingResource.scoreno, 0);
 
-        let votingProcess = await vpStorage.getByHash(votingResource.votingProcessDataHash);
-        // console.log('votingProcess', votingProcess);
-
-        let votingMechanism = await vmStorage.getByHash(votingProcess.votingMechanismDataHash);
-        // console.log('votingMechanism', votingMechanism);
-
-        let permission2;
+        let newPermission;
 
         // TODO address should be set in ActionContract
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[0]]));
@@ -72,13 +82,19 @@ contract('gov', async (accounts) => {
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[6]]));
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[7]]));
 
-        permission2 = await permStorage.getByHash(await permStorage.typeIndex(1));
-        console.log('permission2 00', permission2);
+        // Not yet enabled
+        newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
+        assert.equal(newPermission.anyone, false);
+        assert.equal(newPermission.allowed, CT.EMPTY_ADDRESS);
+        assert.equal(newPermission.temporaryAction, '0x00000000');
+        assert.equal(newPermission.votingProcessDataHash, CT.EMPTY_BYTES);
 
         result = await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[8]]));
-        // console.log('vote logs', result.logs);
 
-        permission2 = await permStorage.getByHash(await permStorage.typeIndex(1));
-        console.log('permission2 11', permission2);
+        newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
+        assert.equal(newPermission.anyone, newperm.anyone);
+        assert.equal(newPermission.allowed, newperm.allowed);
+        assert.equal(newPermission.temporaryAction, newperm.temporaryAction);
+        assert.equal(newPermission.votingProcessDataHash, newperm.votingProcessDataHash);
     });
 });

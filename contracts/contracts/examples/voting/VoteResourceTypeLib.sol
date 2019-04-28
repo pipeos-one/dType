@@ -13,6 +13,7 @@ library VoteResourceTypeLib {
     }
 
     function insert(VoteResource storage self, VoteResource memory data) internal {
+        self.proponent = data.proponent;
         self.contractAddress = data.contractAddress;
         self.dataHash = data.dataHash;
         self.votingProcessDataHash = data.votingProcessDataHash;
