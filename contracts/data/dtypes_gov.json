@@ -16,8 +16,10 @@
     {
         "name": "VoteResource",
         "types": [
+            {"name": "address", "label": "proponent", "relation": 0, "dimensions":[]},
             {"name": "address", "label": "contractAddress", "relation": 0, "dimensions":[]},
             {"name": "bytes32", "label": "dataHash", "relation": 0, "dimensions":[]},
+            {"name": "bytes32", "label": "votingProcessDataHash", "relation": 0, "dimensions":[]},
             {"name": "uint256", "label": "scoreyes", "relation": 0, "dimensions":[]},
             {"name": "uint256", "label": "scoreno", "relation": 0, "dimensions":[]}
         ],

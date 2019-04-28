@@ -9,6 +9,7 @@ contract('voting functions', async (accounts) => {
             proponent: CT.EMPTY_ADDRESS,
             contractAddress: CT.EMPTY_ADDRESS,
             dataHash: CT.EMPTY_BYTES,
+            votingProcessDataHash: CT.EMPTY_BYTES,
             scoreyes: 0,
             scoreno: 0,
         },

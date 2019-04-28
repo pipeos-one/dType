@@ -6,8 +6,8 @@ library VoteResourceTypeLib {
     struct VoteResource {
         address proponent;
         address contractAddress;
-        // can be bytes if data is not inserted
         bytes32 dataHash;
+        bytes32 votingProcessDataHash;
         uint256 scoreyes;
         uint256 scoreno;
     }
@@ -15,6 +15,7 @@ library VoteResourceTypeLib {
     function insert(VoteResource storage self, VoteResource memory data) internal {
         self.contractAddress = data.contractAddress;
         self.dataHash = data.dataHash;
+        self.votingProcessDataHash = data.votingProcessDataHash;
         self.scoreyes = 0;
         self.scoreno = 0;
     }
