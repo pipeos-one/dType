@@ -2,8 +2,6 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './VoteResourceInterface.sol';
-import './VoteTypeLib.sol';
-import './VoteResourceTypeLib.sol';
 
 contract VoteResourceTypeStorage is VoteResourceInterface {
     using VoteTypeLib for VoteTypeLib.UserVote;

@@ -2,7 +2,6 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './PermissionFunctionInterface.sol';
-import './PermissionFunctionLib.sol';
 
 contract PermissionFunctionStorage is PermissionFunctionInterface {
     using PermissionFunctionLib for PermissionFunctionLib.PermissionFunction;

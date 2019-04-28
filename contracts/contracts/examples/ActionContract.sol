@@ -5,7 +5,7 @@ import '../dTypeInterface.sol';
 import './permissions/PermissionFunctionInterface.sol';
 import './voting/VoteResourceInterface.sol';
 import './voting/VotingProcessInterface.sol';
-import './voting/VotingMechanismTypeLib.sol';
+import './voting/VotingMechanismInterface.sol';
 
 contract ActionContract {
 
@@ -13,7 +13,7 @@ contract ActionContract {
     PermissionFunctionInterface public permission;
     VoteResourceInterface public voting;
     VotingProcessInterface public votingProcess;
-    address public votingMechanism;
+    VotingMechanismInterface public votingMechanism;
 
     event LogDebug(bytes data, string msg);
 
@@ -28,7 +28,7 @@ contract ActionContract {
         permission = PermissionFunctionInterface(_permissionAddress);
         voting = VoteResourceInterface(_votingAddress);
         votingProcess = VotingProcessInterface(_votingProcess);
-        votingMechanism = _votingMechanism;
+        votingMechanism = VotingMechanismInterface(_votingMechanism);
     }
 
     function run(address contractAddress, bytes4 funcSig, bytes memory data) public {
@@ -66,13 +66,8 @@ contract ActionContract {
 
         VotingProcessLib.VotingProcessRequired memory process = votingProcess.getByHash(resource.votingProcessDataHash);
 
-        (bool success3, bytes memory out3) = votingMechanism.staticcall(abi.encodeWithSignature(
-            'getByHash(bytes32)',
-            process.votingMechanismDataHash
-        ));
-        emit LogDebug(out3, 'votingMechanism');
+        VotingMechanismTypeLib.VotingMechanism memory mechanism = votingMechanism.getByHash(process.votingMechanismDataHash);
 
-        VotingMechanismTypeLib.VotingMechanism memory mechanism = abi.decode(out3, (VotingMechanismTypeLib.VotingMechanism));
         bytes32[] memory dataHashes;
         bytes memory voteResult = dtype.pipeView(dataHashes, mechanism.processVoteFunctions, voteData);
         emit LogDebug(voteResult, 'processVoteFunctions');
