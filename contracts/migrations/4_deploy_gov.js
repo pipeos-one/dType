@@ -4,6 +4,9 @@ const VoteResourceTypeStorage = artifacts.require('VoteResourceTypeStorage.sol')
 const VotingFunctions = artifacts.require('VotingFunctions.sol');
 const VotingMechanismLib = artifacts.require('VotingMechanismTypeLib.sol');
 const VotingMechanismStorage = artifacts.require('VotingMechanismTypeStorage.sol');
+const VotingProcessLib = artifacts.require('VotingProcessLib.sol');
+const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
+
 
 const dtypesGov = require('../data/dtypes_gov.json');
 const dtypesComposed = require('../data/dtypes_gov_composed.json');
@@ -18,10 +21,15 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.link(VotingMechanismLib, VotingMechanismStorage);
     await deployer.deploy(VotingMechanismStorage);
 
+    await deployer.deploy(VotingProcessLib);
+    await deployer.link(VotingProcessLib, VotingProcessStorage);
+    await deployer.deploy(VotingProcessStorage);
+
     let dtypeContract = await dType.deployed();
     let resourceStorage = await VoteResourceTypeStorage.deployed();
     let votingfunc = await VotingFunctions.deployed();
     let vmStorage = await VotingMechanismStorage.deployed();
+    let vpStorage = await VotingProcessStorage.deployed();
 
     // Insert base types
     dtypesGov.forEach(async (data) => {
