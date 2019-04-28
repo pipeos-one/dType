@@ -1,3 +1,6 @@
+const CT = require('../test/constants.js');
+const UTILS = require('../test/utils.js');
+
 const dType = artifacts.require("dType");
 const VoteResourceTypeLib = artifacts.require('VoteResourceTypeLib.sol');
 const VoteResourceTypeStorage = artifacts.require('VoteResourceTypeStorage.sol');
@@ -10,9 +13,11 @@ const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
 const PermissionFunctionLib = artifacts.require('PermissionFunctionLib.sol');
 const PermissionFunctionStorage = artifacts.require('PermissionFunctionStorage.sol');
 
+const ActionContract = artifacts.require('ActionContract.sol');
 
 const dtypesGov = require('../data/dtypes_gov.json');
 const dtypesComposed = require('../data/dtypes_gov_composed.json');
+const votingmData = require('../data/votingm_data.json');
 
 module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(VoteResourceTypeLib);
@@ -32,6 +37,8 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.link(PermissionFunctionLib, PermissionFunctionStorage);
     await deployer.deploy(PermissionFunctionStorage);
 
+    await deployer.deploy(ActionContract, dType.address, PermissionFunctionStorage.address, VoteResourceTypeStorage.address, VotingProcessStorage.address, VotingMechanismStorage.address);
+
     let dtypeContract = await dType.deployed();
     let resourceStorage = await VoteResourceTypeStorage.deployed();
     let votingfunc = await VotingFunctions.deployed();
@@ -40,7 +47,8 @@ module.exports = async function(deployer, network, accounts) {
     let fPermission = await PermissionFunctionStorage.deployed();
 
     // Insert base types
-    dtypesGov.forEach(async (data) => {
+    for (let i = 0; i < dtypesGov.length; i++) {
+        let data = dtypesGov[i];
         switch(data.name) {
             case "VoteResource":
                 data.contractAddress = resourceStorage.address;
@@ -50,11 +58,45 @@ module.exports = async function(deployer, network, accounts) {
                 break;
         }
         await dtypeContract.insert(data);
-    });
+    }
 
     // Insert pure functions
-    dtypesComposed.forEach(async (data) => {
-        data.contractAddress = votingfunc.address;
-        await dtypeContract.insert(data);
+    for (let i = 0; i < dtypesComposed.length; i++) {
+        dtypesComposed[i].contractAddress = votingfunc.address;
+        await dtypeContract.insert(dtypesComposed[i]);
+    }
+
+    // Insert voting mechanisms
+    for (let i = 0; i < votingmData.length; i++) {
+        let data = votingmData[i];
+        for (let j = 0; j < data.processVoteFunctions.length; j++) {
+            data.processVoteFunctions[j] = await dtypeContract.getTypeHash(0, data.processVoteFunctions[j]);
+        }
+        for (let j = 0; j < data.processStateFunctions.length; j++) {
+            data.processStateFunctions[j] = await dtypeContract.getTypeHash(0, data.processStateFunctions[j]);
+        }
+        await vmStorage.insert(data);
+    }
+
+    // Insert voting process for permission
+    await vpStorage.insert({
+        contractAddress: fPermission.address,
+        funcHash: UTILS.getSignature(fPermission.abi, 'insert'),
+        votingMechanismDataHash: await vmStorage.typeIndex(0),
+        funcHashYes: UTILS.getSignature(fPermission.abi, 'enable'),
+        funcHashNo: UTILS.getSignature(fPermission.abi, 'disable'),
     });
+
+    // Insert permission for adding permissions
+    await fPermission.insert({
+        contractAddress: fPermission.address,
+        functionSig: UTILS.getSignature(fPermission.abi, 'insert'),
+        anyone: false,
+        allowed: CT.EMPTY_ADDRESS,
+        temporaryAction: UTILS.getSignature(fPermission.abi, 'insert'),
+        votingProcessDataHash: await vpStorage.typeIndex(0),
+    });
+    // Enable permission
+    let permHash = await fPermission.typeIndex(0);
+    await fPermission.enable(permHash);
 };

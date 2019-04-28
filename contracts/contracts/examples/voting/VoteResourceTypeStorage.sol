@@ -63,6 +63,8 @@ contract VoteResourceTypeStorage {
     function update(bytes32 hash, VoteTypeLib.UserVote memory vote)
         public
     {
+        require(vote.voteWeight > 0, 'voteWeight must be > 0');
+        require(vote.senderAddress != address(0), 'senderAddress null');
         require(typeStruct[hash].voted[vote.senderAddress] == false, 'Already voted');
         typeStruct[hash].voted[vote.senderAddress] = true;
         if (vote.vote == true) {

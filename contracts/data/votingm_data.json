@@ -1,0 +1,12 @@
+[
+    {
+        "processVoteFunctions": ["setWeight"],
+        "processStateFunctions": ["voteTriggeredAction"],
+        "parameters": {
+            "importance": 2,
+            "cutoff": 10,
+            "golive": 5,
+            "godead": 20
+        }
+    }
+]
