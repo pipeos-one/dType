@@ -3,7 +3,7 @@ pragma experimental ABIEncoderV2;
 
 import '../dTypeInterface.sol';
 import './permissions/PermissionFunctionInterface.sol';
-import './voting/VoteResourceTypeLib.sol';
+import './voting/VoteResourceInterface.sol';
 import './voting/VotingProcessLib.sol';
 import './voting/VotingMechanismTypeLib.sol';
 
@@ -11,7 +11,7 @@ contract ActionContract {
 
     dTypeInterface public dtype;
     PermissionFunctionInterface public permission;
-    address public votingAddress;
+    VoteResourceInterface public voting;
     address public votingProcess;
     address public votingMechanism;
 
@@ -26,7 +26,7 @@ contract ActionContract {
 
         dtype = dTypeInterface(_dtypeAddress);
         permission = PermissionFunctionInterface(_permissionAddress);
-        votingAddress = _votingAddress;
+        voting = VoteResourceInterface(_votingAddress);
         votingProcess = _votingProcess;
         votingMechanism = _votingMechanism;
     }
@@ -44,8 +44,7 @@ contract ActionContract {
             emit LogDebug(out, 'temporaryAction');
 
             // Insert new voting resource
-            (bool success2, bytes memory out2) = votingAddress.call(abi.encodeWithSignature(
-                'insert((address,address,bytes32,bytes32,uint256,uint256))',
+            voting.insert(VoteResourceTypeLib.VoteResource(
                 msg.sender,
                 contractAddress,
                 abi.decode(out, (bytes32)),
@@ -53,7 +52,6 @@ contract ActionContract {
                 0,
                 0
             ));
-            emit LogDebug(out2, 'votingProcessDataHash');
         }
     }
 
@@ -64,13 +62,7 @@ contract ActionContract {
 
     function vote(bytes32 votingResourceHash, bytes memory voteData) public {
         // Get voting resource
-        (bool success, bytes memory out) = votingAddress.staticcall(abi.encodeWithSignature(
-            'getByHash(bytes32)',
-            votingResourceHash
-        ));
-        emit LogDebug(out, 'votingResourceHash');
-
-        VoteResourceTypeLib.VoteResource memory resource = abi.decode(out, (VoteResourceTypeLib.VoteResource));
+        VoteResourceTypeLib.VoteResource memory resource = voting.getByHash(votingResourceHash);
 
         (bool success2, bytes memory out2) = votingProcess.staticcall(abi.encodeWithSignature(
             'getByHash(bytes32)',
@@ -91,12 +83,7 @@ contract ActionContract {
         bytes memory voteResult = dtype.pipeView(dataHashes, mechanism.processVoteFunctions, voteData);
         emit LogDebug(voteResult, 'processVoteFunctions');
 
-        // votingAddress.call(abi.encodeWithSignature(
-        //     'update(bytes32,(bool,uint256,address))',
-        //     votingResourceHash,
-        //     voteResult
-        // ));
-        votingAddress.call(abi.encodePacked(bytes4(keccak256(bytes('update(bytes32,(bool,uint256,address))'))), votingResourceHash, voteResult));
+        address(voting).call(abi.encodePacked(bytes4(keccak256(bytes('update(bytes32,(bool,uint256,address))'))), votingResourceHash, voteResult));
 
         voteState(votingResourceHash, mechanism, process, voteResult);
 
@@ -113,19 +100,13 @@ contract ActionContract {
     )
         public
     {
-        (bool success, bytes memory out) = votingAddress.staticcall(abi.encodeWithSignature(
-            'getByHash(bytes32)',
-            votingResourceHash
-        ));
-        VoteResourceTypeLib.VoteResource memory resource = abi.decode(out, (VoteResourceTypeLib.VoteResource));
-
-        emit LogDebug(abi.encodePacked(out, voteData, abi.encode(mechanism.parameters)), 'votiiiiing');
+        VoteResourceTypeLib.VoteResource memory resource = voting.getByHash(votingResourceHash);
 
         bytes32[] memory dataHashes;
         bytes memory stateChoice = dtype.pipeView(
             dataHashes,
             mechanism.processStateFunctions,
-            abi.encodePacked(out, voteData, abi.encode(mechanism.parameters))
+            abi.encodePacked(abi.encode(resource), voteData, abi.encode(mechanism.parameters))
         );
         emit LogDebug(stateChoice, 'processStateFunctions');
 
