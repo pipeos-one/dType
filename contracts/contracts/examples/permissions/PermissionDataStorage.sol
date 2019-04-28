@@ -1,19 +1,19 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './VoteResourceInterface.sol';
+import './PermissionDataLib.sol';
 
-contract VoteResourceTypeStorage is VoteResourceInterface {
-    using VoteTypeLib for VoteTypeLib.UserVote;
-    using VoteResourceTypeLib for VoteResourceTypeLib.VoteResource;
+contract PermissionDataStorage {
+    using PermissionDataLib for PermissionDataLib.PermissionData;
+    using PermissionDataLib for PermissionDataLib.PermissionDataRequired;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
     struct Type {
-        VoteResourceTypeLib.VoteResource data;
+        PermissionDataLib.PermissionDataRequired data;
         uint256 index;
-        mapping(address => bool) voted;
+        bool enabled;
     }
 
     modifier dataIsStored (bytes32 hash) {
@@ -25,7 +25,7 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function insert(VoteResourceTypeLib.VoteResource memory data) public returns (bytes32 hasho) {
+    function insert(PermissionDataLib.PermissionData memory data) public returns (bytes32 hasho) {
 
         // for data integrity
         bytes32 hash = data.getDataHash();
@@ -34,17 +34,19 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
 
         typeStruct[hash].data.insert(data);
         typeStruct[hash].index = typeIndex.push(hash) - 1;
+        typeStruct[hash].enabled = false;
 
         emit LogNew(hash, typeStruct[hash].index);
         return hash;
     }
 
     function insertBytes(bytes memory data) public returns (bytes32 hasho) {
-        return insert(VoteResourceTypeLib.structureBytes(data));
+        return insert(PermissionDataLib.structureBytes(data));
     }
 
     function remove(bytes32 hash) public returns(uint256 index) {
         if(!isStored(hash)) revert("Not deleted: not extant.");
+
         uint rowToDelete = typeStruct[hash].index;
         bytes32 keyToMove = typeIndex[typeIndex.length-1];
         typeIndex[rowToDelete] = keyToMove;
@@ -54,23 +56,17 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
         delete typeStruct[hash];
 
         emit LogRemove(hash, rowToDelete);
-
         emit LogUpdate(keyToMove, rowToDelete);
+
         return rowToDelete;
     }
 
-    function update(bytes32 hash, VoteTypeLib.UserVote memory vote)
+    function update(bytes32 hashi, PermissionDataLib.PermissionData memory data)
         public
+        returns(bytes32 hash)
     {
-        require(vote.voteWeight > 0, 'voteWeight must be > 0');
-        require(vote.senderAddress != address(0), 'senderAddress null');
-        require(typeStruct[hash].voted[vote.senderAddress] == false, 'Already voted');
-        typeStruct[hash].voted[vote.senderAddress] = true;
-        if (vote.vote == true) {
-            typeStruct[hash].data.scoreyes += vote.voteWeight;
-        } else {
-            typeStruct[hash].data.scoreno += vote.voteWeight;
-        }
+        remove(hashi);
+        return insert(data);
     }
 
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
@@ -78,8 +74,12 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
-    function getByHash(bytes32 hash) public view returns(VoteResourceTypeLib.VoteResource memory data) {
-        if(!isStored(hash)) revert("No such data inserted.");
+    function isEnabled(bytes32 hash) public view returns(bool isIndeed) {
+        return isStored(hash) && typeStruct[hash].enabled;
+    }
+
+    function getByHash(bytes32 hash) public view returns(PermissionDataLib.PermissionDataRequired memory data) {
+        if(!isEnabled(hash)) revert("No such data inserted.");
         return typeStruct[hash].data;
     }
 

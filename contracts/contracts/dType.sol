@@ -325,12 +325,15 @@ contract dType is dTypeInterface {
         return run(funcHash, inDataHash, freeInputs);
     }
 
-    function pipeView(bytes32[] memory inDataHash, bytes32[] memory funcHash)
+    function pipeView(bytes32[] memory inDataHash, bytes32[] memory funcHash, bytes memory freeInputs)
         public
         view
         returns(bytes memory result)
     {
-        result = getPackedInputs(typeStruct[funcHash[0]], inDataHash);
+        if (inDataHash.length > 0) {
+            result = getPackedInputs(typeStruct[funcHash[0]], inDataHash);
+        }
+        result = abi.encodePacked(result, freeInputs);
 
         for (uint256 i = 0; i < funcHash.length; i++) {
             Type storage dtype = typeStruct[funcHash[i]];

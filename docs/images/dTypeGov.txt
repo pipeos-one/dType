@@ -28,22 +28,55 @@
     VotingMechanism\[\] data
 ]
 
-[PermissionRegistry
+[VotingProcess
 	|
-    [Permission
+    bytes32 votingMechanismDataHash
+    bytes4 funcHashYes
+    bytes4 funcHashNo
+    |
+    mapping(bytes32(address, bytes4) => VotingProcess)
+]
+
+[PermissionFunctionRegistry
+	|
+    [PermissionFunction
     	|
-        bool public
+        bool anyone
         address allowed
         bytes4 temporaryAction
         bytes32 votingProcessDataHash
     ]
     |
-    mapping(bytes32(contract, funcHash) => Permission)
-    |
-    run(address contract, bytes32 funcHash, bytes data)
+    mapping(bytes32(address, bytes4) => PermissionFunction)
 ]
 
-[VoteStateContract]
+[PermissionDataRegistry
+	|
+    [PermissionData
+    	|
+        bool anyone
+        address allowed
+    ]
+    |
+    mapping(bytes32(address, bytes4, bytes32) => PermissionData)
+]
+
+[VoteResourceStorage
+	|
+    [VoteResource
+    	|address proponent
+    address contractAddress
+    bytes32 dataHash
+  	bytes32 votingProcessDataHash
+    uint256 scoreyes
+    uint256 scoreno
+    ]
+    [UserVote |
+        bool vote
+        uint256 voteWeight
+        address senderAddress
+    ]
+]
 
 [ActionContract
 	|
@@ -56,11 +89,13 @@
     |
     mapping(bytes32(contract, funcHash) => VotingProcess)
     |
-    newVoteResource(contract, dataHash)
-    vote()
+    run(address contractAddress, bytes4 funcSig, bytes memory data)
+    vote(bytes32 votingResourceHash, bytes memory voteData)
 ]
 
 [dTypeRegistry]<--[ActionContract]
-[VotingMechanismRegistry]<--[ActionContract]
-[VoteStateContract]<--[ActionContract]
-[PermissionRegistry]<->[ActionContract]
+[VotingProcess]<--[ActionContract]
+[VoteResourceStorage]<--[ActionContract]
+[PermissionFunctionRegistry]<->[ActionContract]
+[PermissionDataRegistry]<->[ActionContract]
+[VotingMechanismRegistry]<-[VotingProcess]

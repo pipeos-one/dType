@@ -39,7 +39,7 @@ interface dTypeInterface {
 
     function getSignature(bytes32 typeHash) view external returns (bytes4 signature);
 
-    function pipeView(bytes32[] calldata inDataHash, bytes32[] calldata funcHash) external view returns(bytes memory result);
+    function pipeView(bytes32[] calldata inDataHash, bytes32[] calldata funcHash, bytes calldata freeInputs) external view returns(bytes memory result);
 
     function runView(bytes32 funcHash, bytes32[] calldata inDataHash, bytes calldata freeInputs) external view returns(bytes memory result);
 }

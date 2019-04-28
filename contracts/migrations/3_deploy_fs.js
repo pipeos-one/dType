@@ -27,7 +27,8 @@ module.exports = async function(deployer, network, accounts) {
     let fsFunctions = await FSPureFunctions.deployed();
 
     // Insert base FS types
-    dtypesFS.forEach(async (data) => {
+    for (let i = 0; i < dtypesFS.length; i++) {
+        let data = dtypesFS[i];
         switch(data.name) {
             case "FilePointer":
                 data.contractAddress = filePointer.address;
@@ -37,13 +38,13 @@ module.exports = async function(deployer, network, accounts) {
                 break;
         }
         await dtypeContract.insert(data);
-    });
+    }
 
     // Insert pure functions
-    dtypesComposed.forEach(async (data) => {
-        data.contractAddress = fsFunctions.address;
-        await dtypeContract.insert(data);
-    });
+    for (let i = 0; i < dtypesComposed.length; i++) {
+        dtypesComposed[i].contractAddress = fsFunctions.address;
+        await dtypeContract.insert(dtypesComposed[i]);
+    }
 
     // Insert example data records in storage contracts
     for (folderData of fsData.folders) {

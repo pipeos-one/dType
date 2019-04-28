@@ -1,0 +1,26 @@
+pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
+
+import './PermissionFunctionLib.sol';
+
+interface PermissionFunctionInterface {
+    event LogNew(bytes32 indexed hash, uint256 indexed index);
+    event LogUpdate(bytes32 indexed hash, uint256 indexed index);
+    event LogRemove(bytes32 indexed hash, uint256 indexed index);
+
+    function insert(PermissionFunctionLib.PermissionFunction calldata data) external returns (bytes32 hasho);
+
+    function update(bytes32 hashi, PermissionFunctionLib.PermissionFunction calldata data) external returns(bytes32 hash);
+
+    function remove(bytes32 hash) external returns(uint256 index);
+
+    function enable(bytes32 hash) external;
+
+    function disable(bytes32 hash) external;
+
+    function count() external view returns(uint256 counter);
+
+    function getByHash(bytes32 hash) external view returns(PermissionFunctionLib.PermissionFunctionRequired memory data);
+
+    function get(address contractAddress, bytes4 functionSig) external view returns(PermissionFunctionLib.PermissionFunctionRequired memory data);
+}

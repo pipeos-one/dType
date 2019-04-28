@@ -1,19 +1,21 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './VoteResourceInterface.sol';
+import './VotingProcessInterface.sol';
 
-contract VoteResourceTypeStorage is VoteResourceInterface {
-    using VoteTypeLib for VoteTypeLib.UserVote;
-    using VoteResourceTypeLib for VoteResourceTypeLib.VoteResource;
+contract VotingProcessStorage is VotingProcessInterface {
+    using VotingProcessLib for VotingProcessLib.VotingProcessRequired;
+    using VotingProcessLib for VotingProcessLib.VotingProcess;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
+    // keccak256(address, function hash to be called)
+    mapping(bytes32 => bytes32) mechanismMap;
+
     struct Type {
-        VoteResourceTypeLib.VoteResource data;
+        VotingProcessLib.VotingProcessRequired data;
         uint256 index;
-        mapping(address => bool) voted;
     }
 
     modifier dataIsStored (bytes32 hash) {
@@ -25,7 +27,7 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
     event LogUpdate(bytes32 indexed hash, uint256 indexed index);
     event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
-    function insert(VoteResourceTypeLib.VoteResource memory data) public returns (bytes32 hasho) {
+    function insert(VotingProcessLib.VotingProcess memory data) public returns (bytes32 hasho) {
 
         // for data integrity
         bytes32 hash = data.getDataHash();
@@ -40,7 +42,7 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
     }
 
     function insertBytes(bytes memory data) public returns (bytes32 hasho) {
-        return insert(VoteResourceTypeLib.structureBytes(data));
+        return insert(VotingProcessLib.structureBytes(data));
     }
 
     function remove(bytes32 hash) public returns(uint256 index) {
@@ -59,18 +61,12 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
         return rowToDelete;
     }
 
-    function update(bytes32 hash, VoteTypeLib.UserVote memory vote)
+    function update(bytes32 hashi, VotingProcessLib.VotingProcess memory data)
         public
+        returns(bytes32 hash)
     {
-        require(vote.voteWeight > 0, 'voteWeight must be > 0');
-        require(vote.senderAddress != address(0), 'senderAddress null');
-        require(typeStruct[hash].voted[vote.senderAddress] == false, 'Already voted');
-        typeStruct[hash].voted[vote.senderAddress] = true;
-        if (vote.vote == true) {
-            typeStruct[hash].data.scoreyes += vote.voteWeight;
-        } else {
-            typeStruct[hash].data.scoreno += vote.voteWeight;
-        }
+        remove(hashi);
+        return insert(data);
     }
 
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
@@ -78,7 +74,7 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
-    function getByHash(bytes32 hash) public view returns(VoteResourceTypeLib.VoteResource memory data) {
+    function getByHash(bytes32 hash) public view returns(VotingProcessLib.VotingProcessRequired memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
         return typeStruct[hash].data;
     }

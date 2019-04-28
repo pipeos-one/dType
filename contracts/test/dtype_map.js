@@ -1,3 +1,5 @@
+const CT = require('./constants.js');
+
 const dType = artifacts.require('dType.sol');
 const typeALib = artifacts.require('typeALib.sol');
 const typeAContract = artifacts.require('typeAContract.sol');
@@ -45,7 +47,7 @@ contract('type HOFs', async (accounts) => {
         dataHash = logs[0].args.hash;
 
         funcHash = await dtype.getTypeHash(0, 'double');
-        result = await dtype.pipeView([dataHash], [funcHash, funcHash, funcHash]);
+        result = await dtype.pipeView([dataHash], [funcHash, funcHash, funcHash], CT.EMPTY_BYTES);
         result = await typeAL.structureBytes(result);
 
         assert.equal(result.balance, data[0].balance * (2 ** 3));
