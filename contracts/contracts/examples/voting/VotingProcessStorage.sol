@@ -1,9 +1,10 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
+import './VotingProcessInterface.sol';
 import './VotingProcessLib.sol';
 
-contract VotingProcessStorage {
+contract VotingProcessStorage is VotingProcessInterface {
     using VotingProcessLib for VotingProcessLib.VotingProcessRequired;
     using VotingProcessLib for VotingProcessLib.VotingProcess;
 

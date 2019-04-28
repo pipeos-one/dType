@@ -4,7 +4,7 @@ pragma experimental ABIEncoderV2;
 import '../dTypeInterface.sol';
 import './permissions/PermissionFunctionInterface.sol';
 import './voting/VoteResourceInterface.sol';
-import './voting/VotingProcessLib.sol';
+import './voting/VotingProcessInterface.sol';
 import './voting/VotingMechanismTypeLib.sol';
 
 contract ActionContract {
@@ -12,7 +12,7 @@ contract ActionContract {
     dTypeInterface public dtype;
     PermissionFunctionInterface public permission;
     VoteResourceInterface public voting;
-    address public votingProcess;
+    VotingProcessInterface public votingProcess;
     address public votingMechanism;
 
     event LogDebug(bytes data, string msg);
@@ -27,7 +27,7 @@ contract ActionContract {
         dtype = dTypeInterface(_dtypeAddress);
         permission = PermissionFunctionInterface(_permissionAddress);
         voting = VoteResourceInterface(_votingAddress);
-        votingProcess = _votingProcess;
+        votingProcess = VotingProcessInterface(_votingProcess);
         votingMechanism = _votingMechanism;
     }
 
@@ -64,13 +64,7 @@ contract ActionContract {
         // Get voting resource
         VoteResourceTypeLib.VoteResource memory resource = voting.getByHash(votingResourceHash);
 
-        (bool success2, bytes memory out2) = votingProcess.staticcall(abi.encodeWithSignature(
-            'getByHash(bytes32)',
-            resource.votingProcessDataHash
-        ));
-        emit LogDebug(out2, 'votingProcess');
-
-        VotingProcessLib.VotingProcessRequired memory process = abi.decode(out2, (VotingProcessLib.VotingProcessRequired));
+        VotingProcessLib.VotingProcessRequired memory process = votingProcess.getByHash(resource.votingProcessDataHash);
 
         (bool success3, bytes memory out3) = votingMechanism.staticcall(abi.encodeWithSignature(
             'getByHash(bytes32)',
