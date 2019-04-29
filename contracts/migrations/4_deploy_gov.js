@@ -83,8 +83,8 @@ module.exports = async function(deployer, network, accounts) {
         contractAddress: fPermission.address,
         funcHash: UTILS.getSignature(fPermission.abi, 'insert'),
         votingMechanismDataHash: await vmStorage.typeIndex(0),
-        funcHashYes: UTILS.getSignature(fPermission.abi, 'enable'),
-        funcHashNo: UTILS.getSignature(fPermission.abi, 'disable'),
+        funcHashYes: UTILS.getSignature(fPermission.abi, 'accept'),
+        funcHashNo: UTILS.getSignature(fPermission.abi, 'dismiss'),
     });
 
     // Insert permission for adding permissions
@@ -93,10 +93,9 @@ module.exports = async function(deployer, network, accounts) {
         functionSig: UTILS.getSignature(fPermission.abi, 'insert'),
         anyone: false,
         allowed: CT.EMPTY_ADDRESS,
-        temporaryAction: UTILS.getSignature(fPermission.abi, 'insert'),
+        temporaryAction: UTILS.getSignature(fPermission.abi, 'insertReview'),
         votingProcessDataHash: await vpStorage.typeIndex(0),
     });
     // Enable permission
     let permHash = await fPermission.typeIndex(0);
-    await fPermission.enable(permHash);
 };

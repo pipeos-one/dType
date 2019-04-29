@@ -9,8 +9,6 @@ const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
 const PermissionFunctionStorage = artifacts.require('PermissionFunctionStorage.sol');
 const ActionContract = artifacts.require('ActionContract.sol');
 
-// const fsData = require('../data/fs_data.json');
-
 contract('gov', async (accounts) => {
     let dtype, resourceStorage, votingfunc, vmStorage, vpStorage, permStorage, action;
 
@@ -61,6 +59,7 @@ contract('gov', async (accounts) => {
             {from: accounts[0]}
         );
 
+        // New voting resource has been inserted
         let votingResourceHash = await resourceStorage.typeIndex(0);
         let votingResource = await resourceStorage.getByHash(votingResourceHash);
         assert.equal(votingResource.proponent, accounts[0]);
@@ -70,8 +69,16 @@ contract('gov', async (accounts) => {
         assert.equal(votingResource.scoreyes, 0);
         assert.equal(votingResource.scoreno, 0);
 
+        // Permission has been inserted inreview
+        let permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
+        assert.equal(permInReview.anyone, newperm.anyone);
+        assert.equal(permInReview.allowed, newperm.allowed);
+        assert.equal(permInReview.temporaryAction, newperm.temporaryAction);
+        assert.equal(permInReview.votingProcessDataHash, newperm.votingProcessDataHash);
+
         let newPermission;
 
+        // Voting can begin on the voting resource
         // TODO address should be set in ActionContract
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[0]]));
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[1]]));
@@ -82,8 +89,9 @@ contract('gov', async (accounts) => {
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[6]]));
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[7]]));
 
-        // Not yet enabled
-        newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
+        // Proposal not yet accepted, still inreview
+        assert.equal(await permStorage.count(), 1);
+        newPermission = await permStorage.getByHash(votingResource.dataHash);
         assert.equal(newPermission.anyone, false);
         assert.equal(newPermission.allowed, CT.EMPTY_ADDRESS);
         assert.equal(newPermission.temporaryAction, '0x00000000');
@@ -91,10 +99,18 @@ contract('gov', async (accounts) => {
 
         result = await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[8]]));
 
+        // Proposal should be accepted and removed from inreview
+        assert.equal(await permStorage.count(), 2);
         newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
         assert.equal(newPermission.anyone, newperm.anyone);
         assert.equal(newPermission.allowed, newperm.allowed);
         assert.equal(newPermission.temporaryAction, newperm.temporaryAction);
         assert.equal(newPermission.votingProcessDataHash, newperm.votingProcessDataHash);
+
+        permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
+        assert.equal(permInReview.anyone, false);
+        assert.equal(permInReview.allowed, CT.EMPTY_ADDRESS);
+        assert.equal(permInReview.temporaryAction, '0x00000000');
+        assert.equal(permInReview.votingProcessDataHash, CT.EMPTY_BYTES);
     });
 });

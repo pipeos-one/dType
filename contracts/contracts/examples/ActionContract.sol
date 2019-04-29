@@ -38,9 +38,15 @@ contract ActionContract {
         // if allowed -> forward call to contract
         if (fpermission.anyone ==  true || fpermission.allowed == msg.sender) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(funcSig, data));
+            require(success == true, 'forwarding failed, sender allowed');
         }
         if (fpermission.temporaryAction != bytes4(0) && fpermission.votingProcessDataHash != bytes32(0)) {
-            (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(fpermission.temporaryAction, data));
+            (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(
+                fpermission.temporaryAction,
+                abi.encode(msg.sender),
+                data
+            ));
+            require(success == true, 'temporaryAction failed');
             emit LogDebug(out, 'temporaryAction');
 
             // Insert new voting resource
@@ -79,8 +85,6 @@ contract ActionContract {
         // TODO maybe voting functions also work on vote resource -> returns new VoteResource
     }
 
-    // Split this because code is awful and we get a stack too deep err
-    // TODO - use interfaces or tbd
     function voteState(
         bytes32 votingResourceHash,
         VotingMechanismTypeLib.VotingMechanism memory mechanism,
@@ -104,11 +108,13 @@ contract ActionContract {
             if (actionType == 1) {
                 resource.contractAddress.call(abi.encodePacked(
                     process.funcHashYes,
+                    abi.encode(resource.proponent),
                     resource.dataHash
                 ));
             } else {
                 resource.contractAddress.call(abi.encodePacked(
                     process.funcHashNo,
+                    abi.encode(resource.proponent),
                     resource.dataHash
                 ));
             }
