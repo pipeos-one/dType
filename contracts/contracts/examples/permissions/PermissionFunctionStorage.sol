@@ -2,12 +2,12 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './PermissionFunctionInterface.sol';
+import '../../StorageBase.sol';
 
-contract PermissionFunctionStorage is PermissionFunctionInterface {
+contract PermissionFunctionStorage is StorageBase {
     using PermissionFunctionLib for PermissionFunctionLib.PermissionFunction;
     using PermissionFunctionLib for PermissionFunctionLib.PermissionFunctionRequired;
 
-    bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
     struct Type {
@@ -20,10 +20,6 @@ contract PermissionFunctionStorage is PermissionFunctionInterface {
         require(isStored(hash), "No such data inserted.");
         _;
     }
-
-    event LogNew(bytes32 indexed hash, uint256 indexed index);
-    event LogUpdate(bytes32 indexed hash, uint256 indexed index);
-    event LogRemove(bytes32 indexed hash, uint256 indexed index);
 
     function insert(PermissionFunctionLib.PermissionFunction memory data) public returns (bytes32 hasho) {
 
@@ -95,9 +91,5 @@ contract PermissionFunctionStorage is PermissionFunctionInterface {
 
     function get(address contractAddress, bytes4 functionSig) public view returns(PermissionFunctionLib.PermissionFunctionRequired memory data) {
         return getByHash(keccak256(abi.encode(contractAddress, functionSig)));
-    }
-
-    function count() public view returns(uint256 counter) {
-        return typeIndex.length;
     }
 }
