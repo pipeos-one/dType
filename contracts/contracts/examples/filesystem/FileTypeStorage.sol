@@ -92,9 +92,10 @@ contract FileTypeStorage is StorageBase {
         return insert(data);
     }
 
-    function updateReview(address proponent, FileTypeLib.FileType memory data)
+    function updateReview(address proponent, bytes memory rawdata)
         public
     {
+        FileTypeLib.FileType memory data = FileTypeLib.structureBytes(rawdata);
         bytes32 hash = data.getDataHash();
         inreview[hash][proponent] = data;
         emit LogUpdateReview(hash, proponent);

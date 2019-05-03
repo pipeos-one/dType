@@ -71,11 +71,12 @@ contract PermissionFunctionStorage is StorageBase {
         return insert(data);
     }
 
-    function updateReview(address proponent, PermissionFunctionLib.PermissionFunction memory data)
+    function updateReview(address proponent, bytes memory rawdata)
         public
     {
         // You can use update for removing the proposal if you provide data values of 0
         // require(isStored(hash), 'Not extant');
+        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
         bytes32 hash = data.getDataHash();
         inreview[hash][proponent].insert(data);
         emit LogUpdateReview(hash, proponent);
