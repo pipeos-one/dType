@@ -2,16 +2,18 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import './FileTypeLib.sol';
+import '../../StorageBase.sol';
 
-contract FileTypeStorage {
+contract FileTypeStorage is StorageBase {
     using FileTypeLib for FileTypeLib.FileType;
     using FileTypeLib for FileTypeLib.FileTypeRequired;
 
-    bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
 
     // Used for folders, to keep references to their files
     mapping(bytes32 => bytes32[]) public filesPerFolder;
+
+    mapping(bytes32 => mapping(address => FileTypeLib.FileType)) public inreview;
 
     struct Type {
         FileTypeLib.FileTypeRequired data;
@@ -23,24 +25,17 @@ contract FileTypeStorage {
         _;
     }
 
-    event LogNew(bytes32 indexed hash, uint256 indexed index);
-    event LogUpdate(bytes32 indexed hash, uint256 indexed index);
-    event LogRemove(bytes32 indexed hash, uint256 indexed index);
+    function insert(FileTypeLib.FileType memory data) public returns (bytes32 hash) {
+        hash = data.getDataHash();
 
-    function insert(FileTypeLib.FileType memory data) public returns (bytes32 hasho) {
+        insertPrivate(hash, data);
+    }
 
-        // for data integrity
-        bytes32 hash = data.getDataHash();
-
-        if(isStored(hash)) revert("This data exists. Use the extant data.");
-
-        typeStruct[hash].data.insert(data);
-        typeStruct[hash].index = typeIndex.push(hash) - 1;
-
-        setFiles(hash, data.filesPerFolder);
-
-        emit LogNew(hash, typeStruct[hash].index);
-        return hash;
+    function insertReview(address proponent, bytes memory rawdata) public returns (bytes32 hash) {
+        FileTypeLib.FileType memory data = FileTypeLib.structureBytes(rawdata);
+        hash = data.getDataHash();
+        inreview[hash][proponent] = data;
+        emit LogNewReview(hash, proponent);
     }
 
     function addFile(bytes32 typeHash, bytes32 fileHash)
@@ -81,6 +76,14 @@ contract FileTypeStorage {
         return rowToDelete;
     }
 
+    function removeReview(address proponent, bytes32 hash) public {
+        require(isStored(hash), 'Not extant');
+
+        // In case there was a previous propoal
+        delete inreview[hash][proponent];
+        emit LogRemoveReview(hash, proponent);
+    }
+
     function update(bytes32 hashi, FileTypeLib.FileType memory data)
         public
         returns(bytes32 hash)
@@ -89,13 +92,38 @@ contract FileTypeStorage {
         return insert(data);
     }
 
+    function updateReview(address proponent, bytes memory rawdata)
+        public
+    {
+        FileTypeLib.FileType memory data = FileTypeLib.structureBytes(rawdata);
+        bytes32 hash = data.getDataHash();
+        inreview[hash][proponent] = data;
+        emit LogUpdateReview(hash, proponent);
+    }
+
+    function accept(address proponent, bytes32 hash) public {
+        if (!isStored(hash)) {
+            FileTypeLib.FileType memory file = inreview[hash][proponent];
+            insertPrivate(hash, file);
+        } else {
+            typeStruct[hash].data.insert(inreview[hash][proponent]);
+        }
+        delete inreview[hash][proponent];
+        emit LogAccepted(hash, proponent);
+    }
+
+    function dismiss(address proponent, bytes32 hash) public {
+        inreview[hash][proponent] = getByHash(hash);
+        remove(hash);
+        emit LogDismissed(hash, proponent);
+    }
+
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
         if(typeIndex.length == 0) return false;
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
     function getByHash(bytes32 hash) public view returns(FileTypeLib.FileType memory data) {
-        if(!isStored(hash)) revert("No such data inserted.");
         return typeStruct[hash].data.getFull(getFiles(hash));
     }
 
@@ -103,7 +131,14 @@ contract FileTypeStorage {
         return filesPerFolder[typeHash];
     }
 
-    function count() public view returns(uint256 counter) {
-        return typeIndex.length;
+    function insertPrivate(bytes32 hash, FileTypeLib.FileType memory data) private {
+        if(isStored(hash)) revert("This data exists. Use the extant data.");
+
+        typeStruct[hash].data.insert(data);
+        typeStruct[hash].index = typeIndex.push(hash) - 1;
+
+        setFiles(hash, data.filesPerFolder);
+
+        emit LogNew(hash, typeStruct[hash].index);
     }
 }

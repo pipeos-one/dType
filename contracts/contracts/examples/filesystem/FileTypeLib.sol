@@ -30,7 +30,7 @@ library FileTypeLib {
     }
 
     function getDataHash(FileType memory file) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(file));
+        return keccak256(abi.encode(file.pointer, file.parentKey));
     }
 
     function getRequired(FileType memory fileFull) pure public returns(FileTypeRequired memory file) {

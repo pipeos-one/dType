@@ -28,7 +28,8 @@ contract PermissionFunctionStorage is StorageBase {
         insertPrivate(hash, data.getRequired());
     }
 
-    function insertReview(address proponent, PermissionFunctionLib.PermissionFunction memory data) public returns (bytes32 hash) {
+    function insertReview(address proponent, bytes memory rawdata) public returns (bytes32 hash) {
+        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
         hash = data.getDataHash();
         inreview[hash][proponent].insert(data);
         emit LogNewReview(hash, proponent);
@@ -70,11 +71,12 @@ contract PermissionFunctionStorage is StorageBase {
         return insert(data);
     }
 
-    function updateReview(address proponent, PermissionFunctionLib.PermissionFunction memory data)
+    function updateReview(address proponent, bytes memory rawdata)
         public
     {
         // You can use update for removing the proposal if you provide data values of 0
         // require(isStored(hash), 'Not extant');
+        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
         bytes32 hash = data.getDataHash();
         inreview[hash][proponent].insert(data);
         emit LogUpdateReview(hash, proponent);
