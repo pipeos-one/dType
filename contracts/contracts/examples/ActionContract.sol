@@ -39,6 +39,7 @@ contract ActionContract {
         if (fpermission.anyone ==  true || fpermission.allowed == msg.sender) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(funcSig, data));
             require(success == true, 'forwarding failed, sender allowed');
+            return;
         }
         if (fpermission.temporaryAction != bytes4(0) && fpermission.votingProcessDataHash != bytes32(0)) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(
@@ -58,7 +59,9 @@ contract ActionContract {
                 0,
                 0
             ));
+            return;
         }
+        revert('Could not run action, faulty permission');
     }
 
     function run(address contractAddress, bytes4 funcSig, bytes32 dataHash, bytes memory data) public {

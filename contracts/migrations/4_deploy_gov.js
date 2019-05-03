@@ -96,6 +96,4 @@ module.exports = async function(deployer, network, accounts) {
         temporaryAction: UTILS.getSignature(fPermission.abi, 'insertReview'),
         votingProcessDataHash: await vpStorage.typeIndex(0),
     });
-    // Enable permission
-    let permHash = await fPermission.typeIndex(0);
 };
