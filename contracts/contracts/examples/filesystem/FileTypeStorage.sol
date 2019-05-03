@@ -31,7 +31,8 @@ contract FileTypeStorage is StorageBase {
         insertPrivate(hash, data);
     }
 
-    function insertReview(address proponent, FileTypeLib.FileType memory data) public returns (bytes32 hash) {
+    function insertReview(address proponent, bytes memory rawdata) public returns (bytes32 hash) {
+        FileTypeLib.FileType memory data = FileTypeLib.structureBytes(rawdata);
         hash = data.getDataHash();
         inreview[hash][proponent] = data;
         emit LogNewReview(hash, proponent);
@@ -122,7 +123,6 @@ contract FileTypeStorage is StorageBase {
     }
 
     function getByHash(bytes32 hash) public view returns(FileTypeLib.FileType memory data) {
-        if(!isStored(hash)) revert("No such data inserted.");
         return typeStruct[hash].data.getFull(getFiles(hash));
     }
 

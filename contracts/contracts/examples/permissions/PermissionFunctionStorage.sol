@@ -28,7 +28,8 @@ contract PermissionFunctionStorage is StorageBase {
         insertPrivate(hash, data.getRequired());
     }
 
-    function insertReview(address proponent, PermissionFunctionLib.PermissionFunction memory data) public returns (bytes32 hash) {
+    function insertReview(address proponent, bytes memory rawdata) public returns (bytes32 hash) {
+        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
         hash = data.getDataHash();
         inreview[hash][proponent].insert(data);
         emit LogNewReview(hash, proponent);

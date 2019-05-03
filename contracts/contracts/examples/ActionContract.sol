@@ -42,9 +42,9 @@ contract ActionContract {
             return;
         }
         if (fpermission.temporaryAction != bytes4(0) && fpermission.votingProcessDataHash != bytes32(0)) {
-            (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(
+            (bool success, bytes memory out) = contractAddress.call(abi.encodeWithSelector(
                 fpermission.temporaryAction,
-                abi.encode(msg.sender),
+                msg.sender,
                 data
             ));
             require(success == true, 'temporaryAction failed');
