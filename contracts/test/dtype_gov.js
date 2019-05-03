@@ -22,7 +22,7 @@ contract('gov', async (accounts) => {
         action = await ActionContract.deployed();
     });
 
-    it('gov test', async () => {
+    it('gov permission test', async () => {
         // Trying to insert a new permission through ActionContract
         let newperm = {
             contractAddress: vmStorage.address,
@@ -62,19 +62,19 @@ contract('gov', async (accounts) => {
         // New voting resource has been inserted
         let votingResourceHash = await resourceStorage.typeIndex(0);
         let votingResource = await resourceStorage.getByHash(votingResourceHash);
-        assert.equal(votingResource.proponent, accounts[0]);
-        assert.equal(votingResource.contractAddress, permStorage.address);
-        assert.exists(votingResource.dataHash);
-        assert.equal(votingResource.votingProcessDataHash, permission.votingProcessDataHash);
-        assert.equal(votingResource.scoreyes, 0);
-        assert.equal(votingResource.scoreno, 0);
+        assert.equal(votingResource.proponent, accounts[0], 'wrong votingResource.proponent');
+        assert.equal(votingResource.contractAddress, permStorage.address, 'wrong votingResource.contractAddress');
+        assert.exists(votingResource.dataHash, 'wrong votingResource.dataHash');
+        assert.equal(votingResource.votingProcessDataHash, permission.votingProcessDataHash, 'wrong votingResource.votingProcessDataHash');
+        assert.equal(votingResource.scoreyes, 0, 'wrong votingResource.scoreyes');
+        assert.equal(votingResource.scoreno, 0, 'wrong votingResource.scoreno');
 
         // Permission has been inserted inreview
         let permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
-        assert.equal(permInReview.anyone, newperm.anyone);
-        assert.equal(permInReview.allowed, newperm.allowed);
-        assert.equal(permInReview.temporaryAction, newperm.temporaryAction);
-        assert.equal(permInReview.votingProcessDataHash, newperm.votingProcessDataHash);
+        assert.equal(permInReview.anyone, newperm.anyone, 'wrong permInReview.anyone');
+        assert.equal(permInReview.allowed, newperm.allowed, 'wrong permInReview.allowed');
+        assert.equal(permInReview.temporaryAction, newperm.temporaryAction, 'wrong permInReview.temporaryAction');
+        assert.equal(permInReview.votingProcessDataHash, newperm.votingProcessDataHash, 'wrong permInReview.votingProcessDataHash');
 
         let newPermission;
 
@@ -102,10 +102,10 @@ contract('gov', async (accounts) => {
         // Proposal should be accepted and removed from inreview
         assert.equal(await permStorage.count(), 2);
         newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
-        assert.equal(newPermission.anyone, newperm.anyone);
-        assert.equal(newPermission.allowed, newperm.allowed);
-        assert.equal(newPermission.temporaryAction, newperm.temporaryAction);
-        assert.equal(newPermission.votingProcessDataHash, newperm.votingProcessDataHash);
+        assert.equal(newPermission.anyone, newperm.anyone, 'wrong newPermission.anyone');
+        assert.equal(newPermission.allowed, newperm.allowed, 'wrong newPermission.allowed');
+        assert.equal(newPermission.temporaryAction, newperm.temporaryAction, 'wrong newPermission.temporaryAction');
+        assert.equal(newPermission.votingProcessDataHash, newperm.votingProcessDataHash, 'wrong newPermission.votingProcessDataHash');
 
         permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
         assert.equal(permInReview.anyone, false);
