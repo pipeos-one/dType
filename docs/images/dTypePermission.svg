@@ -1,0 +1,79 @@
+<svg width="1096" height="664" version="1.1" baseProfile="full" viewbox="0 0 1096 664" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:3;stroke-linejoin:round;stroke-linecap:round"><path d="M289.3 322.4 L110.5 406.5 L110.5 456.5 L110.5 456.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M105.2 443.2 L110.5 449.8 L115.8 443.2 L110.5 456.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M408.6 386.5 L393.5 406.5 L393.5 426.5 L393.5 426.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M388.2 413.2 L393.5 419.8 L398.8 413.2 L393.5 426.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M689.9 386.5 L705 406.5 L705 441.5 L705 441.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M699.7 428.2 L705 434.8 L710.3 428.2 L705 441.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<path d="M809.3 325.5 L977 406.5 L977 441.5 L977 441.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M971.7 428.2 L977 434.8 L982.3 428.2 L977 441.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<rect x="13.5" y="456.5" height="165" width="194" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="110.5" y="478" style="text-anchor: middle;">PermissionContract</text>
+<path d="M13.5 487.5 L207.5 487.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="26.5" y="500.5" height="62" width="168" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="110.5" y="522" style="text-anchor: middle;">Identifier</text>
+<path d="M26.5 531.5 L194.5 531.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="34.5" y="553" style="font-weight:normal;">address contract</text>
+<path d="M13.5 575.5 L207.5 575.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="597" style="font-weight:normal;">bool anyone</text>
+<text x="21.5" y="612" style="font-weight:normal;">address allowed</text>
+<rect x="247.5" y="426.5" height="225" width="292" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="393.5" y="448" style="text-anchor: middle;">PermissionFunction</text>
+<path d="M247.5 457.5 L539.5 457.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="260.5" y="470.5" height="77" width="168" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="344.5" y="492" style="text-anchor: middle;">Identifier</text>
+<path d="M260.5 501.5 L428.5 501.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="268.5" y="523" style="font-weight:normal;">address contract</text>
+<text x="268.5" y="538" style="font-weight:normal;">bytes4 funcSign</text>
+<path d="M247.5 560.5 L539.5 560.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="255.5" y="582" style="font-weight:normal;">bool anyone</text>
+<text x="255.5" y="597" style="font-weight:normal;">address allowed</text>
+<text x="255.5" y="612" style="font-weight:normal;">bytes4 temporaryAction</text>
+<text x="255.5" y="627" style="font-weight:normal;">bytes32 votingProcessDataHash</text>
+<text x="255.5" y="642" style="font-weight:normal;">bytes32[] allowedTransitions</text>
+<rect x="579.5" y="441.5" height="195" width="251" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="705" y="463" style="text-anchor: middle;">PermissionTransition</text>
+<path d="M579.5 472.5 L830.5 472.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="592.5" y="485.5" height="77" width="225" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="705" y="507" style="text-anchor: middle;">Identifier</text>
+<path d="M592.5 516.5 L817.5 516.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="600.5" y="538" style="font-weight:normal;">bytes4 funcSign</text>
+<text x="600.5" y="553" style="font-weight:normal;">bytes32 transitionHash</text>
+<path d="M579.5 575.5 L830.5 575.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="587.5" y="597" style="font-weight:normal;">bool anyone</text>
+<text x="587.5" y="612" style="font-weight:normal;">address allowed</text>
+<text x="587.5" y="627" style="font-weight:normal;">bytes32 getRecordHash</text>
+<rect x="870.5" y="441.5" height="195" width="213" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="977" y="463" style="text-anchor: middle;">PermissionRecord</text>
+<path d="M870.5 472.5 L1083.5 472.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="883.5" y="485.5" height="92" width="187" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="977" y="507" style="text-anchor: middle;">Identifier</text>
+<path d="M883.5 516.5 L1070.5 516.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="891.5" y="538" style="font-weight:normal;">address contract</text>
+<text x="891.5" y="553" style="font-weight:normal;">bytes4 funcSign</text>
+<text x="891.5" y="568" style="font-weight:normal;">bytes32 recordHash</text>
+<path d="M870.5 590.5 L1083.5 590.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="878.5" y="612" style="font-weight:normal;">bool anyone</text>
+<text x="878.5" y="627" style="font-weight:normal;">address allowed</text>
+<rect x="289.5" y="13.5" height="373" width="520" style="stroke:#33322E;fill:#ffffff;stroke-dasharray:none;"></rect>
+<text x="549.5" y="35" style="text-anchor: middle;">Permission</text>
+<path d="M289.5 44.5 L809.5 44.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="302.5" y="57.5" height="240" width="270" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="437.5" y="79" style="text-anchor: middle;">Permission</text>
+<path d="M302.5 88.5 L572.5 88.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="315.5" y="101.5" height="107" width="244" style="stroke:#33322E;fill: #ffffff;stroke-dasharray:none;"></rect>
+<text x="437.5" y="123" style="text-anchor: middle;">Identifier</text>
+<path d="M315.5 132.5 L559.5 132.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="323.5" y="154" style="font-weight:normal;">address contract</text>
+<text x="323.5" y="169" style="font-weight:normal;">bytes4 funcSign</text>
+<text x="323.5" y="184" style="font-weight:normal;">bytes32 recordHash</text>
+<text x="323.5" y="199" style="font-weight:normal;">bytes32[] transitionHash</text>
+<path d="M302.5 221.5 L572.5 221.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="310.5" y="243" style="font-weight:normal;">permissionsC</text>
+<text x="310.5" y="258" style="font-weight:normal;">permissionsF</text>
+<text x="310.5" y="273" style="font-weight:normal;">permissionsT[]</text>
+<text x="310.5" y="288" style="font-weight:normal;">permissionsR</text>
+<path d="M289.5 310.5 L809.5 310.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="297.5" y="332" style="font-weight:normal;">mapping(bytes32 =&gt; PermissionContract) permissionsC</text>
+<text x="297.5" y="347" style="font-weight:normal;">mapping(bytes32 =&gt; PermissionFunction) permissionsF</text>
+<text x="297.5" y="362" style="font-weight:normal;">mapping(bytes32 =&gt; PermissionTransition) permissionsT</text>
+<text x="297.5" y="377" style="font-weight:normal;">mapping(bytes32 =&gt; PermissionRecord) permissionsR</text></svg>

@@ -1,0 +1,81 @@
+#font: Calibri
+#fontSize: 12
+#fill: #ffffff; #ffffff
+
+[PermissionContract
+	|
+    [Identifier
+    	|
+        address contract
+    ]
+    |
+    bool anyone
+    address allowed
+]
+[PermissionFunction
+	|
+    [Identifier
+    	|
+        address contract
+        bytes4 funcSign
+    ]
+    |
+    bool anyone
+    address allowed
+    bytes4 temporaryAction
+    bytes32 votingProcessDataHash
+    bytes32\[\] allowedTransitions
+]
+[PermissionTransition
+	|
+    [Identifier
+    	|
+        bytes4 funcSign
+        bytes32 transitionHash
+    ]
+    |
+    bool anyone
+    address allowed
+    bytes32 getRecordHash
+]
+[PermissionRecord
+	|
+    [Identifier
+    	|
+        address contract
+        bytes4 funcSign
+        bytes32 recordHash
+    ]
+    |
+    bool anyone
+    address allowed
+]
+
+[Permission
+	|
+    [Permission
+    	|
+        [Identifier
+          |
+          address contract
+          bytes4 funcSign
+          bytes32 recordHash
+          bytes32\[\] transitionHash
+          ]
+        |
+    	permissionsC
+        permissionsF
+        permissionsT\[\]
+        permissionsR
+    ]
+	|
+    mapping(bytes32 => PermissionContract) permissionsC
+    mapping(bytes32 => PermissionFunction) permissionsF
+    mapping(bytes32 => PermissionTransition) permissionsT
+    mapping(bytes32 => PermissionRecord) permissionsR
+]
+
+[Permission]->[PermissionContract]
+[Permission]->[PermissionFunction]
+[Permission]->[PermissionTransition]
+[Permission]->[PermissionRecord]
