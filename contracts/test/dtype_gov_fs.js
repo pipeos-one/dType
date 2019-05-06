@@ -6,7 +6,7 @@ const VoteResourceTypeStorage = artifacts.require('VoteResourceTypeStorage.sol')
 const VotingFunctions = artifacts.require('VotingFunctions.sol');
 const VotingMechanismStorage = artifacts.require('VotingMechanismTypeStorage.sol');
 const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
-const PermissionFunctionStorage = artifacts.require('PermissionFunctionStorage.sol');
+const PermissionStorage = artifacts.require('PermissionStorage.sol');
 const ActionContract = artifacts.require('ActionContract.sol');
 
 const FileTypeStorage = artifacts.require('FileTypeStorage.sol');
@@ -21,7 +21,7 @@ contract('gov', async (accounts) => {
         votingfunc = await VotingFunctions.deployed();
         vmStorage = await VotingMechanismStorage.deployed();
         vpStorage = await VotingProcessStorage.deployed();
-        permStorage = await PermissionFunctionStorage.deployed();
+        permStorage = await PermissionStorage.deployed();
         action = await ActionContract.deployed();
         fileStorage = await FileTypeStorage.deployed();
     });
@@ -31,19 +31,30 @@ contract('gov', async (accounts) => {
         fsPermission = {
             contractAddress: fileStorage.address,
             functionSig: UTILS.getSignature(fileStorage.abi, 'insert'),
+            transitionHash: CT.EMPTY_BYTES,
+            dataHash: CT.EMPTY_BYTES,
             anyone: false,
             allowed: CT.EMPTY_ADDRESS,
-            temporaryAction: UTILS.getSignature(fileStorage.abi, 'insertReview'),
-            votingProcessDataHash: await vpStorage.typeIndex(0),
+            permissionProcess: {
+                temporaryAction: UTILS.getSignature(fileStorage.abi, 'insertReview'),
+                votingProcessDataHash: await vpStorage.typeIndex(0),
+                functionHashPermission: CT.EMPTY_BYTES,
+                allowedTransitions: [],
+            }
         }
 
         await permStorage.insert(fsPermission);
 
-        let permission = await permStorage.get(fsPermission.contractAddress, fsPermission.functionSig);
+        let permission = await permStorage.get([
+            fsPermission.contractAddress,
+            fsPermission.functionSig,
+            CT.EMPTY_BYTES,
+            CT.EMPTY_BYTES,
+        ]);
         assert.equal(permission.anyone, fsPermission.anyone);
         assert.equal(permission.allowed, fsPermission.allowed);
-        assert.equal(permission.temporaryAction, fsPermission.temporaryAction);
-        assert.equal(permission.votingProcessDataHash, fsPermission.votingProcessDataHash);
+        assert.equal(permission.permissionProcess.temporaryAction, fsPermission.permissionProcess.temporaryAction);
+        assert.equal(permission.permissionProcess.votingProcessDataHash, fsPermission.permissionProcess.votingProcessDataHash);
     });
 
     it('permissioned filesystem test', async () => {
@@ -82,7 +93,7 @@ contract('gov', async (accounts) => {
         assert.equal(votingResource.proponent, accounts[0], 'wrong proponent');
         assert.equal(votingResource.contractAddress, fileStorage.address, 'wrong contractAddress');
         assert.exists(votingResource.dataHash, 'no dataHash');
-        assert.equal(votingResource.votingProcessDataHash, fsPermission.votingProcessDataHash, 'wrong votingProcessDataHash');
+        assert.equal(votingResource.votingProcessDataHash, fsPermission.permissionProcess.votingProcessDataHash, 'wrong votingProcessDataHash');
         assert.equal(votingResource.scoreyes, 0, 'wrong scoreyes');
         assert.equal(votingResource.scoreno, 0, 'wrong scoreno');
 
