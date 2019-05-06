@@ -2,7 +2,7 @@ pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
 import '../dTypeInterface.sol';
-import './permissions/PermissionFunctionInterface.sol';
+import './permissions/PermissionStorageInterface.sol';
 import './voting/VoteResourceInterface.sol';
 import './voting/VotingProcessInterface.sol';
 import './voting/VotingMechanismInterface.sol';
@@ -10,7 +10,7 @@ import './voting/VotingMechanismInterface.sol';
 contract ActionContract {
 
     dTypeInterface public dtype;
-    PermissionFunctionInterface public permission;
+    PermissionStorageInterface public permission;
     VoteResourceInterface public voting;
     VotingProcessInterface public votingProcess;
     VotingMechanismInterface public votingMechanism;
@@ -25,7 +25,7 @@ contract ActionContract {
         require(_votingMechanism != address(0));
 
         dtype = dTypeInterface(_dtypeAddress);
-        permission = PermissionFunctionInterface(_permissionAddress);
+        permission = PermissionStorageInterface(_permissionAddress);
         voting = VoteResourceInterface(_votingAddress);
         votingProcess = VotingProcessInterface(_votingProcess);
         votingMechanism = VotingMechanismInterface(_votingMechanism);
@@ -33,7 +33,9 @@ contract ActionContract {
 
     function run(address contractAddress, bytes4 funcSig, bytes memory data) public {
         // Get permission for function
-        PermissionFunctionLib.PermissionFunctionRequired memory fpermission = permission.get(contractAddress, funcSig);
+        PermissionLib.PermissionIdentifier memory identifier = PermissionLib.PermissionIdentifier(contractAddress, funcSig, bytes32(0), bytes32(0));
+
+        PermissionLib.PermissionFull memory fpermission = permission.get(identifier);
 
         // if allowed -> forward call to contract
         if (fpermission.anyone ==  true || fpermission.allowed == msg.sender) {
@@ -41,9 +43,9 @@ contract ActionContract {
             require(success == true, 'forwarding failed, sender allowed');
             return;
         }
-        if (fpermission.temporaryAction != bytes4(0) && fpermission.votingProcessDataHash != bytes32(0)) {
+        if (fpermission.permissionProcess.temporaryAction != bytes4(0) && fpermission.permissionProcess.votingProcessDataHash != bytes32(0)) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodeWithSelector(
-                fpermission.temporaryAction,
+                fpermission.permissionProcess.temporaryAction,
                 msg.sender,
                 data
             ));
@@ -55,7 +57,7 @@ contract ActionContract {
                 msg.sender,
                 contractAddress,
                 abi.decode(out, (bytes32)),
-                fpermission.votingProcessDataHash,
+                fpermission.permissionProcess.votingProcessDataHash,
                 0,
                 0
             ));
