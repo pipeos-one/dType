@@ -10,8 +10,8 @@ const VotingMechanismStorage = artifacts.require('VotingMechanismTypeStorage.sol
 const VotingProcessLib = artifacts.require('VotingProcessLib.sol');
 const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
 
-const PermissionFunctionLib = artifacts.require('PermissionFunctionLib.sol');
-const PermissionFunctionStorage = artifacts.require('PermissionFunctionStorage.sol');
+const PermissionLib = artifacts.require('PermissionLib.sol');
+const PermissionStorage = artifacts.require('PermissionStorage.sol');
 
 const ActionContract = artifacts.require('ActionContract.sol');
 
@@ -33,18 +33,18 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.link(VotingProcessLib, VotingProcessStorage);
     await deployer.deploy(VotingProcessStorage);
 
-    await deployer.deploy(PermissionFunctionLib);
-    await deployer.link(PermissionFunctionLib, PermissionFunctionStorage);
-    await deployer.deploy(PermissionFunctionStorage);
+    await deployer.deploy(PermissionLib);
+    await deployer.link(PermissionLib, PermissionStorage);
+    await deployer.deploy(PermissionStorage);
 
-    await deployer.deploy(ActionContract, dType.address, PermissionFunctionStorage.address, VoteResourceTypeStorage.address, VotingProcessStorage.address, VotingMechanismStorage.address);
+    await deployer.deploy(ActionContract, dType.address, PermissionStorage.address, VoteResourceTypeStorage.address, VotingProcessStorage.address, VotingMechanismStorage.address);
 
     let dtypeContract = await dType.deployed();
     let resourceStorage = await VoteResourceTypeStorage.deployed();
     let votingfunc = await VotingFunctions.deployed();
     let vmStorage = await VotingMechanismStorage.deployed();
     let vpStorage = await VotingProcessStorage.deployed();
-    let fPermission = await PermissionFunctionStorage.deployed();
+    let permissionS = await PermissionStorage.deployed();
 
     // Insert base types
     for (let i = 0; i < dtypesGov.length; i++) {
@@ -80,20 +80,26 @@ module.exports = async function(deployer, network, accounts) {
 
     // Insert voting process for permission
     await vpStorage.insert({
-        contractAddress: fPermission.address,
-        funcHash: UTILS.getSignature(fPermission.abi, 'insert'),
+        contractAddress: permissionS.address,
+        funcHash: UTILS.getSignature(permissionS.abi, 'insert'),
         votingMechanismDataHash: await vmStorage.typeIndex(0),
-        funcHashYes: UTILS.getSignature(fPermission.abi, 'accept'),
-        funcHashNo: UTILS.getSignature(fPermission.abi, 'dismiss'),
+        funcHashYes: UTILS.getSignature(permissionS.abi, 'accept'),
+        funcHashNo: UTILS.getSignature(permissionS.abi, 'dismiss'),
     });
 
     // Insert permission for adding permissions
-    await fPermission.insert({
-        contractAddress: fPermission.address,
-        functionSig: UTILS.getSignature(fPermission.abi, 'insert'),
+    await permissionS.insert({
+        contractAddress: permissionS.address,
+        functionSig: UTILS.getSignature(permissionS.abi, 'insert'),
+        transitionHash: CT.EMPTY_BYTES,
+        dataHash: CT.EMPTY_BYTES,
         anyone: false,
         allowed: CT.EMPTY_ADDRESS,
-        temporaryAction: UTILS.getSignature(fPermission.abi, 'insertReview'),
-        votingProcessDataHash: await vpStorage.typeIndex(0),
+        permissionProcess: {
+            temporaryAction: UTILS.getSignature(permissionS.abi, 'insertReview'),
+            votingProcessDataHash: await vpStorage.typeIndex(0),
+            functionHashPermission: CT.EMPTY_BYTES,
+            allowedTransitions: [],
+        }
     });
 };
