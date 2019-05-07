@@ -1,15 +1,127 @@
 [
     {
-        "name": "changeName",
+        "name": "structureData",
         "types": [
-            {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
+            {"name": "bytes", "label": "oldrawfile", "relation":0, "dimensions":[]},
+            {"name": "bytes", "label": "newrawfile", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 4,
         "contractAddress": "0x0000000000000000000000000000000000000000",
         "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
         "outputs": [
-            {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "changeFileName",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "inewfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "changeFileParent",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "inewfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "addFolderFile",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "inewfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "removeFolderFile",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "inewfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "changeFolderFiles",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "inewfile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "getChangedFile",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "FileType", "label": "changedFile", "relation":0, "dimensions":[]}
+        ],
+        "optionals": []
+    },
+    {
+        "name": "getPermissionKeys",
+        "types": [
+            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
+            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+        ],
+        "lang": 0,
+        "typeChoice": 4,
+        "contractAddress": "0x0000000000000000000000000000000000000000",
+        "source": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputs": [
+            {"name": "bytes32", "label": "dataHashes", "relation":0, "dimensions":[""]}
         ],
         "optionals": []
     }
