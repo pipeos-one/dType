@@ -74,25 +74,37 @@ contract FSPureFunctions {
         return oldfile;
     }
 
-    function getUpdatePermissionKeys(FileTypeLib.FileType memory oldfile, FileTypeLib.FileType memory newfile) pure public returns (bytes32[] memory dataHashes) {
-        if (oldfile.parentKey != newfile.parentKey) {
-            dataHashes[dataHashes.length] = oldfile.parentKey;
-            dataHashes[dataHashes.length] = newfile.parentKey;
-        }
-        // Removing files does not require permission
-        // Adding files does require permission
-        uint256 length = newfile.filesPerFolder.length;
-        for (uint256 i = 0; i < length; i++) {
-            dataHashes[dataHashes.length] = newfile.filesPerFolder[i];
-        }
-    }
+    // TODO: we need both old file and new file for parentKey
+    // or attach another permission to a dataHash, related to the parentKey & other keys
+    function getUpdatePermissionKeys(FileTypeLib.FileType memory file)
+        pure
+        public
+        returns (bytes32[] memory dataHashes)
+    {
+        uint256 length = file.filesPerFolder.length;
+        dataHashes = new bytes32[](length + 1);
 
-    function getInsertPermissionKeys(FileTypeLib.FileType memory file) pure public returns (bytes32[] memory dataHashes) {
         dataHashes[0] = file.parentKey;
 
         // Removing files does not require permission
         // Adding files does require permission
+        for (uint256 i = 0; i < length; i++) {
+            dataHashes[i + 1] = file.filesPerFolder[i];
+        }
+    }
+
+    function getInsertPermissionKeys(FileTypeLib.FileType memory file)
+        pure
+        public
+        returns (bytes32[] memory dataHashes)
+    {
         uint256 length = file.filesPerFolder.length;
+        dataHashes = new bytes32[](length + 1);
+
+        dataHashes[0] = file.parentKey;
+
+        // Removing files does not require permission
+        // Adding files does require permission
         for (uint256 i = 0; i < length; i++) {
             dataHashes[i + 1] = file.filesPerFolder[i];
         }

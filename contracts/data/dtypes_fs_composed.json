@@ -127,8 +127,7 @@
     {
         "name": "getUpdatePermissionKeys",
         "types": [
-            {"name": "FileType", "label": "oldfile", "relation":0, "dimensions":[]},
-            {"name": "FileType", "label": "newfile", "relation":0, "dimensions":[]}
+            {"name": "FileType", "label": "file", "relation":0, "dimensions":[]}
         ],
         "lang": 0,
         "typeChoice": 4,

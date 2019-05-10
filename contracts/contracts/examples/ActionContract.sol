@@ -43,6 +43,26 @@ contract ActionContract {
             require(success == true, 'forwarding failed, sender allowed');
             return;
         }
+        if (fpermission.permissionProcess.functionHashPermission != bytes32(0)) {
+            bytes32[] memory dataHashes;
+            bytes memory dataHashesB = dtype.runView(
+                fpermission.permissionProcess.functionHashPermission,
+                dataHashes,
+                data
+            );
+
+            (dataHashes) = abi.decode(dataHashesB, (bytes32[]));
+
+            for (uint256 i = 0; i < dataHashes.length; i++) {
+                if (dataHashes[i] != bytes32(0)) {
+                    PermissionLib.PermissionFull memory dpermission = permission.get(PermissionLib.PermissionIdentifier(contractAddress, funcSig, bytes32(0), dataHashes[i]));
+
+                    if (!(dpermission.anyone ==  true || dpermission.allowed == msg.sender)) {
+                        revert('Unauthorized permission. dataHash');
+                    }
+                }
+            }
+        }
         if (fpermission.permissionProcess.temporaryAction != bytes4(0) && fpermission.permissionProcess.votingProcessDataHash != bytes32(0)) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodeWithSelector(
                 fpermission.permissionProcess.temporaryAction,

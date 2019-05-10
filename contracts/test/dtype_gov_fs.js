@@ -12,9 +12,12 @@ const PermissionStorage = artifacts.require('PermissionStorage.sol');
 const ActionContract = artifacts.require('ActionContract.sol');
 
 const FileTypeStorage = artifacts.require('FileTypeStorage.sol');
+const FSPureFunctions = artifacts.require('FSPureFunctions.sol');
 
 contract('gov', async (accounts) => {
-    let dtype, resourceStorage, votingfunc, vmStorage, vpStorage, permStorage, action, fileStorage;
+    let dtype, resourceStorage, votingfunc,
+        vmStorage, vpStorage, permStorage,
+        action, fileStorage, fsFunctions;
     let fsPermission;
     let allowedTransitions;
 
@@ -27,6 +30,7 @@ contract('gov', async (accounts) => {
         permStorage = await PermissionStorage.deployed();
         action = await ActionContract.deployed();
         fileStorage = await FileTypeStorage.deployed();
+        fsFunctions = await FSPureFunctions.deployed();
     });
 
     it('insert filesystem permissions', async () => {
@@ -68,6 +72,27 @@ contract('gov', async (accounts) => {
         assert.equal(permission.allowed, fsPermission.allowed);
         assert.equal(permission.permissionProcess.temporaryAction, fsPermission.permissionProcess.temporaryAction);
         assert.equal(permission.permissionProcess.votingProcessDataHash, fsPermission.permissionProcess.votingProcessDataHash);
+        assert.equal(permission.permissionProcess.functionHashPermission, fsPermission.permissionProcess.functionHashPermission);
+        assert.sameMembers(permission.permissionProcess.allowedTransitions, fsPermission.permissionProcess.allowedTransitions);
+
+        // Permission for update
+        fsPermission.functionSig = UTILS.getSignature(fileStorage.abi, 'update');
+        fsPermission.permissionProcess.temporaryAction = UTILS.getSignature(fileStorage.abi, 'updateReview');
+        fsPermission.permissionProcess.functionHashPermission = await dtype.getTypeHash(0, 'getUpdatePermissionKeys');
+
+        await permStorage.insert(fsPermission);
+        permission = await permStorage.get([
+            fsPermission.contractAddress,
+            fsPermission.functionSig,
+            CT.EMPTY_BYTES,
+            CT.EMPTY_BYTES,
+        ]);
+        assert.equal(permission.anyone, fsPermission.anyone);
+        assert.equal(permission.allowed, fsPermission.allowed);
+        assert.equal(permission.permissionProcess.temporaryAction, fsPermission.permissionProcess.temporaryAction);
+        assert.equal(permission.permissionProcess.votingProcessDataHash, fsPermission.permissionProcess.votingProcessDataHash);
+        assert.equal(permission.permissionProcess.functionHashPermission, fsPermission.permissionProcess.functionHashPermission);
+        assert.sameMembers(permission.permissionProcess.allowedTransitions, fsPermission.permissionProcess.allowedTransitions);
     });
 
     it('permissioned filesystem test', async () => {
@@ -274,10 +299,16 @@ contract('gov', async (accounts) => {
         assert.equal(newFolder.pointer.swarm.filehash, folder.pointer.swarm.filehash, 'insertedFile.filehash incorrect');
         assert.equal(newFolder.parentKey, folder.parentKey, 'insertedFile.parentKey incorrect');
 
-        // let votingResource = {dataHash: await fileStorage.typeIndex(0)};
-        // console.log('votingResource', votingResource);
-
         // insert folder permissions for accounts[1]
+
+        // general permission for update - dataHash
+        perm.functionSig = UTILS.getSignature(fileStorage.abi, 'update');
+        perm.transitionHash =  CT.EMPTY_BYTES;
+        perm.dataHash = votingResource.dataHash;
+        perm.anyone = false;
+        perm.allowed = accounts[1];
+        await permStorage.insert(perm);
+
         // changeFileName
         perm.transitionHash = allowedTransitions[2];
         perm.dataHash = votingResource.dataHash;
@@ -418,6 +449,122 @@ contract('gov', async (accounts) => {
         );
         newFolder = await fileStorage.getByHash(votingResource.dataHash);
         assert.equal(folderInReview.pointer.name, folder.pointer.name, 'insertedFile.name incorrect');
+    });
+
+    it('insert file under folder permissions', async () => {
+        let folder = {
+            "pointer": {
+                "name": "User1Folder2",
+                "extension": 0,
+                "swarm": {
+                    "protocol": 1,
+                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                },
+                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+            },
+            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            filesPerFolder: []
+        };
+        let encodedParams = web3.eth.abi.encodeParameters(
+            fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
+            [folder],
+        );
+        let resourceCount = await resourceStorage.count();
+        await action.run(
+            fileStorage.address,
+            UTILS.getSignature(fileStorage.abi, 'insert'),
+            encodedParams,
+            {from: accounts[0]}
+        );
+        // New voting resource has been inserted
+        let votingResourceHash = await resourceStorage.typeIndex(resourceCount);
+        let votingResource = await resourceStorage.getByHash(votingResourceHash);
+
+        let folderInReview = await fileStorage.inreview(votingResource.dataHash, accounts[0]);
+        assert.equal(folderInReview.pointer.name, folder.pointer.name, 'insertedFile.name incorrect');
+        assert.equal(folderInReview.pointer.extension, folder.pointer.extension, 'insertedFile.extension incorrect');
+        assert.equal(folderInReview.pointer.swarm.protocol, folder.pointer.swarm.protocol, 'insertedFile.swarm incorrect');
+        assert.equal(folderInReview.pointer.swarm.filehash, folder.pointer.swarm.filehash, 'insertedFile.filehash incorrect');
+        assert.equal(folderInReview.parentKey, folder.parentKey, 'insertedFile.parentKey incorrect');
+
+        await runVoteAlow(accounts, action, votingResourceHash);
+        let newFolder = await fileStorage.getByHash(votingResource.dataHash);
+        assert.equal(newFolder.pointer.name, folder.pointer.name, 'insertedFile.name incorrect');
+        assert.equal(newFolder.pointer.extension, folder.pointer.extension, 'insertedFile.extension incorrect');
+        assert.equal(newFolder.pointer.swarm.protocol, folder.pointer.swarm.protocol, 'insertedFile.swarm incorrect');
+        assert.equal(newFolder.pointer.swarm.filehash, folder.pointer.swarm.filehash, 'insertedFile.filehash incorrect');
+        assert.equal(newFolder.parentKey, folder.parentKey, 'insertedFile.parentKey incorrect');
+
+        // general permission for insert - dataHash
+        let perm = {
+            contractAddress: fileStorage.address,
+            functionSig: UTILS.getSignature(fileStorage.abi, 'insert'),
+            transitionHash: CT.EMPTY_BYTES,
+            dataHash: votingResource.dataHash,
+            anyone: false,
+            allowed: accounts[1],
+            permissionProcess: {
+                temporaryAction: CT.EMPTY_BYTES4,
+                votingProcessDataHash: CT.EMPTY_BYTES,
+                functionHashPermission: CT.EMPTY_BYTES,
+                allowedTransitions: [],
+            }
+        }
+
+        await permStorage.insert(perm);
+
+        // Try to insert a file under the folder
+        // If transition is from accounts[0], it should fail
+        let file = {
+            "pointer": {
+                "name": "TestPermissionsFile",
+                "extension": 0,
+                "swarm": {
+                    "protocol": 1,
+                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                },
+                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+            },
+            "parentKey": votingResource.dataHash,
+            filesPerFolder: []
+        };
+        encodedParams = web3.eth.abi.encodeParameters(
+            fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
+            [file],
+        );
+
+        // Try to insert folder through ActionContract
+        await truffleAssert.fails(
+            action.run(
+                fileStorage.address,
+                UTILS.getSignature(fileStorage.abi, 'insert'),
+                encodedParams,
+                {from: accounts[0]}
+            ),
+            truffleAssert.ErrorType.REVERT,
+            "Unauthorized permission. dataHash"
+        );
+
+        resourceCount = await resourceStorage.count();
+        fileCount = await fileStorage.count();
+
+        await action.run(
+            fileStorage.address,
+            UTILS.getSignature(fileStorage.abi, 'insert'),
+            encodedParams,
+            {from: accounts[1]}
+        );
+
+        assert.equal(
+            (await resourceStorage.count()).toString(),
+            resourceCount.add(web3.utils.toBN('1')).toString(),
+            'wrong resourceCount',
+        );
+        assert.equal(
+            (await fileStorage.count()).toString(),
+            fileCount.toString(),
+            'wrong fileCount',
+        );
 
         // TODO: We need a way to remove the votingResource when we don't need it anymore
         // Probably another voting mechanism

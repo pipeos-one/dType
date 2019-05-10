@@ -389,6 +389,8 @@ contract dType is dTypeInterface {
                 abi.encodeWithSignature('getByHash(bytes32)', inDataHash[i])
             );
             require(success == true, 'Retrieving input failed');
+
+            // TODO - assembly-based abi encoding, merging inputs
             inputs = abi.encodePacked(inputs, inputData);
         }
         // TODO temporary fix
