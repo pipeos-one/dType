@@ -74,7 +74,7 @@ contract FSPureFunctions {
         return oldfile;
     }
 
-    function getPermissionKeys(FileTypeLib.FileType memory oldfile, FileTypeLib.FileType memory newfile) pure public returns (bytes32[] memory dataHashes) {
+    function getUpdatePermissionKeys(FileTypeLib.FileType memory oldfile, FileTypeLib.FileType memory newfile) pure public returns (bytes32[] memory dataHashes) {
         if (oldfile.parentKey != newfile.parentKey) {
             dataHashes[dataHashes.length] = oldfile.parentKey;
             dataHashes[dataHashes.length] = newfile.parentKey;
@@ -84,6 +84,17 @@ contract FSPureFunctions {
         uint256 length = newfile.filesPerFolder.length;
         for (uint256 i = 0; i < length; i++) {
             dataHashes[dataHashes.length] = newfile.filesPerFolder[i];
+        }
+    }
+
+    function getInsertPermissionKeys(FileTypeLib.FileType memory file) pure public returns (bytes32[] memory dataHashes) {
+        dataHashes[0] = file.parentKey;
+
+        // Removing files does not require permission
+        // Adding files does require permission
+        uint256 length = file.filesPerFolder.length;
+        for (uint256 i = 0; i < length; i++) {
+            dataHashes[i + 1] = file.filesPerFolder[i];
         }
     }
 }

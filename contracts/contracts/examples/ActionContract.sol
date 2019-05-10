@@ -52,6 +52,7 @@ contract ActionContract {
             require(success == true, 'temporaryAction failed');
             emit LogDebug(out, 'temporaryAction');
 
+            require(out.length == 32, 'storage function result is not bytes32');
             // Insert new voting resource
             voting.insert(VoteResourceTypeLib.VoteResource(
                 msg.sender,
@@ -66,9 +67,28 @@ contract ActionContract {
         revert('Could not run action, faulty permission');
     }
 
-    function run(address contractAddress, bytes4 funcSig, bytes32 dataHash, bytes memory data) public {
-        // get Permission
-        // if allowed -> forward call to contract
+    function runPipe(address contractAddress, bytes4 funcSig, bytes32[] memory functionHashes, bytes32[] memory dataHashes, bytes memory funcSigInputs) public {
+        uint256 length = functionHashes.length;
+        // TODO check transition is part of funcSig transitions
+        for (uint256 i = 0; i < length; i++) {
+            PermissionLib.PermissionIdentifier memory identifier = PermissionLib.PermissionIdentifier(contractAddress, funcSig, functionHashes[i], dataHashes[0]);
+
+            PermissionLib.PermissionFull memory fpermission = permission.get(identifier);
+            // check permission on transition & dataHash
+            if (fpermission.anyone == false && fpermission.allowed != msg.sender) {
+                PermissionLib.PermissionFull memory tpermission = permission.get(PermissionLib.PermissionIdentifier(contractAddress, funcSig, functionHashes[i], bytes32(0)));
+
+                // Check permission on funcSig && dataHash
+                if (tpermission.anyone == false && tpermission.allowed != msg.sender) {
+                    revert('Unauthorized permission');
+                    // TODO otherwise, check permissions on funcSig
+                }
+            }
+        }
+
+        bytes memory pipedData = dtype.pipeView(dataHashes, functionHashes, funcSigInputs);
+        emit LogDebug(pipedData, 'pipedData');
+        run(contractAddress, funcSig, pipedData);
     }
 
     function vote(bytes32 votingResourceHash, bytes memory voteData) public {

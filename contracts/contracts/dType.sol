@@ -273,11 +273,16 @@ contract dType is dTypeInterface {
         uint256 lengthOpt = optionals[typeHash].length;
 
         for (uint256 i = 0; i < length; i++)  {
+            // TODO fix this quick fix for encoding multiple function inputs
+            string memory name = dtype.data.types[i].name;
+            if (dtype.data.types[i].relation == dTypesLib.dTypeRelation.Bytes) {
+                name = 'bytes';
+            }
             encoded = abi.encodePacked(
                 encoded,
                 getEncodedType(
                     dtype.data.lang,
-                    dtype.data.types[i].name,
+                    name,
                     dtype.data.types[i].dimensions
                 )
             );
@@ -330,10 +335,7 @@ contract dType is dTypeInterface {
         view
         returns(bytes memory result)
     {
-        if (inDataHash.length > 0) {
-            result = getPackedInputs(typeStruct[funcHash[0]], inDataHash);
-        }
-        result = abi.encodePacked(result, freeInputs);
+        result = getPackedInputs(typeStruct[funcHash[0]], inDataHash, freeInputs);
 
         for (uint256 i = 0; i < funcHash.length; i++) {
             Type storage dtype = typeStruct[funcHash[i]];
@@ -351,7 +353,7 @@ contract dType is dTypeInterface {
         return runViewRaw(
             funcHash,
             dtype,
-            abi.encodePacked(getPackedInputs(dtype, inDataHash), freeInputs)
+            getPackedInputs(dtype, inDataHash, freeInputs)
         );
     }
 
@@ -373,11 +375,13 @@ contract dType is dTypeInterface {
         return result;
     }
 
-    function getPackedInputs(Type storage dtype, bytes32[] memory inDataHash) private view returns(bytes memory inputs) {
-        require(inDataHash.length == dtype.data.types.length, 'Incorrect number of inputs');
+    function getPackedInputs(Type storage dtype, bytes32[] memory inDataHash, bytes memory freeInputs) private view returns(bytes memory inputs) {
+        // require(inDataHash.length == dtype.data.types.length, 'Incorrect number of inputs');
+
+        uint256 length = inDataHash.length;
 
         // Retrieve inputs for calling the function at funcHash
-        for (uint256 i = 0; i < dtype.data.types.length; i++) {
+        for (uint256 i = 0; i < length; i++) {
             bytes32 typeHash = getTypeHash(dtype.data.lang, dtype.data.types[i].name);
             Type storage ttype = typeStruct[typeHash];
 
@@ -386,6 +390,14 @@ contract dType is dTypeInterface {
             );
             require(success == true, 'Retrieving input failed');
             inputs = abi.encodePacked(inputs, inputData);
+        }
+        // TODO temporary fix
+        if (freeInputs.length > 0 && dtype.data.types[0].relation == dTypesLib.dTypeRelation.Bytes) {
+            // this is what should be used
+            inputs = abi.encode(inputs, freeInputs);
+        } else {
+            // we need this for voting, needs fixing
+            inputs = abi.encodePacked(inputs, freeInputs);
         }
     }
 
