@@ -1,18 +1,23 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import './PermissionFunctionInterface.sol';
+import './PermissionStorageInterface.sol';
 import '../../StorageBase.sol';
 
-contract PermissionFunctionStorage is StorageBase {
-    using PermissionFunctionLib for PermissionFunctionLib.PermissionFunction;
-    using PermissionFunctionLib for PermissionFunctionLib.PermissionFunctionRequired;
+contract PermissionStorage is StorageBase {
+    using PermissionLib for PermissionLib.Permission;
+    using PermissionLib for PermissionLib.PermissionRequired;
+    using PermissionLib for PermissionLib.PermissionFull;
+    using PermissionLib for PermissionLib.PermissionIdentifier;
 
     mapping(bytes32 => Type) public typeStruct;
-    mapping(bytes32 => mapping(address => PermissionFunctionLib.PermissionFunctionRequired)) public inreview;
+
+    mapping(bytes32 => PermissionProcessLib.PermissionProcess) public permissionProcess;
+
+    mapping(bytes32 => mapping(address => PermissionLib.PermissionFull)) public inreview;
 
     struct Type {
-        PermissionFunctionLib.PermissionFunctionRequired data;
+        PermissionLib.PermissionRequired data;
         uint256 index;
     }
 
@@ -21,22 +26,22 @@ contract PermissionFunctionStorage is StorageBase {
         _;
     }
 
-    function insert(PermissionFunctionLib.PermissionFunction memory data) public returns (bytes32 hash) {
-        // for data integrity
+    function insert(PermissionLib.Permission memory data) public returns (bytes32 hash) {
         hash = data.getDataHash();
 
-        insertPrivate(hash, data.getRequired());
+        insertPrivate(hash, data.getFull());
     }
 
     function insertReview(address proponent, bytes memory rawdata) public returns (bytes32 hash) {
-        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
+        PermissionLib.Permission memory data = PermissionLib.structureBytes(rawdata);
         hash = data.getDataHash();
-        inreview[hash][proponent].insert(data);
+
+        inreview[hash][proponent] = data.getFull();
         emit LogNewReview(hash, proponent);
     }
 
     function insertBytes(bytes memory data) public returns (bytes32 hash) {
-        return insert(PermissionFunctionLib.structureBytes(data));
+        return insert(PermissionLib.structureBytes(data));
     }
 
     function remove(bytes32 hash) public returns(uint256 index) {
@@ -49,6 +54,7 @@ contract PermissionFunctionStorage is StorageBase {
         typeIndex.length--;
 
         delete typeStruct[hash];
+        delete permissionProcess[hash];
 
         emit LogRemove(hash, rowToDelete);
         emit LogUpdate(keyToMove, rowToDelete);
@@ -63,7 +69,7 @@ contract PermissionFunctionStorage is StorageBase {
         emit LogRemoveReview(hash, proponent);
     }
 
-    function update(bytes32 hashi, PermissionFunctionLib.PermissionFunction memory data)
+    function update(bytes32 hashi, PermissionLib.Permission memory data)
         public
         returns(bytes32 hash)
     {
@@ -75,26 +81,27 @@ contract PermissionFunctionStorage is StorageBase {
         public
     {
         // You can use update for removing the proposal if you provide data values of 0
-        // require(isStored(hash), 'Not extant');
-        PermissionFunctionLib.PermissionFunction memory data = PermissionFunctionLib.structureBytes(rawdata);
+        PermissionLib.Permission memory data = PermissionLib.structureBytes(rawdata);
         bytes32 hash = data.getDataHash();
-        inreview[hash][proponent].insert(data);
+
+        inreview[hash][proponent] = data.getFull();
         emit LogUpdateReview(hash, proponent);
     }
 
     function accept(address proponent, bytes32 hash) public {
         if (!isStored(hash)) {
-            PermissionFunctionLib.PermissionFunctionRequired memory permission = inreview[hash][proponent];
-            insertPrivate(hash, permission);
+            PermissionLib.PermissionFull memory data = inreview[hash][proponent];
+            insertPrivate(hash, data);
         } else {
-            typeStruct[hash].data = inreview[hash][proponent];
+            typeStruct[hash].data = inreview[hash][proponent].getRequired();
+            permissionProcess[hash] = inreview[hash][proponent].permissionProcess;
         }
         delete inreview[hash][proponent];
         emit LogAccepted(hash, proponent);
     }
 
     function dismiss(address proponent, bytes32 hash) public {
-        inreview[hash][proponent] = typeStruct[hash].data;
+        inreview[hash][proponent] = typeStruct[hash].data.getFull(permissionProcess[hash]);
         remove(hash);
         emit LogDismissed(hash, proponent);
     }
@@ -104,19 +111,21 @@ contract PermissionFunctionStorage is StorageBase {
         return (typeIndex[typeStruct[hash].index] == hash);
     }
 
-    function getByHash(bytes32 hash) public view returns(PermissionFunctionLib.PermissionFunctionRequired memory data) {
-        return typeStruct[hash].data;
+    function getByHash(bytes32 hash) public view returns(PermissionLib.PermissionFull memory data) {
+        return typeStruct[hash].data.getFull(permissionProcess[hash]);
     }
 
-    function get(address contractAddress, bytes4 functionSig) public view returns(PermissionFunctionLib.PermissionFunctionRequired memory data) {
-        return getByHash(keccak256(abi.encode(contractAddress, functionSig)));
+    function get(PermissionLib.PermissionIdentifier memory identifier) public view returns(PermissionLib.PermissionFull memory data) {
+        return getByHash(identifier.getDataHash());
     }
 
-    function insertPrivate(bytes32 hash, PermissionFunctionLib.PermissionFunctionRequired memory data) private {
+    function insertPrivate(bytes32 hash, PermissionLib.PermissionFull memory data) private {
         if(isStored(hash)) revert("This data exists. Use the extant data.");
 
-        typeStruct[hash].data = data;
+        typeStruct[hash].data = data.getRequired();
         typeStruct[hash].index = typeIndex.push(hash) - 1;
+
+        permissionProcess[hash] = data.permissionProcess;
 
         emit LogNew(hash, typeStruct[hash].index);
     }

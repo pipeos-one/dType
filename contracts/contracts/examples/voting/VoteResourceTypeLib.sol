@@ -22,7 +22,7 @@ library VoteResourceTypeLib {
     }
 
     function getDataHash(VoteResource memory data) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(data.contractAddress, data.dataHash));
+        return keccak256(abi.encode(data.contractAddress, data.dataHash, data.proponent));
     }
 
     function getFull(

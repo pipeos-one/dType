@@ -3,7 +3,7 @@ pragma experimental ABIEncoderV2;
 
 library dTypesLib {
 
-    enum dTypeRelation { Has, Link }
+    enum dTypeRelation { Has, Link, Bytes }
 
     struct dTypes {
         string name;

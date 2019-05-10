@@ -84,19 +84,20 @@ contract FileTypeStorage is StorageBase {
         emit LogRemoveReview(hash, proponent);
     }
 
-    function update(bytes32 hashi, FileTypeLib.FileType memory data)
+    function update(FileTypeLib.FileType memory data)
         public
         returns(bytes32 hash)
     {
-        remove(hashi);
+        remove(data.getDataHash());
         return insert(data);
     }
 
     function updateReview(address proponent, bytes memory rawdata)
         public
+        returns(bytes32 hash)
     {
         FileTypeLib.FileType memory data = FileTypeLib.structureBytes(rawdata);
-        bytes32 hash = data.getDataHash();
+        hash = data.getDataHash();
         inreview[hash][proponent] = data;
         emit LogUpdateReview(hash, proponent);
     }

@@ -6,7 +6,7 @@ const VoteResourceTypeStorage = artifacts.require('VoteResourceTypeStorage.sol')
 const VotingFunctions = artifacts.require('VotingFunctions.sol');
 const VotingMechanismStorage = artifacts.require('VotingMechanismTypeStorage.sol');
 const VotingProcessStorage = artifacts.require('VotingProcessStorage.sol');
-const PermissionFunctionStorage = artifacts.require('PermissionFunctionStorage.sol');
+const PermissionStorage = artifacts.require('PermissionStorage.sol');
 const ActionContract = artifacts.require('ActionContract.sol');
 
 contract('gov', async (accounts) => {
@@ -18,7 +18,7 @@ contract('gov', async (accounts) => {
         votingfunc = await VotingFunctions.deployed();
         vmStorage = await VotingMechanismStorage.deployed();
         vpStorage = await VotingProcessStorage.deployed();
-        permStorage = await PermissionFunctionStorage.deployed();
+        permStorage = await PermissionStorage.deployed();
         action = await ActionContract.deployed();
     });
 
@@ -27,10 +27,16 @@ contract('gov', async (accounts) => {
         let newperm = {
             contractAddress: vmStorage.address,
             functionSig: UTILS.getSignature(vmStorage.abi, 'insert'),
+            transitionHash: CT.EMPTY_BYTES,
+            dataHash: CT.EMPTY_BYTES,
             anyone: false,
             allowed: CT.EMPTY_ADDRESS,
-            temporaryAction: UTILS.getSignature(vmStorage.abi, 'insert'),
-            votingProcessDataHash: await vpStorage.typeIndex(0),
+            permissionProcess: {
+                temporaryAction: UTILS.getSignature(vmStorage.abi, 'insert'),
+                votingProcessDataHash: await vpStorage.typeIndex(0),
+                functionHashPermission: CT.EMPTY_BYTES,
+                allowedTransitions: [],
+            }
         }
 
         let encodedParams = web3.eth.abi.encodeParameters(
@@ -38,11 +44,16 @@ contract('gov', async (accounts) => {
             [newperm],
         );
 
-        let permission = await permStorage.get(permStorage.address, UTILS.getSignature(permStorage.abi, 'insert'));
-        assert.exists(permission.temporaryAction);
-        assert.exists(permission.votingProcessDataHash);
+        let permission = await permStorage.get([
+            permStorage.address,
+            UTILS.getSignature(permStorage.abi, 'insert'),
+            CT.EMPTY_BYTES,
+            CT.EMPTY_BYTES,
+        ]);
+        assert.exists(permission.permissionProcess.temporaryAction);
+        assert.exists(permission.permissionProcess.votingProcessDataHash);
 
-        let votingProcess = await vpStorage.getByHash(permission.votingProcessDataHash);
+        let votingProcess = await vpStorage.getByHash(permission.permissionProcess.votingProcessDataHash);
         assert.exists(votingProcess.votingMechanismDataHash);
         assert.exists(votingProcess.funcHashYes);
         assert.exists(votingProcess.funcHashNo);
@@ -65,7 +76,7 @@ contract('gov', async (accounts) => {
         assert.equal(votingResource.proponent, accounts[0], 'wrong votingResource.proponent');
         assert.equal(votingResource.contractAddress, permStorage.address, 'wrong votingResource.contractAddress');
         assert.exists(votingResource.dataHash, 'wrong votingResource.dataHash');
-        assert.equal(votingResource.votingProcessDataHash, permission.votingProcessDataHash, 'wrong votingResource.votingProcessDataHash');
+        assert.equal(votingResource.votingProcessDataHash, permission.permissionProcess.votingProcessDataHash, 'wrong votingResource.votingProcessDataHash');
         assert.equal(votingResource.scoreyes, 0, 'wrong votingResource.scoreyes');
         assert.equal(votingResource.scoreno, 0, 'wrong votingResource.scoreno');
 
@@ -73,8 +84,8 @@ contract('gov', async (accounts) => {
         let permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
         assert.equal(permInReview.anyone, newperm.anyone, 'wrong permInReview.anyone');
         assert.equal(permInReview.allowed, newperm.allowed, 'wrong permInReview.allowed');
-        assert.equal(permInReview.temporaryAction, newperm.temporaryAction, 'wrong permInReview.temporaryAction');
-        assert.equal(permInReview.votingProcessDataHash, newperm.votingProcessDataHash, 'wrong permInReview.votingProcessDataHash');
+        assert.equal(permInReview.permissionProcess.temporaryAction, newperm.permissionProcess.temporaryAction, 'wrong permInReview.temporaryAction');
+        assert.equal(permInReview.permissionProcess.votingProcessDataHash, newperm.permissionProcess.votingProcessDataHash, 'wrong permInReview.votingProcessDataHash');
 
         let newPermission;
 
@@ -94,8 +105,8 @@ contract('gov', async (accounts) => {
         newPermission = await permStorage.getByHash(votingResource.dataHash);
         assert.equal(newPermission.anyone, false);
         assert.equal(newPermission.allowed, CT.EMPTY_ADDRESS);
-        assert.equal(newPermission.temporaryAction, '0x00000000');
-        assert.equal(newPermission.votingProcessDataHash, CT.EMPTY_BYTES);
+        assert.equal(newPermission.permissionProcess.temporaryAction, '0x00000000');
+        assert.equal(newPermission.permissionProcess.votingProcessDataHash, CT.EMPTY_BYTES);
 
         result = await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[8]]));
 
@@ -104,13 +115,13 @@ contract('gov', async (accounts) => {
         newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
         assert.equal(newPermission.anyone, newperm.anyone, 'wrong newPermission.anyone');
         assert.equal(newPermission.allowed, newperm.allowed, 'wrong newPermission.allowed');
-        assert.equal(newPermission.temporaryAction, newperm.temporaryAction, 'wrong newPermission.temporaryAction');
-        assert.equal(newPermission.votingProcessDataHash, newperm.votingProcessDataHash, 'wrong newPermission.votingProcessDataHash');
+        assert.equal(newPermission.permissionProcess.temporaryAction, newperm.permissionProcess.temporaryAction, 'wrong newPermission.temporaryAction');
+        assert.equal(newPermission.permissionProcess.votingProcessDataHash, newperm.permissionProcess.votingProcessDataHash, 'wrong newPermission.votingProcessDataHash');
 
         permInReview = await permStorage.inreview(votingResource.dataHash, votingResource.proponent);
         assert.equal(permInReview.anyone, false);
         assert.equal(permInReview.allowed, CT.EMPTY_ADDRESS);
-        assert.equal(permInReview.temporaryAction, '0x00000000');
-        assert.equal(permInReview.votingProcessDataHash, CT.EMPTY_BYTES);
+        assert.equal(permInReview.permissionProcess.temporaryAction, '0x00000000');
+        assert.equal(permInReview.permissionProcess.votingProcessDataHash, CT.EMPTY_BYTES);
     });
 });
