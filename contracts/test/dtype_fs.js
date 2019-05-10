@@ -73,24 +73,5 @@ contract('filesystem', async (accounts) => {
         assert.equal(file.parentKey, insertedFile.parentKey, 'insertedFile.parentKey incorrect');
 
         ({logs} = await fileStorage.setFiles(folderHash, [fileHash]));
-
-        // Test standalone changeName
-        changedFile = await fileFunctions.contract.methods.changeName(file).call();
-        assert.equal(file.pointer.name + '1', changedFile.pointer.name);
-        assert.equal(file.pointer.extension, changedFile.pointer.extension);
-        assert.equal(file.pointer.swarm.protocol, changedFile.pointer.swarm.protocol, 'changedFile.swarm incorrect');
-        assert.equal(file.pointer.swarm.filehash, changedFile.pointer.swarm.filehash, 'changedFile.filehash incorrect');
-        assert.equal(file.parentKey, changedFile.parentKey);
-
-        let funcHash = await dtype.getTypeHash(0, 'changeName');
-
-        ({logs} = await dtype.run(funcHash, [fileHash], CT.EMPTY_BYTES));
-
-        changedFile = await fileStorage.getByHash(logs[0].args.hash);
-        assert.equal(file.pointer.name + '1', changedFile.pointer.name, 'changedFile.name incorrect');
-        assert.equal(file.pointer.extension, changedFile.pointer.extension);
-        assert.equal(file.pointer.swarm.protocol, changedFile.pointer.swarm.protocol, 'changedFile.swarm incorrect');
-        assert.equal(file.pointer.swarm.filehash, changedFile.pointer.swarm.filehash, 'changedFile.filehash incorrect');
-        assert.equal(file.parentKey, changedFile.parentKey);
     });
 });
