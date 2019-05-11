@@ -86,6 +86,22 @@
                     "filesPerFolder": []
                 }
             ]
+        },
+        {
+            "folder": {
+                "pointer": {
+                    "name": "Users",
+                    "extension": 0,
+                    "swarm": {
+                        "protocol": 1,
+                        "filehash": "0x5e374b05ffac2557675602015f6d61f30e4b103ac62ccbdd9de60a1eb949349c"
+                    },
+                    "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                },
+                "parentKey": null,
+                "filesPerFolder": []
+            },
+            "files": []
         }
     ],
     "files": [
