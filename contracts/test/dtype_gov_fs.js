@@ -60,7 +60,7 @@ contract('gov', async (accounts) => {
             }
         }
 
-        await permStorage.insert(fsPermission);
+        // await permStorage.insert(fsPermission);
 
         let permission = await permStorage.get([
             fsPermission.contractAddress,
@@ -80,7 +80,7 @@ contract('gov', async (accounts) => {
         fsPermission.permissionProcess.temporaryAction = UTILS.getSignature(fileStorage.abi, 'updateReview');
         fsPermission.permissionProcess.functionHashPermission = await dtype.getTypeHash(0, 'getUpdatePermissionKeys');
 
-        await permStorage.insert(fsPermission);
+        // await permStorage.insert(fsPermission);
         permission = await permStorage.get([
             fsPermission.contractAddress,
             fsPermission.functionSig,
@@ -202,7 +202,7 @@ contract('gov', async (accounts) => {
             }
         }
 
-        await permStorage.insert(perm);
+        // await permStorage.insert(perm);
         permS = await permStorage.get([
             perm.contractAddress,
             perm.functionSig,
@@ -219,7 +219,7 @@ contract('gov', async (accounts) => {
         // getChangedFile
         // can be called by anyone
         perm.transitionHash = allowedTransitions[1];
-        await permStorage.insert(perm);
+        // await permStorage.insert(perm);
         permS = await permStorage.get([
             perm.contractAddress,
             perm.functionSig,
