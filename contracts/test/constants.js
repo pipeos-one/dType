@@ -17,9 +17,30 @@ const EMPTY_PERMISSION = {
     }
 };
 
+const EMPTY_FS = {
+    pointer: {
+        name: '',
+        extension: 0,
+        swarm: {
+            protocol: 1,
+            filehash: EMPTY_BYTES
+        },
+        ipfs: {
+            protocol: 0,
+            filehash: EMPTY_BYTES
+        },
+        uri: {
+            uri: ''
+        },
+    },
+    parentKey: EMPTY_BYTES,
+    filesPerFolder: []
+}
+
 module.exports = {
     EMPTY_ADDRESS,
     EMPTY_BYTES,
     EMPTY_BYTES4,
     EMPTY_PERMISSION,
+    EMPTY_FS,
 }
