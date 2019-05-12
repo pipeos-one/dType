@@ -68,4 +68,17 @@ module.exports = async function(deployer, network, accounts) {
     await permStorage.insert(tPermission);
     tPermission.functionSig =  UTILS.getSignature(fileStorage.abi, 'update');
     await permStorage.insert(tPermission);
+
+    // Insert permissions for Users folder
+    let usersHash = await fileStorage.typeIndex(6);
+    let usersFolder = await fileStorage.getByHash(usersHash);
+    if (usersFolder.pointer.name != 'Users') {
+        throw new Error(`${usersFolder.pointer.name} not Users`);
+    }
+    fPermission = Object.assign(CT.EMPTY_PERMISSION, {
+        contractAddress: fileStorage.address,
+        functionSig: UTILS.getSignature(fileStorage.abi, 'insert'),
+        dataHash: usersHash,
+        anyone: true,
+    });
 };
