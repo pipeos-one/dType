@@ -53,7 +53,7 @@ module.exports = async function(deployer, network, accounts) {
 
     // Insert permissions for helper transitions, without consequence
     // structureData
-    tPermission = Object.assign(CT.EMPTY_PERMISSION, {
+    tPermission = Object.assign({}, CT.EMPTY_PERMISSION, {
         contractAddress: fileStorage.address,
         functionSig: UTILS.getSignature(fileStorage.abi, 'update'),
         transitionHash: allowedTransitions[0],
@@ -75,10 +75,12 @@ module.exports = async function(deployer, network, accounts) {
     if (usersFolder.pointer.name != 'Users') {
         throw new Error(`${usersFolder.pointer.name} not Users`);
     }
-    fPermission = Object.assign(CT.EMPTY_PERMISSION, {
+
+    fPermission = Object.assign({}, CT.EMPTY_PERMISSION, {
         contractAddress: fileStorage.address,
         functionSig: UTILS.getSignature(fileStorage.abi, 'insert'),
         dataHash: usersHash,
         anyone: true,
     });
+    await permStorage.insert(fPermission);
 };
