@@ -53,5 +53,14 @@ contract('filesystem', async (accounts) => {
             fileCount.add(web3.utils.toBN('1')).toString(),
             'wrong resourceCount',
         );
+
+        // A permission should have automatically
+        let insertedPerm = await permStorage.get([
+            fileStorage.address,
+            UTILS.getSignature(fileStorage.abi, 'insert'),
+            CT.EMPTY_BYTES,
+            await fileStorage.typeIndex(fileCount),
+        ]);
+        assert.equal(insertedPerm.allowed, accounts[3], 'wrong permission address');
     });
 });
