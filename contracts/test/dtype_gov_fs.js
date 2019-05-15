@@ -508,17 +508,31 @@ contract('gov', async (accounts) => {
         );
 
         // Try to insert folder through ActionContract
-        await truffleAssert.fails(
-            action.run(
-                fileStorage.address,
-                UTILS.getSignature(fileStorage.abi, 'insert'),
-                encodedParams,
-                {from: accounts[0]}
-            ),
-            truffleAssert.ErrorType.REVERT,
-            "Unauthorized permission. dataHash"
+        // If it is from another address than accounts[1], folder goes inreview
+        resourceCount = await resourceStorage.count();
+        fileCount = await fileStorage.count();
+        await action.run(
+            fileStorage.address,
+            UTILS.getSignature(fileStorage.abi, 'insert'),
+            encodedParams,
+            {from: accounts[0]}
         );
+        assert.equal(
+            (await resourceStorage.count()).toString(),
+            resourceCount.add(web3.utils.toBN('1')).toString(),
+            'wrong resourceCount',
+        );
+        assert.equal(
+            (await fileStorage.count()).toString(),
+            fileCount.toString(),
+            'wrong fileCount',
+        );
+        votingResourceHash = await resourceStorage.typeIndex(resourceCount);
+        votingResource = await resourceStorage.getByHash(votingResourceHash);
+        folderInReview = await fileStorage.inreview(votingResource.dataHash, accounts[0]);
+        assert.equal(folderInReview.pointer.name, file.pointer.name, 'insertedFile.name incorrect');
 
+        // If it is from accounts[1], it gets directly inserted
         resourceCount = await resourceStorage.count();
         fileCount = await fileStorage.count();
 
@@ -531,17 +545,16 @@ contract('gov', async (accounts) => {
 
         assert.equal(
             (await resourceStorage.count()).toString(),
-            resourceCount.add(web3.utils.toBN('1')).toString(),
+            resourceCount.toString(),
             'wrong resourceCount',
         );
         assert.equal(
             (await fileStorage.count()).toString(),
-            fileCount.toString(),
+            fileCount.add(web3.utils.toBN('1')).toString(),
             'wrong fileCount',
         );
-
-        // TODO: We need a way to remove the votingResource when we don't need it anymore
-        // Probably another voting mechanism
+        let insertedFile = await fileStorage.getByHash(await fileStorage.typeIndex(fileCount));
+        assert.equal(insertedFile.pointer.name, file.pointer.name, 'insertedFile.name incorrect');
     });
 });
 
