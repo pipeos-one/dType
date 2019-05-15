@@ -97,19 +97,10 @@ contract('gov', async (accounts) => {
 
     it('permissioned filesystem test', async () => {
         // Trying to insert a new file into fs through ActionContract
-        let folder = {
-            "pointer": {
-                "name": "TestFolder",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'TestFolder';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
 
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
@@ -234,19 +225,10 @@ contract('gov', async (accounts) => {
         assert.sameMembers(permS.permissionProcess.allowedTransitions, perm.permissionProcess.allowedTransitions);
 
         // insert folder that can only be changed by accounts[1]
-        let folder = {
-            "pointer": {
-                "name": "User1Folder",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'User1Folder';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
 
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
@@ -452,19 +434,11 @@ contract('gov', async (accounts) => {
     });
 
     it('insert file under folder permissions', async () => {
-        let folder = {
-            "pointer": {
-                "name": "User1Folder2",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'User1Folder2';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
+
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
             [folder],
@@ -534,17 +508,31 @@ contract('gov', async (accounts) => {
         );
 
         // Try to insert folder through ActionContract
-        await truffleAssert.fails(
-            action.run(
-                fileStorage.address,
-                UTILS.getSignature(fileStorage.abi, 'insert'),
-                encodedParams,
-                {from: accounts[0]}
-            ),
-            truffleAssert.ErrorType.REVERT,
-            "Unauthorized permission. dataHash"
+        // If it is from another address than accounts[1], folder goes inreview
+        resourceCount = await resourceStorage.count();
+        fileCount = await fileStorage.count();
+        await action.run(
+            fileStorage.address,
+            UTILS.getSignature(fileStorage.abi, 'insert'),
+            encodedParams,
+            {from: accounts[0]}
         );
+        assert.equal(
+            (await resourceStorage.count()).toString(),
+            resourceCount.add(web3.utils.toBN('1')).toString(),
+            'wrong resourceCount',
+        );
+        assert.equal(
+            (await fileStorage.count()).toString(),
+            fileCount.toString(),
+            'wrong fileCount',
+        );
+        votingResourceHash = await resourceStorage.typeIndex(resourceCount);
+        votingResource = await resourceStorage.getByHash(votingResourceHash);
+        folderInReview = await fileStorage.inreview(votingResource.dataHash, accounts[0]);
+        assert.equal(folderInReview.pointer.name, file.pointer.name, 'insertedFile.name incorrect');
 
+        // If it is from accounts[1], it gets directly inserted
         resourceCount = await resourceStorage.count();
         fileCount = await fileStorage.count();
 
@@ -557,17 +545,16 @@ contract('gov', async (accounts) => {
 
         assert.equal(
             (await resourceStorage.count()).toString(),
-            resourceCount.add(web3.utils.toBN('1')).toString(),
+            resourceCount.toString(),
             'wrong resourceCount',
         );
         assert.equal(
             (await fileStorage.count()).toString(),
-            fileCount.toString(),
+            fileCount.add(web3.utils.toBN('1')).toString(),
             'wrong fileCount',
         );
-
-        // TODO: We need a way to remove the votingResource when we don't need it anymore
-        // Probably another voting mechanism
+        let insertedFile = await fileStorage.getByHash(await fileStorage.typeIndex(fileCount));
+        assert.equal(insertedFile.pointer.name, file.pointer.name, 'insertedFile.name incorrect');
     });
 });
 

@@ -39,11 +39,19 @@ contract('filesystem', async (accounts) => {
             [file],
         );
 
+        let fileCount = await fileStorage.count();
+
         await action.run(
             fileStorage.address,
             UTILS.getSignature(fileStorage.abi, 'insert'),
             encodedParams,
             {from: accounts[3]}
+        );
+
+        assert.equal(
+            (await fileStorage.count()).toString(),
+            fileCount.add(web3.utils.toBN('1')).toString(),
+            'wrong resourceCount',
         );
     });
 });
