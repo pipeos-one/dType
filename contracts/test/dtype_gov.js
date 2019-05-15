@@ -88,6 +88,7 @@ contract('gov', async (accounts) => {
         assert.equal(permInReview.permissionProcess.votingProcessDataHash, newperm.permissionProcess.votingProcessDataHash, 'wrong permInReview.votingProcessDataHash');
 
         let newPermission;
+        let permCount = await permStorage.count();
 
         // Voting can begin on the voting resource
         // TODO address should be set in ActionContract
@@ -101,7 +102,11 @@ contract('gov', async (accounts) => {
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[7]]));
 
         // Proposal not yet accepted, still inreview
-        assert.equal(await permStorage.count(), 1);
+        assert.equal(
+            (await permStorage.count()).toString(),
+            permCount.toString(),
+            'wrong permCount',
+        );
         newPermission = await permStorage.getByHash(votingResource.dataHash);
         assert.equal(newPermission.anyone, false);
         assert.equal(newPermission.allowed, CT.EMPTY_ADDRESS);
@@ -111,8 +116,12 @@ contract('gov', async (accounts) => {
         result = await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[8]]));
 
         // Proposal should be accepted and removed from inreview
-        assert.equal(await permStorage.count(), 2);
-        newPermission = await permStorage.getByHash(await permStorage.typeIndex(1));
+        assert.equal(
+            (await permStorage.count()).toString(),
+            permCount.add(web3.utils.toBN('1')).toString(),
+            'wrong permCount',
+        );
+        newPermission = await permStorage.getByHash(await permStorage.typeIndex(permCount));
         assert.equal(newPermission.anyone, newperm.anyone, 'wrong newPermission.anyone');
         assert.equal(newPermission.allowed, newperm.allowed, 'wrong newPermission.allowed');
         assert.equal(newPermission.permissionProcess.temporaryAction, newperm.permissionProcess.temporaryAction, 'wrong newPermission.temporaryAction');
