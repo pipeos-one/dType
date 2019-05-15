@@ -32,6 +32,8 @@ contract ActionContract {
     }
 
     function run(address contractAddress, bytes4 funcSig, bytes memory data) public {
+        bool runDirectly = false;
+
         // Get permission for function
         PermissionLib.PermissionIdentifier memory identifier = PermissionLib.PermissionIdentifier(contractAddress, funcSig, bytes32(0), bytes32(0));
 
@@ -39,11 +41,8 @@ contract ActionContract {
 
         // if allowed -> forward call to contract
         if (fpermission.anyone ==  true || fpermission.allowed == msg.sender) {
-            (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(funcSig, data));
-            require(success == true, 'forwarding failed, sender allowed');
-            return;
-        }
-        if (fpermission.permissionProcess.functionHashPermission != bytes32(0)) {
+            runDirectly = true;
+        } else if (fpermission.permissionProcess.functionHashPermission != bytes32(0)) {
             bytes32[] memory dataHashes;
             bytes memory dataHashesB = dtype.runView(
                 fpermission.permissionProcess.functionHashPermission,
@@ -52,16 +51,25 @@ contract ActionContract {
             );
 
             (dataHashes) = abi.decode(dataHashesB, (bytes32[]));
-
+            bool allowed = true;
             for (uint256 i = 0; i < dataHashes.length; i++) {
                 if (dataHashes[i] != bytes32(0)) {
                     PermissionLib.PermissionFull memory dpermission = permission.get(PermissionLib.PermissionIdentifier(contractAddress, funcSig, bytes32(0), dataHashes[i]));
 
                     if (!(dpermission.anyone ==  true || dpermission.allowed == msg.sender)) {
-                        revert('Unauthorized permission. dataHash');
+                        // revert('Unauthorized permission. dataHash');
+                        allowed = false;
                     }
                 }
             }
+            if (allowed == true) {
+                runDirectly = true;
+            }
+        }
+        if (runDirectly == true) {
+            (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(funcSig, data));
+            require(success == true, 'forwarding failed, sender allowed');
+            return;
         }
         if (fpermission.permissionProcess.temporaryAction != bytes4(0) && fpermission.permissionProcess.votingProcessDataHash != bytes32(0)) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodeWithSelector(
