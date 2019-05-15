@@ -69,6 +69,20 @@ contract ActionContract {
         if (runDirectly == true) {
             (bool success, bytes memory out) = contractAddress.call(abi.encodePacked(funcSig, data));
             require(success == true, 'forwarding failed, sender allowed');
+            // If a dataHash is returned, we insert a permission for it
+            // Only "insert" should return a result - dataHash
+            if (out.length == 32) {
+                PermissionProcessLib.PermissionProcess memory pprocess;
+                permission.insert(PermissionLib.Permission(
+                    contractAddress,
+                    funcSig,
+                    bytes32(0),
+                    abi.decode(out, (bytes32)),
+                    false,
+                    msg.sender,
+                    pprocess
+                ));
+            }
             return;
         }
         if (fpermission.permissionProcess.temporaryAction != bytes4(0) && fpermission.permissionProcess.votingProcessDataHash != bytes32(0)) {
