@@ -97,19 +97,10 @@ contract('gov', async (accounts) => {
 
     it('permissioned filesystem test', async () => {
         // Trying to insert a new file into fs through ActionContract
-        let folder = {
-            "pointer": {
-                "name": "TestFolder",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'TestFolder';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
 
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
@@ -234,19 +225,10 @@ contract('gov', async (accounts) => {
         assert.sameMembers(permS.permissionProcess.allowedTransitions, perm.permissionProcess.allowedTransitions);
 
         // insert folder that can only be changed by accounts[1]
-        let folder = {
-            "pointer": {
-                "name": "User1Folder",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'User1Folder';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
 
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
@@ -452,19 +434,11 @@ contract('gov', async (accounts) => {
     });
 
     it('insert file under folder permissions', async () => {
-        let folder = {
-            "pointer": {
-                "name": "User1Folder2",
-                "extension": 0,
-                "swarm": {
-                    "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
-                },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
-            },
-            "parentKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            filesPerFolder: []
-        };
+        const folder = Object.assign({}, CT.EMPTY_FS);
+        folder.pointer.name = 'User1Folder2';
+        folder.pointer.swarm.filehash = web3.utils.randomHex(32);
+        folder.parentKey = await fileStorage.typeIndex(0);
+
         let encodedParams = web3.eth.abi.encodeParameters(
             fileStorage.abi.find(fabi => fabi.name === 'insert').inputs,
             [folder],
