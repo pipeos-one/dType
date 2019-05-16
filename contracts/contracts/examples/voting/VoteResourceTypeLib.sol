@@ -12,6 +12,12 @@ library VoteResourceTypeLib {
         uint256 scoreno;
     }
 
+    struct VoteResourceIdentifier {
+        address contractAddress;
+        bytes32 dataHash;
+        address proponent;
+    }
+
     function insert(VoteResource storage self, VoteResource memory data) internal {
         self.proponent = data.proponent;
         self.contractAddress = data.contractAddress;
@@ -23,6 +29,14 @@ library VoteResourceTypeLib {
 
     function getDataHash(VoteResource memory data) pure public returns(bytes32 hash) {
         return keccak256(abi.encode(data.contractAddress, data.dataHash, data.proponent));
+    }
+
+    function getDataHash(VoteResourceIdentifier memory identifier) pure public returns(bytes32 hash) {
+        return keccak256(abi.encode(
+            identifier.contractAddress,
+            identifier.dataHash,
+            identifier.proponent
+        ));
     }
 
     function getFull(

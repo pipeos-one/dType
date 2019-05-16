@@ -6,6 +6,7 @@ import './VoteResourceInterface.sol';
 contract VoteResourceTypeStorage is VoteResourceInterface {
     using VoteTypeLib for VoteTypeLib.UserVote;
     using VoteResourceTypeLib for VoteResourceTypeLib.VoteResource;
+    using VoteResourceTypeLib for VoteResourceTypeLib.VoteResourceIdentifier;
 
     bytes32[] public typeIndex;
     mapping(bytes32 => Type) public typeStruct;
@@ -71,6 +72,7 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
         } else {
             typeStruct[hash].data.scoreno += vote.voteWeight;
         }
+        emit LogUpdate(hash, typeStruct[hash].index);
     }
 
     function isStored(bytes32 hash) public view returns(bool isIndeed) {
@@ -81,6 +83,10 @@ contract VoteResourceTypeStorage is VoteResourceInterface {
     function getByHash(bytes32 hash) public view returns(VoteResourceTypeLib.VoteResource memory data) {
         if(!isStored(hash)) revert("No such data inserted.");
         return typeStruct[hash].data;
+    }
+
+    function getHash(VoteResourceTypeLib.VoteResourceIdentifier memory identifier) public view returns(bytes32 hash) {
+        return identifier.getDataHash();
     }
 
     function count() public view returns(uint256 counter) {
