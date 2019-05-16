@@ -145,7 +145,8 @@ contract ActionContract {
         bytes memory voteResult = dtype.pipeView(dataHashes, mechanism.processVoteFunctions, voteData);
         emit LogDebug(voteResult, 'processVoteFunctions');
 
-        address(voting).call(abi.encodePacked(bytes4(keccak256(bytes('update(bytes32,(bool,uint256,address))'))), votingResourceHash, voteResult));
+        (bool success, bytes memory outdata) = address(voting).call(abi.encodePacked(bytes4(keccak256(bytes('update(bytes32,(bool,uint256,address))'))), votingResourceHash, voteResult));
+        require(success == true, 'voting failed');
 
         voteState(votingResourceHash, mechanism, process, voteResult);
 

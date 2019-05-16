@@ -1,3 +1,5 @@
+const truffleAssert = require('truffle-assertions');
+
 const CT = require('./constants.js');
 const UTILS = require('./utils.js');
 
@@ -93,6 +95,11 @@ contract('gov', async (accounts) => {
         // Voting can begin on the voting resource
         // TODO address should be set in ActionContract
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[0]]));
+        await truffleAssert.fails(
+            action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[0]])),
+            truffleAssert.ErrorType.REVERT,
+            'voting failed',
+        );
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[1]]));
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [false, 0, accounts[2]]));
         await action.vote(votingResourceHash, web3.eth.abi.encodeParameters(['bool','uint256','address'], [true, 0, accounts[3]]));
