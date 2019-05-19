@@ -3,7 +3,7 @@
         {
             "folder": {
                 "pointer": {
-                    "name": "EthFS",
+                    "name": "UniFS",
                     "extension": 0,
                     "swarm": {
                         "protocol": 1,
@@ -98,7 +98,7 @@
                     },
                     "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                 },
-                "parentKey": null,
+                "parentKey": 0,
                 "filesPerFolder": []
             },
             "files": []
