@@ -37,7 +37,7 @@
                         "extension": 1,
                         "swarm": {
                             "protocol": 1,
-                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                            "filehash": "0x2ae19433a8079dcd88aea34ae802970bcca6a6ac347a20d4e322ad92fa8fc1a7"
                         },
                         "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                     },
@@ -49,7 +49,7 @@
                         "extension": 1,
                         "swarm": {
                             "protocol": 1,
-                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                            "filehash": "0xb631ed17b58829deb9471c67a90efe334ac5a69d1f316958a267aa984e222fde"
                         },
                         "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                     },
@@ -64,7 +64,7 @@
                     "extension": 0,
                     "swarm": {
                         "protocol": 1,
-                        "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                        "filehash": "0x3de8ca2ba86177857e0fba246096e14861e7998de2fdb660fb7cc165da13239c"
                     },
                     "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                 },
@@ -78,7 +78,7 @@
                         "extension": 1,
                         "swarm": {
                             "protocol": 1,
-                            "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                            "filehash": "0x02a81213eda90cb1a5ecb24f32a8a260a437aaf133c09af3b8a12e908fa28cce"
                         },
                         "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                     },
@@ -94,7 +94,7 @@
                     "extension": 0,
                     "swarm": {
                         "protocol": 1,
-                        "filehash": "0x5e374b05ffac2557675602015f6d61f30e4b103ac62ccbdd9de60a1eb949349c"
+                        "filehash": "0x288eac6a115d04bc1dbe5ad437e2f8aaecb9de52c6498d78d39879f73a2aa1a7"
                     },
                     "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
                 },

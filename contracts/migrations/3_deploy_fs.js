@@ -14,6 +14,7 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.link(FilePointerLib, FilePointerStorage);
     await deployer.deploy(FilePointerStorage);
 
+    await deployer.link(FilePointerLib, FileTypeLib);
     await deployer.deploy(FileTypeLib);
     await deployer.link(FileTypeLib, FileTypeStorage);
     await deployer.deploy(FileTypeStorage);

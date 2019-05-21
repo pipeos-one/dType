@@ -35,7 +35,7 @@ library FilePointerLib {
     }
 
     function getDataHash(FilePointer memory pointer) pure public returns(bytes32 hash) {
-        return keccak256(abi.encode(pointer));
+        return keccak256(abi.encode(pointer.extension, pointer.swarm, pointer.ipfs, pointer.uri));
     }
 
     function getFull(

@@ -41,7 +41,7 @@ contract('filesystem', async (accounts) => {
                     "protocol": 1,
                     "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
                 },
-                "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
+                "ipfs": {"protocol": 0, "filehash": web3.utils.randomHex(32)}, "uri": {"uri": ""}
             },
             filesPerFolder: []
         };
@@ -51,7 +51,7 @@ contract('filesystem', async (accounts) => {
                 "extension": 0,
                 "swarm": {
                     "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                    "filehash": web3.utils.randomHex(32),
                 },
                 "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
             },

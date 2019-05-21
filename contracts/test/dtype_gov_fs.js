@@ -374,11 +374,11 @@ contract('gov', async (accounts) => {
         assert.equal(permS.permissionProcess.functionHashPermission, perm.permissionProcess.functionHashPermission, 'wrong functionHashPermission, changeFolderFiles');
         assert.sameMembers(permS.permissionProcess.allowedTransitions, perm.permissionProcess.allowedTransitions, 'wrong allowedTransitions, changeFolderFiles');
 
-        folder.pointer.name = "User1FolderChanged";
-        // folder.parentKey = await fileStorage.typeIndex(0);
+        const updatedFolder = JSON.parse(JSON.stringify(folder));
+        updatedFolder.pointer.name = "User1FolderChanged";
         encodedParams = web3.eth.abi.encodeParameter(
             fileStorage.abi.find(fabi => fabi.name === 'update').inputs[0],
-            folder,
+            updatedFolder,
         );
 
         // try to change the folder name, accounts[0]
@@ -420,17 +420,23 @@ contract('gov', async (accounts) => {
 
         // Make sure file update is in review
         folderInReview = await fileStorage.inreview(votingResource.dataHash, accounts[1]);
-        // console.log('folderInReview', folderInReview)
-        assert.equal(folderInReview.pointer.name, folder.pointer.name, 'insertedFile.name incorrect');
+        assert.equal(folderInReview.pointer.name, updatedFolder.pointer.name, 'insertedFile.name incorrect');
+
+        // Hasn't been updated yet
+        newFolder = await fileStorage.getByHash(votingResource.dataHash);
+        assert.equal(newFolder.pointer.name, folder.pointer.name, 'should not be inserted');
+        assert.equal(newFolder.pointer.parentKey, folder.pointer.parentKey, 'should not be inserted');
 
         // Vote for the file update to pass
         await runVoteAlow(accounts, action, votingResourceHash);
+
+        // File count should be the same, as the action is an update
         assert.equal(
-            (await fileStorage.count()).toString(), fileCount.add(web3.utils.toBN('1')).toString(),
+            (await fileStorage.count()).toString(), fileCount.toString(),
             'wrong fileCount',
         );
         newFolder = await fileStorage.getByHash(votingResource.dataHash);
-        assert.equal(folderInReview.pointer.name, folder.pointer.name, 'insertedFile.name incorrect');
+        assert.equal(folderInReview.pointer.name, updatedFolder.pointer.name, 'insertedFile.name incorrect');
     });
 
     it('insert file under folder permissions', async () => {
@@ -495,7 +501,7 @@ contract('gov', async (accounts) => {
                 "extension": 0,
                 "swarm": {
                     "protocol": 1,
-                    "filehash": "0x9098281bbfb81d161a71c27bae34add67e9fa9f6eb84f22c0c9aedd7b9cd2189"
+                    "filehash": web3.utils.randomHex(32),
                 },
                 "ipfs": {"protocol": 0, "filehash": "0x0000000000000000000000000000000000000000000000000000000000000000"}, "uri": {"uri": ""}
             },
