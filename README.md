@@ -2,17 +2,28 @@
 
 [![Join the chat at https://gitter.im/pipeos-one/dType](https://badges.gitter.im/pipeos-one/dType.svg)](https://gitter.im/pipeos-one/dType?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-We are proposing a Decentralized Type System for Ethereum, to introduce data definition (and therefore ABI) consistency.
+dType is a Decentralized Type System for a Global OS, for Ethereum. A global type system enables independently built system parts to interoperate. Developers should agree on standardizing common types and a type registry, continuously working on improving them, to become part of the Global OS. Ethereum could become the origin for defining types for other programming languages.
 
-In-work EIP proposal: https://github.com/ethereum/EIPs/pull/1900
-Discussions at: https://github.com/ethereum/EIPs/issues/1882
+dType supports any Solidity type, including functions, along with custom user types. dType assigns a unique global identifier for each type and stores data needed to recompose the type's ABI. Various storage mechanism extensions can be optionally integrated with dType, enabling efficient blockchain data analysis, especially by blockchain explorers, without relying on off-chain centralized services to provide ABI data.
 
-A video demo of the current implementation (a more extended version of the ERC-1882 proposal), can be seen at https://youtu.be/pcqi4yWBDuQ.
+## ERCs
+1. [EIP-1900: dType - Decentralized Type System for EVM](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1900.md), discussions [here](https://github.com/ethereum/EIPs/issues/1882)
+2. [EIP-2157: dType Storage Extension - Decentralized Type System for EVM](https://github.com/ethereum/EIPs/pull/2158)
+3. [EIP-xxxx: dType - Extending the Decentralized Type System for Functions](https://github.com/ethereum/EIPs/issues/1921)
+
+## Ethereum 2.0
+
+In research: [dType on Eth2](./docs/dType_Ethereum_2.0.md).
+
+## Demos
+
+Playlist: https://www.youtube.com/playlist?list=PL323JufuD9JC46yClCf5fdaEX17kocem7
 
 ## Vision
 
-System Registry for The World Computer: https://medium.com/@loredana.cirstea/a-vision-of-a-system-registry-for-the-world-computer-be1dc2da7cae
-dType — Decentralized Type System & Functional Programming on Ethereum: https://medium.com/@loredana.cirstea/dtype-decentralized-type-system-functional-programming-on-ethereum-4f7666377c9f
+- [System Registry for The World Computer](https://medium.com/@loredana.cirstea/a-vision-of-a-system-registry-for-the-world-computer-be1dc2da7cae)
+- [dType — Decentralized Type System & Functional Programming on Ethereum](https://medium.com/@loredana.cirstea/dtype-decentralized-type-system-functional-programming-on-ethereum-4f7666377c9f)
+- [Ethereum, Libra and a Unified Type System](https://medium.com/@loredana.cirstea/ethereum-libra-and-a-unified-type-system-7cafa6ea0bc0)
 
 
 ## Specs
