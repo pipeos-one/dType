@@ -6,6 +6,7 @@ const typeAContract = artifacts.require('typeAContract.sol');
 const typeBContract = artifacts.require('typeBContract.sol');
 const typeABLogic = artifacts.require('typeABLogic.sol');
 const typeAAFunctions = artifacts.require('typeAAFunctions');
+const alias = artifacts.require('Alias');
 
 const dtypesBase = require('../data/dtypes_test.json');
 const dtypesComposed = require('../data/dtypes_composed.json');
@@ -22,6 +23,7 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(typeABLogic);
     await deployer.link(typeALib, typeAAFunctions);
     await deployer.deploy(typeAAFunctions);
+    await deployer.deploy(alias);
 
     let dtypeContract = await dType.deployed();
     let typeA = await typeAContract.deployed();
