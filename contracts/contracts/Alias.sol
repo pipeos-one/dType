@@ -14,6 +14,7 @@ contract Alias {
 
     struct Alias {
         address owner;
+        uint64 nonce;
         bytes32 identifier;
     }
 
@@ -24,14 +25,18 @@ contract Alias {
         require(checkCharExists(name, separator) == false, 'Name contains separator');
 
         bytes memory key = abi.encodePacked(name, separator);
-        address owner = recoverAddress(name, separator, identifier, signature);
+        uint64 nonce = aliases[key].nonce;
+        address owner = recoverAddress(name, separator, identifier, nonce + 1, signature);
 
         if (aliases[key].owner != address(0)) {
             require(aliases[key].owner == owner, 'Not owner');
             aliases[key].identifier = identifier;
         } else {
-            aliases[key] = Alias(owner, identifier);
+            aliases[key] = Alias(owner, 0, identifier);
         }
+        aliases[key].nonce += 1;
+
+        assert(nonce + 1 == aliases[key].nonce);
     }
 
     function getAlias(string memory name, string memory separator) view public returns (Alias memory aliasdata) {
@@ -70,13 +75,14 @@ contract Alias {
 
     }
 
-    function recoverAddress(string memory name, string memory separator, bytes32 identifier, bytes memory signature) public pure returns(address signer) {
-        string memory message_length = uintToString(32 + bytes(name).length + bytes(separator).length);
+    function recoverAddress(string memory name, string memory separator, bytes32 identifier, uint64 nonce, bytes memory signature) public pure returns(address signer) {
+        string memory message_length = uintToString(32 + 8 + bytes(name).length + bytes(separator).length);
 
         bytes memory data = abi.encodePacked(
           signature_prefix,
           message_length,
           identifier,
+          nonce,
           name,
           separator
         );
