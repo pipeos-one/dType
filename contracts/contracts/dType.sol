@@ -5,7 +5,6 @@ import './dTypeInterface.sol';
 import "./lib/ECVerify.sol";
 import './dTypeLib.sol';
 import './dTypesLib.sol';
-import './Alias.sol';
 
 contract dType is dTypeInterface {
     using dTypeLib for dTypeLib.dType;
