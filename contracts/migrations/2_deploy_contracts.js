@@ -13,9 +13,11 @@ const dtypesComposed = require('../data/dtypes_composed.json');
 const dtypesCore = require('../data/dtypes_core.json');
 
 module.exports = async function(deployer, network, accounts) {
+    const chainId = await web3.eth.net.getId();
     await deployer.deploy(dTypeLib);
     await deployer.link(dTypeLib, dType);
     await deployer.deploy(dType);
+
     await deployer.deploy(typeALib);
     await deployer.link(typeALib, typeAContract);
     await deployer.deploy(typeAContract);
@@ -23,14 +25,13 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(typeABLogic);
     await deployer.link(typeALib, typeAAFunctions);
     await deployer.deploy(typeAAFunctions);
-    await deployer.deploy(alias);
+    await deployer.deploy(alias, dType.address, chainId);
 
     let dtypeContract = await dType.deployed();
     let typeA = await typeAContract.deployed();
     let typeB = await typeBContract.deployed();
     let typeAB = await typeABLogic.deployed();
     let typeAAF = await typeAAFunctions.deployed();
-
 
     for (let i = 0; i < dtypesBase.length; i++) {
         let tx = await dtypeContract.insert(dtypesBase[i], {from: accounts[0]});
