@@ -6,7 +6,13 @@ const dType = artifacts.require('dType.sol');
 
 contract('alias', async (accounts) => {
     let alias, dtype, chainId, signatureData;
-    let types = ['bytes32', 'string', 'string'];
+    let types = ['bytes32', 'string', 'bytes1'];
+    const SEPARATOR = {
+      DOT: web3.utils.utf8ToHex('.'),
+      AT: web3.utils.utf8ToHex('@'),
+      HASH: web3.utils.utf8ToHex('#'),
+      SLASH: web3.utils.utf8ToHex('/'),
+    }
 
     it('deploy', async () => {
         chainId = await web3.eth.net.getId();
@@ -19,8 +25,8 @@ contract('alias', async (accounts) => {
     });
 
     it('test checkCharExists', async () => {
-        assert.isOk(await alias.checkCharExists('alice@a', '@'));
-        assert.isNotOk(await alias.checkCharExists('alicea', '@'));
+        assert.isOk(await alias.checkCharExists('alice@a', SEPARATOR.AT));
+        assert.isNotOk(await alias.checkCharExists('alicea', SEPARATOR.AT));
     });
 
     it('test recoverAddress', async () => {
@@ -28,16 +34,16 @@ contract('alias', async (accounts) => {
 
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
-          signatureData(hash, 1, 'alice', '.'),
+          signatureData(hash, 1, 'alice', SEPARATOR.DOT),
           accounts[1],
         );
-        assert.equal(await alias.recoverAddress('alice', '.', hash, 1, signature), accounts[1]);
+        assert.equal(await alias.recoverAddress('alice', SEPARATOR.DOT, hash, 1, signature), accounts[1]);
     });
 
     it('test alias', async () => {
         let aliasn, dtypehash, hash, signature, data;
 
-        aliasn = ['alice', '.'];
+        aliasn = ['alice', SEPARATOR.DOT];
         dtypehash = web3.utils.randomHex(32);
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
@@ -50,7 +56,7 @@ contract('alias', async (accounts) => {
         assert.equal(data.owner, accounts[1], 'wrong owner');
         assert.equal(data.nonce, 1, 'wrong nonce');
 
-        aliasn = ['bob', '@'];
+        aliasn = ['bob',SEPARATOR.AT];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -62,7 +68,7 @@ contract('alias', async (accounts) => {
         assert.equal(data.owner, accounts[1]);
         assert.equal(data.nonce, 1, 'wrong nonce');
 
-        aliasn = ['bob', '#'];
+        aliasn = ['bob', SEPARATOR.HASH];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -74,7 +80,7 @@ contract('alias', async (accounts) => {
         assert.equal(data.owner, accounts[2]);
         assert.equal(data.nonce, 1, 'wrong nonce');
 
-        aliasn = ['bob', '/'];
+        aliasn = ['bob', SEPARATOR.SLASH];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -86,7 +92,7 @@ contract('alias', async (accounts) => {
         assert.equal(data.owner, accounts[1]);
         assert.equal(data.nonce, 1, 'wrong nonce');
 
-        aliasn = ['alice.', '.'];
+        aliasn = ['alice.',SEPARATOR.DOT];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -98,7 +104,7 @@ contract('alias', async (accounts) => {
             'Name contains separator',
         );
 
-        aliasn = ['.alice', '.'];
+        aliasn = ['.alice', SEPARATOR.DOT];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -110,7 +116,7 @@ contract('alias', async (accounts) => {
             'Name contains separator',
         );
 
-        aliasn = ['bo/b', '/'];
+        aliasn = ['bo/b', SEPARATOR.SLASH];
         hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
@@ -125,7 +131,7 @@ contract('alias', async (accounts) => {
 
     it ('test nonce', async () => {
         let data;
-        let aliasn = ['brenda', '.'];
+        let aliasn = ['brenda', SEPARATOR.DOT];
         let dtypehash = web3.utils.randomHex(32);
         let hash1 = web3.utils.randomHex(32);
         let hash2 = web3.utils.randomHex(32);
@@ -160,7 +166,7 @@ contract('alias', async (accounts) => {
 
     it ('test alias owner', async () => {
         let data;
-        let aliasn = ['profile', '.'];
+        let aliasn = ['profile', SEPARATOR.DOT];
         let dtypehash = web3.utils.randomHex(32);
         let hash1 = web3.utils.randomHex(32);
         let hash2 = web3.utils.randomHex(32);
@@ -205,11 +211,11 @@ contract('alias', async (accounts) => {
     it('test strSplit', async () => {
         let split;
 
-        split = await alias.strSplit('alice.domain', '.');
+        split = await alias.strSplit('alice.domain', SEPARATOR.DOT);
         assert.equal(split.name1, 'alice');
         assert.equal(split.name2, 'domain');
 
-        split = await alias.strSplit('bob@domain', '@');
+        split = await alias.strSplit('bob@domain', SEPARATOR.AT);
         assert.equal(split.name1, 'bob');
         assert.equal(split.name2, 'domain');
     });
@@ -222,7 +228,8 @@ const signatureDataInternal = (web3, chainId, address, hash, nonce, name, sep) =
         '0'.repeat(64 - chainId.length) + chainId +
         hash.substring(2) +
         '0'.repeat(16 - nonce.length) + nonce +
-        web3.utils.utf8ToHex(`${name}${sep}`).substring(2);
+        web3.utils.utf8ToHex(name).substring(2) +
+        sep.substring(2);
 
     return data;
 }

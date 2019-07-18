@@ -5,11 +5,10 @@ import "./lib/ECVerify.sol";
 import './dTypeInterface.sol';
 
 contract Alias {
-    // loredata.dataType1   // domain
-    // chris@repoUsers      // person hash = address
-    // topic#posts          // concept
-    // something/dataType4  // hash ; compatible to move
-    // hashItem/hashType 0x
+    // general domain separation: domain.subdomain.leafsubdomain.resource
+    // actor-related data: alice@socialnetwork.profile
+    // identifying concepts: topicX#postY
+    // general resource path definition: resourceRoot/resource
 
     string public constant signaturePrefix = '\x19Ethereum Signed Message:\n';
     uint256 public chainId;
@@ -23,7 +22,7 @@ contract Alias {
 
     mapping (bytes => Alias) public aliases;
 
-    event AliasSet(bytes32 dtypeIdentifier, string name, string separator, bytes32 indexed identifier);
+    event AliasSet(bytes32 dtypeIdentifier, string name, bytes1 separator, bytes32 indexed identifier);
 
     constructor(address _dtypeAddress, uint256 _chainId) public {
         require(_dtypeAddress != address(0x0));
@@ -33,8 +32,8 @@ contract Alias {
         chainId = _chainId;
     }
 
-    function setAlias(bytes32 dtypeIdentifier, string memory name, string memory separator, bytes32 identifier, bytes memory signature) public {
-        require(bytes(separator).length == 1);
+    function setAlias(bytes32 dtypeIdentifier, string memory name, bytes1 separator, bytes32 identifier, bytes memory signature) public {
+        require(separator != bytes1(0));
         require(checkCharExists(name, separator) == false, 'Name contains separator');
 
         // check if dtypeIdentifier exists
@@ -58,30 +57,28 @@ contract Alias {
 
         assert(nonce + 1 == aliases[key].nonce);
     }
-    function getAliased(string memory name, string memory separator) view public returns (Alias memory aliasdata) {
+    function getAliased(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {
         bytes memory key = abi.encodePacked(name, separator);
         return aliases[key];
     }
 
-    function checkCharExists(string memory name, string memory char) pure public returns (bool exists) {
+    function checkCharExists(string memory name, bytes1 char) pure public returns (bool exists) {
         bytes memory encoded = bytes(name);
-        bytes1 echar = bytes1(bytes(char)[0]);
         for (uint256 i = 0; i < encoded.length; i++) {
-            if (encoded[i] == echar) {
+            if (encoded[i] == char) {
                 exists = true;
             }
         }
         return exists;
     }
 
-    function strSplit( string memory name, string memory separator) public pure returns(string memory name1, string memory name2) {
+    function strSplit( string memory name, bytes1 separator) public pure returns(string memory name1, string memory name2) {
         bytes memory nameb = bytes(name);
-        bytes1 sep = bytes1(bytes(separator)[0]);
         bytes memory name1b = "";
         bool done1 = false;
         bytes memory name2b = "";
         for (uint256 i = 0; i < nameb.length - 1; i++){
-            if (nameb[i] == sep){
+            if (nameb[i] == separator){
                 done1 = true;
             } else if (!done1) {
                 name1b = abi.encodePacked(name1b, nameb[i]);
@@ -96,7 +93,7 @@ contract Alias {
 
     function recoverAddress(
         string memory name,
-        string memory separator,
+        bytes1 separator,
         bytes32 identifier,
         uint64 nonce,
         bytes memory signature
@@ -105,8 +102,8 @@ contract Alias {
         view
         returns(address signer)
     {
-        // 20 + 32 + 32 + 8 = 92
-        string memory message_length = uintToString(92 + bytes(name).length + bytes(separator).length);
+        // 20 + 32 + 32 + 8 + 1 = 92
+        string memory message_length = uintToString(93 + bytes(name).length);
 
         bytes memory data = abi.encodePacked(
           signaturePrefix,
