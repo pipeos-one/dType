@@ -1,8 +1,9 @@
 pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import "./lib/ECVerify.sol";
+import './lib/ECVerify.sol';
 import './dTypeInterface.sol';
+import './dTypeLib.sol';
 
 contract Alias {
     // general domain separation: domain.subdomain.leafsubdomain.resource
@@ -12,7 +13,7 @@ contract Alias {
 
     string public constant signaturePrefix = '\x19Ethereum Signed Message:\n';
     uint256 public chainId;
-    dTypeInterface public dtype;
+    dTypeInterface public dType;
 
     struct Alias {
         address owner;
@@ -22,17 +23,17 @@ contract Alias {
 
     mapping (bytes => Alias) public aliases;
 
-    event AliasSet(bytes32 dtypeIdentifier, string name, bytes1 separator, bytes32 indexed identifier);
+    event AliasSet(bytes32 dTypeIdentifier, string name, bytes1 separator, bytes32 indexed identifier);
 
-    constructor(address _dtypeAddress, uint256 _chainId) public {
-        require(_dtypeAddress != address(0x0));
+    constructor(address _dTypeAddress, uint256 _chainId) public {
+        require(_dTypeAddress != address(0x0));
         require(_chainId > 0);
 
-        dtype = dTypeInterface(_dtypeAddress);
+        dType = dTypeInterface(_dTypeAddress);
         chainId = _chainId;
     }
 
-    function setAlias(bytes32 dtypeIdentifier, string memory name, bytes1 separator, bytes32 identifier, bytes memory signature) public {
+    function setAlias(bytes32 dTypeIdentifier, string memory name, bytes1 separator, bytes32 identifier, bytes memory signature) public {
         require(separator != bytes1(0));
         require(checkCharExists(name, separator) == false, 'Name contains separator');
 
@@ -53,9 +54,11 @@ contract Alias {
 
         if (remove && isOwner) {
             delete aliases[key];
-            emit AliasSet(dtypeIdentifier, name, separator, identifier);
+            emit AliasSet(dTypeIdentifier, name, separator, identifier);
             return;
         }
+
+        checkdType(dTypeIdentifier, identifier);
 
         if (!exists) {
             aliases[key] = Alias(owner, 0, identifier);
@@ -65,9 +68,33 @@ contract Alias {
         }
 
         aliases[key].nonce += 1;
-        emit AliasSet(dtypeIdentifier, name, separator, identifier);
+        emit AliasSet(dTypeIdentifier, name, separator, identifier);
 
         assert(nonce + 1 == aliases[key].nonce);
+    }
+
+    function checkdType(bytes32 dTypeIdentifier, bytes32 identifier) view public {
+        bool success;
+        bytes memory result;
+
+        dTypeLib.dType memory typedata = dType.getByHash(dTypeIdentifier);
+        require(typedata.contractAddress != address(0), 'Inexistent type');
+
+        (success, result) = typedata.contractAddress.staticcall(abi.encodeWithSignature('isStored(bytes32)', identifier));
+        require(success, 'isStored failed');
+        require(keccak256(result) == keccak256(abi.encodePacked(uint256(1))), 'Not stored');
+
+        // TODO check ownership
+    }
+
+    function getdTypeData(bytes32 dTypeIdentifier, bytes32 identifier) view public returns(bytes memory data) {
+        bool success;
+        bytes memory result;
+
+        dTypeLib.dType memory typedata = dType.getByHash(dTypeIdentifier);
+        (success, result) = typedata.contractAddress.staticcall(abi.encodeWithSignature('getByHash(bytes32)', identifier));
+        require(success, 'Storage call failed');
+        return result;
     }
 
     function getAliased(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {

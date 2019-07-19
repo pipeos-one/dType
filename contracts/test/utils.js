@@ -1,5 +1,17 @@
+const getFuncAbi = (abi, fname) => {
+    return abi.find(fabi => fabi.name === fname);
+}
+
+const getSignature = (abi, fname) => {
+    return getFuncAbi(abi, fname).signature;
+}
+
+const getFuncOut = (abi, fname) => {
+    return getFuncAbi(abi, fname).outputs;
+}
+
 module.exports = {
-    getSignature: (abi, fname) => {
-        return abi.find(fabi => fabi.name === fname).signature;
-    }
+    getFuncAbi,
+    getSignature,
+    getFuncOut,
 }

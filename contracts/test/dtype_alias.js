@@ -1,12 +1,15 @@
 const truffleAssert = require('truffle-assertions');
 
 const CT = require('./constants.js');
+const UTILS = require('./utils.js');
 const Alias = artifacts.require('Alias.sol');
 const dType = artifacts.require('dType.sol');
+const FileStorage = artifacts.require('FileTypeStorage.sol');
 
 contract('alias', async (accounts) => {
-    let alias, dtype, chainId, signatureData;
+    let alias, dtype, files, chainId, signatureData;
     let types = ['bytes32', 'string', 'bytes1'];
+    let dtypehash;
     const SEPARATOR = {
       DOT: web3.utils.utf8ToHex('.'),
       AT: web3.utils.utf8ToHex('@'),
@@ -20,7 +23,8 @@ contract('alias', async (accounts) => {
 
         alias = await Alias.deployed();
         dtype = await dType.deployed();
-        assert.equal(dtype.address, await alias.dtype());
+        files = await FileStorage.deployed();
+        assert.equal(dtype.address, await alias.dType());
         assert.equal(chainId, await alias.chainId());
     });
 
@@ -41,11 +45,11 @@ contract('alias', async (accounts) => {
     });
 
     it('test alias', async () => {
-        let aliasn, dtypehash, hash, signature, data;
+        let aliasn, hash, signature, data;
+        hash = await files.typeIndex(1);
+        dtypehash = await dtype.getTypeHash(0, 'FileType');
 
         aliasn = ['alice', SEPARATOR.DOT];
-        dtypehash = web3.utils.randomHex(32);
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -57,7 +61,6 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 1, 'wrong nonce');
 
         aliasn = ['bob',SEPARATOR.AT];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -69,7 +72,6 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 1, 'wrong nonce');
 
         aliasn = ['bob', SEPARATOR.HASH];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[2],
@@ -81,7 +83,6 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 1, 'wrong nonce');
 
         aliasn = ['bob', SEPARATOR.SLASH];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -93,7 +94,6 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 1, 'wrong nonce');
 
         aliasn = ['alice.',SEPARATOR.DOT];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -105,7 +105,6 @@ contract('alias', async (accounts) => {
         );
 
         aliasn = ['.alice', SEPARATOR.DOT];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -117,7 +116,6 @@ contract('alias', async (accounts) => {
         );
 
         aliasn = ['bo/b', SEPARATOR.SLASH];
-        hash = web3.utils.randomHex(32);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
@@ -129,12 +127,25 @@ contract('alias', async (accounts) => {
         );
     });
 
+    it ('test dtype check', async () => {
+        let aliasn = ['sometype', SEPARATOR.DOT];
+        let hash = web3.utils.randomHex(32);
+        let signature = await web3.eth.sign(
+          signatureData(hash, 1, ...aliasn),
+          accounts[1],
+        );
+        await truffleAssert.fails(
+            alias.setAlias(dtypehash, ...aliasn, hash, signature),
+            truffleAssert.ErrorType.REVERT,
+            'Not stored',
+        );
+    });
+
     it ('test nonce', async () => {
         let data;
         let aliasn = ['brenda', SEPARATOR.DOT];
-        let dtypehash = web3.utils.randomHex(32);
-        let hash1 = web3.utils.randomHex(32);
-        let hash2 = web3.utils.randomHex(32);
+        let hash1 = await files.typeIndex(1);
+        let hash2 = await files.typeIndex(2);
 
         let signature1 = await web3.eth.sign(
           signatureData(hash1, 1, ...aliasn),
@@ -156,7 +167,7 @@ contract('alias', async (accounts) => {
         await truffleAssert.fails(
             alias.setAlias(dtypehash, ...aliasn, hash2, signature21),
             truffleAssert.ErrorType.REVERT,
-            'Name contains separator',
+            'Not owner',
         );
 
         await alias.setAlias(dtypehash, ...aliasn, hash2, signature22);
@@ -167,9 +178,8 @@ contract('alias', async (accounts) => {
     it ('test alias owner', async () => {
         let data;
         let aliasn = ['profile', SEPARATOR.DOT];
-        let dtypehash = web3.utils.randomHex(32);
-        let hash1 = web3.utils.randomHex(32);
-        let hash2 = web3.utils.randomHex(32);
+        let hash1 = await files.typeIndex(3);
+        let hash2 = await files.typeIndex(4);
 
         let signature12 = await web3.eth.sign(
           signatureData(hash1, 1, ...aliasn),
@@ -209,11 +219,10 @@ contract('alias', async (accounts) => {
     });
 
     it('test alias remove', async () => {
-        let aliasn, dtypehash, hash, signature, nonce, data;
+        let aliasn, hash, signature, nonce, data;
 
         aliasn = ['resource', SEPARATOR.DOT];
-        dtypehash = web3.utils.randomHex(32);
-        hash = web3.utils.randomHex(32);
+        hash = await files.typeIndex(5);
         nonce = 1;
 
         // Cannot remove inexistent alias
@@ -251,7 +260,7 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 0, 'nonce not removed');
 
         // Make sure alias can be set again
-        hash = web3.utils.randomHex(32);
+        hash = await files.typeIndex(6);
         nonce = 1;
         signature = await web3.eth.sign(
           signatureData(hash, nonce, ...aliasn),
@@ -262,6 +271,14 @@ contract('alias', async (accounts) => {
         assert.equal(data.identifier, hash, 'wrong hash');
         assert.equal(data.owner, accounts[2], 'wrong owner');
         assert.equal(data.nonce, 1, 'wrong nonce');
+    });
+
+    it('test get dtype data', async () => {
+        let hash = await files.typeIndex(0);
+        let data = await alias.getdTypeData(dtypehash, hash);
+        let outs = UTILS.getFuncOut(files.abi, 'getByHash');
+        let decoded = web3.eth.abi.decodeParameters(outs, data);
+        assert.isOk(decoded.data.pointer.name);
     });
 
     it('test strSplit', async () => {
