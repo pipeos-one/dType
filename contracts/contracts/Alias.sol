@@ -40,23 +40,36 @@ contract Alias {
         // get storage contract address
         // check data identifier in storage contract
         // if data is owned by the signer, set the alias
-
         bytes memory key = abi.encodePacked(name, separator);
         uint64 nonce = aliases[key].nonce;
         address owner = recoverAddress(name, separator, identifier, nonce + 1, signature);
+        require(owner != address(0), 'No signer');
 
-        if (aliases[key].owner != address(0)) {
-            require(aliases[key].owner == owner, 'Not owner');
-            aliases[key].identifier = identifier;
-        } else {
-            aliases[key] = Alias(owner, 0, identifier);
+        bool remove = identifier == bytes32(0);
+        bool exists = aliases[key].owner != address(0);
+        bool isOwner = aliases[key].owner == owner;
+
+        if (remove && !exists) revert('Alias is not set');
+
+        if (remove && isOwner) {
+            delete aliases[key];
+            emit AliasSet(dtypeIdentifier, name, separator, identifier);
+            return;
         }
-        aliases[key].nonce += 1;
 
+        if (!exists) {
+            aliases[key] = Alias(owner, 0, identifier);
+        } else {
+            require(isOwner, 'Not owner');
+            aliases[key].identifier = identifier;
+        }
+
+        aliases[key].nonce += 1;
         emit AliasSet(dtypeIdentifier, name, separator, identifier);
 
         assert(nonce + 1 == aliases[key].nonce);
     }
+
     function getAliased(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {
         bytes memory key = abi.encodePacked(name, separator);
         return aliases[key];

@@ -208,6 +208,62 @@ contract('alias', async (accounts) => {
         assert.equal(data.nonce, 2, 'wrong nonce');
     });
 
+    it('test alias remove', async () => {
+        let aliasn, dtypehash, hash, signature, nonce, data;
+
+        aliasn = ['resource', SEPARATOR.DOT];
+        dtypehash = web3.utils.randomHex(32);
+        hash = web3.utils.randomHex(32);
+        nonce = 1;
+
+        // Cannot remove inexistent alias
+        signature = await web3.eth.sign(
+          signatureData(CT.EMPTY_BYTES, nonce, ...aliasn),
+          accounts[1],
+        );
+        await truffleAssert.fails(
+            alias.setAlias(dtypehash, ...aliasn, CT.EMPTY_BYTES, signature, {from: accounts[1]}),
+            truffleAssert.ErrorType.REVERT,
+            'Alias is not set',
+        );
+
+        // Set alias
+        signature = await web3.eth.sign(
+          signatureData(hash, nonce, ...aliasn),
+          accounts[1],
+        );
+        await alias.setAlias(dtypehash, ...aliasn, hash, signature);
+        data = await alias.getAliased(...aliasn);
+        assert.equal(data.identifier, hash, 'wrong hash');
+        assert.equal(data.owner, accounts[1], 'wrong owner');
+        assert.equal(data.nonce, 1, 'wrong nonce');
+
+        // Remove alias
+        nonce += 1;
+        signature = await web3.eth.sign(
+          signatureData(CT.EMPTY_BYTES, nonce, ...aliasn),
+          accounts[1],
+        );
+        await alias.setAlias(dtypehash, ...aliasn, CT.EMPTY_BYTES, signature);
+        data = await alias.getAliased(...aliasn);
+        assert.equal(data.identifier, CT.EMPTY_BYTES, 'hash not removed');
+        assert.equal(data.owner, CT.EMPTY_ADDRESS, 'owner not removed');
+        assert.equal(data.nonce, 0, 'nonce not removed');
+
+        // Make sure alias can be set again
+        hash = web3.utils.randomHex(32);
+        nonce = 1;
+        signature = await web3.eth.sign(
+          signatureData(hash, nonce, ...aliasn),
+          accounts[2],
+        );
+        await alias.setAlias(dtypehash, ...aliasn, hash, signature);
+        data = await alias.getAliased(...aliasn);
+        assert.equal(data.identifier, hash, 'wrong hash');
+        assert.equal(data.owner, accounts[2], 'wrong owner');
+        assert.equal(data.nonce, 1, 'wrong nonce');
+    });
+
     it('test strSplit', async () => {
         let split;
 
