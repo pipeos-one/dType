@@ -97,7 +97,17 @@ contract Alias {
         return result;
     }
 
-    function getAliased(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {
+    function getAliased(string memory name, bytes1 separator) view public returns (bytes32 identifier) {
+        bytes memory key = abi.encodePacked(name, separator);
+        return aliases[key].identifier;
+    }
+
+    function getAlias(bytes32 dTypeIdentifier, string memory name, bytes1 separator) view public returns(bytes32 identifier, bytes memory data) {
+        bytes memory key = abi.encodePacked(name, separator);
+        return (aliases[key].identifier, getdTypeData(dTypeIdentifier, aliases[key].identifier));
+    }
+
+    function getAliasedData(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {
         bytes memory key = abi.encodePacked(name, separator);
         return aliases[key];
     }

@@ -19,7 +19,7 @@ contract('alias', async (accounts) => {
 
     it('deploy', async () => {
         chainId = await web3.eth.net.getId();
-        signatureData = (hash, nonce, name, sep) => signatureDataInternal(web3, chainId, Alias.address, hash, nonce, name, sep);
+        signatureData = (hash, nonce, name, sep) => UTILS.signatureDataInternal(web3, chainId, Alias.address, hash, nonce, name, sep);
 
         alias = await Alias.deployed();
         dtype = await dType.deployed();
@@ -55,7 +55,7 @@ contract('alias', async (accounts) => {
           accounts[1],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash, 'wrong hash');
         assert.equal(data.owner, accounts[1], 'wrong owner');
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -66,7 +66,7 @@ contract('alias', async (accounts) => {
           accounts[1],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash);
         assert.equal(data.owner, accounts[1]);
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -77,7 +77,7 @@ contract('alias', async (accounts) => {
           accounts[2],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash);
         assert.equal(data.owner, accounts[2]);
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -88,7 +88,7 @@ contract('alias', async (accounts) => {
           accounts[1],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash);
         assert.equal(data.owner, accounts[1]);
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -161,7 +161,7 @@ contract('alias', async (accounts) => {
         );
 
         await alias.setAlias(dtypehash, ...aliasn, hash1, signature1);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.nonce, 1, 'wrong nonce');
 
         await truffleAssert.fails(
@@ -171,7 +171,7 @@ contract('alias', async (accounts) => {
         );
 
         await alias.setAlias(dtypehash, ...aliasn, hash2, signature22);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.nonce, 2, 'wrong nonce');
     });
 
@@ -195,7 +195,7 @@ contract('alias', async (accounts) => {
         );
 
         await alias.setAlias(dtypehash, ...aliasn, hash1, signature12);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash1);
         assert.equal(data.owner, accounts[2]);
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -212,7 +212,7 @@ contract('alias', async (accounts) => {
         );
 
         await alias.setAlias(dtypehash, ...aliasn, hash2, signature22, {from: accounts[2]});
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash2);
         assert.equal(data.owner, accounts[2]);
         assert.equal(data.nonce, 2, 'wrong nonce');
@@ -242,7 +242,7 @@ contract('alias', async (accounts) => {
           accounts[1],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash, 'wrong hash');
         assert.equal(data.owner, accounts[1], 'wrong owner');
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -254,7 +254,7 @@ contract('alias', async (accounts) => {
           accounts[1],
         );
         await alias.setAlias(dtypehash, ...aliasn, CT.EMPTY_BYTES, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, CT.EMPTY_BYTES, 'hash not removed');
         assert.equal(data.owner, CT.EMPTY_ADDRESS, 'owner not removed');
         assert.equal(data.nonce, 0, 'nonce not removed');
@@ -267,7 +267,7 @@ contract('alias', async (accounts) => {
           accounts[2],
         );
         await alias.setAlias(dtypehash, ...aliasn, hash, signature);
-        data = await alias.getAliased(...aliasn);
+        data = await alias.getAliasedData(...aliasn);
         assert.equal(data.identifier, hash, 'wrong hash');
         assert.equal(data.owner, accounts[2], 'wrong owner');
         assert.equal(data.nonce, 1, 'wrong nonce');
@@ -293,16 +293,3 @@ contract('alias', async (accounts) => {
         assert.equal(split.name2, 'domain');
     });
 });
-
-const signatureDataInternal = (web3, chainId, address, hash, nonce, name, sep) => {
-    nonce = web3.utils.numberToHex(nonce).substring(2);
-    chainId = web3.utils.numberToHex(chainId).substring(2);
-    const data = address.toLowerCase() +
-        '0'.repeat(64 - chainId.length) + chainId +
-        hash.substring(2) +
-        '0'.repeat(16 - nonce.length) + nonce +
-        web3.utils.utf8ToHex(name).substring(2) +
-        sep.substring(2);
-
-    return data;
-}
