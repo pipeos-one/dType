@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "ethers": "4.0.26",
+    "marked": "^0.7.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
     "vuetify": "^1.5.5",

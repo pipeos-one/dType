@@ -23,5 +23,11 @@ export default new VueRouter({
             component: () => import(/* webpackChunkName: "about" */ './views/dTypeLandingPage.vue'),
             props: route => ({lang: route.params.lang, name: route.params.name}),
         },
+        {
+            path: '/alias',
+            name: 'alias',
+            component: () => import(/* webpackChunkName: "about" */ './views/Alias.vue'),
+            props: route => ({query: route.query}),
+        },
     ],
 });
