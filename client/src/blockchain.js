@@ -68,6 +68,18 @@ export const getDataItemsByTypeHash = async function(dtypeContract, wallet, type
     getDataItems(typeContract, callback);
 };
 
+export const getDataItemByTypeHash = async function(dtypeContract, wallet, typeStruct, dataIdentifier) {
+    const dtypeAbi = await buildStructAbi(dtypeContract, typeStruct.typeHash);
+    const abi = buildTypeAbi(dtypeAbi);
+    const typeContract = await getContract(
+        typeStruct.contractAddress,
+        abi,
+        wallet,
+    );
+
+    return getDataItem(typeContract, dataIdentifier);
+};
+
 function setTypeName(type) {
     type.fullName = type.name + typeDimensionsToString(type.dimensions);
     return type;

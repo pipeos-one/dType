@@ -1,3 +1,5 @@
+import {ethers} from 'ethers';
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DType from './constants';
@@ -13,6 +15,7 @@ const dTypeStore = new Vuex.Store({
         dtype: null,
         dtypes: [],
         DType,
+        alias: null,
     },
     mutations: {
         setProvider(state, provider) {
@@ -23,6 +26,9 @@ const dTypeStore = new Vuex.Store({
         },
         setContract(state, contract) {
             state.contract = contract;
+        },
+        setAlias(state, alias) {
+            state.alias = alias;
         },
         setType(state, dtype) {
             state.dtype = dtype;
@@ -54,12 +60,23 @@ const dTypeStore = new Vuex.Store({
             const contractAddress = state.DType.contract.networks[
                 String(state.provider.network.chainId)
             ].address;
-            return getContract(
+            getContract(
                 contractAddress,
                 state.DType.contract.abi,
                 state.wallet,
             ).then((contract) => {
                 commit('setContract', contract);
+            });
+
+            const aliasAddress = state.DType.aliasmeta.networks[
+                String(state.provider.network.chainId)
+            ].address;
+            getContract(
+                aliasAddress,
+                state.DType.aliasmeta.abi,
+                state.wallet,
+            ).then((contract) => {
+                commit('setAlias', contract);
             });
         },
         async getTypeStructByName({dispatch, state}, {lang, name}) {
@@ -113,6 +130,10 @@ const dTypeStore = new Vuex.Store({
             return state.contract.remove(dtype.typeHash)
                 .then(tx => tx.wait(2))
                 .then(console.log);
+        },
+        async parseAlias({state}, alias) {
+            const separator = '0x' + alias.separator.charCodeAt(0).toString(16);
+            return state.alias.getAliased(alias.name, separator);
         },
         watchAll({dispatch}) {
             return dispatch('watchInsert').then(() => {
