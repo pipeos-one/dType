@@ -78,12 +78,12 @@ module.exports = async function(deployer, network, accounts) {
     dtypesMd[0].contractAddress = md.address;
     await dtypeContract.insert(dtypesMd[0], {from: accounts[0]});
     let dtypehash = await dtypeContract.getTypeHash(0, 'markdown');
-    const signatureData = (hash, nonce, name, sep) => UTILS.signatureDataInternal(web3, chainId, Alias.address, hash, nonce, name, sep);
+    const signatureData = (hash, nonce, name, sep) => UTILS.signatureDataInternal(web3, chainId, Alias.address, dtypehash, hash, nonce, name, sep);
     for (let i = 0; i < mddata.length; i++) {
         await md.insert(mddata[i].data);
         let hash = await md.typeIndex(i);
         aliasn = mddata[i].alias;
-        aliasn[1] = web3.utils.utf8ToHex(aliasn[1]);
+        aliasn[0] = web3.utils.utf8ToHex(aliasn[0]);
         signature = await web3.eth.sign(
           signatureData(hash, 1, ...aliasn),
           accounts[1],
