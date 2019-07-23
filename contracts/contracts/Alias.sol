@@ -23,7 +23,7 @@ contract Alias {
 
     mapping (bytes => Alias) public aliases;
 
-    event AliasSet(bytes32 dTypeIdentifier, string name, bytes1 separator, bytes32 indexed identifier);
+    event AliasSet(bytes32 indexed dTypeIdentifier, bytes32 indexed identifier);
 
     constructor(address _dTypeAddress, uint256 _chainId) public {
         require(_dTypeAddress != address(0x0));
@@ -37,10 +37,6 @@ contract Alias {
         require(separator != bytes1(0));
         require(checkCharExists(name, separator) == false, 'Name contains separator');
 
-        // check if dtypeIdentifier exists
-        // get storage contract address
-        // check data identifier in storage contract
-        // if data is owned by the signer, set the alias
         bytes memory key = abi.encodePacked(name, separator);
         uint64 nonce = aliases[key].nonce;
         address owner = recoverAddress(name, separator, identifier, nonce + 1, signature);
@@ -54,10 +50,12 @@ contract Alias {
 
         if (remove && isOwner) {
             delete aliases[key];
-            emit AliasSet(dTypeIdentifier, name, separator, identifier);
+            emit AliasSet(dTypeIdentifier, identifier);
             return;
         }
 
+        // Check if dtypeIdentifier exists, check if data identifier is in the storage contract
+        // And data is owned by the signer
         checkdType(dTypeIdentifier, identifier);
 
         if (!exists) {
@@ -68,7 +66,7 @@ contract Alias {
         }
 
         aliases[key].nonce += 1;
-        emit AliasSet(dTypeIdentifier, name, separator, identifier);
+        emit AliasSet(dTypeIdentifier, identifier);
 
         assert(nonce + 1 == aliases[key].nonce);
     }
