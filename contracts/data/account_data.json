@@ -1,0 +1,26 @@
+[
+  {
+    "data": {
+      "address": "0xD32298893dD95c1Aaed8A79bc06018b8C265a279"
+    },
+    "alias": [".", "alice"]
+  },
+  {
+    "data": {
+      "address": "0xfffFd05c2b12cfE3c74464531f88349e159785ea"
+    },
+    "alias": [".", "bob"]
+  },
+  {
+    "data": {
+      "address": "0x81bD2984bE297E18F310BAef6b895ea089484968"
+    },
+    "alias": [".", "charlie"]
+  },
+  {
+    "data": {
+      "address": "0xe8B7665DE12D67bC802aEcb8eef4D8bd34741C51"
+    },
+    "alias": [".", "brenda"]
+  }
+]
