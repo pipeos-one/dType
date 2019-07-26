@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import {ethers} from 'ethers';
 import marked from 'marked';
+import {TYPE_PREVIEW} from '../utils.js';
 
 export default {
   props: ['content'],
   watch: {
     content() {
       if (this.content) {
-        document.getElementById('content').innerHTML = marked(ethers.utils.toUtf8String(this.content.content));
+        document.getElementById('content').innerHTML = marked(TYPE_PREVIEW.markdown(this.content));
       }
     }
   },

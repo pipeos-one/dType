@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import {ethers} from 'ethers';
 import VueSimplemde from 'vue-simplemde';
 import marked from 'marked';
 import { mapState } from 'vuex';
@@ -75,7 +74,7 @@ export default {
   },
   methods: {
     parseContent() {
-      return this.content ? ethers.utils.toUtf8String(this.content.content) : '';
+      return this.content ? TYPE_PREVIEW.markdown(this.content) : '';
     },
     async replaceAlias(aliases) {
       let aliasobjs = [];
