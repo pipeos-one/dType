@@ -27,7 +27,8 @@ const replaceAliasesMd = (text, aliases, replacements) => {
 
 const TYPE_PREVIEW = {
     markdown: (data) => {
-        return ethers.utils.toUtf8String(data.content);
+        // return ethers.utils.toUtf8String(data.content);
+        return data.content;
     },
     account: (data) => {
         console.log('TYPE_PREVIEW account', data);

@@ -3,7 +3,7 @@ import {ethers} from 'ethers';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DType from './constants';
-import {getProvider, getContract, normalizeEthersObject} from './blockchain';
+import {getProvider, getContract, normalizeEthersObject, signMessage, buildStorageAbi} from './blockchain';
 
 Vue.use(Vuex);
 
@@ -188,6 +188,20 @@ const dTypeStore = new Vuex.Store({
                 }
             });
         },
+        async saveResource({state}, {dTypeData, data, identifier}) {
+            const abi = await buildStorageAbi(state.contract, dTypeData.typeHash, 'data');
+            const contract = await getContract(
+                dTypeData.contractAddress,
+                abi,
+                state.wallet,
+            );
+            // TODO: use update
+            // const txn = await contract.update(identifier, data);
+            const txn = await contract.insert(data);
+            const receipt = await state.provider.getTransactionReceipt(txn.hash);
+            // TODO: proper generalized log parsing for any storage contract
+            return receipt.logs[0].topics[1];
+        },
         async setAliased({state, commit}, args) {
             const dtype = await state.contract.getByHash(args.dTypeIdentifier);
             const alias = await state.alias.getReverse(args.dTypeIdentifier, args.identifier);
@@ -199,6 +213,33 @@ const dTypeStore = new Vuex.Store({
                     separator: alias.substring(0, 1)
                 },
             });
+        },
+        async setAlias({state}, data) {
+            const separator = '0x' + data.separator.charCodeAt(0).toString(16);
+            const {nonce} = (
+                await state.alias.getAliasedData(data.dTypeIdentifier, separator, data.name)
+            );
+            // TODO fix signature
+            const signature = await signMessage(
+                state.wallet,
+                ['address', 'uint256', 'bytes32', 'bytes32', 'uint64', 'bytes1', 'string'],
+                [
+                    state.contract.address,
+                    state.provider.network.chainId,
+                    data.dTypeIdentifier,
+                    data.identifier,
+                    nonce,
+                    separator,
+                    data.name,
+                ],
+            );
+            state.alias.setAlias(
+                data.dTypeIdentifier,
+                separator,
+                data.name,
+                data.identifier,
+                signature,
+            );
         },
         // async getAliasData({state}, {dTypeIdentifier, separator, name}) {
         //     separator = ethers.utils.formatBytes32String(separator).substring(0, 4);

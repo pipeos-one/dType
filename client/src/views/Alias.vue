@@ -9,6 +9,7 @@
           :content="aliasData"
           :addition="selectedAlias"
           :getAliasData="getAliasData"
+          @save="saveResource"
         />
       </v-flex>
       <v-flex xs12 v-if="query.view == 'viewer'">
@@ -42,6 +43,7 @@ export default {
     domain: '',
     selectedAlias: null,
     aliasData: null,
+    dtypeData: null,
   }),
   computed: mapState({
       alias: 'alias',
@@ -82,10 +84,10 @@ export default {
       // TODO: account for all separators & multiple subdomains
       // see replaceAlias commented code
       let parts = url.split('.');
-      let dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
+      this.dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
 
       let identifier = await this.$store.dispatch('parseAlias', {
-        dTypeIdentifier: dtypeData.typeHash,
+        dTypeIdentifier: this.dtypeData.typeHash,
         name: parts[1],
         separator: '.',
       });
@@ -93,11 +95,25 @@ export default {
       let content = await getDataItemByTypeHash(
           this.$store.state.contract,
           this.$store.state.wallet,
-          dtypeData,
+          this.dtypeData,
           identifier,
       );
       return content;
     },
+    saveResource(data) {
+      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data, identifier: this.aliasData.typeHash}).then((newidentifier) => {
+        this.changeAlias(newidentifier);
+      });
+    },
+    changeAlias(identifier) {
+      let parts = this.domain.split('.');
+      this.$store.dispatch('setAlias', {
+        dTypeIdentifier: this.dtypeData.typeHash,
+        separator: '.',
+        name: parts[1],
+        identifier,
+      });
+    }
   }
 }
 </script>

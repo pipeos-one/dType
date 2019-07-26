@@ -2,7 +2,7 @@
   {
       "name": "markdown",
       "types": [
-          {"name": "bytes", "label": "content", "relation": 0, "dimensions":[]}
+          {"name": "string", "label": "content", "relation": 0, "dimensions":[]}
       ],
       "optionals": [],
       "outputs": [],

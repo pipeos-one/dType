@@ -31,7 +31,7 @@ export default {
         // renderingConfig: {codeSyntaxHighlighting: true},
         previewRender: (plainText, preview) => {
           const {included, links} = getAliasesFromMd(plainText);
-          console.log('aliases', included, links);
+          console.log('previewRender aliases', included, links);
 
           // Replace links before included aliases
           plainText = replaceAliasesMd(
@@ -45,7 +45,20 @@ export default {
           });
           return 'Loading...';
         },
-      }
+        toolbar: [
+          "bold", "italic", "heading", "|",
+          "quote", "unordered-list", "ordered-list", "|",
+          "link", "image", "|",
+          "preview", "side-by-side", "fullscreen", "|", {
+            name: "save",
+            action: (editor) => {
+              this.$emit('save', {content: this.tempContent});
+            },
+            className: "fa fa-save",
+            title: "Save",
+          }
+        ],
+      },
     }
   },
   computed: mapState({
@@ -55,7 +68,7 @@ export default {
       }
   }),
   mounted() {
-    this.tempContent = this.parseContent();
+    this.setData();
 
     // editor-toolbar fullscreen
     // this.simplemde.codemirror.on("optionChange", (instance, option) => {
@@ -70,9 +83,7 @@ export default {
   },
   watch: {
     content() {
-      this.tempContent = this.parseContent();
-      this.aliascontent = {};
-      this.simplemde.togglePreview();
+      this.setData();
     },
     addition() {
       let text = `[[${this.addition.alias}]]`;
@@ -85,6 +96,12 @@ export default {
     },
   },
   methods: {
+    setData() {
+      // document.getElementsByClassName('editor-preview')[0].innerText = '';
+      this.tempContent = this.parseContent();
+      this.aliascontent = {};
+      this.simplemde.togglePreview();
+    },
     parseContent() {
       return this.content ? TYPE_PREVIEW.markdown(this.content) : '';
     },
