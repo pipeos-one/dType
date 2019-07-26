@@ -2,7 +2,7 @@
   <v-container>
     <v-layout row wrap>
       <v-flex xs12>
-        <AliasSelector @alias="setAlias"/>
+        <AliasSelector @alias="setAlias" :linkbtn="query.view == 'renderer' ? true : false"/>
       </v-flex>
       <v-flex xs12 v-if="query.view == 'renderer'">
         <MarkdownRenderer

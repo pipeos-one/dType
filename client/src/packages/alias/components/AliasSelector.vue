@@ -1,12 +1,9 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs1>
-      <v-subheader>Alias</v-subheader>
-    </v-flex>
     <v-flex xs4 style="padding-right: 10px;">
       <v-autocomplete
         v-model="selectType"
-        label="Type"
+        label="type alias"
         :items="Object.keys(aliases)"
         :loading="loadingTypes"
         :search-input.sync="searchType"
@@ -29,7 +26,7 @@
     <v-flex xs4 style="padding-left: 10px;">
       <v-autocomplete
         v-model="selectItem"
-        label="Resource"
+        label="resource alias"
         :items="selectType ? Object.keys(aliases[selectType][selectSeparator]) : []"
         :loading="loadingItems"
         :search-input.sync="searchItem"
@@ -40,8 +37,11 @@
       ></v-autocomplete>
     </v-flex>
     <v-flex xs2>
-      <v-btn icon @click="onGo" :disabled="(selectType && selectItem) ? false : 'disabled'">
+      <v-btn icon @click="onGo('include')" :disabled="(selectType && selectItem) ? false : 'disabled'">
         <v-icon>fa-chevron-right</v-icon>
+      </v-btn>
+      <v-btn v-if="linkbtn" icon @click="onGo('link')" :disabled="(selectType && selectItem) ? false : 'disabled'">
+        <v-icon>fa-link</v-icon>
       </v-btn>
     </v-flex>
   </v-layout>
@@ -51,6 +51,7 @@
 import { mapState } from 'vuex';
 
 export default {
+  props: ['linkbtn'],
   data: () => ({
     domain: '',
     selectType: null,
@@ -82,14 +83,14 @@ export default {
         this.$store.dispatch('watchAllAlias');
       }
     },
-    onGo() {
+    onGo(type) {
       const alias = this.selectType + this.selectSeparator + this.selectItem;
       const components = [
         {name: this.selectType, identifier: this.aliases[this.selectType], type: 'dtype'},
         {name: this.selectSeparator, type: 'separator'},
         {name: this.selectItem, identifier: this.aliases[this.selectType][this.selectSeparator][this.selectItem], type: 'item'},
       ];
-      this.$emit('alias', {alias, components});
+      this.$emit('alias', {alias, components, type});
     }
   }
 }

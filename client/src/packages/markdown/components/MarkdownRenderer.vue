@@ -30,10 +30,17 @@ export default {
         // previewRender
         // renderingConfig: {codeSyntaxHighlighting: true},
         previewRender: (plainText, preview) => {
-          const aliases = getAliasesFromMd(plainText);
-          console.log('aliases', aliases);
-          this.replaceAlias(aliases).then((aliasobjs) => {
-            plainText = replaceAliasesMd(plainText, aliasobjs);
+          const {included, links} = getAliasesFromMd(plainText);
+          console.log('aliases', included, links);
+
+          // Replace links before included aliases
+          plainText = replaceAliasesMd(
+            plainText,
+            links.full,
+            this.replaceAliasLinks(plainText, links.aliases),
+          );
+          this.replaceAlias(included.aliases).then((aliasobjs) => {
+            plainText = replaceAliasesMd(plainText, included.full, aliasobjs);
             preview.innerHTML = marked(plainText);
           });
           return 'Loading...';
@@ -65,11 +72,16 @@ export default {
     content() {
       this.tempContent = this.parseContent();
       this.aliascontent = {};
+      this.simplemde.togglePreview();
     },
     addition() {
+      let text = `[[${this.addition.alias}]]`;
+      if (this.addition.type == 'link') {
+        text += '()';
+      }
       var doc = this.simplemde.codemirror.getDoc();
       var cursor = doc.getCursor();
-      doc.replaceRange(`[[${this.addition.alias}]]`, cursor);
+      doc.replaceRange(text, cursor);
     },
   },
   methods: {
@@ -99,6 +111,9 @@ export default {
         aliasobjs.push(this.aliascontent[alias]);
       }
       return aliasobjs;
+    },
+    replaceAliasLinks(plainText, links) {
+      return links.map(link => `[${link}](/#/alias?alias=${link}&view=renderer)`);
     }
   }
 }

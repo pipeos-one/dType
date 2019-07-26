@@ -1,14 +1,26 @@
 import {ethers} from 'ethers';
 
 const getAliasesFromMd = (text) => {
+    const included = {aliases: [], full: []};
+    const links = {aliases: [], full: []};
     const arrayMatch = [...text.matchAll(/\[\[(.*?)\]\]/g)];
-    return arrayMatch.map(match => match[1]);
+
+    arrayMatch.forEach((match) => {
+        const endindex = match.index + match[0].length;
+        if (text.substring(endindex, endindex + 2) === '()') {
+            links.aliases.push(match[1]);
+            links.full.push(`${match[0]}()`);
+        } else {
+            included.aliases.push(match[1]);
+            included.full.push(match[0]);
+        }
+    });
+    return {included, links};
 };
 
-const replaceAliasesMd = (text, aliases) => {
-    const arrayMatch = [...text.matchAll(/\[\[(.*?)\]\]/g)];
-    arrayMatch.forEach((match, i) => {
-        text = text.replace(match[0], aliases[i]);
+const replaceAliasesMd = (text, aliases, replacements) => {
+    aliases.forEach((match, i) => {
+        text = text.replace(match, replacements[i]);
     });
     return text;
 };
