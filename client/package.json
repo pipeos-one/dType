@@ -10,8 +10,10 @@
   "dependencies": {
     "ethers": "4.0.26",
     "marked": "^0.7.0",
+    "simplemde": "^1.11.2",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
+    "vue-simplemde": "^1.0.0",
     "vuetify": "^1.5.5",
     "vuex": "^3.1.0"
   },

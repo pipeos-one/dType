@@ -16,6 +16,7 @@ const dTypeStore = new Vuex.Store({
         dtypes: [],
         DType,
         alias: null,
+        aliases: {},
     },
     mutations: {
         setProvider(state, provider) {
@@ -26,9 +27,6 @@ const dTypeStore = new Vuex.Store({
         },
         setContract(state, contract) {
             state.contract = contract;
-        },
-        setAlias(state, alias) {
-            state.alias = alias;
         },
         setType(state, dtype) {
             state.dtype = dtype;
@@ -47,6 +45,19 @@ const dTypeStore = new Vuex.Store({
         },
         removeType(state, index) {
             state.dtypes.splice(index, 1);
+        },
+        // Alias
+        setAlias(state, alias) {
+            state.alias = alias;
+        },
+        setAliased(state, {dtype, alias}) {
+            if (!state.aliases[dtype.name]) {
+                state.aliases[dtype.name] = {identifier: dtype.identifier};
+            }
+            if (!state.aliases[dtype.name][alias.separator]) {
+              state.aliases[dtype.name][alias.separator] = {};
+            }
+            state.aliases[dtype.name][alias.separator][alias.name] = alias.identifier;
         },
     },
     actions: {
@@ -133,7 +144,7 @@ const dTypeStore = new Vuex.Store({
         },
         async parseAlias({state}, alias) {
             const separator = '0x' + alias.separator.charCodeAt(0).toString(16);
-            return state.alias.getAliased(alias.name, separator);
+            return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
         },
         watchAll({dispatch}) {
             return dispatch('watchInsert').then(() => {
@@ -175,6 +186,49 @@ const dTypeStore = new Vuex.Store({
                 if (typeIndex > -1) {
                     commit('removeType', typeIndex);
                 }
+            });
+        },
+        async setAliased({state, commit}, args) {
+            const dtype = await state.contract.getByHash(args.dTypeIdentifier);
+            const alias = await state.alias.getReverse(args.dTypeIdentifier, args.identifier);
+            commit('setAliased', {
+                dtype: {identifier: args.dTypeIdentifier, name: dtype.name},
+                alias: {
+                    identifier: args.identifier,
+                    name: alias.substring(1),
+                    separator: alias.substring(0, 1)
+                },
+            });
+        },
+        // async getAliasData({state}, {dTypeIdentifier, separator, name}) {
+        //     separator = ethers.utils.formatBytes32String(separator).substring(0, 4);
+        //     const data = await state.alias.getAlias(dTypeIdentifier, separator, name);
+        //     console.log('data', data.data);
+        //     const
+        //     return data;
+        // },
+        watchAllAlias({dispatch}) {
+            return dispatch('watchAliasSet');
+        },
+        removeWatchersAlias({state}) {
+            return state.alias.removeAllListeners('AliasSet');
+        },
+        watchAliasSet({dispatch, commit, state}) {
+            const filter = {
+                address: state.alias.address,
+                topics: [ state.alias.interface.events.AliasSet.topic ],
+                fromBlock: 0,
+                toBlock: 'latest',
+            }
+            state.provider.getLogs(filter).then((logs) => {
+                logs.map((log) => {
+                    log = state.alias.interface.parseLog(log);
+                    dispatch('setAliased', log.values);
+                });
+            });
+            state.alias.on('AliasSet', (dTypeIdentifier, identifier) => {
+                console.log('AliasSet', dTypeIdentifier, identifier);
+                dispatch('setAliased', {dTypeIdentifier, identifier});
             });
         },
     },
