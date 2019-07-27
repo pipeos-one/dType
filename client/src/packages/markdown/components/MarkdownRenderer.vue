@@ -26,7 +26,7 @@
 import VueSimplemde from 'vue-simplemde';
 import marked from 'marked';
 import { mapState } from 'vuex';
-import {getAliasesFromMd, replaceAliasesMd, TYPE_PREVIEW} from '../utils.js';
+import {getAliasesFromMd, replaceAliasesMd, TYPE_PREVIEW, enforceMaxLength} from '../utils.js';
 
 export default {
   props: ['content', 'addition', 'getAliasData'],
@@ -116,6 +116,10 @@ export default {
     updatePreview() {
       if (this.viewer) {
         this.previewRender(this.tempContent, document.getElementById('content'));
+      }
+      if (this.$refs.markdownEditor) {
+        this.$refs.markdownEditor.simplemde.codemirror.setOption('maxLength', 1000);
+        this.$refs.markdownEditor.simplemde.codemirror.on('beforeChange', enforceMaxLength);
       }
     },
     parseContent() {

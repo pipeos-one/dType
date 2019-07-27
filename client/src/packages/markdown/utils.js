@@ -40,8 +40,25 @@ const TYPE_PREVIEW = {
     },
 };
 
+const enforceMaxLength = (cm, change) => {
+    const maxLength = cm.getOption('maxLength');
+
+    if (maxLength && change.update) {
+        let str = change.text.join('\n');
+        let delta = str.length - (cm.indexFromPos(change.to) - cm.indexFromPos(change.from));
+        if (delta <= 0) { return true; }
+        delta = cm.getValue().length + delta - maxLength;
+        if (delta > 0) {
+            str = str.substr(0, str.length - delta);
+            change.update(change.from, change.to, str.split('\n'));
+        }
+    }
+    return true;
+};
+
 export {
     getAliasesFromMd,
     replaceAliasesMd,
     TYPE_PREVIEW,
+    enforceMaxLength,
 }
