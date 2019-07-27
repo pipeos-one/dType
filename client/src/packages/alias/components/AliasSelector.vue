@@ -51,9 +51,8 @@
 import { mapState } from 'vuex';
 
 export default {
-  props: ['linkbtn'],
+  props: ['linkbtn', 'initial'],
   data: () => ({
-    domain: '',
     selectType: null,
     searchType: null,
     loadingTypes: false,
@@ -76,12 +75,26 @@ export default {
     alias() {
       this.setData();
     },
+    initial() {
+      setTimeout(this.setInitial, 500);
+    }
   },
   methods: {
     setData() {
-      if (this.alias) {
-        this.$store.dispatch('watchAllAlias');
+      if (!this.alias) return;
+      this.$store.dispatch('watchAllAlias');
+      setTimeout(this.setInitial, 6000);
+    },
+    setInitial() {
+      if (!this.initial || Object.keys(this.aliases).length == 0) return;
+      const parts = this.initial.split('.');
+
+      if (!this.aliases[parts[0]]['.'][parts[1]]) {
+        this.aliases[parts[0]]['.'][parts[1]] = '0x0000000000000000000000000000000000000000000000000000000000000000';
       }
+      this.selectType = parts[0];
+      this.selectSeparator = '.';
+      this.selectItem = parts[1];
     },
     onGo(type) {
       const alias = this.selectType + this.selectSeparator + this.selectItem;

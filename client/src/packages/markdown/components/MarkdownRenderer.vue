@@ -67,9 +67,6 @@ export default {
   },
   computed: mapState({
       aliases: 'aliases',
-      simplemde() {
-        return this.$refs.markdownEditor ? this.$refs.markdownEditor.simplemde: null;
-      }
   }),
   mounted() {
     this.setData();
@@ -93,7 +90,7 @@ export default {
         if (this.addition.type == 'link') {
           text += '()';
         }
-        var doc = this.simplemde.codemirror.getDoc();
+        var doc = this.$refs.markdownEditor.simplemde.codemirror.getDoc();
         var cursor = doc.getCursor();
         doc.replaceRange(text, cursor);
       } else {

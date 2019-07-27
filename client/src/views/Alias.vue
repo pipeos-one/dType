@@ -2,7 +2,11 @@
   <v-container style="margin:5px;max-width: 100%;">
     <v-layout row wrap>
       <v-flex xs12>
-        <AliasSelector @alias="setAlias" :linkbtn="viewer ? false : true"/>
+        <AliasSelector
+          :initial="viewer ? domain : null"
+          :linkbtn="viewer ? false : true"
+          @alias="setAlias"
+        />
       </v-flex>
       <v-flex xs12>
         <MarkdownRenderer
