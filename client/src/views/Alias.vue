@@ -1,19 +1,17 @@
 <template>
-  <v-container>
+  <v-container style="margin:5px;max-width: 100%;">
     <v-layout row wrap>
       <v-flex xs12>
-        <AliasSelector @alias="setAlias" :linkbtn="query.view == 'renderer' ? true : false"/>
+        <AliasSelector @alias="setAlias" :linkbtn="viewer ? false : true"/>
       </v-flex>
-      <v-flex xs12 v-if="query.view == 'renderer'">
+      <v-flex xs12>
         <MarkdownRenderer
           :content="aliasData"
           :addition="selectedAlias"
           :getAliasData="getAliasData"
           @save="saveResource"
+          @changeType="changeType"
         />
-      </v-flex>
-      <v-flex xs12 v-if="query.view == 'viewer'">
-        <MarkdownViewer :content="aliasData"/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -27,19 +25,18 @@ import {getDataItemByTypeHash} from '../blockchain';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
 import MarkdownRenderer from '@/packages/markdown/components/MarkdownRenderer';
-import MarkdownViewer from '@/packages/markdown/components/MarkdownViewer';
 
-// http://192.168.1.140:8080/#/alias?alias=markdown.article1&view=viewer
-// http://192.168.1.140:8080/#/alias?alias=markdown.article1&view=renderer
+// http://192.168.1.140:8080/#/alias?alias=markdown.article1
+// http://192.168.1.140:8080/#/alias?alias=markdown.article1
 
 export default {
   props: ['query'],
   components: {
     AliasSelector,
     MarkdownRenderer,
-    MarkdownViewer,
   },
   data: () => ({
+    viewer: true,
     domain: '',
     selectedAlias: null,
     aliasData: null,
@@ -67,14 +64,7 @@ export default {
   },
   methods: {
     setAlias(alias) {
-      if (this.query.view == 'renderer') {
-        this.selectedAlias = alias;
-      } else {
-        this.$router.push({path: 'alias', query: {
-          alias: alias.alias,
-          view: 'viewer',
-        }});
-      }
+      this.selectedAlias = alias;
     },
     async setAliasData(url) {
       this.aliasData = await this.getAliasData(url);
@@ -113,6 +103,9 @@ export default {
         name: parts[1],
         identifier,
       });
+    },
+    changeType(viewer) {
+      this.viewer = viewer;
     }
   }
 }
