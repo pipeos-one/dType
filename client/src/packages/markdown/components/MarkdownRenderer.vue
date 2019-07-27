@@ -126,7 +126,6 @@ export default {
     },
     previewRender(plainText, preview) {
       const {included, links} = getAliasesFromMd(plainText);
-      console.log('previewRender aliases', included, links);
 
       // Replace links before included aliases
       plainText = replaceAliasesMd(
@@ -156,9 +155,8 @@ export default {
         //   name: components[1],
         // });
         if (!this.aliascontent[alias]) {
-          const type = alias.split('.')[0];
-          const data = await this.getAliasData(alias);
-          this.aliascontent[alias] = TYPE_PREVIEW[type](data);
+          const {content, dtypeData} = await this.getAliasData(alias);
+          this.aliascontent[alias] = TYPE_PREVIEW[dtypeData.name](content);
         }
         aliasobjs.push(this.aliascontent[alias]);
       }

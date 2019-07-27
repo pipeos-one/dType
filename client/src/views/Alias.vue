@@ -67,28 +67,30 @@ export default {
       this.selectedAlias = alias;
     },
     async setAliasData(url) {
-      this.aliasData = await this.getAliasData(url);
+      const {content, dtypeData} = await this.getAliasData(url);
+      this.aliasData = content;
+      this.dtypeData = dtypeData;
     },
     async getAliasData(url) {
       this.domain = this.query.alias;
       // TODO: account for all separators & multiple subdomains
       // see replaceAlias commented code
-      let parts = url.split('.');
-      this.dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
+      const parts = url.split('.');
+      const dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
 
-      let identifier = await this.$store.dispatch('parseAlias', {
-        dTypeIdentifier: this.dtypeData.typeHash,
+      const identifier = await this.$store.dispatch('parseAlias', {
+        dTypeIdentifier: dtypeData.typeHash,
         name: parts[1],
         separator: '.',
       });
 
-      let content = await getDataItemByTypeHash(
+      const content = await getDataItemByTypeHash(
           this.$store.state.contract,
           this.$store.state.wallet,
-          this.dtypeData,
+          dtypeData,
           identifier,
       );
-      return content;
+      return {content, dtypeData};
     },
     saveResource(data) {
       this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data, identifier: this.aliasData.typeHash}).then((newidentifier) => {

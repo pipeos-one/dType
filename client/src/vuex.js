@@ -195,7 +195,7 @@ const dTypeStore = new Vuex.Store({
                 abi,
                 state.wallet,
             );
-            // TODO: use update
+            // TODO: differentiate update from insert - check if identifier is bytes32(0) or not
             // const txn = await contract.update(identifier, data);
             const txn = await contract.insert(data);
             const receipt = await state.provider.getTransactionReceipt(txn.hash);
