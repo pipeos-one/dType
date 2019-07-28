@@ -328,14 +328,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownStorage.sol",
     "exportedSymbols": {
       "MarkdownStorage": [
-        7284
+        7279
       ]
     },
-    "id": 7285,
+    "id": 7280,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7082,
+        "id": 7077,
         "literals": [
           "solidity",
           "^",
@@ -346,7 +346,7 @@
         "src": "0:23:26"
       },
       {
-        "id": 7083,
+        "id": 7078,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -357,10 +357,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/StorageBase.sol",
         "file": "../../StorageBase.sol",
-        "id": 7084,
+        "id": 7079,
         "nodeType": "ImportDirective",
-        "scope": 7285,
-        "sourceUnit": 1001,
+        "scope": 7280,
+        "sourceUnit": 996,
         "src": "59:31:26",
         "symbolAliases": [],
         "unitAlias": ""
@@ -368,10 +368,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
         "file": "./MarkdownLib.sol",
-        "id": 7085,
+        "id": 7080,
         "nodeType": "ImportDirective",
-        "scope": 7285,
-        "sourceUnit": 7081,
+        "scope": 7280,
+        "sourceUnit": 7076,
         "src": "91:27:26",
         "symbolAliases": [],
         "unitAlias": ""
@@ -382,46 +382,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 7086,
+              "id": 7081,
               "name": "StorageBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1000,
+              "referencedDeclaration": 995,
               "src": "148:11:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StorageBase_$1000",
+                "typeIdentifier": "t_contract$_StorageBase_$995",
                 "typeString": "contract StorageBase"
               }
             },
-            "id": 7087,
+            "id": 7082,
             "nodeType": "InheritanceSpecifier",
             "src": "148:11:26"
           }
         ],
         "contractDependencies": [
-          1000
+          995
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7284,
+        "id": 7279,
         "linearizedBaseContracts": [
-          7284,
-          1000
+          7279,
+          995
         ],
         "name": "MarkdownStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 7090,
+            "id": 7085,
             "libraryName": {
               "contractScope": null,
-              "id": 7088,
+              "id": 7083,
               "name": "MarkdownLib",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7080,
+              "referencedDeclaration": 7075,
               "src": "172:11:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MarkdownLib_$7080",
+                "typeIdentifier": "t_contract$_MarkdownLib_$7075",
                 "typeString": "library MarkdownLib"
               }
             },
@@ -429,34 +429,34 @@
             "src": "166:43:26",
             "typeName": {
               "contractScope": null,
-              "id": 7089,
+              "id": 7084,
               "name": "MarkdownLib.Markdown",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7017,
+              "referencedDeclaration": 7012,
               "src": "188:20:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                 "typeString": "struct MarkdownLib.Markdown"
               }
             }
           },
           {
             "constant": false,
-            "id": 7094,
+            "id": 7089,
             "name": "typeStruct",
             "nodeType": "VariableDeclaration",
-            "scope": 7284,
+            "scope": 7279,
             "src": "215:42:26",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type)"
             },
             "typeName": {
-              "id": 7093,
+              "id": 7088,
               "keyType": {
-                "id": 7091,
+                "id": 7086,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
                 "src": "223:7:26",
@@ -468,18 +468,18 @@
               "nodeType": "Mapping",
               "src": "215:24:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                 "typeString": "mapping(bytes32 => struct MarkdownStorage.Type)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 7092,
+                "id": 7087,
                 "name": "Type",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 7099,
+                "referencedDeclaration": 7094,
                 "src": "234:4:26",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Type_$7099_storage_ptr",
+                  "typeIdentifier": "t_struct$_Type_$7094_storage_ptr",
                   "typeString": "struct MarkdownStorage.Type"
                 }
               }
@@ -489,30 +489,30 @@
           },
           {
             "canonicalName": "MarkdownStorage.Type",
-            "id": 7099,
+            "id": 7094,
             "members": [
               {
                 "constant": false,
-                "id": 7096,
+                "id": 7091,
                 "name": "data",
                 "nodeType": "VariableDeclaration",
-                "scope": 7099,
+                "scope": 7094,
                 "src": "286:25:26",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                  "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                   "typeString": "struct MarkdownLib.Markdown"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 7095,
+                  "id": 7090,
                   "name": "MarkdownLib.Markdown",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 7017,
+                  "referencedDeclaration": 7012,
                   "src": "286:20:26",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   }
                 },
@@ -521,10 +521,10 @@
               },
               {
                 "constant": false,
-                "id": 7098,
+                "id": 7093,
                 "name": "index",
                 "nodeType": "VariableDeclaration",
-                "scope": 7099,
+                "scope": 7094,
                 "src": "321:13:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -533,7 +533,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7097,
+                  "id": 7092,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "321:7:26",
@@ -548,13 +548,13 @@
             ],
             "name": "Type",
             "nodeType": "StructDefinition",
-            "scope": 7284,
+            "scope": 7279,
             "src": "264:77:26",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7111,
+              "id": 7106,
               "nodeType": "Block",
               "src": "384:77:26",
               "statements": [
@@ -567,11 +567,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 7105,
+                            "id": 7100,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7101,
+                            "referencedDeclaration": 7096,
                             "src": "411:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -586,18 +586,18 @@
                               "typeString": "bytes32"
                             }
                           ],
-                          "id": 7104,
+                          "id": 7099,
                           "name": "isStored",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7270,
+                          "referencedDeclaration": 7265,
                           "src": "402:8:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                             "typeString": "function (bytes32) view returns (bool)"
                           }
                         },
-                        "id": 7106,
+                        "id": 7101,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -614,7 +614,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f2073756368206461746120696e7365727465642e",
-                        "id": 7107,
+                        "id": 7102,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -641,21 +641,21 @@
                           "typeString": "literal_string \"No such data inserted.\""
                         }
                       ],
-                      "id": 7103,
+                      "id": 7098,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10305,
-                        10306
+                        10300,
+                        10301
                       ],
-                      "referencedDeclaration": 10306,
+                      "referencedDeclaration": 10301,
                       "src": "394:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 7108,
+                    "id": 7103,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -669,31 +669,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7109,
+                  "id": 7104,
                   "nodeType": "ExpressionStatement",
                   "src": "394:49:26"
                 },
                 {
-                  "id": 7110,
+                  "id": 7105,
                   "nodeType": "PlaceholderStatement",
                   "src": "453:1:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7112,
+            "id": 7107,
             "name": "dataIsStored",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 7102,
+              "id": 7097,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7101,
+                  "id": 7096,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7112,
+                  "scope": 7107,
                   "src": "370:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -702,7 +702,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7100,
+                    "id": 7095,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "370:7:26",
@@ -722,21 +722,21 @@
           },
           {
             "body": {
-              "id": 7163,
+              "id": 7158,
               "nodeType": "Block",
               "src": "547:334:26",
               "statements": [
                 {
                   "assignments": [
-                    7120
+                    7115
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7120,
+                      "id": 7115,
                       "name": "hash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7163,
+                      "scope": 7158,
                       "src": "587:12:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -745,7 +745,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 7119,
+                        "id": 7114,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "587:7:26",
@@ -758,7 +758,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7124,
+                  "id": 7119,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -766,32 +766,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7121,
+                        "id": 7116,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7114,
+                        "referencedDeclaration": 7109,
                         "src": "602:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       },
-                      "id": 7122,
+                      "id": 7117,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getDataHash",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7048,
+                      "referencedDeclaration": 7043,
                       "src": "602:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Markdown_$7017_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Markdown_$7017_memory_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Markdown_$7012_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Markdown_$7012_memory_ptr_$",
                         "typeString": "function (struct MarkdownLib.Markdown memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 7123,
+                    "id": 7118,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -814,11 +814,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7126,
+                        "id": 7121,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7120,
+                        "referencedDeclaration": 7115,
                         "src": "643:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -833,18 +833,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 7125,
+                      "id": 7120,
                       "name": "isStored",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7270,
+                      "referencedDeclaration": 7265,
                       "src": "634:8:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                         "typeString": "function (bytes32) view returns (bool)"
                       }
                     },
-                    "id": 7127,
+                    "id": 7122,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -859,7 +859,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7132,
+                  "id": 7127,
                   "nodeType": "IfStatement",
                   "src": "631:67:26",
                   "trueBody": {
@@ -869,7 +869,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "546869732064617461206578697374732e205573652074686520657874616e7420646174612e",
-                          "id": 7129,
+                          "id": 7124,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -892,21 +892,21 @@
                             "typeString": "literal_string \"This data exists. Use the extant data.\""
                           }
                         ],
-                        "id": 7128,
+                        "id": 7123,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "650:6:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 7130,
+                      "id": 7125,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -920,7 +920,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 7131,
+                    "id": 7126,
                     "nodeType": "ExpressionStatement",
                     "src": "650:48:26"
                   }
@@ -931,14 +931,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7138,
+                        "id": 7133,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7114,
+                        "referencedDeclaration": 7109,
                         "src": "738:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -946,7 +946,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
@@ -956,25 +956,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7133,
+                            "id": 7128,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7094,
+                            "referencedDeclaration": 7089,
                             "src": "709:10:26",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                             }
                           },
-                          "id": 7135,
+                          "id": 7130,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 7134,
+                            "id": 7129,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "720:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -988,39 +988,39 @@
                           "nodeType": "IndexAccess",
                           "src": "709:16:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$7099_storage",
+                            "typeIdentifier": "t_struct$_Type_$7094_storage",
                             "typeString": "struct MarkdownStorage.Type storage ref"
                           }
                         },
-                        "id": 7136,
+                        "id": 7131,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "data",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7096,
+                        "referencedDeclaration": 7091,
                         "src": "709:21:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_storage",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_storage",
                           "typeString": "struct MarkdownLib.Markdown storage ref"
                         }
                       },
-                      "id": 7137,
+                      "id": 7132,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "insert",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7032,
+                      "referencedDeclaration": 7027,
                       "src": "709:28:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7017_storage_ptr_$_t_struct$_Markdown_$7017_memory_ptr_$returns$__$bound_to$_t_struct$_Markdown_$7017_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7012_storage_ptr_$_t_struct$_Markdown_$7012_memory_ptr_$returns$__$bound_to$_t_struct$_Markdown_$7012_storage_ptr_$",
                         "typeString": "function (struct MarkdownLib.Markdown storage pointer,struct MarkdownLib.Markdown memory)"
                       }
                     },
-                    "id": 7139,
+                    "id": 7134,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1034,14 +1034,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7140,
+                  "id": 7135,
                   "nodeType": "ExpressionStatement",
                   "src": "709:34:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7151,
+                    "id": 7146,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1052,25 +1052,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 7141,
+                          "id": 7136,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7094,
+                          "referencedDeclaration": 7089,
                           "src": "753:10:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                             "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                           }
                         },
-                        "id": 7143,
+                        "id": 7138,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7142,
+                          "id": 7137,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7120,
+                          "referencedDeclaration": 7115,
                           "src": "764:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1084,18 +1084,18 @@
                         "nodeType": "IndexAccess",
                         "src": "753:16:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$7099_storage",
+                          "typeIdentifier": "t_struct$_Type_$7094_storage",
                           "typeString": "struct MarkdownStorage.Type storage ref"
                         }
                       },
-                      "id": 7144,
+                      "id": 7139,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7098,
+                      "referencedDeclaration": 7093,
                       "src": "753:22:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1110,7 +1110,7 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 7150,
+                      "id": 7145,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1120,11 +1120,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 7147,
+                            "id": 7142,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "793:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1141,18 +1141,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7145,
+                            "id": 7140,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "778:9:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 7146,
+                          "id": 7141,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1166,7 +1166,7 @@
                             "typeString": "function (bytes32) returns (uint256)"
                           }
                         },
-                        "id": 7148,
+                        "id": 7143,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1185,7 +1185,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 7149,
+                        "id": 7144,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1212,7 +1212,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7152,
+                  "id": 7147,
                   "nodeType": "ExpressionStatement",
                   "src": "753:49:26"
                 },
@@ -1222,11 +1222,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7154,
+                        "id": 7149,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7120,
+                        "referencedDeclaration": 7115,
                         "src": "824:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1239,25 +1239,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7155,
+                            "id": 7150,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7094,
+                            "referencedDeclaration": 7089,
                             "src": "830:10:26",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                             }
                           },
-                          "id": 7157,
+                          "id": 7152,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 7156,
+                            "id": 7151,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "841:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1271,18 +1271,18 @@
                           "nodeType": "IndexAccess",
                           "src": "830:16:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$7099_storage",
+                            "typeIdentifier": "t_struct$_Type_$7094_storage",
                             "typeString": "struct MarkdownStorage.Type storage ref"
                           }
                         },
-                        "id": 7158,
+                        "id": 7153,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "index",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7098,
+                        "referencedDeclaration": 7093,
                         "src": "830:22:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1301,18 +1301,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7153,
+                      "id": 7148,
                       "name": "LogNew",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 948,
+                      "referencedDeclaration": 943,
                       "src": "817:6:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7159,
+                    "id": 7154,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1326,64 +1326,64 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7160,
+                  "id": 7155,
                   "nodeType": "EmitStatement",
                   "src": "812:41:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7161,
+                    "id": 7156,
                     "name": "hash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 7120,
+                    "referencedDeclaration": 7115,
                     "src": "870:4:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7118,
-                  "id": 7162,
+                  "functionReturnParameters": 7113,
+                  "id": 7157,
                   "nodeType": "Return",
                   "src": "863:11:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7164,
+            "id": 7159,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7115,
+              "id": 7110,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7114,
+                  "id": 7109,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7164,
+                  "scope": 7159,
                   "src": "483:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7113,
+                    "id": 7108,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "483:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1394,15 +1394,15 @@
               "src": "482:34:26"
             },
             "returnParameters": {
-              "id": 7118,
+              "id": 7113,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7117,
+                  "id": 7112,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7164,
+                  "scope": 7159,
                   "src": "533:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1411,7 +1411,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7116,
+                    "id": 7111,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "533:7:26",
@@ -1426,7 +1426,7 @@
               ],
               "src": "532:14:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "467:414:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1434,7 +1434,7 @@
           },
           {
             "body": {
-              "id": 7181,
+              "id": 7176,
               "nodeType": "Block",
               "src": "1001:59:26",
               "statements": [
@@ -1444,11 +1444,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7174,
+                        "id": 7169,
                         "name": "hashi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7166,
+                        "referencedDeclaration": 7161,
                         "src": "1018:5:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1463,18 +1463,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 7173,
+                      "id": 7168,
                       "name": "remove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7245,
+                      "referencedDeclaration": 7240,
                       "src": "1011:6:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$returns$_t_uint256_$",
                         "typeString": "function (bytes32) returns (uint256)"
                       }
                     },
-                    "id": 7175,
+                    "id": 7170,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1488,7 +1488,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7176,
+                  "id": 7171,
                   "nodeType": "ExpressionStatement",
                   "src": "1011:13:26"
                 },
@@ -1498,14 +1498,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7178,
+                        "id": 7173,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7168,
+                        "referencedDeclaration": 7163,
                         "src": "1048:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -1513,22 +1513,22 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
-                      "id": 7177,
+                      "id": 7172,
                       "name": "insert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7164,
+                      "referencedDeclaration": 7159,
                       "src": "1041:6:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7017_memory_ptr_$returns$_t_bytes32_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7012_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (struct MarkdownLib.Markdown memory) returns (bytes32)"
                       }
                     },
-                    "id": 7179,
+                    "id": 7174,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1542,30 +1542,30 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7172,
-                  "id": 7180,
+                  "functionReturnParameters": 7167,
+                  "id": 7175,
                   "nodeType": "Return",
                   "src": "1034:19:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7182,
+            "id": 7177,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "update",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7169,
+              "id": 7164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7166,
+                  "id": 7161,
                   "name": "hashi",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "903:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1574,7 +1574,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7165,
+                    "id": 7160,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "903:7:26",
@@ -1588,26 +1588,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7168,
+                  "id": 7163,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "918:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7167,
+                    "id": 7162,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "918:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1618,15 +1618,15 @@
               "src": "902:49:26"
             },
             "returnParameters": {
-              "id": 7172,
+              "id": 7167,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7171,
+                  "id": 7166,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "983:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1635,7 +1635,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7170,
+                    "id": 7165,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "983:7:26",
@@ -1650,7 +1650,7 @@
               ],
               "src": "982:14:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "887:173:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1658,14 +1658,14 @@
           },
           {
             "body": {
-              "id": 7244,
+              "id": 7239,
               "nodeType": "Block",
               "src": "1126:425:26",
               "statements": [
                 {
                   "condition": {
                     "argumentTypes": null,
-                    "id": 7192,
+                    "id": 7187,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1679,11 +1679,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 7190,
+                          "id": 7185,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7184,
+                          "referencedDeclaration": 7179,
                           "src": "1149:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1698,18 +1698,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 7189,
+                        "id": 7184,
                         "name": "isStored",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7270,
+                        "referencedDeclaration": 7265,
                         "src": "1140:8:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                           "typeString": "function (bytes32) view returns (bool)"
                         }
                       },
-                      "id": 7191,
+                      "id": 7186,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1729,7 +1729,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7197,
+                  "id": 7192,
                   "nodeType": "IfStatement",
                   "src": "1136:54:26",
                   "trueBody": {
@@ -1739,7 +1739,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "4e6f742064656c657465643a206e6f7420657874616e742e",
-                          "id": 7194,
+                          "id": 7189,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1762,21 +1762,21 @@
                             "typeString": "literal_string \"Not deleted: not extant.\""
                           }
                         ],
-                        "id": 7193,
+                        "id": 7188,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "1156:6:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 7195,
+                      "id": 7190,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1790,22 +1790,22 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 7196,
+                    "id": 7191,
                     "nodeType": "ExpressionStatement",
                     "src": "1156:34:26"
                   }
                 },
                 {
                   "assignments": [
-                    7199
+                    7194
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7199,
+                      "id": 7194,
                       "name": "rowToDelete",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7244,
+                      "scope": 7239,
                       "src": "1200:16:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1814,7 +1814,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7198,
+                        "id": 7193,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "1200:4:26",
@@ -1827,32 +1827,32 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7204,
+                  "id": 7199,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7200,
+                        "id": 7195,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7094,
+                        "referencedDeclaration": 7089,
                         "src": "1219:10:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                           "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                         }
                       },
-                      "id": 7202,
+                      "id": 7197,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7201,
+                        "id": 7196,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7184,
+                        "referencedDeclaration": 7179,
                         "src": "1230:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1866,18 +1866,18 @@
                       "nodeType": "IndexAccess",
                       "src": "1219:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$7099_storage",
+                        "typeIdentifier": "t_struct$_Type_$7094_storage",
                         "typeString": "struct MarkdownStorage.Type storage ref"
                       }
                     },
-                    "id": 7203,
+                    "id": 7198,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "index",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7098,
+                    "referencedDeclaration": 7093,
                     "src": "1219:22:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -1889,15 +1889,15 @@
                 },
                 {
                   "assignments": [
-                    7206
+                    7201
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7206,
+                      "id": 7201,
                       "name": "keyToMove",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7244,
+                      "scope": 7239,
                       "src": "1251:17:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1906,7 +1906,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 7205,
+                        "id": 7200,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1251:7:26",
@@ -1919,30 +1919,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7213,
+                  "id": 7208,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 7207,
+                      "id": 7202,
                       "name": "typeIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 942,
+                      "referencedDeclaration": 937,
                       "src": "1271:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                         "typeString": "bytes32[] storage ref"
                       }
                     },
-                    "id": 7212,
+                    "id": 7207,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 7211,
+                      "id": 7206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1951,18 +1951,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7208,
+                          "id": 7203,
                           "name": "typeIndex",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 942,
+                          "referencedDeclaration": 937,
                           "src": "1281:9:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                             "typeString": "bytes32[] storage ref"
                           }
                         },
-                        "id": 7209,
+                        "id": 7204,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -1981,7 +1981,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 7210,
+                        "id": 7205,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2019,7 +2019,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7218,
+                    "id": 7213,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2028,25 +2028,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7214,
+                        "id": 7209,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1310:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7216,
+                      "id": 7211,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7215,
+                        "id": 7210,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1320:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2068,11 +2068,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7217,
+                      "id": 7212,
                       "name": "keyToMove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7206,
+                      "referencedDeclaration": 7201,
                       "src": "1335:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -2085,14 +2085,14 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 7219,
+                  "id": 7214,
                   "nodeType": "ExpressionStatement",
                   "src": "1310:34:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7225,
+                    "id": 7220,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2103,25 +2103,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 7220,
+                          "id": 7215,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7094,
+                          "referencedDeclaration": 7089,
                           "src": "1354:10:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                             "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                           }
                         },
-                        "id": 7222,
+                        "id": 7217,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7221,
+                          "id": 7216,
                           "name": "keyToMove",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7206,
+                          "referencedDeclaration": 7201,
                           "src": "1365:9:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -2135,18 +2135,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1354:21:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$7099_storage",
+                          "typeIdentifier": "t_struct$_Type_$7094_storage",
                           "typeString": "struct MarkdownStorage.Type storage ref"
                         }
                       },
-                      "id": 7223,
+                      "id": 7218,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7098,
+                      "referencedDeclaration": 7093,
                       "src": "1354:27:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2157,11 +2157,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7224,
+                      "id": 7219,
                       "name": "rowToDelete",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7199,
+                      "referencedDeclaration": 7194,
                       "src": "1384:11:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2174,14 +2174,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7226,
+                  "id": 7221,
                   "nodeType": "ExpressionStatement",
                   "src": "1354:41:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7230,
+                    "id": 7225,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2194,18 +2194,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7227,
+                        "id": 7222,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1405:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7229,
+                      "id": 7224,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2224,7 +2224,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7231,
+                  "id": 7226,
                   "nodeType": "ExpressionStatement",
                   "src": "1405:18:26"
                 },
@@ -2234,11 +2234,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7233,
+                        "id": 7228,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7184,
+                        "referencedDeclaration": 7179,
                         "src": "1449:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2247,11 +2247,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7234,
+                        "id": 7229,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1455:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2270,18 +2270,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7232,
+                      "id": 7227,
                       "name": "LogRemove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 960,
+                      "referencedDeclaration": 955,
                       "src": "1439:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7235,
+                    "id": 7230,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2295,7 +2295,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7236,
+                  "id": 7231,
                   "nodeType": "EmitStatement",
                   "src": "1434:33:26"
                 },
@@ -2305,11 +2305,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7238,
+                        "id": 7233,
                         "name": "keyToMove",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7206,
+                        "referencedDeclaration": 7201,
                         "src": "1493:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2318,11 +2318,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7239,
+                        "id": 7234,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1504:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2341,18 +2341,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7237,
+                      "id": 7232,
                       "name": "LogUpdate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 954,
+                      "referencedDeclaration": 949,
                       "src": "1483:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7240,
+                    "id": 7235,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2366,48 +2366,48 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7241,
+                  "id": 7236,
                   "nodeType": "EmitStatement",
                   "src": "1478:38:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7242,
+                    "id": 7237,
                     "name": "rowToDelete",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 7199,
+                    "referencedDeclaration": 7194,
                     "src": "1533:11:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7188,
-                  "id": 7243,
+                  "functionReturnParameters": 7183,
+                  "id": 7238,
                   "nodeType": "Return",
                   "src": "1526:18:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7245,
+            "id": 7240,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7185,
+              "id": 7180,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7184,
+                  "id": 7179,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7245,
+                  "scope": 7240,
                   "src": "1082:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2416,7 +2416,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7183,
+                    "id": 7178,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1082:7:26",
@@ -2432,15 +2432,15 @@
               "src": "1081:14:26"
             },
             "returnParameters": {
-              "id": 7188,
+              "id": 7183,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7187,
+                  "id": 7182,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7245,
+                  "scope": 7240,
                   "src": "1111:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2449,7 +2449,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7186,
+                    "id": 7181,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1111:7:26",
@@ -2464,7 +2464,7 @@
               ],
               "src": "1110:15:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1066:485:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2472,7 +2472,7 @@
           },
           {
             "body": {
-              "id": 7269,
+              "id": 7264,
               "nodeType": "Block",
               "src": "1624:115:26",
               "statements": [
@@ -2483,7 +2483,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 7255,
+                    "id": 7250,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2492,18 +2492,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7252,
+                        "id": 7247,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1637:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7253,
+                      "id": 7248,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2522,7 +2522,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 7254,
+                      "id": 7249,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2544,14 +2544,14 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7258,
+                  "id": 7253,
                   "nodeType": "IfStatement",
                   "src": "1634:38:26",
                   "trueBody": {
                     "expression": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 7256,
+                      "id": 7251,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2566,8 +2566,8 @@
                       },
                       "value": "false"
                     },
-                    "functionReturnParameters": 7251,
-                    "id": 7257,
+                    "functionReturnParameters": 7246,
+                    "id": 7252,
                     "nodeType": "Return",
                     "src": "1660:12:26"
                   }
@@ -2582,7 +2582,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 7266,
+                        "id": 7261,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2591,43 +2591,43 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7259,
+                            "id": 7254,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "1690:9:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 7264,
+                          "id": 7259,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 7260,
+                                "id": 7255,
                                 "name": "typeStruct",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 7094,
+                                "referencedDeclaration": 7089,
                                 "src": "1700:10:26",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                                   "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                                 }
                               },
-                              "id": 7262,
+                              "id": 7257,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 7261,
+                                "id": 7256,
                                 "name": "hash",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 7247,
+                                "referencedDeclaration": 7242,
                                 "src": "1711:4:26",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -2641,18 +2641,18 @@
                               "nodeType": "IndexAccess",
                               "src": "1700:16:26",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Type_$7099_storage",
+                                "typeIdentifier": "t_struct$_Type_$7094_storage",
                                 "typeString": "struct MarkdownStorage.Type storage ref"
                               }
                             },
-                            "id": 7263,
+                            "id": 7258,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "index",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 7098,
+                            "referencedDeclaration": 7093,
                             "src": "1700:22:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2674,11 +2674,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 7265,
+                          "id": 7260,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7247,
+                          "referencedDeclaration": 7242,
                           "src": "1727:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -2692,7 +2692,7 @@
                         }
                       }
                     ],
-                    "id": 7267,
+                    "id": 7262,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2705,30 +2705,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 7251,
-                  "id": 7268,
+                  "functionReturnParameters": 7246,
+                  "id": 7263,
                   "nodeType": "Return",
                   "src": "1682:50:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7270,
+            "id": 7265,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isStored",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7248,
+              "id": 7243,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7247,
+                  "id": 7242,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7270,
+                  "scope": 7265,
                   "src": "1575:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2737,7 +2737,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7246,
+                    "id": 7241,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1575:7:26",
@@ -2753,15 +2753,15 @@
               "src": "1574:14:26"
             },
             "returnParameters": {
-              "id": 7251,
+              "id": 7246,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7250,
+                  "id": 7245,
                   "name": "isIndeed",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7270,
+                  "scope": 7265,
                   "src": "1609:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2770,7 +2770,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7249,
+                    "id": 7244,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1609:4:26",
@@ -2785,7 +2785,7 @@
               ],
               "src": "1608:15:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1557:182:26",
             "stateMutability": "view",
             "superFunction": null,
@@ -2793,7 +2793,7 @@
           },
           {
             "body": {
-              "id": 7282,
+              "id": 7277,
               "nodeType": "Block",
               "src": "1832:45:26",
               "statements": [
@@ -2804,25 +2804,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7277,
+                        "id": 7272,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7094,
+                        "referencedDeclaration": 7089,
                         "src": "1849:10:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                           "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                         }
                       },
-                      "id": 7279,
+                      "id": 7274,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7278,
+                        "id": 7273,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7272,
+                        "referencedDeclaration": 7267,
                         "src": "1860:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2836,48 +2836,48 @@
                       "nodeType": "IndexAccess",
                       "src": "1849:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$7099_storage",
+                        "typeIdentifier": "t_struct$_Type_$7094_storage",
                         "typeString": "struct MarkdownStorage.Type storage ref"
                       }
                     },
-                    "id": 7280,
+                    "id": 7275,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "data",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7096,
+                    "referencedDeclaration": 7091,
                     "src": "1849:21:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage",
                       "typeString": "struct MarkdownLib.Markdown storage ref"
                     }
                   },
-                  "functionReturnParameters": 7276,
-                  "id": 7281,
+                  "functionReturnParameters": 7271,
+                  "id": 7276,
                   "nodeType": "Return",
                   "src": "1842:28:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7283,
+            "id": 7278,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getByHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7273,
+              "id": 7268,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7272,
+                  "id": 7267,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7283,
+                  "scope": 7278,
                   "src": "1764:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2886,7 +2886,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7271,
+                    "id": 7266,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1764:7:26",
@@ -2902,31 +2902,31 @@
               "src": "1763:14:26"
             },
             "returnParameters": {
-              "id": 7276,
+              "id": 7271,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7275,
+                  "id": 7270,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7283,
+                  "scope": 7278,
                   "src": "1798:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7274,
+                    "id": 7269,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "1798:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -2936,14 +2936,14 @@
               ],
               "src": "1797:34:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1745:132:26",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7285,
+        "scope": 7280,
         "src": "120:1759:26"
       }
     ],
@@ -2953,14 +2953,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownStorage.sol",
     "exportedSymbols": {
       "MarkdownStorage": [
-        7284
+        7279
       ]
     },
-    "id": 7285,
+    "id": 7280,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7082,
+        "id": 7077,
         "literals": [
           "solidity",
           "^",
@@ -2971,7 +2971,7 @@
         "src": "0:23:26"
       },
       {
-        "id": 7083,
+        "id": 7078,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -2982,10 +2982,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/StorageBase.sol",
         "file": "../../StorageBase.sol",
-        "id": 7084,
+        "id": 7079,
         "nodeType": "ImportDirective",
-        "scope": 7285,
-        "sourceUnit": 1001,
+        "scope": 7280,
+        "sourceUnit": 996,
         "src": "59:31:26",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2993,10 +2993,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
         "file": "./MarkdownLib.sol",
-        "id": 7085,
+        "id": 7080,
         "nodeType": "ImportDirective",
-        "scope": 7285,
-        "sourceUnit": 7081,
+        "scope": 7280,
+        "sourceUnit": 7076,
         "src": "91:27:26",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3007,46 +3007,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 7086,
+              "id": 7081,
               "name": "StorageBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1000,
+              "referencedDeclaration": 995,
               "src": "148:11:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StorageBase_$1000",
+                "typeIdentifier": "t_contract$_StorageBase_$995",
                 "typeString": "contract StorageBase"
               }
             },
-            "id": 7087,
+            "id": 7082,
             "nodeType": "InheritanceSpecifier",
             "src": "148:11:26"
           }
         ],
         "contractDependencies": [
-          1000
+          995
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7284,
+        "id": 7279,
         "linearizedBaseContracts": [
-          7284,
-          1000
+          7279,
+          995
         ],
         "name": "MarkdownStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 7090,
+            "id": 7085,
             "libraryName": {
               "contractScope": null,
-              "id": 7088,
+              "id": 7083,
               "name": "MarkdownLib",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7080,
+              "referencedDeclaration": 7075,
               "src": "172:11:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MarkdownLib_$7080",
+                "typeIdentifier": "t_contract$_MarkdownLib_$7075",
                 "typeString": "library MarkdownLib"
               }
             },
@@ -3054,34 +3054,34 @@
             "src": "166:43:26",
             "typeName": {
               "contractScope": null,
-              "id": 7089,
+              "id": 7084,
               "name": "MarkdownLib.Markdown",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 7017,
+              "referencedDeclaration": 7012,
               "src": "188:20:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                 "typeString": "struct MarkdownLib.Markdown"
               }
             }
           },
           {
             "constant": false,
-            "id": 7094,
+            "id": 7089,
             "name": "typeStruct",
             "nodeType": "VariableDeclaration",
-            "scope": 7284,
+            "scope": 7279,
             "src": "215:42:26",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type)"
             },
             "typeName": {
-              "id": 7093,
+              "id": 7088,
               "keyType": {
-                "id": 7091,
+                "id": 7086,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
                 "src": "223:7:26",
@@ -3093,18 +3093,18 @@
               "nodeType": "Mapping",
               "src": "215:24:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                 "typeString": "mapping(bytes32 => struct MarkdownStorage.Type)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 7092,
+                "id": 7087,
                 "name": "Type",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 7099,
+                "referencedDeclaration": 7094,
                 "src": "234:4:26",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Type_$7099_storage_ptr",
+                  "typeIdentifier": "t_struct$_Type_$7094_storage_ptr",
                   "typeString": "struct MarkdownStorage.Type"
                 }
               }
@@ -3114,30 +3114,30 @@
           },
           {
             "canonicalName": "MarkdownStorage.Type",
-            "id": 7099,
+            "id": 7094,
             "members": [
               {
                 "constant": false,
-                "id": 7096,
+                "id": 7091,
                 "name": "data",
                 "nodeType": "VariableDeclaration",
-                "scope": 7099,
+                "scope": 7094,
                 "src": "286:25:26",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                  "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                   "typeString": "struct MarkdownLib.Markdown"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 7095,
+                  "id": 7090,
                   "name": "MarkdownLib.Markdown",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 7017,
+                  "referencedDeclaration": 7012,
                   "src": "286:20:26",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   }
                 },
@@ -3146,10 +3146,10 @@
               },
               {
                 "constant": false,
-                "id": 7098,
+                "id": 7093,
                 "name": "index",
                 "nodeType": "VariableDeclaration",
-                "scope": 7099,
+                "scope": 7094,
                 "src": "321:13:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3158,7 +3158,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 7097,
+                  "id": 7092,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "321:7:26",
@@ -3173,13 +3173,13 @@
             ],
             "name": "Type",
             "nodeType": "StructDefinition",
-            "scope": 7284,
+            "scope": 7279,
             "src": "264:77:26",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7111,
+              "id": 7106,
               "nodeType": "Block",
               "src": "384:77:26",
               "statements": [
@@ -3192,11 +3192,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 7105,
+                            "id": 7100,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7101,
+                            "referencedDeclaration": 7096,
                             "src": "411:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3211,18 +3211,18 @@
                               "typeString": "bytes32"
                             }
                           ],
-                          "id": 7104,
+                          "id": 7099,
                           "name": "isStored",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7270,
+                          "referencedDeclaration": 7265,
                           "src": "402:8:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                             "typeString": "function (bytes32) view returns (bool)"
                           }
                         },
-                        "id": 7106,
+                        "id": 7101,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3239,7 +3239,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f2073756368206461746120696e7365727465642e",
-                        "id": 7107,
+                        "id": 7102,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3266,21 +3266,21 @@
                           "typeString": "literal_string \"No such data inserted.\""
                         }
                       ],
-                      "id": 7103,
+                      "id": 7098,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10305,
-                        10306
+                        10300,
+                        10301
                       ],
-                      "referencedDeclaration": 10306,
+                      "referencedDeclaration": 10301,
                       "src": "394:7:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 7108,
+                    "id": 7103,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3294,31 +3294,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7109,
+                  "id": 7104,
                   "nodeType": "ExpressionStatement",
                   "src": "394:49:26"
                 },
                 {
-                  "id": 7110,
+                  "id": 7105,
                   "nodeType": "PlaceholderStatement",
                   "src": "453:1:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7112,
+            "id": 7107,
             "name": "dataIsStored",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 7102,
+              "id": 7097,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7101,
+                  "id": 7096,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7112,
+                  "scope": 7107,
                   "src": "370:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3327,7 +3327,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7100,
+                    "id": 7095,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "370:7:26",
@@ -3347,21 +3347,21 @@
           },
           {
             "body": {
-              "id": 7163,
+              "id": 7158,
               "nodeType": "Block",
               "src": "547:334:26",
               "statements": [
                 {
                   "assignments": [
-                    7120
+                    7115
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7120,
+                      "id": 7115,
                       "name": "hash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7163,
+                      "scope": 7158,
                       "src": "587:12:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3370,7 +3370,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 7119,
+                        "id": 7114,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "587:7:26",
@@ -3383,7 +3383,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7124,
+                  "id": 7119,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -3391,32 +3391,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7121,
+                        "id": 7116,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7114,
+                        "referencedDeclaration": 7109,
                         "src": "602:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       },
-                      "id": 7122,
+                      "id": 7117,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getDataHash",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7048,
+                      "referencedDeclaration": 7043,
                       "src": "602:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Markdown_$7017_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Markdown_$7017_memory_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Markdown_$7012_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Markdown_$7012_memory_ptr_$",
                         "typeString": "function (struct MarkdownLib.Markdown memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 7123,
+                    "id": 7118,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3439,11 +3439,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7126,
+                        "id": 7121,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7120,
+                        "referencedDeclaration": 7115,
                         "src": "643:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -3458,18 +3458,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 7125,
+                      "id": 7120,
                       "name": "isStored",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7270,
+                      "referencedDeclaration": 7265,
                       "src": "634:8:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                         "typeString": "function (bytes32) view returns (bool)"
                       }
                     },
-                    "id": 7127,
+                    "id": 7122,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3484,7 +3484,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7132,
+                  "id": 7127,
                   "nodeType": "IfStatement",
                   "src": "631:67:26",
                   "trueBody": {
@@ -3494,7 +3494,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "546869732064617461206578697374732e205573652074686520657874616e7420646174612e",
-                          "id": 7129,
+                          "id": 7124,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3517,21 +3517,21 @@
                             "typeString": "literal_string \"This data exists. Use the extant data.\""
                           }
                         ],
-                        "id": 7128,
+                        "id": 7123,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "650:6:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 7130,
+                      "id": 7125,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3545,7 +3545,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 7131,
+                    "id": 7126,
                     "nodeType": "ExpressionStatement",
                     "src": "650:48:26"
                   }
@@ -3556,14 +3556,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7138,
+                        "id": 7133,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7114,
+                        "referencedDeclaration": 7109,
                         "src": "738:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -3571,7 +3571,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
@@ -3581,25 +3581,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7133,
+                            "id": 7128,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7094,
+                            "referencedDeclaration": 7089,
                             "src": "709:10:26",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                             }
                           },
-                          "id": 7135,
+                          "id": 7130,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 7134,
+                            "id": 7129,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "720:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3613,39 +3613,39 @@
                           "nodeType": "IndexAccess",
                           "src": "709:16:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$7099_storage",
+                            "typeIdentifier": "t_struct$_Type_$7094_storage",
                             "typeString": "struct MarkdownStorage.Type storage ref"
                           }
                         },
-                        "id": 7136,
+                        "id": 7131,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "data",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7096,
+                        "referencedDeclaration": 7091,
                         "src": "709:21:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_storage",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_storage",
                           "typeString": "struct MarkdownLib.Markdown storage ref"
                         }
                       },
-                      "id": 7137,
+                      "id": 7132,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "insert",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7032,
+                      "referencedDeclaration": 7027,
                       "src": "709:28:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7017_storage_ptr_$_t_struct$_Markdown_$7017_memory_ptr_$returns$__$bound_to$_t_struct$_Markdown_$7017_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7012_storage_ptr_$_t_struct$_Markdown_$7012_memory_ptr_$returns$__$bound_to$_t_struct$_Markdown_$7012_storage_ptr_$",
                         "typeString": "function (struct MarkdownLib.Markdown storage pointer,struct MarkdownLib.Markdown memory)"
                       }
                     },
-                    "id": 7139,
+                    "id": 7134,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3659,14 +3659,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7140,
+                  "id": 7135,
                   "nodeType": "ExpressionStatement",
                   "src": "709:34:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7151,
+                    "id": 7146,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3677,25 +3677,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 7141,
+                          "id": 7136,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7094,
+                          "referencedDeclaration": 7089,
                           "src": "753:10:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                             "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                           }
                         },
-                        "id": 7143,
+                        "id": 7138,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7142,
+                          "id": 7137,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7120,
+                          "referencedDeclaration": 7115,
                           "src": "764:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -3709,18 +3709,18 @@
                         "nodeType": "IndexAccess",
                         "src": "753:16:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$7099_storage",
+                          "typeIdentifier": "t_struct$_Type_$7094_storage",
                           "typeString": "struct MarkdownStorage.Type storage ref"
                         }
                       },
-                      "id": 7144,
+                      "id": 7139,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7098,
+                      "referencedDeclaration": 7093,
                       "src": "753:22:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3735,7 +3735,7 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 7150,
+                      "id": 7145,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3745,11 +3745,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 7147,
+                            "id": 7142,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "793:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3766,18 +3766,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7145,
+                            "id": 7140,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "778:9:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 7146,
+                          "id": 7141,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3791,7 +3791,7 @@
                             "typeString": "function (bytes32) returns (uint256)"
                           }
                         },
-                        "id": 7148,
+                        "id": 7143,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3810,7 +3810,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 7149,
+                        "id": 7144,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3837,7 +3837,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7152,
+                  "id": 7147,
                   "nodeType": "ExpressionStatement",
                   "src": "753:49:26"
                 },
@@ -3847,11 +3847,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7154,
+                        "id": 7149,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7120,
+                        "referencedDeclaration": 7115,
                         "src": "824:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -3864,25 +3864,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7155,
+                            "id": 7150,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7094,
+                            "referencedDeclaration": 7089,
                             "src": "830:10:26",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                               "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                             }
                           },
-                          "id": 7157,
+                          "id": 7152,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 7156,
+                            "id": 7151,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 7120,
+                            "referencedDeclaration": 7115,
                             "src": "841:4:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3896,18 +3896,18 @@
                           "nodeType": "IndexAccess",
                           "src": "830:16:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$7099_storage",
+                            "typeIdentifier": "t_struct$_Type_$7094_storage",
                             "typeString": "struct MarkdownStorage.Type storage ref"
                           }
                         },
-                        "id": 7158,
+                        "id": 7153,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "index",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 7098,
+                        "referencedDeclaration": 7093,
                         "src": "830:22:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3926,18 +3926,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7153,
+                      "id": 7148,
                       "name": "LogNew",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 948,
+                      "referencedDeclaration": 943,
                       "src": "817:6:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7159,
+                    "id": 7154,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3951,64 +3951,64 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7160,
+                  "id": 7155,
                   "nodeType": "EmitStatement",
                   "src": "812:41:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7161,
+                    "id": 7156,
                     "name": "hash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 7120,
+                    "referencedDeclaration": 7115,
                     "src": "870:4:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7118,
-                  "id": 7162,
+                  "functionReturnParameters": 7113,
+                  "id": 7157,
                   "nodeType": "Return",
                   "src": "863:11:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7164,
+            "id": 7159,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7115,
+              "id": 7110,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7114,
+                  "id": 7109,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7164,
+                  "scope": 7159,
                   "src": "483:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7113,
+                    "id": 7108,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "483:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -4019,15 +4019,15 @@
               "src": "482:34:26"
             },
             "returnParameters": {
-              "id": 7118,
+              "id": 7113,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7117,
+                  "id": 7112,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7164,
+                  "scope": 7159,
                   "src": "533:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4036,7 +4036,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7116,
+                    "id": 7111,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "533:7:26",
@@ -4051,7 +4051,7 @@
               ],
               "src": "532:14:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "467:414:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4059,7 +4059,7 @@
           },
           {
             "body": {
-              "id": 7181,
+              "id": 7176,
               "nodeType": "Block",
               "src": "1001:59:26",
               "statements": [
@@ -4069,11 +4069,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7174,
+                        "id": 7169,
                         "name": "hashi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7166,
+                        "referencedDeclaration": 7161,
                         "src": "1018:5:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4088,18 +4088,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 7173,
+                      "id": 7168,
                       "name": "remove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7245,
+                      "referencedDeclaration": 7240,
                       "src": "1011:6:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$returns$_t_uint256_$",
                         "typeString": "function (bytes32) returns (uint256)"
                       }
                     },
-                    "id": 7175,
+                    "id": 7170,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4113,7 +4113,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7176,
+                  "id": 7171,
                   "nodeType": "ExpressionStatement",
                   "src": "1011:13:26"
                 },
@@ -4123,14 +4123,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7178,
+                        "id": 7173,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7168,
+                        "referencedDeclaration": 7163,
                         "src": "1048:4:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -4138,22 +4138,22 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
-                      "id": 7177,
+                      "id": 7172,
                       "name": "insert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7164,
+                      "referencedDeclaration": 7159,
                       "src": "1041:6:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7017_memory_ptr_$returns$_t_bytes32_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Markdown_$7012_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (struct MarkdownLib.Markdown memory) returns (bytes32)"
                       }
                     },
-                    "id": 7179,
+                    "id": 7174,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4167,30 +4167,30 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7172,
-                  "id": 7180,
+                  "functionReturnParameters": 7167,
+                  "id": 7175,
                   "nodeType": "Return",
                   "src": "1034:19:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7182,
+            "id": 7177,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "update",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7169,
+              "id": 7164,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7166,
+                  "id": 7161,
                   "name": "hashi",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "903:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4199,7 +4199,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7165,
+                    "id": 7160,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "903:7:26",
@@ -4213,26 +4213,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7168,
+                  "id": 7163,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "918:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7167,
+                    "id": 7162,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "918:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -4243,15 +4243,15 @@
               "src": "902:49:26"
             },
             "returnParameters": {
-              "id": 7172,
+              "id": 7167,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7171,
+                  "id": 7166,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7182,
+                  "scope": 7177,
                   "src": "983:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4260,7 +4260,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7170,
+                    "id": 7165,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "983:7:26",
@@ -4275,7 +4275,7 @@
               ],
               "src": "982:14:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "887:173:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4283,14 +4283,14 @@
           },
           {
             "body": {
-              "id": 7244,
+              "id": 7239,
               "nodeType": "Block",
               "src": "1126:425:26",
               "statements": [
                 {
                   "condition": {
                     "argumentTypes": null,
-                    "id": 7192,
+                    "id": 7187,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4304,11 +4304,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 7190,
+                          "id": 7185,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7184,
+                          "referencedDeclaration": 7179,
                           "src": "1149:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -4323,18 +4323,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 7189,
+                        "id": 7184,
                         "name": "isStored",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7270,
+                        "referencedDeclaration": 7265,
                         "src": "1140:8:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                           "typeString": "function (bytes32) view returns (bool)"
                         }
                       },
-                      "id": 7191,
+                      "id": 7186,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4354,7 +4354,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7197,
+                  "id": 7192,
                   "nodeType": "IfStatement",
                   "src": "1136:54:26",
                   "trueBody": {
@@ -4364,7 +4364,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "4e6f742064656c657465643a206e6f7420657874616e742e",
-                          "id": 7194,
+                          "id": 7189,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4387,21 +4387,21 @@
                             "typeString": "literal_string \"Not deleted: not extant.\""
                           }
                         ],
-                        "id": 7193,
+                        "id": 7188,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "1156:6:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 7195,
+                      "id": 7190,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4415,22 +4415,22 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 7196,
+                    "id": 7191,
                     "nodeType": "ExpressionStatement",
                     "src": "1156:34:26"
                   }
                 },
                 {
                   "assignments": [
-                    7199
+                    7194
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7199,
+                      "id": 7194,
                       "name": "rowToDelete",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7244,
+                      "scope": 7239,
                       "src": "1200:16:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -4439,7 +4439,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 7198,
+                        "id": 7193,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "1200:4:26",
@@ -4452,32 +4452,32 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7204,
+                  "id": 7199,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7200,
+                        "id": 7195,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7094,
+                        "referencedDeclaration": 7089,
                         "src": "1219:10:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                           "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                         }
                       },
-                      "id": 7202,
+                      "id": 7197,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7201,
+                        "id": 7196,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7184,
+                        "referencedDeclaration": 7179,
                         "src": "1230:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4491,18 +4491,18 @@
                       "nodeType": "IndexAccess",
                       "src": "1219:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$7099_storage",
+                        "typeIdentifier": "t_struct$_Type_$7094_storage",
                         "typeString": "struct MarkdownStorage.Type storage ref"
                       }
                     },
-                    "id": 7203,
+                    "id": 7198,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "index",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7098,
+                    "referencedDeclaration": 7093,
                     "src": "1219:22:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -4514,15 +4514,15 @@
                 },
                 {
                   "assignments": [
-                    7206
+                    7201
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 7206,
+                      "id": 7201,
                       "name": "keyToMove",
                       "nodeType": "VariableDeclaration",
-                      "scope": 7244,
+                      "scope": 7239,
                       "src": "1251:17:26",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -4531,7 +4531,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 7205,
+                        "id": 7200,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1251:7:26",
@@ -4544,30 +4544,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 7213,
+                  "id": 7208,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 7207,
+                      "id": 7202,
                       "name": "typeIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 942,
+                      "referencedDeclaration": 937,
                       "src": "1271:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                         "typeString": "bytes32[] storage ref"
                       }
                     },
-                    "id": 7212,
+                    "id": 7207,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 7211,
+                      "id": 7206,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4576,18 +4576,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7208,
+                          "id": 7203,
                           "name": "typeIndex",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 942,
+                          "referencedDeclaration": 937,
                           "src": "1281:9:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                             "typeString": "bytes32[] storage ref"
                           }
                         },
-                        "id": 7209,
+                        "id": 7204,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4606,7 +4606,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 7210,
+                        "id": 7205,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4644,7 +4644,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7218,
+                    "id": 7213,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4653,25 +4653,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7214,
+                        "id": 7209,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1310:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7216,
+                      "id": 7211,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7215,
+                        "id": 7210,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1320:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4693,11 +4693,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7217,
+                      "id": 7212,
                       "name": "keyToMove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7206,
+                      "referencedDeclaration": 7201,
                       "src": "1335:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -4710,14 +4710,14 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 7219,
+                  "id": 7214,
                   "nodeType": "ExpressionStatement",
                   "src": "1310:34:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7225,
+                    "id": 7220,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4728,25 +4728,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 7220,
+                          "id": 7215,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7094,
+                          "referencedDeclaration": 7089,
                           "src": "1354:10:26",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                             "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                           }
                         },
-                        "id": 7222,
+                        "id": 7217,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 7221,
+                          "id": 7216,
                           "name": "keyToMove",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7206,
+                          "referencedDeclaration": 7201,
                           "src": "1365:9:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -4760,18 +4760,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1354:21:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$7099_storage",
+                          "typeIdentifier": "t_struct$_Type_$7094_storage",
                           "typeString": "struct MarkdownStorage.Type storage ref"
                         }
                       },
-                      "id": 7223,
+                      "id": 7218,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7098,
+                      "referencedDeclaration": 7093,
                       "src": "1354:27:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4782,11 +4782,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 7224,
+                      "id": 7219,
                       "name": "rowToDelete",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7199,
+                      "referencedDeclaration": 7194,
                       "src": "1384:11:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4799,14 +4799,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7226,
+                  "id": 7221,
                   "nodeType": "ExpressionStatement",
                   "src": "1354:41:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7230,
+                    "id": 7225,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4819,18 +4819,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7227,
+                        "id": 7222,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1405:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7229,
+                      "id": 7224,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -4849,7 +4849,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 7231,
+                  "id": 7226,
                   "nodeType": "ExpressionStatement",
                   "src": "1405:18:26"
                 },
@@ -4859,11 +4859,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7233,
+                        "id": 7228,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7184,
+                        "referencedDeclaration": 7179,
                         "src": "1449:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4872,11 +4872,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7234,
+                        "id": 7229,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1455:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4895,18 +4895,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7232,
+                      "id": 7227,
                       "name": "LogRemove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 960,
+                      "referencedDeclaration": 955,
                       "src": "1439:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7235,
+                    "id": 7230,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4920,7 +4920,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7236,
+                  "id": 7231,
                   "nodeType": "EmitStatement",
                   "src": "1434:33:26"
                 },
@@ -4930,11 +4930,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7238,
+                        "id": 7233,
                         "name": "keyToMove",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7206,
+                        "referencedDeclaration": 7201,
                         "src": "1493:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4943,11 +4943,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 7239,
+                        "id": 7234,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7199,
+                        "referencedDeclaration": 7194,
                         "src": "1504:11:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4966,18 +4966,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 7237,
+                      "id": 7232,
                       "name": "LogUpdate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 954,
+                      "referencedDeclaration": 949,
                       "src": "1483:9:26",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 7240,
+                    "id": 7235,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4991,48 +4991,48 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 7241,
+                  "id": 7236,
                   "nodeType": "EmitStatement",
                   "src": "1478:38:26"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7242,
+                    "id": 7237,
                     "name": "rowToDelete",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 7199,
+                    "referencedDeclaration": 7194,
                     "src": "1533:11:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 7188,
-                  "id": 7243,
+                  "functionReturnParameters": 7183,
+                  "id": 7238,
                   "nodeType": "Return",
                   "src": "1526:18:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7245,
+            "id": 7240,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7185,
+              "id": 7180,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7184,
+                  "id": 7179,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7245,
+                  "scope": 7240,
                   "src": "1082:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5041,7 +5041,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7183,
+                    "id": 7178,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1082:7:26",
@@ -5057,15 +5057,15 @@
               "src": "1081:14:26"
             },
             "returnParameters": {
-              "id": 7188,
+              "id": 7183,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7187,
+                  "id": 7182,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7245,
+                  "scope": 7240,
                   "src": "1111:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5074,7 +5074,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 7186,
+                    "id": 7181,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1111:7:26",
@@ -5089,7 +5089,7 @@
               ],
               "src": "1110:15:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1066:485:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5097,7 +5097,7 @@
           },
           {
             "body": {
-              "id": 7269,
+              "id": 7264,
               "nodeType": "Block",
               "src": "1624:115:26",
               "statements": [
@@ -5108,7 +5108,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 7255,
+                    "id": 7250,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5117,18 +5117,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7252,
+                        "id": 7247,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1637:9:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 7253,
+                      "id": 7248,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -5147,7 +5147,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 7254,
+                      "id": 7249,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5169,14 +5169,14 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 7258,
+                  "id": 7253,
                   "nodeType": "IfStatement",
                   "src": "1634:38:26",
                   "trueBody": {
                     "expression": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 7256,
+                      "id": 7251,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5191,8 +5191,8 @@
                       },
                       "value": "false"
                     },
-                    "functionReturnParameters": 7251,
-                    "id": 7257,
+                    "functionReturnParameters": 7246,
+                    "id": 7252,
                     "nodeType": "Return",
                     "src": "1660:12:26"
                   }
@@ -5207,7 +5207,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 7266,
+                        "id": 7261,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -5216,43 +5216,43 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 7259,
+                            "id": 7254,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "1690:9:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 7264,
+                          "id": 7259,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 7260,
+                                "id": 7255,
                                 "name": "typeStruct",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 7094,
+                                "referencedDeclaration": 7089,
                                 "src": "1700:10:26",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                                   "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                                 }
                               },
-                              "id": 7262,
+                              "id": 7257,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 7261,
+                                "id": 7256,
                                 "name": "hash",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 7247,
+                                "referencedDeclaration": 7242,
                                 "src": "1711:4:26",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -5266,18 +5266,18 @@
                               "nodeType": "IndexAccess",
                               "src": "1700:16:26",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Type_$7099_storage",
+                                "typeIdentifier": "t_struct$_Type_$7094_storage",
                                 "typeString": "struct MarkdownStorage.Type storage ref"
                               }
                             },
-                            "id": 7263,
+                            "id": 7258,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "index",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 7098,
+                            "referencedDeclaration": 7093,
                             "src": "1700:22:26",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -5299,11 +5299,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 7265,
+                          "id": 7260,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7247,
+                          "referencedDeclaration": 7242,
                           "src": "1727:4:26",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -5317,7 +5317,7 @@
                         }
                       }
                     ],
-                    "id": 7267,
+                    "id": 7262,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -5330,30 +5330,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 7251,
-                  "id": 7268,
+                  "functionReturnParameters": 7246,
+                  "id": 7263,
                   "nodeType": "Return",
                   "src": "1682:50:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7270,
+            "id": 7265,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isStored",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7248,
+              "id": 7243,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7247,
+                  "id": 7242,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7270,
+                  "scope": 7265,
                   "src": "1575:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5362,7 +5362,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7246,
+                    "id": 7241,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1575:7:26",
@@ -5378,15 +5378,15 @@
               "src": "1574:14:26"
             },
             "returnParameters": {
-              "id": 7251,
+              "id": 7246,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7250,
+                  "id": 7245,
                   "name": "isIndeed",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7270,
+                  "scope": 7265,
                   "src": "1609:13:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5395,7 +5395,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7249,
+                    "id": 7244,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1609:4:26",
@@ -5410,7 +5410,7 @@
               ],
               "src": "1608:15:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1557:182:26",
             "stateMutability": "view",
             "superFunction": null,
@@ -5418,7 +5418,7 @@
           },
           {
             "body": {
-              "id": 7282,
+              "id": 7277,
               "nodeType": "Block",
               "src": "1832:45:26",
               "statements": [
@@ -5429,25 +5429,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 7277,
+                        "id": 7272,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7094,
+                        "referencedDeclaration": 7089,
                         "src": "1849:10:26",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7099_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$7094_storage_$",
                           "typeString": "mapping(bytes32 => struct MarkdownStorage.Type storage ref)"
                         }
                       },
-                      "id": 7279,
+                      "id": 7274,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 7278,
+                        "id": 7273,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7272,
+                        "referencedDeclaration": 7267,
                         "src": "1860:4:26",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -5461,48 +5461,48 @@
                       "nodeType": "IndexAccess",
                       "src": "1849:16:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$7099_storage",
+                        "typeIdentifier": "t_struct$_Type_$7094_storage",
                         "typeString": "struct MarkdownStorage.Type storage ref"
                       }
                     },
-                    "id": 7280,
+                    "id": 7275,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "data",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 7096,
+                    "referencedDeclaration": 7091,
                     "src": "1849:21:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage",
                       "typeString": "struct MarkdownLib.Markdown storage ref"
                     }
                   },
-                  "functionReturnParameters": 7276,
-                  "id": 7281,
+                  "functionReturnParameters": 7271,
+                  "id": 7276,
                   "nodeType": "Return",
                   "src": "1842:28:26"
                 }
               ]
             },
             "documentation": null,
-            "id": 7283,
+            "id": 7278,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getByHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7273,
+              "id": 7268,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7272,
+                  "id": 7267,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7283,
+                  "scope": 7278,
                   "src": "1764:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5511,7 +5511,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7271,
+                    "id": 7266,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1764:7:26",
@@ -5527,31 +5527,31 @@
               "src": "1763:14:26"
             },
             "returnParameters": {
-              "id": 7276,
+              "id": 7271,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7275,
+                  "id": 7270,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7283,
+                  "scope": 7278,
                   "src": "1798:32:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7274,
+                    "id": 7269,
                     "name": "MarkdownLib.Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "1798:20:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -5561,14 +5561,14 @@
               ],
               "src": "1797:34:26"
             },
-            "scope": 7284,
+            "scope": 7279,
             "src": "1745:132:26",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7285,
+        "scope": 7280,
         "src": "120:1759:26"
       }
     ],
@@ -5580,20 +5580,165 @@
   },
   "networks": {
     "3": {
-      "events": {},
-      "links": {
-        "MarkdownLib": "0xc4E72473d7f8dC3Ee5fbe96e91438096994fF46D"
+      "events": {
+        "0xb73e84a46ecb312937f7ba29efd91f4d9e74056ac7ef77f3f38e477646dd84d2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "index",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogNew",
+          "type": "event",
+          "signature": "0xb73e84a46ecb312937f7ba29efd91f4d9e74056ac7ef77f3f38e477646dd84d2"
+        },
+        "0x486e2c79f26b56bb920c18e856915eb5e2922e2814cce03da8892d08cce64197": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "index",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogUpdate",
+          "type": "event",
+          "signature": "0x486e2c79f26b56bb920c18e856915eb5e2922e2814cce03da8892d08cce64197"
+        },
+        "0x7aba1b7c67426c7ad78ea21a678946741a0c8795e99fa106728122a461e33cbc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "index",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogRemove",
+          "type": "event",
+          "signature": "0x7aba1b7c67426c7ad78ea21a678946741a0c8795e99fa106728122a461e33cbc"
+        },
+        "0x5d39bf2ac374858ce5bb47e18fc1e17a95b9874fb316a45098ddf58060475cc2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "proponent",
+              "type": "address"
+            }
+          ],
+          "name": "LogNewReview",
+          "type": "event",
+          "signature": "0x5d39bf2ac374858ce5bb47e18fc1e17a95b9874fb316a45098ddf58060475cc2"
+        },
+        "0xf1f505d9151566c34c5246a7e499607be3703bd9d548dd46d66f738d3416e19f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "proponent",
+              "type": "address"
+            }
+          ],
+          "name": "LogUpdateReview",
+          "type": "event",
+          "signature": "0xf1f505d9151566c34c5246a7e499607be3703bd9d548dd46d66f738d3416e19f"
+        },
+        "0x20a76b6d1c45b6139963859819ecbe4728776ad793bbbd9c6e9c302c88b6f2b2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "proponent",
+              "type": "address"
+            }
+          ],
+          "name": "LogRemoveReview",
+          "type": "event",
+          "signature": "0x20a76b6d1c45b6139963859819ecbe4728776ad793bbbd9c6e9c302c88b6f2b2"
+        },
+        "0x8921b1e93d84708a75deb5426a9fbe285a8fc393a3d6324e0f9eed0d68bf1c35": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "proponent",
+              "type": "address"
+            }
+          ],
+          "name": "LogAccepted",
+          "type": "event",
+          "signature": "0x8921b1e93d84708a75deb5426a9fbe285a8fc393a3d6324e0f9eed0d68bf1c35"
+        },
+        "0x9628b550948823f52c98e0c5ce060ed9fa198c73cf95579aaad214e67c17fbe1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "hash",
+              "type": "bytes32"
+            },
+            {
+              "indexed": true,
+              "name": "proponent",
+              "type": "address"
+            }
+          ],
+          "name": "LogDismissed",
+          "type": "event",
+          "signature": "0x9628b550948823f52c98e0c5ce060ed9fa198c73cf95579aaad214e67c17fbe1"
+        }
       },
-      "address": "0xa52B1D764b5956eEE49e4DA8dea52e38a923D2Df",
-      "transactionHash": "0x01878a34b15fc7432074e45792a9f104b9aee9aa984ae0628bf5fdd97cb2ac6d"
+      "links": {
+        "MarkdownLib": "0x91201556e79Ee0Fd96312f27B20Ab14ccCCac849"
+      },
+      "address": "0x04017773223c5d9811C6847193f246E2C9313a0A",
+      "transactionHash": "0x1230ed8648e71dfdf3e0158820571a9aef94c88f5b5f2e1c8a39b1bb34fc6a8b"
     },
     "5": {
       "events": {},
       "links": {
-        "MarkdownLib": "0x43Cd6e180EEA733eb4259267ef04967CA89e8444"
+        "MarkdownLib": "0xee39D504A30aed9e2933DaF233401853df829Ca3"
       },
-      "address": "0x87eef2D0013C6e2bF465eF45C12cb20a7237c772",
-      "transactionHash": "0xaa98fa1b27a46704c4b776413948e92462513de447643fa22e95f9ded137cc7b"
+      "address": "0xf3c4be54CB10Ff50d47AbBa5c0156399D0628AA8",
+      "transactionHash": "0xbb3e6f0c0ec781a239b2355e9290cdc61847f9bb37aa1ef03615a24c03ca791d"
     },
     "5777": {
       "events": {
@@ -5750,7 +5895,7 @@
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-28T11:10:53.979Z",
+  "updatedAt": "2019-07-28T12:59:04.179Z",
   "devdoc": {
     "methods": {}
   },
