@@ -15,10 +15,7 @@ const defaults = {
 export const getProvider = async function(DType) {
     // Metamask
     let provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
-    let wallet = new ethers.Wallet(
-        DType.from.privateKey,
-        provider,
-    );
+    let wallet = provider.getSigner();
 
     await waitAsync(1000);
 
