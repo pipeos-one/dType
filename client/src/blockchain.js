@@ -112,6 +112,23 @@ export const buildStructAbi = async function(dtypeContract, typeHash, parentLabe
     return abi;
 };
 
+export const buildStorageAbi = async (dtypeContract, typeHash, structLabel) => {
+    const common = {constant: false, inputs: [], outputs: [], payable: false, stateMutability: 'nonpayable', type: 'function'};
+    const hash = {name: 'hash', type: 'bytes32'};
+    const index = {name: 'hash', type: 'uint256'};
+    const dataStruct = await buildStructAbi(dtypeContract, typeHash, structLabel);
+    const insert = Object.assign({name: 'insert'}, common);
+    insert.inputs = [dataStruct];
+    insert.outputs = [hash];
+    const update = Object.assign({name: 'update'}, common);
+    update.inputs = [hash, dataStruct];
+    update.outputs = [hash];
+    const remove = Object.assign({name: 'remove'}, common);
+    remove.inputs = [hash];
+    remove.outputs = [index];
+    return [insert, update, remove];
+};
+
 export const buildDefaultItem = (dtype) => {
     let item = {};
     let types = dtype.types.concat(dtype.optionals).map(type => setTypeName(type));
@@ -151,4 +168,9 @@ export const normalizeEthersObject = (item) => {
             obj[key] = normalizeEthersObject(item[key]);
         });
     return obj;
+};
+
+export const signMessage = (wallet, types, values) => {
+    const msg = ethers.utils.solidityPack(types, values);
+    return wallet.signMessage(msg);
 };

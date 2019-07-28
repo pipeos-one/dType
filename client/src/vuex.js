@@ -3,7 +3,7 @@ import {ethers} from 'ethers';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DType from './constants';
-import {getProvider, getContract, normalizeEthersObject} from './blockchain';
+import {getProvider, getContract, normalizeEthersObject, signMessage, buildStorageAbi} from './blockchain';
 
 Vue.use(Vuex);
 
@@ -16,6 +16,7 @@ const dTypeStore = new Vuex.Store({
         dtypes: [],
         DType,
         alias: null,
+        aliases: {},
     },
     mutations: {
         setProvider(state, provider) {
@@ -26,9 +27,6 @@ const dTypeStore = new Vuex.Store({
         },
         setContract(state, contract) {
             state.contract = contract;
-        },
-        setAlias(state, alias) {
-            state.alias = alias;
         },
         setType(state, dtype) {
             state.dtype = dtype;
@@ -47,6 +45,19 @@ const dTypeStore = new Vuex.Store({
         },
         removeType(state, index) {
             state.dtypes.splice(index, 1);
+        },
+        // Alias
+        setAlias(state, alias) {
+            state.alias = alias;
+        },
+        setAliased(state, {dtype, alias}) {
+            if (!state.aliases[dtype.name]) {
+                state.aliases[dtype.name] = {identifier: dtype.identifier};
+            }
+            if (!state.aliases[dtype.name][alias.separator]) {
+              state.aliases[dtype.name][alias.separator] = {};
+            }
+            state.aliases[dtype.name][alias.separator][alias.name] = alias.identifier;
         },
     },
     actions: {
@@ -133,7 +144,7 @@ const dTypeStore = new Vuex.Store({
         },
         async parseAlias({state}, alias) {
             const separator = '0x' + alias.separator.charCodeAt(0).toString(16);
-            return state.alias.getAliased(alias.name, separator);
+            return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
         },
         watchAll({dispatch}) {
             return dispatch('watchInsert').then(() => {
@@ -175,6 +186,90 @@ const dTypeStore = new Vuex.Store({
                 if (typeIndex > -1) {
                     commit('removeType', typeIndex);
                 }
+            });
+        },
+        async saveResource({state}, {dTypeData, data, identifier}) {
+            const abi = await buildStorageAbi(state.contract, dTypeData.typeHash, 'data');
+            const contract = await getContract(
+                dTypeData.contractAddress,
+                abi,
+                state.wallet,
+            );
+            // TODO: differentiate update from insert - check if identifier is bytes32(0) or not
+            // const txn = await contract.update(identifier, data);
+            const txn = await contract.insert(data);
+            const receipt = await state.provider.waitForTransaction(txn.hash);
+            // TODO: proper generalized log parsing for any storage contract
+            return receipt.logs[0].topics[1];
+        },
+        async setAliased({state, commit}, args) {
+            const dtype = await state.contract.getByHash(args.dTypeIdentifier);
+            const alias = await state.alias.getReverse(args.dTypeIdentifier, args.identifier);
+            commit('setAliased', {
+                dtype: {identifier: args.dTypeIdentifier, name: dtype.name},
+                alias: {
+                    identifier: args.identifier,
+                    name: alias.substring(1),
+                    separator: alias.substring(0, 1)
+                },
+            });
+        },
+        async setAlias({state}, data) {
+            const separator = '0x' + data.separator.charCodeAt(0).toString(16);
+            const {nonce} = (
+                await state.alias.getAliasedData(data.dTypeIdentifier, separator, data.name)
+            );
+            // TODO fix signature
+            const signature = await signMessage(
+                state.wallet,
+                ['address', 'uint256', 'bytes32', 'bytes32', 'uint64', 'bytes1', 'string'],
+                [
+                    state.contract.address,
+                    state.provider.network.chainId,
+                    data.dTypeIdentifier,
+                    data.identifier,
+                    nonce,
+                    separator,
+                    data.name,
+                ],
+            );
+            state.alias.setAlias(
+                data.dTypeIdentifier,
+                separator,
+                data.name,
+                data.identifier,
+                signature,
+            );
+        },
+        // async getAliasData({state}, {dTypeIdentifier, separator, name}) {
+        //     separator = ethers.utils.formatBytes32String(separator).substring(0, 4);
+        //     const data = await state.alias.getAlias(dTypeIdentifier, separator, name);
+        //     console.log('data', data.data);
+        //     const
+        //     return data;
+        // },
+        watchAllAlias({dispatch}) {
+            return dispatch('watchAliasSet');
+        },
+        removeWatchersAlias({state}) {
+            return state.alias.removeAllListeners('AliasSet');
+        },
+        watchAliasSet({dispatch, commit, state}) {
+            const filter = {
+                address: state.alias.address,
+                topics: [ state.alias.interface.events.AliasSet.topic ],
+                fromBlock: 0,
+                toBlock: 'latest',
+            }
+            state.provider.getLogs(filter).then((logs) => {
+                logs.map((log) => {
+                    log = state.alias.interface.parseLog(log);
+                    dispatch('setAliased', log.values);
+                });
+            });
+            state.alias.on('AliasSet', (dTypeIdentifier, identifier) => {
+                console.log('AliasSet', dTypeIdentifier, identifier);
+                dispatch('setAliased', {dTypeIdentifier, identifier});
             });
         },
     },

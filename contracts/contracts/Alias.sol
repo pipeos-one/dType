@@ -21,9 +21,15 @@ contract Alias {
         bytes32 identifier;
     }
 
-    mapping (bytes => Alias) public aliases;
+    // key: keccak256(dTypeIdentifier, separator, name)
+    mapping(bytes32 => Alias) public aliases;
 
-    event AliasSet(bytes32 dTypeIdentifier, string name, bytes1 separator, bytes32 indexed identifier);
+    // reverse alias
+    // key: keccak256(dTypeIdentifier, identifier)
+    // value: abi.encodePacked(separator, name)
+    mapping(bytes32 => bytes) public reversealias;
+
+    event AliasSet(bytes32 indexed dTypeIdentifier, bytes32 indexed identifier);
 
     constructor(address _dTypeAddress, uint256 _chainId) public {
         require(_dTypeAddress != address(0x0));
@@ -33,17 +39,13 @@ contract Alias {
         chainId = _chainId;
     }
 
-    function setAlias(bytes32 dTypeIdentifier, string memory name, bytes1 separator, bytes32 identifier, bytes memory signature) public {
+    function setAlias(bytes32 dTypeIdentifier, bytes1 separator, string memory name, bytes32 identifier, bytes memory signature) public {
         require(separator != bytes1(0));
         require(checkCharExists(name, separator) == false, 'Name contains separator');
 
-        // check if dtypeIdentifier exists
-        // get storage contract address
-        // check data identifier in storage contract
-        // if data is owned by the signer, set the alias
-        bytes memory key = abi.encodePacked(name, separator);
+        bytes32 key = getKey(dTypeIdentifier, separator, name);
         uint64 nonce = aliases[key].nonce;
-        address owner = recoverAddress(name, separator, identifier, nonce + 1, signature);
+        address owner = recoverAddress(dTypeIdentifier, separator, name, identifier, nonce + 1, signature);
         require(owner != address(0), 'No signer');
 
         bool remove = identifier == bytes32(0);
@@ -53,22 +55,28 @@ contract Alias {
         if (remove && !exists) revert('Alias is not set');
 
         if (remove && isOwner) {
+            bytes32 reverseKey = getReverseKey(dTypeIdentifier, aliases[key].identifier);
             delete aliases[key];
-            emit AliasSet(dTypeIdentifier, name, separator, identifier);
+            delete reversealias[reverseKey];
+            emit AliasSet(dTypeIdentifier, identifier);
             return;
         }
 
+        // Check if dtypeIdentifier exists, check if data identifier is in the storage contract
+        // And data is owned by the signer
         checkdType(dTypeIdentifier, identifier);
 
         if (!exists) {
             aliases[key] = Alias(owner, 0, identifier);
         } else {
             require(isOwner, 'Not owner');
+            bytes32 reverseKey = getReverseKey(dTypeIdentifier, aliases[key].identifier);
             aliases[key].identifier = identifier;
+            delete reversealias[reverseKey];
         }
-
+        reversealias[getReverseKey(dTypeIdentifier, identifier)] = abi.encodePacked(separator, name);
         aliases[key].nonce += 1;
-        emit AliasSet(dTypeIdentifier, name, separator, identifier);
+        emit AliasSet(dTypeIdentifier, identifier);
 
         assert(nonce + 1 == aliases[key].nonce);
     }
@@ -97,19 +105,32 @@ contract Alias {
         return result;
     }
 
-    function getAliased(string memory name, bytes1 separator) view public returns (bytes32 identifier) {
-        bytes memory key = abi.encodePacked(name, separator);
+    function getAliased(bytes32 dTypeIdentifier, bytes1 separator, string memory name) view public returns (bytes32 identifier) {
+        bytes32 key = getKey(dTypeIdentifier, separator, name);
         return aliases[key].identifier;
     }
 
-    function getAlias(bytes32 dTypeIdentifier, string memory name, bytes1 separator) view public returns(bytes32 identifier, bytes memory data) {
-        bytes memory key = abi.encodePacked(name, separator);
+    function getReverse(bytes32 dTypeIdentifier, bytes32 identifier) view public returns (string memory) {
+        return string(reversealias[getReverseKey(dTypeIdentifier, identifier)]);
+    }
+
+    // TODO remove
+    function getAlias(bytes32 dTypeIdentifier, bytes1 separator, string memory name) view public returns(bytes32 identifier, bytes memory data) {
+        bytes32 key = getKey(dTypeIdentifier, separator, name);
         return (aliases[key].identifier, getdTypeData(dTypeIdentifier, aliases[key].identifier));
     }
 
-    function getAliasedData(string memory name, bytes1 separator) view public returns (Alias memory aliasdata) {
-        bytes memory key = abi.encodePacked(name, separator);
+    function getAliasedData(bytes32 dTypeIdentifier, bytes1 separator, string memory name) view public returns (Alias memory aliasdata) {
+        bytes32 key = getKey(dTypeIdentifier, separator, name);
         return aliases[key];
+    }
+
+    function getKey(bytes32 dTypeIdentifier, bytes1 separator, string memory name) pure internal returns (bytes32 key) {
+        return keccak256(abi.encodePacked(dTypeIdentifier, separator, name));
+    }
+
+    function getReverseKey(bytes32 dTypeIdentifier, bytes32 identifier) pure internal returns (bytes32 key) {
+        return keccak256(abi.encodePacked(dTypeIdentifier, identifier));
     }
 
     function checkCharExists(string memory name, bytes1 char) pure public returns (bool exists) {
@@ -142,8 +163,9 @@ contract Alias {
     }
 
     function recoverAddress(
-        string memory name,
+        bytes32 dTypeIdentifier,
         bytes1 separator,
+        string memory name,
         bytes32 identifier,
         uint64 nonce,
         bytes memory signature
@@ -152,18 +174,19 @@ contract Alias {
         view
         returns(address signer)
     {
-        // 20 + 32 + 32 + 8 + 1 = 92
-        string memory message_length = uintToString(93 + bytes(name).length);
+        // 20 + 32 + 32 + 32 + 8 + 1 = 125
+        string memory message_length = uintToString(125 + bytes(name).length);
 
         bytes memory data = abi.encodePacked(
           signaturePrefix,
           message_length,
           address(this),
           chainId,
+          dTypeIdentifier,
           identifier,
           nonce,
-          name,
-          separator
+          separator,
+          name
         );
         signer = ECVerify.ecverify(keccak256(data), signature);
     }

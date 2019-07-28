@@ -1,0 +1,3676 @@
+{
+  "contractName": "dTypesLib",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "relation",
+          "type": "dTypesLib.dTypeRelation"
+        },
+        {
+          "name": "dimensions",
+          "type": "string[]"
+        }
+      ],
+      "name": "structure",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "label",
+              "type": "string"
+            },
+            {
+              "name": "relation",
+              "type": "dTypesLib.dTypeRelation"
+            },
+            {
+              "name": "dimensions",
+              "type": "string[]"
+            }
+          ],
+          "name": "dtypes",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"label\",\"type\":\"string\"},{\"name\":\"relation\",\"type\":\"dTypesLib.dTypeRelation\"},{\"name\":\"dimensions\",\"type\":\"string[]\"}],\"name\":\"structure\",\"outputs\":[{\"components\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"label\",\"type\":\"string\"},{\"name\":\"relation\",\"type\":\"dTypesLib.dTypeRelation\"},{\"name\":\"dimensions\",\"type\":\"string[]\"}],\"name\":\"dtypes\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/dTypesLib.sol\":\"dTypesLib\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/dTypesLib.sol\":{\"keccak256\":\"0xf8df6159d719a937389d59ffdd4f68720281b71698b057dae4451580792c2a4a\",\"urls\":[\"bzzr://4d816ded348046238bbcedb3124bbcd06a3b31c339af931c717374fde2c383f5\"]}},\"version\":1}",
+  "bytecode": "0x6105df610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c8063ee620d0d1461003a575b600080fd5b610054600480360361004f919081019061020b565b61006a565b60405161006191906103f4565b60405180910390f35b6100726100a8565b604051806080016040528086815260200185815260200184600281111561009557fe5b8152602001838152509050949350505050565b60405180608001604052806060815260200160608152602001600060028111156100ce57fe5b8152602001606081525090565b600082601f8301126100ec57600080fd5b81356100ff6100fa82610443565b610416565b9150818183526020840193506020810190508360005b83811015610145578135860161012b8882610163565b845260208401935060208301925050600181019050610115565b5050505092915050565b600061015b8235610529565b905092915050565b600082601f83011261017457600080fd5b81356101876101828261046b565b610416565b915080825260208301602083018583830111156101a357600080fd5b6101ae838284610552565b50505092915050565b600082601f8301126101c857600080fd5b81356101db6101d682610497565b610416565b915080825260208301602083018583830111156101f757600080fd5b610202838284610552565b50505092915050565b6000806000806080858703121561022157600080fd5b600085013567ffffffffffffffff81111561023b57600080fd5b610247878288016101b7565b945050602085013567ffffffffffffffff81111561026457600080fd5b610270878288016101b7565b93505060406102818782880161014f565b925050606085013567ffffffffffffffff81111561029e57600080fd5b6102aa878288016100db565b91505092959194509250565b60006102c2838361034a565b905092915050565b60006102d5826104d0565b6102df81856104f3565b9350836020820285016102f1856104c3565b60005b8481101561032a57838303885261030c8383516102b6565b9250610317826104e6565b91506020880197506001810190506102f4565b508196508694505050505092915050565b61034481610540565b82525050565b6000610355826104db565b61035f8185610504565b935061036f818560208601610561565b61037881610594565b840191505092915050565b600060808301600083015184820360008601526103a0828261034a565b915050602083015184820360208601526103ba828261034a565b91505060408301516103cf604086018261033b565b50606083015184820360608601526103e782826102ca565b9150508091505092915050565b6000602082019050818103600083015261040e8184610383565b905092915050565b6000604051905081810181811067ffffffffffffffff8211171561043957600080fd5b8060405250919050565b600067ffffffffffffffff82111561045a57600080fd5b602082029050602081019050919050565b600067ffffffffffffffff82111561048257600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff8211156104ae57600080fd5b601f19601f8301169050602081019050919050565b6000602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60006003821061052157fe5b819050919050565b60006003821061053857600080fd5b819050919050565b600061054b82610515565b9050919050565b82818337600083830152505050565b60005b8381101561057f578082015181840152602081019050610564565b8381111561058e576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820702220b0499e6d3d9ac8f63b48df6db08eb4d0f02966d7f721668d24b8468e6b6c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100355760003560e01c8063ee620d0d1461003a575b600080fd5b610054600480360361004f919081019061020b565b61006a565b60405161006191906103f4565b60405180910390f35b6100726100a8565b604051806080016040528086815260200185815260200184600281111561009557fe5b8152602001838152509050949350505050565b60405180608001604052806060815260200160608152602001600060028111156100ce57fe5b8152602001606081525090565b600082601f8301126100ec57600080fd5b81356100ff6100fa82610443565b610416565b9150818183526020840193506020810190508360005b83811015610145578135860161012b8882610163565b845260208401935060208301925050600181019050610115565b5050505092915050565b600061015b8235610529565b905092915050565b600082601f83011261017457600080fd5b81356101876101828261046b565b610416565b915080825260208301602083018583830111156101a357600080fd5b6101ae838284610552565b50505092915050565b600082601f8301126101c857600080fd5b81356101db6101d682610497565b610416565b915080825260208301602083018583830111156101f757600080fd5b610202838284610552565b50505092915050565b6000806000806080858703121561022157600080fd5b600085013567ffffffffffffffff81111561023b57600080fd5b610247878288016101b7565b945050602085013567ffffffffffffffff81111561026457600080fd5b610270878288016101b7565b93505060406102818782880161014f565b925050606085013567ffffffffffffffff81111561029e57600080fd5b6102aa878288016100db565b91505092959194509250565b60006102c2838361034a565b905092915050565b60006102d5826104d0565b6102df81856104f3565b9350836020820285016102f1856104c3565b60005b8481101561032a57838303885261030c8383516102b6565b9250610317826104e6565b91506020880197506001810190506102f4565b508196508694505050505092915050565b61034481610540565b82525050565b6000610355826104db565b61035f8185610504565b935061036f818560208601610561565b61037881610594565b840191505092915050565b600060808301600083015184820360008601526103a0828261034a565b915050602083015184820360208601526103ba828261034a565b91505060408301516103cf604086018261033b565b50606083015184820360608601526103e782826102ca565b9150508091505092915050565b6000602082019050818103600083015261040e8184610383565b905092915050565b6000604051905081810181811067ffffffffffffffff8211171561043957600080fd5b8060405250919050565b600067ffffffffffffffff82111561045a57600080fd5b602082029050602081019050919050565b600067ffffffffffffffff82111561048257600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff8211156104ae57600080fd5b601f19601f8301169050602081019050919050565b6000602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60006003821061052157fe5b819050919050565b60006003821061053857600080fd5b819050919050565b600061054b82610515565b9050919050565b82818337600083830152505050565b60005b8381101561057f578082015181840152602081019050610564565b8381111561058e576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820702220b0499e6d3d9ac8f63b48df6db08eb4d0f02966d7f721668d24b8468e6b6c6578706572696d656e74616cf50037",
+  "sourceMap": "59:1304:6:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "59:1304:6:-;;;;;;;;;;;;;;;;;;;;;;;;774:247;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;930:20;;:::i;:::-;973:41;;;;;;;;980:4;973:41;;;;986:5;973:41;;;;993:8;973:41;;;;;;;;;;;;1003:10;973:41;;;966:48;;774:247;;;;;;:::o;59:1304::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;22:696:-1:-;;145:3;138:4;130:6;126:17;122:27;112:2;;163:1;160;153:12;112:2;200:6;187:20;222:86;237:70;300:6;237:70;;;222:86;;;213:95;;325:5;350:6;343:5;336:21;380:4;372:6;368:17;358:27;;402:4;397:3;393:14;386:21;;455:6;488:1;473:239;498:6;495:1;492:13;473:239;;;581:3;568:17;560:6;556:30;605:43;644:3;632:10;605:43;;;600:3;593:56;672:4;667:3;663:14;656:21;;700:4;695:3;691:14;684:21;;530:182;520:1;517;513:9;508:14;;473:239;;;477:14;105:613;;;;;;;;726:154;;811:64;867:6;854:20;811:64;;;802:73;;796:84;;;;;888:434;;986:3;979:4;971:6;967:17;963:27;953:2;;1004:1;1001;994:12;953:2;1041:6;1028:20;1063:61;1078:45;1116:6;1078:45;;;1063:61;;;1054:70;;1144:6;1137:5;1130:21;1180:4;1172:6;1168:17;1213:4;1206:5;1202:16;1248:3;1239:6;1234:3;1230:16;1227:25;1224:2;;;1265:1;1262;1255:12;1224:2;1275:41;1309:6;1304:3;1299;1275:41;;;946:376;;;;;;;;1331:442;;1433:3;1426:4;1418:6;1414:17;1410:27;1400:2;;1451:1;1448;1441:12;1400:2;1488:6;1475:20;1510:65;1525:49;1567:6;1525:49;;;1510:65;;;1501:74;;1595:6;1588:5;1581:21;1631:4;1623:6;1619:17;1664:4;1657:5;1653:16;1699:3;1690:6;1685:3;1681:16;1678:25;1675:2;;;1716:1;1713;1706:12;1675:2;1726:41;1760:6;1755:3;1750;1726:41;;;1393:380;;;;;;;;1781:1013;;;;;2005:3;1993:9;1984:7;1980:23;1976:33;1973:2;;;2022:1;2019;2012:12;1973:2;2085:1;2074:9;2070:17;2057:31;2108:18;2100:6;2097:30;2094:2;;;2140:1;2137;2130:12;2094:2;2160:63;2215:7;2206:6;2195:9;2191:22;2160:63;;;2150:73;;2036:193;2288:2;2277:9;2273:18;2260:32;2312:18;2304:6;2301:30;2298:2;;;2344:1;2341;2334:12;2298:2;2364:63;2419:7;2410:6;2399:9;2395:22;2364:63;;;2354:73;;2239:194;2464:2;2482:71;2545:7;2536:6;2525:9;2521:22;2482:71;;;2472:81;;2443:116;2618:2;2607:9;2603:18;2590:32;2642:18;2634:6;2631:30;2628:2;;;2674:1;2671;2664:12;2628:2;2694:84;2770:7;2761:6;2750:9;2746:22;2694:84;;;2684:94;;2569:215;1967:827;;;;;;;;2802:197;;2923:70;2989:3;2981:6;2923:70;;;2909:84;;2902:97;;;;;3036:815;;3187:56;3237:5;3187:56;;;3256:90;3339:6;3334:3;3256:90;;;3249:97;;3369:3;3411:4;3403:6;3399:17;3394:3;3390:27;3437:58;3489:5;3437:58;;;3516:1;3501:311;3526:6;3523:1;3520:13;3501:311;;;3588:9;3582:4;3578:20;3573:3;3566:33;3614:84;3693:4;3684:6;3678:13;3614:84;;;3606:92;;3715:62;3770:6;3715:62;;;3705:72;;3800:4;3795:3;3791:14;3784:21;;3548:1;3545;3541:9;3536:14;;3501:311;;;3505:14;3825:4;3818:11;;3842:3;3835:10;;3166:685;;;;;;;;;3859:156;3956:53;4003:5;3956:53;;;3951:3;3944:66;3938:77;;;4022:335;;4128:35;4157:5;4128:35;;;4175:69;4237:6;4232:3;4175:69;;;4168:76;;4249:52;4294:6;4289:3;4282:4;4275:5;4271:16;4249:52;;;4322:29;4344:6;4322:29;;;4317:3;4313:39;4306:46;;4108:249;;;;;;4421:1116;;4578:4;4573:3;4569:14;4660:3;4653:5;4649:15;4643:22;4710:3;4704:4;4700:14;4694:3;4689;4685:13;4678:37;4730:76;4801:4;4788:11;4730:76;;;4722:84;;4598:220;4891:4;4884:5;4880:16;4874:23;4943:3;4937:4;4933:14;4926:4;4921:3;4917:14;4910:38;4963:76;5034:4;5021:11;4963:76;;;4955:84;;4828:223;5127:4;5120:5;5116:16;5110:23;5139:86;5219:4;5214:3;5210:14;5197:11;5139:86;;;5061:170;5309:4;5302:5;5298:16;5292:23;5361:3;5355:4;5351:14;5344:4;5339:3;5335:14;5328:38;5381:118;5494:4;5481:11;5381:118;;;5373:126;;5241:270;5528:4;5521:11;;4551:986;;;;;;5544:373;;5718:2;5707:9;5703:18;5695:26;;5768:9;5762:4;5758:20;5754:1;5743:9;5739:17;5732:47;5793:114;5902:4;5893:6;5793:114;;;5785:122;;5689:228;;;;;5924:256;;5986:2;5980:9;5970:19;;6024:4;6016:6;6012:17;6123:6;6111:10;6108:22;6087:18;6075:10;6072:34;6069:62;6066:2;;;6144:1;6141;6134:12;6066:2;6164:10;6160:2;6153:22;5964:216;;;;;6187:264;;6352:18;6344:6;6341:30;6338:2;;;6384:1;6381;6374:12;6338:2;6413:4;6405:6;6401:17;6393:25;;6441:4;6435;6431:15;6423:23;;6275:176;;;;6458:255;;6598:18;6590:6;6587:30;6584:2;;;6630:1;6627;6620:12;6584:2;6674:4;6670:9;6663:4;6655:6;6651:17;6647:33;6639:41;;6703:4;6697;6693:15;6685:23;;6521:192;;;;6720:259;;6864:18;6856:6;6853:30;6850:2;;;6896:1;6893;6886:12;6850:2;6940:4;6936:9;6929:4;6921:6;6917:17;6913:33;6905:41;;6969:4;6963;6959:15;6951:23;;6787:192;;;;6988:123;;7099:4;7091:6;7087:17;7076:28;;7068:43;;;;7120:109;;7218:5;7212:12;7202:22;;7196:33;;;;7236:88;;7313:5;7307:12;7297:22;;7291:33;;;;7332:124;;7445:4;7437:6;7433:17;7422:28;;7415:41;;;;7465:182;;7599:6;7594:3;7587:19;7636:4;7631:3;7627:14;7612:29;;7580:67;;;;;7656:161;;7769:6;7764:3;7757:19;7806:4;7801:3;7797:14;7782:29;;7750:67;;;;;7825:135;;7921:1;7914:5;7911:12;7901:2;;7927:9;7901:2;7950:5;7939:16;;7895:65;;;;7967:138;;8063:1;8056:5;8053:12;8043:2;;8079:1;8076;8069:12;8043:2;8095:5;8084:16;;8037:68;;;;8112:149;;8207:49;8250:5;8207:49;;;8194:62;;8188:73;;;;8269:145;8350:6;8345:3;8340;8327:30;8406:1;8397:6;8392:3;8388:16;8381:27;8320:94;;;;8423:268;8488:1;8495:101;8509:6;8506:1;8503:13;8495:101;;;8585:1;8580:3;8576:11;8570:18;8566:1;8561:3;8557:11;8550:39;8531:2;8528:1;8524:10;8519:15;;8495:101;;;8611:6;8608:1;8605:13;8602:2;;;8676:1;8667:6;8662:3;8658:16;8651:27;8602:2;8472:219;;;;;8699:97;;8787:2;8783:7;8778:2;8771:5;8767:14;8763:28;8753:38;;8747:49;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nlibrary dTypesLib {\n\n    enum dTypeRelation { Has, Link, Bytes }\n\n    struct dTypes {\n        string name;\n        string label;\n        dTypeRelation relation;\n        string[] dimensions;\n    }\n\n    function insert(dTypes storage self, dTypes memory dtypes) internal {\n        self.name = dtypes.name;\n        self.label = dtypes.label;\n        self.relation = dtypes.relation;\n        if (dtypes.dimensions.length > 0) {\n            self.dimensions = dtypes.dimensions;\n        }\n    }\n\n    function insertArray(dTypes[] storage self, dTypes[] memory dtypes) internal {\n        uint256 length = dtypes.length;\n        for (uint256 i = 0; i < length; i++) {\n            self.push(dtypes[i]);\n        }\n    }\n\n    function structure(string memory name, string memory label, dTypeRelation relation, string[] memory dimensions)\n        public\n        pure\n        returns(dTypes memory dtypes)\n    {\n        return dTypes(name, label, relation, dimensions);\n    }\n\n    function structureBytes(bytes memory data)\n        pure\n        internal\n        returns(dTypes memory dtypes)\n    {\n        (dtypes) = abi.decode(data, (dTypes));\n    }\n\n    function destructureBytes(dTypes memory dtypes)\n        pure\n        internal\n        returns(bytes memory data)\n    {\n        return abi.encode(dtypes);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/dTypesLib.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dTypesLib.sol",
+    "exportedSymbols": {
+      "dTypesLib": [
+        2546
+      ]
+    },
+    "id": 2547,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2399,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "id": 2400,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2546,
+        "linearizedBaseContracts": [
+          2546
+        ],
+        "name": "dTypesLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "dTypesLib.dTypeRelation",
+            "id": 2404,
+            "members": [
+              {
+                "id": 2401,
+                "name": "Has",
+                "nodeType": "EnumValue",
+                "src": "105:3:6"
+              },
+              {
+                "id": 2402,
+                "name": "Link",
+                "nodeType": "EnumValue",
+                "src": "110:4:6"
+              },
+              {
+                "id": 2403,
+                "name": "Bytes",
+                "nodeType": "EnumValue",
+                "src": "116:5:6"
+              }
+            ],
+            "name": "dTypeRelation",
+            "nodeType": "EnumDefinition",
+            "src": "84:39:6"
+          },
+          {
+            "canonicalName": "dTypesLib.dTypes",
+            "id": 2414,
+            "members": [
+              {
+                "constant": false,
+                "id": 2406,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "153:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2405,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2408,
+                "name": "label",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "174:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2407,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "174:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2410,
+                "name": "relation",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "196:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                  "typeString": "enum dTypesLib.dTypeRelation"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2409,
+                  "name": "dTypeRelation",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 2404,
+                  "src": "196:13:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                    "typeString": "enum dTypesLib.dTypeRelation"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2413,
+                "name": "dimensions",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "228:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                  "typeString": "string[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 2411,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "228:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "id": 2412,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "228:8:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                    "typeString": "string[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "dTypes",
+            "nodeType": "StructDefinition",
+            "scope": 2546,
+            "src": "129:125:6",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2456,
+              "nodeType": "Block",
+              "src": "328:219:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2426,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2421,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "338:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2423,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2406,
+                      "src": "338:9:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2424,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "350:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2425,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2406,
+                      "src": "350:11:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "338:23:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 2427,
+                  "nodeType": "ExpressionStatement",
+                  "src": "338:23:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2433,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2428,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "371:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2430,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "label",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2408,
+                      "src": "371:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2431,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "384:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2432,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "label",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2408,
+                      "src": "384:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "371:25:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 2434,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:25:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2440,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2435,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "406:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2437,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "relation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2410,
+                      "src": "406:13:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                        "typeString": "enum dTypesLib.dTypeRelation"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2438,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "422:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2439,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "relation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2410,
+                      "src": "422:15:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                        "typeString": "enum dTypesLib.dTypeRelation"
+                      }
+                    },
+                    "src": "406:31:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                      "typeString": "enum dTypesLib.dTypeRelation"
+                    }
+                  },
+                  "id": 2441,
+                  "nodeType": "ExpressionStatement",
+                  "src": "406:31:6"
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2446,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2442,
+                          "name": "dtypes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2418,
+                          "src": "451:6:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                            "typeString": "struct dTypesLib.dTypes memory"
+                          }
+                        },
+                        "id": 2443,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "dimensions",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 2413,
+                        "src": "451:17:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory",
+                          "typeString": "string memory[] memory"
+                        }
+                      },
+                      "id": 2444,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "451:24:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 2445,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "478:1:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "451:28:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 2455,
+                  "nodeType": "IfStatement",
+                  "src": "447:94:6",
+                  "trueBody": {
+                    "id": 2454,
+                    "nodeType": "Block",
+                    "src": "481:60:6",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2452,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2447,
+                              "name": "self",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2416,
+                              "src": "495:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                                "typeString": "struct dTypesLib.dTypes storage pointer"
+                              }
+                            },
+                            "id": 2449,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "dimensions",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2413,
+                            "src": "495:15:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                              "typeString": "string storage ref[] storage ref"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2450,
+                              "name": "dtypes",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2418,
+                              "src": "513:6:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            },
+                            "id": 2451,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "dimensions",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2413,
+                            "src": "513:17:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_string_memory_$dyn_memory",
+                              "typeString": "string memory[] memory"
+                            }
+                          },
+                          "src": "495:35:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                            "typeString": "string storage ref[] storage ref"
+                          }
+                        },
+                        "id": 2453,
+                        "nodeType": "ExpressionStatement",
+                        "src": "495:35:6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2457,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2416,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2457,
+                  "src": "276:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2415,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "276:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2418,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2457,
+                  "src": "297:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2417,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "297:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "275:43:6"
+            },
+            "returnParameters": {
+              "id": 2420,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "328:0:6"
+            },
+            "scope": 2546,
+            "src": "260:287:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2491,
+              "nodeType": "Block",
+              "src": "630:138:6",
+              "statements": [
+                {
+                  "assignments": [
+                    2467
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2467,
+                      "name": "length",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2491,
+                      "src": "640:14:6",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2466,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "640:7:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2470,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 2468,
+                      "name": "dtypes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2463,
+                      "src": "657:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                        "typeString": "struct dTypesLib.dTypes memory[] memory"
+                      }
+                    },
+                    "id": 2469,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "657:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "640:30:6"
+                },
+                {
+                  "body": {
+                    "id": 2489,
+                    "nodeType": "Block",
+                    "src": "717:45:6",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 2484,
+                                "name": "dtypes",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2463,
+                                "src": "741:6:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                                  "typeString": "struct dTypesLib.dTypes memory[] memory"
+                                }
+                              },
+                              "id": 2486,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 2485,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2472,
+                                "src": "748:1:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "741:9:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2481,
+                              "name": "self",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2460,
+                              "src": "731:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                                "typeString": "struct dTypesLib.dTypes storage ref[] storage pointer"
+                              }
+                            },
+                            "id": 2483,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "push",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "731:9:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_dTypes_$2414_storage_$returns$_t_uint256_$",
+                              "typeString": "function (struct dTypesLib.dTypes storage ref) returns (uint256)"
+                            }
+                          },
+                          "id": 2487,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "731:20:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2488,
+                        "nodeType": "ExpressionStatement",
+                        "src": "731:20:6"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2477,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 2475,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2472,
+                      "src": "700:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 2476,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2467,
+                      "src": "704:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "700:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2490,
+                  "initializationExpression": {
+                    "assignments": [
+                      2472
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2472,
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2490,
+                        "src": "685:9:6",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2471,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "685:7:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2474,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 2473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "697:1:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "685:13:6"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 2479,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "712:3:6",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 2478,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2472,
+                        "src": "712:1:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2480,
+                    "nodeType": "ExpressionStatement",
+                    "src": "712:3:6"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "680:82:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2492,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insertArray",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2464,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2460,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2492,
+                  "src": "574:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                    "typeString": "struct dTypesLib.dTypes[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2458,
+                      "name": "dTypes",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2414,
+                      "src": "574:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                        "typeString": "struct dTypesLib.dTypes"
+                      }
+                    },
+                    "id": 2459,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "574:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2463,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2492,
+                  "src": "597:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2461,
+                      "name": "dTypes",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2414,
+                      "src": "597:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                        "typeString": "struct dTypesLib.dTypes"
+                      }
+                    },
+                    "id": 2462,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "597:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "573:47:6"
+            },
+            "returnParameters": {
+              "id": 2465,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "630:0:6"
+            },
+            "scope": 2546,
+            "src": "553:215:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2513,
+              "nodeType": "Block",
+              "src": "956:65:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2507,
+                        "name": "name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2494,
+                        "src": "980:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2508,
+                        "name": "label",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2496,
+                        "src": "986:5:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2509,
+                        "name": "relation",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2498,
+                        "src": "993:8:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                          "typeString": "enum dTypesLib.dTypeRelation"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2510,
+                        "name": "dimensions",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2501,
+                        "src": "1003:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                          "typeString": "string memory[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                          "typeString": "enum dTypesLib.dTypeRelation"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                          "typeString": "string memory[] memory"
+                        }
+                      ],
+                      "id": 2506,
+                      "name": "dTypes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2414,
+                      "src": "973:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                        "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                      }
+                    },
+                    "id": 2511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "973:41:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                      "typeString": "struct dTypesLib.dTypes memory"
+                    }
+                  },
+                  "functionReturnParameters": 2505,
+                  "id": 2512,
+                  "nodeType": "Return",
+                  "src": "966:48:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2514,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structure",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2502,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2494,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "793:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2493,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "793:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2496,
+                  "name": "label",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "813:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2495,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2498,
+                  "name": "relation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "834:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                    "typeString": "enum dTypesLib.dTypeRelation"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2497,
+                    "name": "dTypeRelation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2404,
+                    "src": "834:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                      "typeString": "enum dTypesLib.dTypeRelation"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2501,
+                  "name": "dimensions",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "858:26:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2499,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "858:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 2500,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "858:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "792:93:6"
+            },
+            "returnParameters": {
+              "id": 2505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2504,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "930:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2503,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "930:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "929:22:6"
+            },
+            "scope": 2546,
+            "src": "774:247:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2531,
+              "nodeType": "Block",
+              "src": "1142:54:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2529,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 2521,
+                          "name": "dtypes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2519,
+                          "src": "1153:6:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                            "typeString": "struct dTypesLib.dTypes memory"
+                          }
+                        }
+                      ],
+                      "id": 2522,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1152:8:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                        "typeString": "struct dTypesLib.dTypes memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 2525,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2516,
+                          "src": "1174:4:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 2526,
+                              "name": "dTypes",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2414,
+                              "src": "1181:6:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                                "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 2527,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "1180:8:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                            "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                            "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2523,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9166,
+                          "src": "1163:3:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 2524,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1163:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 2528,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1163:26:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                        "typeString": "struct dTypesLib.dTypes memory"
+                      }
+                    },
+                    "src": "1152:37:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                      "typeString": "struct dTypesLib.dTypes memory"
+                    }
+                  },
+                  "id": 2530,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1152:37:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2532,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2516,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2532,
+                  "src": "1051:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2515,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1051:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1050:19:6"
+            },
+            "returnParameters": {
+              "id": 2520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2519,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2532,
+                  "src": "1116:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2518,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "1116:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1115:22:6"
+            },
+            "scope": 2546,
+            "src": "1027:169:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2544,
+              "nodeType": "Block",
+              "src": "1319:42:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2541,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2534,
+                        "src": "1347:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2539,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9166,
+                        "src": "1336:3:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 2540,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1336:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 2542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1336:18:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 2538,
+                  "id": 2543,
+                  "nodeType": "Return",
+                  "src": "1329:25:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2545,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2534,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2545,
+                  "src": "1228:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2533,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "1228:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1227:22:6"
+            },
+            "returnParameters": {
+              "id": 2538,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2537,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2545,
+                  "src": "1296:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2536,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1296:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1295:19:6"
+            },
+            "scope": 2546,
+            "src": "1202:159:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2547,
+        "src": "59:1304:6"
+      }
+    ],
+    "src": "0:1364:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dTypesLib.sol",
+    "exportedSymbols": {
+      "dTypesLib": [
+        2546
+      ]
+    },
+    "id": 2547,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2399,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "id": 2400,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:6"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2546,
+        "linearizedBaseContracts": [
+          2546
+        ],
+        "name": "dTypesLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "dTypesLib.dTypeRelation",
+            "id": 2404,
+            "members": [
+              {
+                "id": 2401,
+                "name": "Has",
+                "nodeType": "EnumValue",
+                "src": "105:3:6"
+              },
+              {
+                "id": 2402,
+                "name": "Link",
+                "nodeType": "EnumValue",
+                "src": "110:4:6"
+              },
+              {
+                "id": 2403,
+                "name": "Bytes",
+                "nodeType": "EnumValue",
+                "src": "116:5:6"
+              }
+            ],
+            "name": "dTypeRelation",
+            "nodeType": "EnumDefinition",
+            "src": "84:39:6"
+          },
+          {
+            "canonicalName": "dTypesLib.dTypes",
+            "id": 2414,
+            "members": [
+              {
+                "constant": false,
+                "id": 2406,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "153:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2405,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2408,
+                "name": "label",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "174:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2407,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "174:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2410,
+                "name": "relation",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "196:22:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                  "typeString": "enum dTypesLib.dTypeRelation"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2409,
+                  "name": "dTypeRelation",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 2404,
+                  "src": "196:13:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                    "typeString": "enum dTypesLib.dTypeRelation"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2413,
+                "name": "dimensions",
+                "nodeType": "VariableDeclaration",
+                "scope": 2414,
+                "src": "228:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                  "typeString": "string[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 2411,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "228:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "id": 2412,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "228:8:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                    "typeString": "string[]"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "dTypes",
+            "nodeType": "StructDefinition",
+            "scope": 2546,
+            "src": "129:125:6",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2456,
+              "nodeType": "Block",
+              "src": "328:219:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2426,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2421,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "338:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2423,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2406,
+                      "src": "338:9:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2424,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "350:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2425,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "name",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2406,
+                      "src": "350:11:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "338:23:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 2427,
+                  "nodeType": "ExpressionStatement",
+                  "src": "338:23:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2433,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2428,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "371:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2430,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "label",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2408,
+                      "src": "371:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2431,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "384:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2432,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "label",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2408,
+                      "src": "384:12:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "371:25:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 2434,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:25:6"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2440,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2435,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2416,
+                        "src": "406:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                          "typeString": "struct dTypesLib.dTypes storage pointer"
+                        }
+                      },
+                      "id": 2437,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "relation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2410,
+                      "src": "406:13:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                        "typeString": "enum dTypesLib.dTypeRelation"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2438,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2418,
+                        "src": "422:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      },
+                      "id": 2439,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "relation",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2410,
+                      "src": "422:15:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                        "typeString": "enum dTypesLib.dTypeRelation"
+                      }
+                    },
+                    "src": "406:31:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                      "typeString": "enum dTypesLib.dTypeRelation"
+                    }
+                  },
+                  "id": 2441,
+                  "nodeType": "ExpressionStatement",
+                  "src": "406:31:6"
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2446,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2442,
+                          "name": "dtypes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2418,
+                          "src": "451:6:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                            "typeString": "struct dTypesLib.dTypes memory"
+                          }
+                        },
+                        "id": 2443,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "dimensions",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 2413,
+                        "src": "451:17:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory",
+                          "typeString": "string memory[] memory"
+                        }
+                      },
+                      "id": 2444,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "451:24:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": ">",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 2445,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "478:1:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "451:28:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 2455,
+                  "nodeType": "IfStatement",
+                  "src": "447:94:6",
+                  "trueBody": {
+                    "id": 2454,
+                    "nodeType": "Block",
+                    "src": "481:60:6",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2452,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2447,
+                              "name": "self",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2416,
+                              "src": "495:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                                "typeString": "struct dTypesLib.dTypes storage pointer"
+                              }
+                            },
+                            "id": 2449,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "memberName": "dimensions",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2413,
+                            "src": "495:15:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                              "typeString": "string storage ref[] storage ref"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2450,
+                              "name": "dtypes",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2418,
+                              "src": "513:6:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            },
+                            "id": 2451,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "dimensions",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2413,
+                            "src": "513:17:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_array$_t_string_memory_$dyn_memory",
+                              "typeString": "string memory[] memory"
+                            }
+                          },
+                          "src": "495:35:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                            "typeString": "string storage ref[] storage ref"
+                          }
+                        },
+                        "id": 2453,
+                        "nodeType": "ExpressionStatement",
+                        "src": "495:35:6"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2457,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2416,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2457,
+                  "src": "276:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2415,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "276:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2418,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2457,
+                  "src": "297:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2417,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "297:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "275:43:6"
+            },
+            "returnParameters": {
+              "id": 2420,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "328:0:6"
+            },
+            "scope": 2546,
+            "src": "260:287:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2491,
+              "nodeType": "Block",
+              "src": "630:138:6",
+              "statements": [
+                {
+                  "assignments": [
+                    2467
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2467,
+                      "name": "length",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2491,
+                      "src": "640:14:6",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2466,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "640:7:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2470,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 2468,
+                      "name": "dtypes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2463,
+                      "src": "657:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                        "typeString": "struct dTypesLib.dTypes memory[] memory"
+                      }
+                    },
+                    "id": 2469,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "length",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "657:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "640:30:6"
+                },
+                {
+                  "body": {
+                    "id": 2489,
+                    "nodeType": "Block",
+                    "src": "717:45:6",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 2484,
+                                "name": "dtypes",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2463,
+                                "src": "741:6:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                                  "typeString": "struct dTypesLib.dTypes memory[] memory"
+                                }
+                              },
+                              "id": 2486,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 2485,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2472,
+                                "src": "748:1:6",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "741:9:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                                "typeString": "struct dTypesLib.dTypes memory"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 2481,
+                              "name": "self",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2460,
+                              "src": "731:4:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                                "typeString": "struct dTypesLib.dTypes storage ref[] storage pointer"
+                              }
+                            },
+                            "id": 2483,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "push",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "731:9:6",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_dTypes_$2414_storage_$returns$_t_uint256_$",
+                              "typeString": "function (struct dTypesLib.dTypes storage ref) returns (uint256)"
+                            }
+                          },
+                          "id": 2487,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "731:20:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 2488,
+                        "nodeType": "ExpressionStatement",
+                        "src": "731:20:6"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2477,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 2475,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2472,
+                      "src": "700:1:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "id": 2476,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2467,
+                      "src": "704:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "700:10:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2490,
+                  "initializationExpression": {
+                    "assignments": [
+                      2472
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2472,
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2490,
+                        "src": "685:9:6",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2471,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "685:7:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2474,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 2473,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "697:1:6",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "685:13:6"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 2479,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "712:3:6",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 2478,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2472,
+                        "src": "712:1:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2480,
+                    "nodeType": "ExpressionStatement",
+                    "src": "712:3:6"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "680:82:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2492,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insertArray",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2464,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2460,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2492,
+                  "src": "574:21:6",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                    "typeString": "struct dTypesLib.dTypes[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2458,
+                      "name": "dTypes",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2414,
+                      "src": "574:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                        "typeString": "struct dTypesLib.dTypes"
+                      }
+                    },
+                    "id": 2459,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "574:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2463,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2492,
+                  "src": "597:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_memory_$dyn_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2461,
+                      "name": "dTypes",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2414,
+                      "src": "597:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                        "typeString": "struct dTypesLib.dTypes"
+                      }
+                    },
+                    "id": 2462,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "597:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_dTypes_$2414_storage_$dyn_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "573:47:6"
+            },
+            "returnParameters": {
+              "id": 2465,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "630:0:6"
+            },
+            "scope": 2546,
+            "src": "553:215:6",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2513,
+              "nodeType": "Block",
+              "src": "956:65:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2507,
+                        "name": "name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2494,
+                        "src": "980:4:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2508,
+                        "name": "label",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2496,
+                        "src": "986:5:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2509,
+                        "name": "relation",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2498,
+                        "src": "993:8:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                          "typeString": "enum dTypesLib.dTypeRelation"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2510,
+                        "name": "dimensions",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2501,
+                        "src": "1003:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                          "typeString": "string memory[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                          "typeString": "enum dTypesLib.dTypeRelation"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                          "typeString": "string memory[] memory"
+                        }
+                      ],
+                      "id": 2506,
+                      "name": "dTypes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2414,
+                      "src": "973:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                        "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                      }
+                    },
+                    "id": 2511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "973:41:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                      "typeString": "struct dTypesLib.dTypes memory"
+                    }
+                  },
+                  "functionReturnParameters": 2505,
+                  "id": 2512,
+                  "nodeType": "Return",
+                  "src": "966:48:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2514,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structure",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2502,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2494,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "793:18:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2493,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "793:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2496,
+                  "name": "label",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "813:19:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2495,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "813:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2498,
+                  "name": "relation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "834:22:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                    "typeString": "enum dTypesLib.dTypeRelation"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2497,
+                    "name": "dTypeRelation",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2404,
+                    "src": "834:13:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_dTypeRelation_$2404",
+                      "typeString": "enum dTypesLib.dTypeRelation"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2501,
+                  "name": "dimensions",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "858:26:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2499,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "858:6:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 2500,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "858:8:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "792:93:6"
+            },
+            "returnParameters": {
+              "id": 2505,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2504,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2514,
+                  "src": "930:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2503,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "930:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "929:22:6"
+            },
+            "scope": 2546,
+            "src": "774:247:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2531,
+              "nodeType": "Block",
+              "src": "1142:54:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2529,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 2521,
+                          "name": "dtypes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2519,
+                          "src": "1153:6:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                            "typeString": "struct dTypesLib.dTypes memory"
+                          }
+                        }
+                      ],
+                      "id": 2522,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1152:8:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                        "typeString": "struct dTypesLib.dTypes memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 2525,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2516,
+                          "src": "1174:4:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 2526,
+                              "name": "dTypes",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2414,
+                              "src": "1181:6:6",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                                "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 2527,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "1180:8:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                            "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_dTypes_$2414_storage_ptr_$",
+                            "typeString": "type(struct dTypesLib.dTypes storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2523,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9166,
+                          "src": "1163:3:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 2524,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1163:10:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 2528,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1163:26:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_dTypes_$2414_memory",
+                        "typeString": "struct dTypesLib.dTypes memory"
+                      }
+                    },
+                    "src": "1152:37:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                      "typeString": "struct dTypesLib.dTypes memory"
+                    }
+                  },
+                  "id": 2530,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1152:37:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2532,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2516,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2532,
+                  "src": "1051:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2515,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1051:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1050:19:6"
+            },
+            "returnParameters": {
+              "id": 2520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2519,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2532,
+                  "src": "1116:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2518,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "1116:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1115:22:6"
+            },
+            "scope": 2546,
+            "src": "1027:169:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2544,
+              "nodeType": "Block",
+              "src": "1319:42:6",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 2541,
+                        "name": "dtypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2534,
+                        "src": "1347:6:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                          "typeString": "struct dTypesLib.dTypes memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2539,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9166,
+                        "src": "1336:3:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 2540,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1336:10:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 2542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1336:18:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 2538,
+                  "id": 2543,
+                  "nodeType": "Return",
+                  "src": "1329:25:6"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2545,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2534,
+                  "name": "dtypes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2545,
+                  "src": "1228:20:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_dTypes_$2414_memory_ptr",
+                    "typeString": "struct dTypesLib.dTypes"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2533,
+                    "name": "dTypes",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2414,
+                    "src": "1228:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_dTypes_$2414_storage_ptr",
+                      "typeString": "struct dTypesLib.dTypes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1227:22:6"
+            },
+            "returnParameters": {
+              "id": 2538,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2537,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2545,
+                  "src": "1296:17:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 2536,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1296:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1295:19:6"
+            },
+            "scope": 2546,
+            "src": "1202:159:6",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2547,
+        "src": "59:1304:6"
+      }
+    ],
+    "src": "0:1364:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-16T11:00:51.150Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

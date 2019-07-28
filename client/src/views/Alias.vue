@@ -1,19 +1,21 @@
 <template>
-  <v-container>
+  <v-container style="margin:5px;max-width: 100%;">
     <v-layout row wrap>
-      <v-flex xs1>
-        <v-subheader>Alias</v-subheader>
-      </v-flex>
-      <v-flex xs11 sm6 md6>
-          <v-text-field
-            v-model="domain"
-            solo
-            append-outer-icon="fa-arrow-alt-circle-right"
-            @click:append-outer="onGo"
-          ></v-text-field>
+      <v-flex xs12>
+        <AliasSelector
+          :initial="viewer ? domain : null"
+          :linkbtn="viewer ? false : true"
+          @alias="setAlias"
+        />
       </v-flex>
       <v-flex xs12>
-        <div id="content" class="subheading"></div>
+        <MarkdownRenderer
+          :content="aliasData"
+          :addition="selectedAlias"
+          :getAliasData="getAliasData"
+          @save="saveResource"
+          @changeType="changeType"
+        />
       </v-flex>
     </v-layout>
   </v-container>
@@ -24,59 +26,92 @@ import {ethers} from 'ethers';
 import marked from 'marked';
 import { mapState } from 'vuex';
 import {getDataItemByTypeHash} from '../blockchain';
-// markdown.article1
+
+import AliasSelector from '@/packages/alias/components/AliasSelector';
+import MarkdownRenderer from '@/packages/markdown/components/MarkdownRenderer';
+
+// http://192.168.1.140:8080/#/alias?alias=markdown.article1
+// http://192.168.1.140:8080/#/alias?alias=markdown.article1
+
 export default {
   props: ['query'],
+  components: {
+    AliasSelector,
+    MarkdownRenderer,
+  },
   data: () => ({
+    viewer: true,
     domain: '',
+    selectedAlias: null,
+    aliasData: null,
+    dtypeData: null,
   }),
   computed: mapState({
       alias: 'alias',
   }),
   mounted() {
     if (this.query) {
-      this.getAliasData(this.query.alias);
+      this.setAliasData(this.query.alias);
     }
   },
   watch: {
     query() {
-      console.log('query', this.query);
       if (this.query && this.alias) {
-        console.log('hh query');
-        this.getAliasData(this.query.alias);
+        this.setAliasData(this.query.alias);
       }
     },
     alias() {
-      console.log('alias', this.$store.state.alias);
       if (this.query && this.alias) {
-        console.log('hh alias');
-        this.getAliasData(this.query.alias);
+        this.setAliasData(this.query.alias);
       }
     }
   },
   methods: {
+    setAlias(alias) {
+      this.selectedAlias = alias;
+    },
+    async setAliasData(url) {
+      const {content, dtypeData} = await this.getAliasData(url);
+      this.aliasData = content;
+      this.dtypeData = dtypeData;
+    },
     async getAliasData(url) {
       this.domain = this.query.alias;
-      let parts = url.split('.');
-      let dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
-      console.log('dtypeData', dtypeData);
-      let identifier = await this.$store.dispatch('parseAlias', {
+      // TODO: account for all separators & multiple subdomains
+      // see replaceAlias commented code
+      const parts = url.split('.');
+      const dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
+
+      const identifier = await this.$store.dispatch('parseAlias', {
         dTypeIdentifier: dtypeData.typeHash,
         name: parts[1],
         separator: '.',
       });
-      console.log('getAliasData', identifier);
-      let content = await getDataItemByTypeHash(
+
+      const content = await getDataItemByTypeHash(
           this.$store.state.contract,
           this.$store.state.wallet,
           dtypeData,
           identifier,
       );
-      console.log('content', content);
-      document.getElementById('content').innerHTML = marked(ethers.utils.toUtf8String(content.content));
+      return {content, dtypeData};
     },
-    onGo() {
-      this.$router.push({ path: 'alias', query: { alias: this.domain } });
+    saveResource(data) {
+      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data, identifier: this.aliasData.typeHash}).then((newidentifier) => {
+        this.changeAlias(newidentifier);
+      });
+    },
+    changeAlias(identifier) {
+      let parts = this.domain.split('.');
+      this.$store.dispatch('setAlias', {
+        dTypeIdentifier: this.dtypeData.typeHash,
+        separator: '.',
+        name: parts[1],
+        identifier,
+      });
+    },
+    changeType(viewer) {
+      this.viewer = viewer;
     }
   }
 }

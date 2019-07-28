@@ -1,0 +1,1851 @@
+{
+  "contractName": "AccountLib",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "addr",
+              "type": "address"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "getDataHash",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "structureBytes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "addr",
+              "type": "address"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "addr",
+              "type": "address"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "destructureBytes",
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"destructureBytes\",\"outputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"structureBytes\",\"outputs\":[{\"components\":[{\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"getDataHash\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/account/AccountLib.sol\":\"AccountLib\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/account/AccountLib.sol\":{\"keccak256\":\"0x5e5c1361f40bab005cdb87109528ce18849bf1ea43d79882f10c1986afe49b4f\",\"urls\":[\"bzzr://871bcc8e6438ff6b48c3879d5e1fb84f040a05ed4ec8fa81c6f983b1b98d4f69\"]}},\"version\":1}",
+  "bytecode": "0x6105b3610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c8063a2d9e39714610050578063b3718ad014610080578063d122e95a146100b0575b600080fd5b61006a600480360361006591908101906102df565b6100e0565b60405161007791906103eb565b60405180910390f35b61009a60048036036100959190810190610275565b610109565b6040516100a79190610428565b60405180910390f35b6100ca60048036036100c591908101906102df565b61012c565b6040516100d791906103d0565b60405180910390f35b6060816040516020016100f3919061040d565b6040516020818303038152906040529050919050565b610111610160565b8180602001905161012591908101906102b6565b9050919050565b6000816000015160405160200161014391906103b5565b604051602081830303815290604052805190602001209050919050565b6040518060200160405280600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600061019582356104f4565b905092915050565b60006101a982516104f4565b905092915050565b600082601f8301126101c257600080fd5b81356101d56101d082610470565b610443565b915080825260208301602083018583830111156101f157600080fd5b6101fc838284610526565b50505092915050565b60006020828403121561021757600080fd5b6102216020610443565b905060006102318482850161019d565b60008301525092915050565b60006020828403121561024f57600080fd5b6102596020610443565b9050600061026984828501610189565b60008301525092915050565b60006020828403121561028757600080fd5b600082013567ffffffffffffffff8111156102a157600080fd5b6102ad848285016101b1565b91505092915050565b6000602082840312156102c857600080fd5b60006102d684828501610205565b91505092915050565b6000602082840312156102f157600080fd5b60006102ff8482850161023d565b91505092915050565b610311816104b8565b82525050565b610320816104b8565b82525050565b61032f816104b8565b82525050565b61033e816104ca565b82525050565b600061034f8261049c565b61035981856104a7565b9350610369818560208601610535565b61037281610568565b840191505092915050565b6020820160008201516103936000850182610308565b50505050565b6020820160008201516103af6000850182610326565b50505050565b60006020820190506103ca6000830184610317565b92915050565b60006020820190506103e56000830184610335565b92915050565b600060208201905081810360008301526104058184610344565b905092915050565b6000602082019050610422600083018461037d565b92915050565b600060208201905061043d6000830184610399565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561046657600080fd5b8060405250919050565b600067ffffffffffffffff82111561048757600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b60006104c3826104d4565b9050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006104ff82610506565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b82818337600083830152505050565b60005b83811015610553578082015181840152602081019050610538565b83811115610562576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a7230582000f02a4cbd7e4de3dac5700330f7c84eec223d3453e531eb143a28f6deb7a37b6c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c8063a2d9e39714610050578063b3718ad014610080578063d122e95a146100b0575b600080fd5b61006a600480360361006591908101906102df565b6100e0565b60405161007791906103eb565b60405180910390f35b61009a60048036036100959190810190610275565b610109565b6040516100a79190610428565b60405180910390f35b6100ca60048036036100c591908101906102df565b61012c565b6040516100d791906103d0565b60405180910390f35b6060816040516020016100f3919061040d565b6040516020818303038152906040529050919050565b610111610160565b8180602001905161012591908101906102b6565b9050919050565b6000816000015160405160200161014391906103b5565b604051602081830303815290604052805190602001209050919050565b6040518060200160405280600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600061019582356104f4565b905092915050565b60006101a982516104f4565b905092915050565b600082601f8301126101c257600080fd5b81356101d56101d082610470565b610443565b915080825260208301602083018583830111156101f157600080fd5b6101fc838284610526565b50505092915050565b60006020828403121561021757600080fd5b6102216020610443565b905060006102318482850161019d565b60008301525092915050565b60006020828403121561024f57600080fd5b6102596020610443565b9050600061026984828501610189565b60008301525092915050565b60006020828403121561028757600080fd5b600082013567ffffffffffffffff8111156102a157600080fd5b6102ad848285016101b1565b91505092915050565b6000602082840312156102c857600080fd5b60006102d684828501610205565b91505092915050565b6000602082840312156102f157600080fd5b60006102ff8482850161023d565b91505092915050565b610311816104b8565b82525050565b610320816104b8565b82525050565b61032f816104b8565b82525050565b61033e816104ca565b82525050565b600061034f8261049c565b61035981856104a7565b9350610369818560208601610535565b61037281610568565b840191505092915050565b6020820160008201516103936000850182610308565b50505050565b6020820160008201516103af6000850182610326565b50505050565b60006020820190506103ca6000830184610317565b92915050565b60006020820190506103e56000830184610335565b92915050565b600060208201905081810360008301526104058184610344565b905092915050565b6000602082019050610422600083018461037d565b92915050565b600060208201905061043d6000830184610399565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561046657600080fd5b8060405250919050565b600067ffffffffffffffff82111561048757600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b60006104c3826104d4565b9050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006104ff82610506565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b82818337600083830152505050565b60005b83811015610553578082015181840152602081019050610538565b83811115610562576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a7230582000f02a4cbd7e4de3dac5700330f7c84eec223d3453e531eb143a28f6deb7a37b6c6578706572696d656e74616cf50037",
+  "sourceMap": "59:685:14:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "59:685:14:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;580:162;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;401:173;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;255:140;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;580:162;675:17;726:8;715:20;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;715:20:14;;;708:27;;580:162;;;:::o;401:173::-;488:23;;:::i;:::-;551:4;540:27;;;;;;;;;;;;;;527:40;;401:173;;;:::o;255:140::-;321:12;373:8;:13;;;362:25;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;362:25:14;;;352:36;;;;;;345:43;;255:140;;;:::o;59:685::-;;;;;;;;;;;;;;;;:::o;5:118:-1:-;;72:46;110:6;97:20;72:46;;;63:55;;57:66;;;;;130:122;;208:39;239:6;233:13;208:39;;;199:48;;193:59;;;;;260:440;;361:3;354:4;346:6;342:17;338:27;328:2;;379:1;376;369:12;328:2;416:6;403:20;438:64;453:48;494:6;453:48;;;438:64;;;429:73;;522:6;515:5;508:21;558:4;550:6;546:17;591:4;584:5;580:16;626:3;617:6;612:3;608:16;605:25;602:2;;;643:1;640;633:12;602:2;653:41;687:6;682:3;677;653:41;;;321:379;;;;;;;;740:340;;861:4;849:9;844:3;840:19;836:30;833:2;;;879:1;876;869:12;833:2;897:20;912:4;897:20;;;888:29;;967:1;998:60;1054:3;1045:6;1034:9;1030:22;998:60;;;992:3;985:5;981:15;974:85;927:143;827:253;;;;;1119:322;;1233:4;1221:9;1216:3;1212:19;1208:30;1205:2;;;1251:1;1248;1241:12;1205:2;1269:20;1284:4;1269:20;;;1260:29;;1339:1;1370:49;1415:3;1406:6;1395:9;1391:22;1370:49;;;1364:3;1357:5;1353:15;1346:74;1299:132;1199:242;;;;;1448:345;;1561:2;1549:9;1540:7;1536:23;1532:32;1529:2;;;1577:1;1574;1567:12;1529:2;1640:1;1629:9;1625:17;1612:31;1663:18;1655:6;1652:30;1649:2;;;1695:1;1692;1685:12;1649:2;1715:62;1769:7;1760:6;1749:9;1745:22;1715:62;;;1705:72;;1591:192;1523:270;;;;;1800:305;;1936:2;1924:9;1915:7;1911:23;1907:32;1904:2;;;1952:1;1949;1942:12;1904:2;1987:1;2004:85;2081:7;2072:6;2061:9;2057:22;2004:85;;;1994:95;;1966:129;1898:207;;;;;2112:291;;2241:2;2229:9;2220:7;2216:23;2212:32;2209:2;;;2257:1;2254;2247:12;2209:2;2292:1;2309:78;2379:7;2370:6;2359:9;2355:22;2309:78;;;2299:88;;2271:122;2203:200;;;;;2410:110;2483:31;2508:5;2483:31;;;2478:3;2471:44;2465:55;;;2527:120;2610:31;2635:5;2610:31;;;2605:3;2598:44;2592:55;;;2654:118;2735:31;2760:5;2735:31;;;2730:3;2723:44;2717:55;;;2779:128;2870:31;2895:5;2870:31;;;2865:3;2858:44;2852:55;;;2914:359;;3032:38;3064:5;3032:38;;;3082:78;3153:6;3148:3;3082:78;;;3075:85;;3165:52;3210:6;3205:3;3198:4;3191:5;3187:16;3165:52;;;3238:29;3260:6;3238:29;;;3233:3;3229:39;3222:46;;3012:261;;;;;;3341:318;3484:4;3479:3;3475:14;3566:3;3559:5;3555:15;3549:22;3577:61;3633:3;3628;3624:13;3611:11;3577:61;;;3504:140;3457:202;;;;3727:334;3878:4;3873:3;3869:14;3960:3;3953:5;3949:15;3943:22;3971:69;4035:3;4030;4026:13;4013:11;3971:69;;;3898:148;3851:210;;;;4068:213;;4186:2;4175:9;4171:18;4163:26;;4200:71;4268:1;4257:9;4253:17;4244:6;4200:71;;;4157:124;;;;;4288:229;;4414:2;4403:9;4399:18;4391:26;;4428:79;4504:1;4493:9;4489:17;4480:6;4428:79;;;4385:132;;;;;4524:313;;4668:2;4657:9;4653:18;4645:26;;4718:9;4712:4;4708:20;4704:1;4693:9;4689:17;4682:47;4743:84;4822:4;4813:6;4743:84;;;4735:92;;4639:198;;;;;4844:313;;5012:2;5001:9;4997:18;4989:26;;5026:121;5144:1;5133:9;5129:17;5120:6;5026:121;;;4983:174;;;;;5164:329;;5340:2;5329:9;5325:18;5317:26;;5354:129;5480:1;5469:9;5465:17;5456:6;5354:129;;;5311:182;;;;;5500:256;;5562:2;5556:9;5546:19;;5600:4;5592:6;5588:17;5699:6;5687:10;5684:22;5663:18;5651:10;5648:34;5645:62;5642:2;;;5720:1;5717;5710:12;5642:2;5740:10;5736:2;5729:22;5540:216;;;;;5763:258;;5906:18;5898:6;5895:30;5892:2;;;5938:1;5935;5928:12;5892:2;5982:4;5978:9;5971:4;5963:6;5959:17;5955:33;5947:41;;6011:4;6005;6001:15;5993:23;;5829:192;;;;6028:91;;6108:5;6102:12;6092:22;;6086:33;;;;6127:170;;6249:6;6244:3;6237:19;6286:4;6281:3;6277:14;6262:29;;6230:67;;;;;6305:105;;6374:31;6399:5;6374:31;;;6363:42;;6357:53;;;;6417:79;;6486:5;6475:16;;6469:27;;;;6503:128;;6583:42;6576:5;6572:54;6561:65;;6555:76;;;;6638:105;;6707:31;6732:5;6707:31;;;6696:42;;6690:53;;;;6750:128;;6830:42;6823:5;6819:54;6808:65;;6802:76;;;;6886:145;6967:6;6962:3;6957;6944:30;7023:1;7014:6;7009:3;7005:16;6998:27;6937:94;;;;7040:268;7105:1;7112:101;7126:6;7123:1;7120:13;7112:101;;;7202:1;7197:3;7193:11;7187:18;7183:1;7178:3;7174:11;7167:39;7148:2;7145:1;7141:10;7136:15;;7112:101;;;7228:6;7225:1;7222:13;7219:2;;;7293:1;7284:6;7279:3;7275:16;7268:27;7219:2;7089:219;;;;;7316:97;;7404:2;7400:7;7395:2;7388:5;7384:14;7380:28;7370:38;;7364:49;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nlibrary AccountLib {\n\n    struct Account {\n        address addr;\n    }\n\n    function insert(Account storage self, Account memory instance) internal {\n        self.addr = instance.addr;\n    }\n\n    function getDataHash(Account memory instance) pure public returns(bytes32 hash) {\n        return keccak256(abi.encode(instance.addr));\n    }\n\n    function structureBytes(bytes memory data)\n        pure\n        public\n        returns(Account memory instance)\n    {\n        (instance) = abi.decode(data, (Account));\n    }\n\n    function destructureBytes(Account memory instance)\n        pure\n        public\n        returns(bytes memory data)\n    {\n        return abi.encode(instance);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/account/AccountLib.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/account/AccountLib.sol",
+    "exportedSymbols": {
+      "AccountLib": [
+        4546
+      ]
+    },
+    "id": 4547,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4479,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "id": 4480,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4546,
+        "linearizedBaseContracts": [
+          4546
+        ],
+        "name": "AccountLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "AccountLib.Account",
+            "id": 4483,
+            "members": [
+              {
+                "constant": false,
+                "id": 4482,
+                "name": "addr",
+                "nodeType": "VariableDeclaration",
+                "scope": 4483,
+                "src": "110:12:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4481,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "110:7:14",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Account",
+            "nodeType": "StructDefinition",
+            "scope": 4546,
+            "src": "85:44:14",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4497,
+              "nodeType": "Block",
+              "src": "207:42:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4495,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4490,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4485,
+                        "src": "217:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                          "typeString": "struct AccountLib.Account storage pointer"
+                        }
+                      },
+                      "id": 4492,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "addr",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4482,
+                      "src": "217:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4493,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4487,
+                        "src": "229:8:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      },
+                      "id": 4494,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "addr",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4482,
+                      "src": "229:13:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "217:25:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 4496,
+                  "nodeType": "ExpressionStatement",
+                  "src": "217:25:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4498,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4488,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4485,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4498,
+                  "src": "151:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4484,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "151:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4487,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4498,
+                  "src": "173:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4486,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "173:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "150:47:14"
+            },
+            "returnParameters": {
+              "id": 4489,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "207:0:14"
+            },
+            "scope": 4546,
+            "src": "135:114:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4513,
+              "nodeType": "Block",
+              "src": "335:60:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 4508,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4500,
+                              "src": "373:8:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                                "typeString": "struct AccountLib.Account memory"
+                              }
+                            },
+                            "id": 4509,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "addr",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 4482,
+                            "src": "373:13:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4506,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "362:3:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 4507,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "362:10:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 4510,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "362:25:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 4505,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "352:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 4511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "352:36:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 4504,
+                  "id": 4512,
+                  "nodeType": "Return",
+                  "src": "345:43:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4514,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4500,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4514,
+                  "src": "276:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4499,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "276:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "275:25:14"
+            },
+            "returnParameters": {
+              "id": 4504,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4503,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4514,
+                  "src": "321:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 4502,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "320:14:14"
+            },
+            "scope": 4546,
+            "src": "255:140:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4531,
+              "nodeType": "Block",
+              "src": "517:57:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4529,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4521,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4519,
+                          "src": "528:8:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                            "typeString": "struct AccountLib.Account memory"
+                          }
+                        }
+                      ],
+                      "id": 4522,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "527:10:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                        "typeString": "struct AccountLib.Account memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4525,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4516,
+                          "src": "551:4:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 4526,
+                              "name": "Account",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4483,
+                              "src": "558:7:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                                "typeString": "type(struct AccountLib.Account storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 4527,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "557:9:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                            "typeString": "type(struct AccountLib.Account storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                            "typeString": "type(struct AccountLib.Account storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 4523,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "540:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 4524,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "540:10:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 4528,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "540:27:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Account_$4483_memory",
+                        "typeString": "struct AccountLib.Account memory"
+                      }
+                    },
+                    "src": "527:40:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                      "typeString": "struct AccountLib.Account memory"
+                    }
+                  },
+                  "id": 4530,
+                  "nodeType": "ExpressionStatement",
+                  "src": "527:40:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4532,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4516,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4532,
+                  "src": "425:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 4515,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "424:19:14"
+            },
+            "returnParameters": {
+              "id": 4520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4519,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4532,
+                  "src": "488:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4518,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "488:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "487:25:14"
+            },
+            "scope": 4546,
+            "src": "401:173:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4544,
+              "nodeType": "Block",
+              "src": "698:44:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4541,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4534,
+                        "src": "726:8:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4539,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "715:3:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 4540,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "715:10:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 4542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "715:20:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 4538,
+                  "id": 4543,
+                  "nodeType": "Return",
+                  "src": "708:27:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4545,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4534,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4545,
+                  "src": "606:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4533,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "606:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "605:25:14"
+            },
+            "returnParameters": {
+              "id": 4538,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4537,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4545,
+                  "src": "675:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 4536,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "675:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "674:19:14"
+            },
+            "scope": 4546,
+            "src": "580:162:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4547,
+        "src": "59:685:14"
+      }
+    ],
+    "src": "0:745:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/account/AccountLib.sol",
+    "exportedSymbols": {
+      "AccountLib": [
+        4546
+      ]
+    },
+    "id": 4547,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4479,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "id": 4480,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4546,
+        "linearizedBaseContracts": [
+          4546
+        ],
+        "name": "AccountLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "AccountLib.Account",
+            "id": 4483,
+            "members": [
+              {
+                "constant": false,
+                "id": 4482,
+                "name": "addr",
+                "nodeType": "VariableDeclaration",
+                "scope": 4483,
+                "src": "110:12:14",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4481,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "110:7:14",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Account",
+            "nodeType": "StructDefinition",
+            "scope": 4546,
+            "src": "85:44:14",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4497,
+              "nodeType": "Block",
+              "src": "207:42:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4495,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4490,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4485,
+                        "src": "217:4:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                          "typeString": "struct AccountLib.Account storage pointer"
+                        }
+                      },
+                      "id": 4492,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "addr",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4482,
+                      "src": "217:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4493,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4487,
+                        "src": "229:8:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      },
+                      "id": 4494,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "addr",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4482,
+                      "src": "229:13:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "217:25:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 4496,
+                  "nodeType": "ExpressionStatement",
+                  "src": "217:25:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4498,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4488,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4485,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4498,
+                  "src": "151:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4484,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "151:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4487,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4498,
+                  "src": "173:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4486,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "173:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "150:47:14"
+            },
+            "returnParameters": {
+              "id": 4489,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "207:0:14"
+            },
+            "scope": 4546,
+            "src": "135:114:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 4513,
+              "nodeType": "Block",
+              "src": "335:60:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 4508,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4500,
+                              "src": "373:8:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                                "typeString": "struct AccountLib.Account memory"
+                              }
+                            },
+                            "id": 4509,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "addr",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 4482,
+                            "src": "373:13:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4506,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "362:3:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 4507,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "362:10:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 4510,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "362:25:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 4505,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "352:9:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 4511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "352:36:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 4504,
+                  "id": 4512,
+                  "nodeType": "Return",
+                  "src": "345:43:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4514,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4500,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4514,
+                  "src": "276:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4499,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "276:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "275:25:14"
+            },
+            "returnParameters": {
+              "id": 4504,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4503,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4514,
+                  "src": "321:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 4502,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "320:14:14"
+            },
+            "scope": 4546,
+            "src": "255:140:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4531,
+              "nodeType": "Block",
+              "src": "517:57:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4529,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4521,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4519,
+                          "src": "528:8:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                            "typeString": "struct AccountLib.Account memory"
+                          }
+                        }
+                      ],
+                      "id": 4522,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "527:10:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                        "typeString": "struct AccountLib.Account memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4525,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4516,
+                          "src": "551:4:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 4526,
+                              "name": "Account",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4483,
+                              "src": "558:7:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                                "typeString": "type(struct AccountLib.Account storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 4527,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "557:9:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                            "typeString": "type(struct AccountLib.Account storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Account_$4483_storage_ptr_$",
+                            "typeString": "type(struct AccountLib.Account storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 4523,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "540:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 4524,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "540:10:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 4528,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "540:27:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Account_$4483_memory",
+                        "typeString": "struct AccountLib.Account memory"
+                      }
+                    },
+                    "src": "527:40:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                      "typeString": "struct AccountLib.Account memory"
+                    }
+                  },
+                  "id": 4530,
+                  "nodeType": "ExpressionStatement",
+                  "src": "527:40:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4532,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4516,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4532,
+                  "src": "425:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 4515,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "424:19:14"
+            },
+            "returnParameters": {
+              "id": 4520,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4519,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4532,
+                  "src": "488:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4518,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "488:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "487:25:14"
+            },
+            "scope": 4546,
+            "src": "401:173:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4544,
+              "nodeType": "Block",
+              "src": "698:44:14",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4541,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4534,
+                        "src": "726:8:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                          "typeString": "struct AccountLib.Account memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4539,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "715:3:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 4540,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "715:10:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 4542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "715:20:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 4538,
+                  "id": 4543,
+                  "nodeType": "Return",
+                  "src": "708:27:14"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4545,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4534,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4545,
+                  "src": "606:23:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Account_$4483_memory_ptr",
+                    "typeString": "struct AccountLib.Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4533,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4483,
+                    "src": "606:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Account_$4483_storage_ptr",
+                      "typeString": "struct AccountLib.Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "605:25:14"
+            },
+            "returnParameters": {
+              "id": 4538,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4537,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4545,
+                  "src": "675:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 4536,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "675:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "674:19:14"
+            },
+            "scope": 4546,
+            "src": "580:162:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4547,
+        "src": "59:685:14"
+      }
+    ],
+    "src": "0:745:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x7Bf033f6B5BF7d6d9dBFe0F0cA7f0FD582Df5FeC",
+      "transactionHash": "0x67598de9c72ad7f1fc8afe0fd8ab4841847e805e59850014e2ba830582a4f2af"
+    },
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0xcB95E34eE4E49e8aaDd84E19CfF2D81d8A38B2bb",
+      "transactionHash": "0xf22c6b7cb05d03630532d6b19508a5a97200b1d83c662a2de069149259a5c8a1"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x601CEb79e70A6e1980fF6A9cf724E72F0602b040",
+      "transactionHash": "0x39b0fb0592935da0d8194db3d7ea6b29a82017dbf512c189dba3d0ae8bd5386a"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-28T11:10:53.982Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

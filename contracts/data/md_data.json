@@ -1,32 +1,32 @@
 [
   {
     "data": {
-      "content": "# Alias ![avatar](alias_eth.png) \n This is the content of `markdown.article1`. \n\n Alias is a semantic standard for identifying on-chain resources by human-readable qualifiers, supporting any type of data. \n\n A resource identifier is based on the type of data and the data content. In this example, the type of data is `markdown`, which is a **dType** type, defined in a `MarkdownLib` library, with an associated `MarkdownStorage` contract. \n```solidity\nlibrary MarkdownLib {\n  struct Markdown {\n      string content;\n  }\n  // other helper functions\n}\n```\n\n `article1` is a data record from the `MarkdownStorage` contract. Alias provides a link from `article1` (human-readable identifier) to the `bytes32` data record identifier - e.g. `0x6fb6b744a5c32e23bffdb62e8c1d9278cc616c56bd2fb05d855ba268ee356afa`. \n\n Now, using Alias indirection we can identify a data record from inside a smart contract by using `markdown.article1`. \n\n This is how links will look like: \n * [markdown.article2](/#/alias?alias=markdown.article2) \n * [markdown.article3](/#/alias?alias=markdown.article3)"
+      "content": "# Alias ![avatar](alias_eth.png) \n This is the content of `markdown.article1`. \n\n Alias is a semantic standard for identifying on-chain resources by human-readable qualifiers, supporting any type of data. \n\n A resource identifier is based on the type of data and the data content. In this example, the type of data is `markdown`, which is a **dType** type, defined in a `MarkdownLib` library, with an associated `MarkdownStorage` contract. \n```solidity\nlibrary MarkdownLib {\n  struct Markdown {\n      string content;\n  }\n  // other helper functions\n}\n```\n\n `article1` is a data record from the `MarkdownStorage` contract. Alias provides a link from `article1` (human-readable identifier) to the `bytes32` data record identifier - e.g. `0x6fb6b744a5c32e23bffdb62e8c1d9278cc616c56bd2fb05d855ba268ee356afa`. \n\n Now, using Alias indirection we can identify a data record from inside a smart contract by using `markdown.article1`. \n\n This is how links will look like: \n * [[markdown.article2]]() \n * [[markdown.article3]]()"
     },
-    "alias": ["article1", "."]
+    "alias": [".", "article1"]
   },
   {
     "data": {
-      "content": "# Markdown \n ## article2 \n * [markdown.article1](/#/alias?alias=markdown.article1)"
+      "content": "# Markdown \n ## article2 \n * [[markdown.article1]]()"
     },
-    "alias": ["article2", "."]
+    "alias": [".", "article2"]
   },
   {
     "data": {
       "content": "# Markdown \n ## article3 \n Some content here"
     },
-    "alias": ["article3", "."]
+    "alias": [".", "article3"]
   },
   {
     "data": {
       "content": "# Markdown \n ## article4 \n Some content here"
     },
-    "alias": ["article4", "."]
+    "alias": [".", "article4"]
   },
   {
     "data": {
-      "content": "# Markdown \n ## article5 \n * [markdown.article2](/#/alias?alias=markdown.article2) \n * [markdown.article3](/#/alias?alias=markdown.article3)"
+      "content": "# Markdown \n ## article5 \n * [[markdown.article2]]() \n * [[markdown.article3]]()"
     },
-    "alias": ["article5", "."]
+    "alias": [".", "article5"]
   }
 ]

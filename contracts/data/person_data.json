@@ -1,0 +1,26 @@
+[
+  {
+    "data": {
+      "fullname": "Alice Doe"
+    },
+    "alias": [".", "alice"]
+  },
+  {
+    "data": {
+      "fullname": "Bob Dylan"
+    },
+    "alias": [".", "bob"]
+  },
+  {
+    "data": {
+      "fullname": "Charlie Man"
+    },
+    "alias": [".", "charlie"]
+  },
+  {
+    "data": {
+      "fullname": "Brenda Smith"
+    },
+    "alias": [".", "brenda"]
+  }
+]

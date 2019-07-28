@@ -1,8 +1,8 @@
 [
   {
-      "name": "markdown",
+      "name": "account",
       "types": [
-          {"name": "string", "label": "content", "relation": 0, "dimensions":[]}
+          {"name": "address", "label": "addr", "relation": 0, "dimensions":[]}
       ],
       "optionals": [],
       "outputs": [],

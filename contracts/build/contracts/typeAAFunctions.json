@@ -1,0 +1,1218 @@
+{
+  "contractName": "typeAAFunctions",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "balance",
+              "type": "uint256"
+            },
+            {
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "typeA",
+          "type": "tuple"
+        }
+      ],
+      "name": "double",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "balance",
+              "type": "uint256"
+            },
+            {
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "result",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "balance",
+              "type": "uint256"
+            },
+            {
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "typeAarr",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "doubleBalances",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "balance",
+              "type": "uint256"
+            },
+            {
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "result",
+          "type": "tuple[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"typeA\",\"type\":\"tuple\"}],\"name\":\"double\",\"outputs\":[{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"result\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"typeAarr\",\"type\":\"tuple[]\"}],\"name\":\"doubleBalances\",\"outputs\":[{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"result\",\"type\":\"tuple[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeAAFunctions.sol\":\"typeAAFunctions\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeAAFunctions.sol\":{\"keccak256\":\"0xb11a3624c0c3e632b62e6cf8d927932ff4fab732f6877474438a56195454266b\",\"urls\":[\"bzzr://e6c0c3ddcfbfe2cb285613b4547d7855a6d1bc4a67eb11c4a2f2c2f2cd1a8506\"]},\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol\":{\"keccak256\":\"0x67624dd5c2406d264a0e49f06355602e197109c6c90ad0aaf1a723f8578c8244\",\"urls\":[\"bzzr://b99f4318a296b74b5ecb8c8b17c8f4f20296635edf27a43f0d5ca958d9b5e7d0\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610831806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063141c70ee1461003b578063892b341b1461006b575b600080fd5b61005560048036036100509190810190610448565b61009b565b604051610062919061069c565b60405180910390f35b610085600480360361008091908101906103c6565b6100bc565b604051610092919061067a565b60405180910390f35b6100a361015c565b6002826000018181510291508181525050819050919050565b606073__typeALib______________________________638bedd2773063141c70ee60e01b856040518463ffffffff1660e01b81526004016101009392919061063c565b60006040518083038186803b15801561011857600080fd5b505af415801561012c573d6000803e3d6000fd5b505050506040513d6000823e3d601f19601f820116820180604052506101559190810190610407565b9050919050565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600061019882356107bb565b905092915050565b60006101ac82516107bb565b905092915050565b600082601f8301126101c557600080fd5b81356101d86101d3826106e4565b6106b7565b915081818352602084019350602081019050838560408402820111156101fd57600080fd5b60005b8381101561022d578161021388826102ba565b845260208401935060408301925050600181019050610200565b5050505092915050565b600082601f83011261024857600080fd5b815161025b610256826106e4565b6106b7565b9150818183526020840193506020810190508385604084028201111561028057600080fd5b60005b838110156102b057816102968882610306565b845260208401935060408301925050600181019050610283565b5050505092915050565b6000604082840312156102cc57600080fd5b6102d660406106b7565b905060006102e68482850161039e565b60008301525060206102fa8482850161018c565b60208301525092915050565b60006040828403121561031857600080fd5b61032260406106b7565b90506000610332848285016103b2565b6000830152506020610346848285016101a0565b60208301525092915050565b60006040828403121561036457600080fd5b61036e60406106b7565b9050600061037e8482850161039e565b60008301525060206103928482850161018c565b60208301525092915050565b60006103aa82356107ed565b905092915050565b60006103be82516107ed565b905092915050565b6000602082840312156103d857600080fd5b600082013567ffffffffffffffff8111156103f257600080fd5b6103fe848285016101b4565b91505092915050565b60006020828403121561041957600080fd5b600082015167ffffffffffffffff81111561043357600080fd5b61043f84828501610237565b91505092915050565b60006040828403121561045a57600080fd5b600061046884828501610352565b91505092915050565b600061047d83836105c0565b60408301905092915050565b600061049583836105ef565b60408301905092915050565b6104aa81610753565b82525050565b6104b981610753565b82525050565b6104c881610753565b82525050565b60006104d982610719565b6104e38185610731565b93506104ee8361070c565b60005b8281101561051c57610504868351610471565b955061050f82610724565b91506001810190506104f1565b50849250505092915050565b600061053382610719565b61053d8185610742565b93506105488361070c565b60005b828110156105765761055e868351610489565b955061056982610724565b915060018101905061054b565b50849250505092915050565b61058b81610765565b82525050565b6040820160008201516105a7600085018261061e565b5060208201516105ba60208501826104a1565b50505050565b6040820160008201516105d6600085018261061e565b5060208201516105e960208501826104a1565b50505050565b604082016000820151610605600085018261062d565b50602082015161061860208501826104bf565b50505050565b610627816107b1565b82525050565b610636816107b1565b82525050565b600060608201905061065160008301866104b0565b61065e6020830185610582565b81810360408301526106708184610528565b9050949350505050565b6000602082019050818103600083015261069481846104ce565b905092915050565b60006040820190506106b16000830184610591565b92915050565b6000604051905081810181811067ffffffffffffffff821117156106da57600080fd5b8060405250919050565b600067ffffffffffffffff8211156106fb57600080fd5b602082029050602081019050919050565b6000602082019050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600061075e82610791565b9050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60006107c6826107cd565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600081905091905056fea265627a7a72305820373341cde468d0012de41140f8788142646ec2b8d59fecd7cf4163ebe86e9c636c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063141c70ee1461003b578063892b341b1461006b575b600080fd5b61005560048036036100509190810190610448565b61009b565b604051610062919061069c565b60405180910390f35b610085600480360361008091908101906103c6565b6100bc565b604051610092919061067a565b60405180910390f35b6100a361015c565b6002826000018181510291508181525050819050919050565b606073__typeALib______________________________638bedd2773063141c70ee60e01b856040518463ffffffff1660e01b81526004016101009392919061063c565b60006040518083038186803b15801561011857600080fd5b505af415801561012c573d6000803e3d6000fd5b505050506040513d6000823e3d601f19601f820116820180604052506101559190810190610407565b9050919050565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b600061019882356107bb565b905092915050565b60006101ac82516107bb565b905092915050565b600082601f8301126101c557600080fd5b81356101d86101d3826106e4565b6106b7565b915081818352602084019350602081019050838560408402820111156101fd57600080fd5b60005b8381101561022d578161021388826102ba565b845260208401935060408301925050600181019050610200565b5050505092915050565b600082601f83011261024857600080fd5b815161025b610256826106e4565b6106b7565b9150818183526020840193506020810190508385604084028201111561028057600080fd5b60005b838110156102b057816102968882610306565b845260208401935060408301925050600181019050610283565b5050505092915050565b6000604082840312156102cc57600080fd5b6102d660406106b7565b905060006102e68482850161039e565b60008301525060206102fa8482850161018c565b60208301525092915050565b60006040828403121561031857600080fd5b61032260406106b7565b90506000610332848285016103b2565b6000830152506020610346848285016101a0565b60208301525092915050565b60006040828403121561036457600080fd5b61036e60406106b7565b9050600061037e8482850161039e565b60008301525060206103928482850161018c565b60208301525092915050565b60006103aa82356107ed565b905092915050565b60006103be82516107ed565b905092915050565b6000602082840312156103d857600080fd5b600082013567ffffffffffffffff8111156103f257600080fd5b6103fe848285016101b4565b91505092915050565b60006020828403121561041957600080fd5b600082015167ffffffffffffffff81111561043357600080fd5b61043f84828501610237565b91505092915050565b60006040828403121561045a57600080fd5b600061046884828501610352565b91505092915050565b600061047d83836105c0565b60408301905092915050565b600061049583836105ef565b60408301905092915050565b6104aa81610753565b82525050565b6104b981610753565b82525050565b6104c881610753565b82525050565b60006104d982610719565b6104e38185610731565b93506104ee8361070c565b60005b8281101561051c57610504868351610471565b955061050f82610724565b91506001810190506104f1565b50849250505092915050565b600061053382610719565b61053d8185610742565b93506105488361070c565b60005b828110156105765761055e868351610489565b955061056982610724565b915060018101905061054b565b50849250505092915050565b61058b81610765565b82525050565b6040820160008201516105a7600085018261061e565b5060208201516105ba60208501826104a1565b50505050565b6040820160008201516105d6600085018261061e565b5060208201516105e960208501826104a1565b50505050565b604082016000820151610605600085018261062d565b50602082015161061860208501826104bf565b50505050565b610627816107b1565b82525050565b610636816107b1565b82525050565b600060608201905061065160008301866104b0565b61065e6020830185610582565b81810360408301526106708184610528565b9050949350505050565b6000602082019050818103600083015261069481846104ce565b905092915050565b60006040820190506106b16000830184610591565b92915050565b6000604051905081810181811067ffffffffffffffff821117156106da57600080fd5b8060405250919050565b600067ffffffffffffffff8211156106fb57600080fd5b602082029050602081019050919050565b6000602082019050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600061075e82610791565b9050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b60006107c6826107cd565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600081905091905056fea265627a7a72305820373341cde468d0012de41140f8788142646ec2b8d59fecd7cf4163ebe86e9c636c6578706572696d656e74616cf50037",
+  "sourceMap": "85:480:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;85:480:7;;;;;;;",
+  "deployedSourceMap": "85:480:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;85:480:7;;;;;;;;;;;;;;;;;;;;;;;;156:180;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;342:221;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;156:180;245:28;;:::i;:::-;306:1;289:5;:13;;:18;;;;;;;;;;;324:5;317:12;;156:180;;;:::o;342:221::-;444:30;497:8;:12;518:4;525:20;;;547:8;497:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;497:59:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;497:59:7;;;;;;39:16:-1;36:1;17:17;2:54;497:59:7;101:4:-1;97:9;90:4;84;80:15;76:31;69:5;65:43;126:6;120:4;113:20;0:138;497:59:7;;;;;;;;;490:66;;342:221;;;:::o;85:480::-;;;;;;;;;;;;;;;;;;;;;:::o;5:118:-1:-;;72:46;110:6;97:20;72:46;;;63:55;;57:66;;;;;130:122;;208:39;239:6;233:13;208:39;;;199:48;;193:59;;;;;291:764;;427:3;420:4;412:6;408:17;404:27;394:2;;445:1;442;435:12;394:2;482:6;469:20;504:99;519:83;595:6;519:83;;;504:99;;;495:108;;620:5;645:6;638:5;631:21;675:4;667:6;663:17;653:27;;697:4;692:3;688:14;681:21;;750:6;797:3;789:4;781:6;777:17;772:3;768:27;765:36;762:2;;;814:1;811;804:12;762:2;839:1;824:225;849:6;846:1;843:13;824:225;;;907:3;929:56;981:3;969:10;929:56;;;924:3;917:69;1009:4;1004:3;1000:14;993:21;;1037:4;1032:3;1028:14;1021:21;;881:168;871:1;868;864:9;859:14;;824:225;;;828:14;387:668;;;;;;;;1095:779;;1242:3;1235:4;1227:6;1223:17;1219:27;1209:2;;1260:1;1257;1250:12;1209:2;1290:6;1284:13;1312:99;1327:83;1403:6;1327:83;;;1312:99;;;1303:108;;1428:5;1453:6;1446:5;1439:21;1483:4;1475:6;1471:17;1461:27;;1505:4;1500:3;1496:14;1489:21;;1558:6;1605:3;1597:4;1589:6;1585:17;1580:3;1576:27;1573:36;1570:2;;;1622:1;1619;1612:12;1570:2;1647:1;1632:236;1657:6;1654:1;1651:13;1632:236;;;1715:3;1737:67;1800:3;1788:10;1737:67;;;1732:3;1725:80;1828:4;1823:3;1819:14;1812:21;;1856:4;1851:3;1847:14;1840:21;;1689:179;1679:1;1676;1672:9;1667:14;;1632:236;;;1636:14;1202:672;;;;;;;;1910:464;;2018:4;2006:9;2001:3;1997:19;1993:30;1990:2;;;2036:1;2033;2026:12;1990:2;2054:20;2069:4;2054:20;;;2045:29;;2127:1;2158:49;2203:3;2194:6;2183:9;2179:22;2158:49;;;2152:3;2145:5;2141:15;2134:74;2084:135;2270:2;2303:49;2348:3;2339:6;2328:9;2324:22;2303:49;;;2296:4;2289:5;2285:16;2278:75;2229:135;1984:390;;;;;2409:497;;2528:4;2516:9;2511:3;2507:19;2503:30;2500:2;;;2546:1;2543;2536:12;2500:2;2564:20;2579:4;2564:20;;;2555:29;;2637:1;2668:60;2724:3;2715:6;2704:9;2700:22;2668:60;;;2662:3;2655:5;2651:15;2644:85;2594:146;2791:2;2824:60;2880:3;2871:6;2860:9;2856:22;2824:60;;;2817:4;2810:5;2806:16;2799:86;2750:146;2494:412;;;;;2941:468;;3053:4;3041:9;3036:3;3032:19;3028:30;3025:2;;;3071:1;3068;3061:12;3025:2;3089:20;3104:4;3089:20;;;3080:29;;3162:1;3193:49;3238:3;3229:6;3218:9;3214:22;3193:49;;;3187:3;3180:5;3176:15;3169:74;3119:135;3305:2;3338:49;3383:3;3374:6;3363:9;3359:22;3338:49;;;3331:4;3324:5;3320:16;3313:75;3264:135;3019:390;;;;;3416:118;;3483:46;3521:6;3508:20;3483:46;;;3474:55;;3468:66;;;;;3541:122;;3619:39;3650:6;3644:13;3619:39;;;3610:48;;3604:59;;;;;3670:415;;3818:2;3806:9;3797:7;3793:23;3789:32;3786:2;;;3834:1;3831;3824:12;3786:2;3897:1;3886:9;3882:17;3869:31;3920:18;3912:6;3909:30;3906:2;;;3952:1;3949;3942:12;3906:2;3972:97;4061:7;4052:6;4041:9;4037:22;3972:97;;;3962:107;;3848:227;3780:305;;;;;4092:430;;4251:2;4239:9;4230:7;4226:23;4222:32;4219:2;;;4267:1;4264;4257:12;4219:2;4323:1;4312:9;4308:17;4302:24;4346:18;4338:6;4335:30;4332:2;;;4378:1;4375;4368:12;4332:2;4398:108;4498:7;4489:6;4478:9;4474:22;4398:108;;;4388:118;;4281:231;4213:309;;;;;4529:287;;4656:2;4644:9;4635:7;4631:23;4627:32;4624:2;;;4672:1;4669;4662:12;4624:2;4707:1;4724:76;4792:7;4783:6;4772:9;4768:22;4724:76;;;4714:86;;4686:120;4618:198;;;;;4824:253;;4949:88;5033:3;5025:6;4949:88;;;5066:4;5061:3;5057:14;5043:28;;4942:135;;;;;5086:269;;5219:96;5311:3;5303:6;5219:96;;;5344:4;5339:3;5335:14;5321:28;;5212:143;;;;;5363:110;5436:31;5461:5;5436:31;;;5431:3;5424:44;5418:55;;;5480:128;5571:31;5596:5;5571:31;;;5566:3;5559:44;5553:55;;;5615:118;5696:31;5721:5;5696:31;;;5691:3;5684:44;5678:55;;;5799:773;;5982:73;6049:5;5982:73;;;6068:105;6166:6;6161:3;6068:105;;;6061:112;;6193:75;6262:5;6193:75;;;6289:1;6274:276;6299:6;6296:1;6293:13;6274:276;;;6346:101;6443:3;6434:6;6428:13;6346:101;;;6339:108;;6464:79;6536:6;6464:79;;;6454:89;;6321:1;6318;6314:9;6309:14;;6274:276;;;6278:14;6563:3;6556:10;;5961:611;;;;;;;6639:797;;6830:73;6897:5;6830:73;;;6916:113;7022:6;7017:3;6916:113;;;6909:120;;7049:75;7118:5;7049:75;;;7145:1;7130:284;7155:6;7152:1;7149:13;7130:284;;;7202:109;7307:3;7298:6;7292:13;7202:109;;;7195:116;;7328:79;7400:6;7328:79;;;7318:89;;7177:1;7174;7170:9;7165:14;;7130:284;;;7134:14;7427:3;7420:10;;6809:627;;;;;;;7444:125;7533:30;7557:5;7533:30;;;7528:3;7521:43;7515:54;;;7629:470;7768:4;7763:3;7759:14;7853:3;7846:5;7842:15;7836:22;7864:61;7920:3;7915;7911:13;7898:11;7864:61;;;7788:143;8004:4;7997:5;7993:16;7987:23;8016:62;8072:4;8067:3;8063:14;8050:11;8016:62;;;7941:143;7741:358;;;;8159:456;8284:4;8279:3;8275:14;8369:3;8362:5;8358:15;8352:22;8380:61;8436:3;8431;8427:13;8414:11;8380:61;;;8304:143;8520:4;8513:5;8509:16;8503:23;8532:62;8588:4;8583:3;8579:14;8566:11;8532:62;;;8457:143;8257:358;;;;8675:480;8808:4;8803:3;8799:14;8893:3;8886:5;8882:15;8876:22;8904:69;8968:3;8963;8959:13;8946:11;8904:69;;;8828:151;9052:4;9045:5;9041:16;9035:23;9064:70;9128:4;9123:3;9119:14;9106:11;9064:70;;;8989:151;8781:374;;;;9162:110;9235:31;9260:5;9235:31;;;9230:3;9223:44;9217:55;;;9279:118;9360:31;9385:5;9360:31;;;9355:3;9348:44;9342:55;;;9404:687;;9672:2;9661:9;9657:18;9649:26;;9686:79;9762:1;9751:9;9747:17;9738:6;9686:79;;;9776:78;9850:2;9839:9;9835:18;9826:6;9776:78;;;9902:9;9896:4;9892:20;9887:2;9876:9;9872:18;9865:48;9927:154;10076:4;10067:6;9927:154;;;9919:162;;9643:448;;;;;;;10098:437;;10304:2;10293:9;10289:18;10281:26;;10354:9;10348:4;10344:20;10340:1;10329:9;10325:17;10318:47;10379:146;10520:4;10511:6;10379:146;;;10371:154;;10275:260;;;;;10542:305;;10706:2;10695:9;10691:18;10683:26;;10720:117;10834:1;10823:9;10819:17;10810:6;10720:117;;;10677:170;;;;;10854:256;;10916:2;10910:9;10900:19;;10954:4;10946:6;10942:17;11053:6;11041:10;11038:22;11017:18;11005:10;11002:34;10999:62;10996:2;;;11074:1;11071;11064:12;10996:2;11094:10;11090:2;11083:22;10894:216;;;;;11117:277;;11295:18;11287:6;11284:30;11281:2;;;11327:1;11324;11317:12;11281:2;11356:4;11348:6;11344:17;11336:25;;11384:4;11378;11374:15;11366:23;;11218:176;;;;11403:140;;11531:4;11523:6;11519:17;11508:28;;11500:43;;;;11552:126;;11667:5;11661:12;11651:22;;11645:33;;;;11686:141;;11816:4;11808:6;11804:17;11793:28;;11786:41;;;;11836:197;;11985:6;11980:3;11973:19;12022:4;12017:3;12013:14;11998:29;;11966:67;;;;;12042:205;;12199:6;12194:3;12187:19;12236:4;12231:3;12227:14;12212:29;;12180:67;;;;;12255:105;;12324:31;12349:5;12324:31;;;12313:42;;12307:53;;;;12367:151;;12446:66;12439:5;12435:78;12424:89;;12418:100;;;;12525:128;;12605:42;12598:5;12594:54;12583:65;;12577:76;;;;12660:79;;12729:5;12718:16;;12712:27;;;;12746:105;;12815:31;12840:5;12815:31;;;12804:42;;12798:53;;;;12858:128;;12938:42;12931:5;12927:54;12916:65;;12910:76;;;;12993:79;;13062:5;13051:16;;13045:27;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport './typeALib.sol';\n\ncontract typeAAFunctions {\n    using typeALib for typeALib.TypeA;\n\n    function double(typeALib.TypeA memory typeA)\n        pure\n        public\n        returns(typeALib.TypeA memory result)\n    {\n        typeA.balance *= 2;\n        return typeA;\n    }\n\n    function doubleBalances(typeALib.TypeA[] memory typeAarr)\n        view\n        public\n        returns(typeALib.TypeA[] memory result)\n    {\n        return typeALib.map(address(this), this.double.selector, typeAarr);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeAAFunctions.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeAAFunctions.sol",
+    "exportedSymbols": {
+      "typeAAFunctions": [
+        2591
+      ]
+    },
+    "id": 2592,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2548,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:7"
+      },
+      {
+        "id": 2549,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:7"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol",
+        "file": "./typeALib.sol",
+        "id": 2550,
+        "nodeType": "ImportDirective",
+        "scope": 2592,
+        "sourceUnit": 3027,
+        "src": "59:24:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2591,
+        "linearizedBaseContracts": [
+          2591
+        ],
+        "name": "typeAAFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 2553,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2551,
+              "name": "typeALib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3026,
+              "src": "122:8:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeALib_$3026",
+                "typeString": "library typeALib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "116:34:7",
+            "typeName": {
+              "contractScope": null,
+              "id": 2552,
+              "name": "typeALib.TypeA",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2894,
+              "src": "135:14:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                "typeString": "struct typeALib.TypeA"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 2568,
+              "nodeType": "Block",
+              "src": "279:57:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2564,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2560,
+                        "name": "typeA",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2555,
+                        "src": "289:5:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory"
+                        }
+                      },
+                      "id": 2562,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "balance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2891,
+                      "src": "289:13:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "*=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "32",
+                      "id": 2563,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "306:1:7",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "src": "289:18:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2565,
+                  "nodeType": "ExpressionStatement",
+                  "src": "289:18:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2566,
+                    "name": "typeA",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2555,
+                    "src": "324:5:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                      "typeString": "struct typeALib.TypeA memory"
+                    }
+                  },
+                  "functionReturnParameters": 2559,
+                  "id": 2567,
+                  "nodeType": "Return",
+                  "src": "317:12:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2569,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "double",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2556,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2555,
+                  "name": "typeA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "172:27:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2554,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "172:14:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "171:29:7"
+            },
+            "returnParameters": {
+              "id": 2559,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2558,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "245:28:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2557,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "245:14:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "244:30:7"
+            },
+            "scope": 2591,
+            "src": "156:180:7",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2589,
+              "nodeType": "Block",
+              "src": "480:83:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 2581,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9211,
+                            "src": "518:4:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          ],
+                          "id": 2580,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "510:7:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": "address"
+                        },
+                        "id": 2582,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "510:13:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 2583,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9211,
+                            "src": "525:4:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          },
+                          "id": 2584,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "double",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2569,
+                          "src": "525:11:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_pure$_t_struct$_TypeA_$2894_memory_ptr_$returns$_t_struct$_TypeA_$2894_memory_ptr_$",
+                            "typeString": "function (struct typeALib.TypeA memory) pure external returns (struct typeALib.TypeA memory)"
+                          }
+                        },
+                        "id": 2585,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "selector",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "525:20:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2586,
+                        "name": "typeAarr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2572,
+                        "src": "547:8:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory[] memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2578,
+                        "name": "typeALib",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3026,
+                        "src": "497:8:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_typeALib_$3026_$",
+                          "typeString": "type(library typeALib)"
+                        }
+                      },
+                      "id": 2579,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "map",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3025,
+                      "src": "497:12:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_view$_t_address_$_t_bytes4_$_t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr_$returns$_t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr_$",
+                        "typeString": "function (address,bytes4,struct typeALib.TypeA memory[] memory) view returns (struct typeALib.TypeA memory[] memory)"
+                      }
+                    },
+                    "id": 2587,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "497:59:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                      "typeString": "struct typeALib.TypeA memory[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 2577,
+                  "id": 2588,
+                  "nodeType": "Return",
+                  "src": "490:66:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2590,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "doubleBalances",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2573,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2572,
+                  "name": "typeAarr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2590,
+                  "src": "366:32:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                    "typeString": "struct typeALib.TypeA[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2570,
+                      "name": "typeALib.TypeA",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2894,
+                      "src": "366:14:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                        "typeString": "struct typeALib.TypeA"
+                      }
+                    },
+                    "id": 2571,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "366:16:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_storage_$dyn_storage_ptr",
+                      "typeString": "struct typeALib.TypeA[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "365:34:7"
+            },
+            "returnParameters": {
+              "id": 2577,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2576,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2590,
+                  "src": "444:30:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                    "typeString": "struct typeALib.TypeA[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2574,
+                      "name": "typeALib.TypeA",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2894,
+                      "src": "444:14:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                        "typeString": "struct typeALib.TypeA"
+                      }
+                    },
+                    "id": 2575,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "444:16:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_storage_$dyn_storage_ptr",
+                      "typeString": "struct typeALib.TypeA[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "443:32:7"
+            },
+            "scope": 2591,
+            "src": "342:221:7",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2592,
+        "src": "85:480:7"
+      }
+    ],
+    "src": "0:566:7"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeAAFunctions.sol",
+    "exportedSymbols": {
+      "typeAAFunctions": [
+        2591
+      ]
+    },
+    "id": 2592,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2548,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:7"
+      },
+      {
+        "id": 2549,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:7"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol",
+        "file": "./typeALib.sol",
+        "id": 2550,
+        "nodeType": "ImportDirective",
+        "scope": 2592,
+        "sourceUnit": 3027,
+        "src": "59:24:7",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2591,
+        "linearizedBaseContracts": [
+          2591
+        ],
+        "name": "typeAAFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 2553,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2551,
+              "name": "typeALib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3026,
+              "src": "122:8:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeALib_$3026",
+                "typeString": "library typeALib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "116:34:7",
+            "typeName": {
+              "contractScope": null,
+              "id": 2552,
+              "name": "typeALib.TypeA",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2894,
+              "src": "135:14:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                "typeString": "struct typeALib.TypeA"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 2568,
+              "nodeType": "Block",
+              "src": "279:57:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2564,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2560,
+                        "name": "typeA",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2555,
+                        "src": "289:5:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory"
+                        }
+                      },
+                      "id": 2562,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "balance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2891,
+                      "src": "289:13:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "*=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "32",
+                      "id": 2563,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "306:1:7",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "src": "289:18:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2565,
+                  "nodeType": "ExpressionStatement",
+                  "src": "289:18:7"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2566,
+                    "name": "typeA",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2555,
+                    "src": "324:5:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                      "typeString": "struct typeALib.TypeA memory"
+                    }
+                  },
+                  "functionReturnParameters": 2559,
+                  "id": 2567,
+                  "nodeType": "Return",
+                  "src": "317:12:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2569,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "double",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2556,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2555,
+                  "name": "typeA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "172:27:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2554,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "172:14:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "171:29:7"
+            },
+            "returnParameters": {
+              "id": 2559,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2558,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2569,
+                  "src": "245:28:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2557,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "245:14:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "244:30:7"
+            },
+            "scope": 2591,
+            "src": "156:180:7",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2589,
+              "nodeType": "Block",
+              "src": "480:83:7",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 2581,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9211,
+                            "src": "518:4:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          ],
+                          "id": 2580,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "510:7:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": "address"
+                        },
+                        "id": 2582,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "510:13:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 2583,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9211,
+                            "src": "525:4:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_typeAAFunctions_$2591",
+                              "typeString": "contract typeAAFunctions"
+                            }
+                          },
+                          "id": 2584,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "double",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2569,
+                          "src": "525:11:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_pure$_t_struct$_TypeA_$2894_memory_ptr_$returns$_t_struct$_TypeA_$2894_memory_ptr_$",
+                            "typeString": "function (struct typeALib.TypeA memory) pure external returns (struct typeALib.TypeA memory)"
+                          }
+                        },
+                        "id": 2585,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "selector",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "525:20:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2586,
+                        "name": "typeAarr",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2572,
+                        "src": "547:8:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory[] memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        },
+                        {
+                          "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                          "typeString": "struct typeALib.TypeA memory[] memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2578,
+                        "name": "typeALib",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3026,
+                        "src": "497:8:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_typeALib_$3026_$",
+                          "typeString": "type(library typeALib)"
+                        }
+                      },
+                      "id": 2579,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "map",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3025,
+                      "src": "497:12:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_delegatecall_view$_t_address_$_t_bytes4_$_t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr_$returns$_t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr_$",
+                        "typeString": "function (address,bytes4,struct typeALib.TypeA memory[] memory) view returns (struct typeALib.TypeA memory[] memory)"
+                      }
+                    },
+                    "id": 2587,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "497:59:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                      "typeString": "struct typeALib.TypeA memory[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 2577,
+                  "id": 2588,
+                  "nodeType": "Return",
+                  "src": "490:66:7"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2590,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "doubleBalances",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2573,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2572,
+                  "name": "typeAarr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2590,
+                  "src": "366:32:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                    "typeString": "struct typeALib.TypeA[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2570,
+                      "name": "typeALib.TypeA",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2894,
+                      "src": "366:14:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                        "typeString": "struct typeALib.TypeA"
+                      }
+                    },
+                    "id": 2571,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "366:16:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_storage_$dyn_storage_ptr",
+                      "typeString": "struct typeALib.TypeA[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "365:34:7"
+            },
+            "returnParameters": {
+              "id": 2577,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2576,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2590,
+                  "src": "444:30:7",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_memory_$dyn_memory_ptr",
+                    "typeString": "struct typeALib.TypeA[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 2574,
+                      "name": "typeALib.TypeA",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 2894,
+                      "src": "444:14:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                        "typeString": "struct typeALib.TypeA"
+                      }
+                    },
+                    "id": 2575,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "444:16:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_TypeA_$2894_storage_$dyn_storage_ptr",
+                      "typeString": "struct typeALib.TypeA[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "443:32:7"
+            },
+            "scope": 2591,
+            "src": "342:221:7",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2592,
+        "src": "85:480:7"
+      }
+    ],
+    "src": "0:566:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {
+        "typeALib": "0x36a9C32724Bd55b32b3668Be26d3d8207d4CAad4"
+      },
+      "address": "0x486ba9339879A4393d8e32ecC4a8c6Acc45F6F39",
+      "transactionHash": "0xe87a72f166fd44758be13c555f37a52e2ce6664c3a4e97a83d8f9c5e5aae606a"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-28T08:56:05.671Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

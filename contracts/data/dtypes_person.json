@@ -1,8 +1,8 @@
 [
   {
-      "name": "markdown",
+      "name": "person",
       "types": [
-          {"name": "string", "label": "content", "relation": 0, "dimensions":[]}
+          {"name": "string", "label": "fullname", "relation": 0, "dimensions":[]}
       ],
       "optionals": [],
       "outputs": [],
