@@ -328,14 +328,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonStorage.sol",
     "exportedSymbols": {
       "PersonStorage": [
-        8393
+        8388
       ]
     },
-    "id": 8394,
+    "id": 8389,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8191,
+        "id": 8186,
         "literals": [
           "solidity",
           "^",
@@ -346,7 +346,7 @@
         "src": "0:23:32"
       },
       {
-        "id": 8192,
+        "id": 8187,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -357,10 +357,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/StorageBase.sol",
         "file": "../../StorageBase.sol",
-        "id": 8193,
+        "id": 8188,
         "nodeType": "ImportDirective",
-        "scope": 8394,
-        "sourceUnit": 1001,
+        "scope": 8389,
+        "sourceUnit": 996,
         "src": "59:31:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -368,10 +368,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
         "file": "./PersonLib.sol",
-        "id": 8194,
+        "id": 8189,
         "nodeType": "ImportDirective",
-        "scope": 8394,
-        "sourceUnit": 8190,
+        "scope": 8389,
+        "sourceUnit": 8185,
         "src": "91:25:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -382,46 +382,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 8195,
+              "id": 8190,
               "name": "StorageBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1000,
+              "referencedDeclaration": 995,
               "src": "144:11:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StorageBase_$1000",
+                "typeIdentifier": "t_contract$_StorageBase_$995",
                 "typeString": "contract StorageBase"
               }
             },
-            "id": 8196,
+            "id": 8191,
             "nodeType": "InheritanceSpecifier",
             "src": "144:11:32"
           }
         ],
         "contractDependencies": [
-          1000
+          995
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 8393,
+        "id": 8388,
         "linearizedBaseContracts": [
-          8393,
-          1000
+          8388,
+          995
         ],
         "name": "PersonStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 8199,
+            "id": 8194,
             "libraryName": {
               "contractScope": null,
-              "id": 8197,
+              "id": 8192,
               "name": "PersonLib",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8189,
+              "referencedDeclaration": 8184,
               "src": "168:9:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_PersonLib_$8189",
+                "typeIdentifier": "t_contract$_PersonLib_$8184",
                 "typeString": "library PersonLib"
               }
             },
@@ -429,34 +429,34 @@
             "src": "162:37:32",
             "typeName": {
               "contractScope": null,
-              "id": 8198,
+              "id": 8193,
               "name": "PersonLib.Person",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8126,
+              "referencedDeclaration": 8121,
               "src": "182:16:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                 "typeString": "struct PersonLib.Person"
               }
             }
           },
           {
             "constant": false,
-            "id": 8203,
+            "id": 8198,
             "name": "typeStruct",
             "nodeType": "VariableDeclaration",
-            "scope": 8393,
+            "scope": 8388,
             "src": "205:42:32",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
               "typeString": "mapping(bytes32 => struct PersonStorage.Type)"
             },
             "typeName": {
-              "id": 8202,
+              "id": 8197,
               "keyType": {
-                "id": 8200,
+                "id": 8195,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
                 "src": "213:7:32",
@@ -468,18 +468,18 @@
               "nodeType": "Mapping",
               "src": "205:24:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                 "typeString": "mapping(bytes32 => struct PersonStorage.Type)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 8201,
+                "id": 8196,
                 "name": "Type",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 8208,
+                "referencedDeclaration": 8203,
                 "src": "224:4:32",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Type_$8208_storage_ptr",
+                  "typeIdentifier": "t_struct$_Type_$8203_storage_ptr",
                   "typeString": "struct PersonStorage.Type"
                 }
               }
@@ -489,30 +489,30 @@
           },
           {
             "canonicalName": "PersonStorage.Type",
-            "id": 8208,
+            "id": 8203,
             "members": [
               {
                 "constant": false,
-                "id": 8205,
+                "id": 8200,
                 "name": "data",
                 "nodeType": "VariableDeclaration",
-                "scope": 8208,
+                "scope": 8203,
                 "src": "276:21:32",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                  "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                   "typeString": "struct PersonLib.Person"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 8204,
+                  "id": 8199,
                   "name": "PersonLib.Person",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 8126,
+                  "referencedDeclaration": 8121,
                   "src": "276:16:32",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                     "typeString": "struct PersonLib.Person"
                   }
                 },
@@ -521,10 +521,10 @@
               },
               {
                 "constant": false,
-                "id": 8207,
+                "id": 8202,
                 "name": "index",
                 "nodeType": "VariableDeclaration",
-                "scope": 8208,
+                "scope": 8203,
                 "src": "307:13:32",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -533,7 +533,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8206,
+                  "id": 8201,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "307:7:32",
@@ -548,13 +548,13 @@
             ],
             "name": "Type",
             "nodeType": "StructDefinition",
-            "scope": 8393,
+            "scope": 8388,
             "src": "254:73:32",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 8220,
+              "id": 8215,
               "nodeType": "Block",
               "src": "370:77:32",
               "statements": [
@@ -567,11 +567,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 8214,
+                            "id": 8209,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8210,
+                            "referencedDeclaration": 8205,
                             "src": "397:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -586,18 +586,18 @@
                               "typeString": "bytes32"
                             }
                           ],
-                          "id": 8213,
+                          "id": 8208,
                           "name": "isStored",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8379,
+                          "referencedDeclaration": 8374,
                           "src": "388:8:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                             "typeString": "function (bytes32) view returns (bool)"
                           }
                         },
-                        "id": 8215,
+                        "id": 8210,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -614,7 +614,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f2073756368206461746120696e7365727465642e",
-                        "id": 8216,
+                        "id": 8211,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -641,21 +641,21 @@
                           "typeString": "literal_string \"No such data inserted.\""
                         }
                       ],
-                      "id": 8212,
+                      "id": 8207,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10305,
-                        10306
+                        10300,
+                        10301
                       ],
-                      "referencedDeclaration": 10306,
+                      "referencedDeclaration": 10301,
                       "src": "380:7:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 8217,
+                    "id": 8212,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -669,31 +669,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8218,
+                  "id": 8213,
                   "nodeType": "ExpressionStatement",
                   "src": "380:49:32"
                 },
                 {
-                  "id": 8219,
+                  "id": 8214,
                   "nodeType": "PlaceholderStatement",
                   "src": "439:1:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8221,
+            "id": 8216,
             "name": "dataIsStored",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 8211,
+              "id": 8206,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8210,
+                  "id": 8205,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8221,
+                  "scope": 8216,
                   "src": "356:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -702,7 +702,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8209,
+                    "id": 8204,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "356:7:32",
@@ -722,21 +722,21 @@
           },
           {
             "body": {
-              "id": 8272,
+              "id": 8267,
               "nodeType": "Block",
               "src": "529:334:32",
               "statements": [
                 {
                   "assignments": [
-                    8229
+                    8224
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8229,
+                      "id": 8224,
                       "name": "hash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8272,
+                      "scope": 8267,
                       "src": "569:12:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -745,7 +745,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 8228,
+                        "id": 8223,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "569:7:32",
@@ -758,7 +758,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8233,
+                  "id": 8228,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -766,32 +766,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8230,
+                        "id": 8225,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8223,
+                        "referencedDeclaration": 8218,
                         "src": "584:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       },
-                      "id": 8231,
+                      "id": 8226,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getDataHash",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8157,
+                      "referencedDeclaration": 8152,
                       "src": "584:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Person_$8126_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Person_$8126_memory_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Person_$8121_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Person_$8121_memory_ptr_$",
                         "typeString": "function (struct PersonLib.Person memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 8232,
+                    "id": 8227,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -814,11 +814,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8235,
+                        "id": 8230,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8229,
+                        "referencedDeclaration": 8224,
                         "src": "625:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -833,18 +833,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 8234,
+                      "id": 8229,
                       "name": "isStored",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8379,
+                      "referencedDeclaration": 8374,
                       "src": "616:8:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                         "typeString": "function (bytes32) view returns (bool)"
                       }
                     },
-                    "id": 8236,
+                    "id": 8231,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -859,7 +859,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8241,
+                  "id": 8236,
                   "nodeType": "IfStatement",
                   "src": "613:67:32",
                   "trueBody": {
@@ -869,7 +869,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "546869732064617461206578697374732e205573652074686520657874616e7420646174612e",
-                          "id": 8238,
+                          "id": 8233,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -892,21 +892,21 @@
                             "typeString": "literal_string \"This data exists. Use the extant data.\""
                           }
                         ],
-                        "id": 8237,
+                        "id": 8232,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "632:6:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 8239,
+                      "id": 8234,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -920,7 +920,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 8240,
+                    "id": 8235,
                     "nodeType": "ExpressionStatement",
                     "src": "632:48:32"
                   }
@@ -931,14 +931,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8247,
+                        "id": 8242,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8223,
+                        "referencedDeclaration": 8218,
                         "src": "720:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -946,7 +946,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
@@ -956,25 +956,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8242,
+                            "id": 8237,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8203,
+                            "referencedDeclaration": 8198,
                             "src": "691:10:32",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                               "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                             }
                           },
-                          "id": 8244,
+                          "id": 8239,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 8243,
+                            "id": 8238,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "702:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -988,39 +988,39 @@
                           "nodeType": "IndexAccess",
                           "src": "691:16:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$8208_storage",
+                            "typeIdentifier": "t_struct$_Type_$8203_storage",
                             "typeString": "struct PersonStorage.Type storage ref"
                           }
                         },
-                        "id": 8245,
+                        "id": 8240,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "data",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 8205,
+                        "referencedDeclaration": 8200,
                         "src": "691:21:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_storage",
+                          "typeIdentifier": "t_struct$_Person_$8121_storage",
                           "typeString": "struct PersonLib.Person storage ref"
                         }
                       },
-                      "id": 8246,
+                      "id": 8241,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "insert",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8141,
+                      "referencedDeclaration": 8136,
                       "src": "691:28:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8126_storage_ptr_$_t_struct$_Person_$8126_memory_ptr_$returns$__$bound_to$_t_struct$_Person_$8126_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8121_storage_ptr_$_t_struct$_Person_$8121_memory_ptr_$returns$__$bound_to$_t_struct$_Person_$8121_storage_ptr_$",
                         "typeString": "function (struct PersonLib.Person storage pointer,struct PersonLib.Person memory)"
                       }
                     },
-                    "id": 8248,
+                    "id": 8243,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1034,14 +1034,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8249,
+                  "id": 8244,
                   "nodeType": "ExpressionStatement",
                   "src": "691:34:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8260,
+                    "id": 8255,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1052,25 +1052,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 8250,
+                          "id": 8245,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8203,
+                          "referencedDeclaration": 8198,
                           "src": "735:10:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                             "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                           }
                         },
-                        "id": 8252,
+                        "id": 8247,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 8251,
+                          "id": 8246,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8229,
+                          "referencedDeclaration": 8224,
                           "src": "746:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1084,18 +1084,18 @@
                         "nodeType": "IndexAccess",
                         "src": "735:16:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$8208_storage",
+                          "typeIdentifier": "t_struct$_Type_$8203_storage",
                           "typeString": "struct PersonStorage.Type storage ref"
                         }
                       },
-                      "id": 8253,
+                      "id": 8248,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8207,
+                      "referencedDeclaration": 8202,
                       "src": "735:22:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1110,7 +1110,7 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 8259,
+                      "id": 8254,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1120,11 +1120,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 8256,
+                            "id": 8251,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "775:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1141,18 +1141,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 8254,
+                            "id": 8249,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "760:9:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 8255,
+                          "id": 8250,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1166,7 +1166,7 @@
                             "typeString": "function (bytes32) returns (uint256)"
                           }
                         },
-                        "id": 8257,
+                        "id": 8252,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1185,7 +1185,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 8258,
+                        "id": 8253,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1212,7 +1212,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8261,
+                  "id": 8256,
                   "nodeType": "ExpressionStatement",
                   "src": "735:49:32"
                 },
@@ -1222,11 +1222,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8263,
+                        "id": 8258,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8229,
+                        "referencedDeclaration": 8224,
                         "src": "806:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1239,25 +1239,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8264,
+                            "id": 8259,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8203,
+                            "referencedDeclaration": 8198,
                             "src": "812:10:32",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                               "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                             }
                           },
-                          "id": 8266,
+                          "id": 8261,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 8265,
+                            "id": 8260,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "823:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -1271,18 +1271,18 @@
                           "nodeType": "IndexAccess",
                           "src": "812:16:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$8208_storage",
+                            "typeIdentifier": "t_struct$_Type_$8203_storage",
                             "typeString": "struct PersonStorage.Type storage ref"
                           }
                         },
-                        "id": 8267,
+                        "id": 8262,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "index",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 8207,
+                        "referencedDeclaration": 8202,
                         "src": "812:22:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1301,18 +1301,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8262,
+                      "id": 8257,
                       "name": "LogNew",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 948,
+                      "referencedDeclaration": 943,
                       "src": "799:6:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8268,
+                    "id": 8263,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1326,64 +1326,64 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8269,
+                  "id": 8264,
                   "nodeType": "EmitStatement",
                   "src": "794:41:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8270,
+                    "id": 8265,
                     "name": "hash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 8229,
+                    "referencedDeclaration": 8224,
                     "src": "852:4:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8227,
-                  "id": 8271,
+                  "functionReturnParameters": 8222,
+                  "id": 8266,
                   "nodeType": "Return",
                   "src": "845:11:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8273,
+            "id": 8268,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8224,
+              "id": 8219,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8223,
+                  "id": 8218,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8273,
+                  "scope": 8268,
                   "src": "469:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8222,
+                    "id": 8217,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "469:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1394,15 +1394,15 @@
               "src": "468:30:32"
             },
             "returnParameters": {
-              "id": 8227,
+              "id": 8222,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8226,
+                  "id": 8221,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8273,
+                  "scope": 8268,
                   "src": "515:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1411,7 +1411,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8225,
+                    "id": 8220,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "515:7:32",
@@ -1426,7 +1426,7 @@
               ],
               "src": "514:14:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "453:410:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1434,7 +1434,7 @@
           },
           {
             "body": {
-              "id": 8290,
+              "id": 8285,
               "nodeType": "Block",
               "src": "979:59:32",
               "statements": [
@@ -1444,11 +1444,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8283,
+                        "id": 8278,
                         "name": "hashi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8275,
+                        "referencedDeclaration": 8270,
                         "src": "996:5:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1463,18 +1463,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 8282,
+                      "id": 8277,
                       "name": "remove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8354,
+                      "referencedDeclaration": 8349,
                       "src": "989:6:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$returns$_t_uint256_$",
                         "typeString": "function (bytes32) returns (uint256)"
                       }
                     },
-                    "id": 8284,
+                    "id": 8279,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1488,7 +1488,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8285,
+                  "id": 8280,
                   "nodeType": "ExpressionStatement",
                   "src": "989:13:32"
                 },
@@ -1498,14 +1498,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8287,
+                        "id": 8282,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8277,
+                        "referencedDeclaration": 8272,
                         "src": "1026:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -1513,22 +1513,22 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
-                      "id": 8286,
+                      "id": 8281,
                       "name": "insert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8273,
+                      "referencedDeclaration": 8268,
                       "src": "1019:6:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8126_memory_ptr_$returns$_t_bytes32_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8121_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (struct PersonLib.Person memory) returns (bytes32)"
                       }
                     },
-                    "id": 8288,
+                    "id": 8283,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1542,30 +1542,30 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8281,
-                  "id": 8289,
+                  "functionReturnParameters": 8276,
+                  "id": 8284,
                   "nodeType": "Return",
                   "src": "1012:19:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8291,
+            "id": 8286,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "update",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8278,
+              "id": 8273,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8275,
+                  "id": 8270,
                   "name": "hashi",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "885:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1574,7 +1574,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8274,
+                    "id": 8269,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "885:7:32",
@@ -1588,26 +1588,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 8277,
+                  "id": 8272,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "900:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8276,
+                    "id": 8271,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "900:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1618,15 +1618,15 @@
               "src": "884:45:32"
             },
             "returnParameters": {
-              "id": 8281,
+              "id": 8276,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8280,
+                  "id": 8275,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "961:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1635,7 +1635,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8279,
+                    "id": 8274,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "961:7:32",
@@ -1650,7 +1650,7 @@
               ],
               "src": "960:14:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "869:169:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1658,14 +1658,14 @@
           },
           {
             "body": {
-              "id": 8353,
+              "id": 8348,
               "nodeType": "Block",
               "src": "1104:425:32",
               "statements": [
                 {
                   "condition": {
                     "argumentTypes": null,
-                    "id": 8301,
+                    "id": 8296,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1679,11 +1679,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 8299,
+                          "id": 8294,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8293,
+                          "referencedDeclaration": 8288,
                           "src": "1127:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1698,18 +1698,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 8298,
+                        "id": 8293,
                         "name": "isStored",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8379,
+                        "referencedDeclaration": 8374,
                         "src": "1118:8:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                           "typeString": "function (bytes32) view returns (bool)"
                         }
                       },
-                      "id": 8300,
+                      "id": 8295,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1729,7 +1729,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8306,
+                  "id": 8301,
                   "nodeType": "IfStatement",
                   "src": "1114:54:32",
                   "trueBody": {
@@ -1739,7 +1739,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "4e6f742064656c657465643a206e6f7420657874616e742e",
-                          "id": 8303,
+                          "id": 8298,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1762,21 +1762,21 @@
                             "typeString": "literal_string \"Not deleted: not extant.\""
                           }
                         ],
-                        "id": 8302,
+                        "id": 8297,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "1134:6:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 8304,
+                      "id": 8299,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1790,22 +1790,22 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 8305,
+                    "id": 8300,
                     "nodeType": "ExpressionStatement",
                     "src": "1134:34:32"
                   }
                 },
                 {
                   "assignments": [
-                    8308
+                    8303
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8308,
+                      "id": 8303,
                       "name": "rowToDelete",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8353,
+                      "scope": 8348,
                       "src": "1178:16:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1814,7 +1814,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 8307,
+                        "id": 8302,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "1178:4:32",
@@ -1827,32 +1827,32 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8313,
+                  "id": 8308,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8309,
+                        "id": 8304,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8203,
+                        "referencedDeclaration": 8198,
                         "src": "1197:10:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                           "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                         }
                       },
-                      "id": 8311,
+                      "id": 8306,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8310,
+                        "id": 8305,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8293,
+                        "referencedDeclaration": 8288,
                         "src": "1208:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1866,18 +1866,18 @@
                       "nodeType": "IndexAccess",
                       "src": "1197:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$8208_storage",
+                        "typeIdentifier": "t_struct$_Type_$8203_storage",
                         "typeString": "struct PersonStorage.Type storage ref"
                       }
                     },
-                    "id": 8312,
+                    "id": 8307,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "index",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 8207,
+                    "referencedDeclaration": 8202,
                     "src": "1197:22:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -1889,15 +1889,15 @@
                 },
                 {
                   "assignments": [
-                    8315
+                    8310
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8315,
+                      "id": 8310,
                       "name": "keyToMove",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8353,
+                      "scope": 8348,
                       "src": "1229:17:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -1906,7 +1906,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 8314,
+                        "id": 8309,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1229:7:32",
@@ -1919,30 +1919,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8322,
+                  "id": 8317,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 8316,
+                      "id": 8311,
                       "name": "typeIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 942,
+                      "referencedDeclaration": 937,
                       "src": "1249:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                         "typeString": "bytes32[] storage ref"
                       }
                     },
-                    "id": 8321,
+                    "id": 8316,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 8320,
+                      "id": 8315,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1951,18 +1951,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8317,
+                          "id": 8312,
                           "name": "typeIndex",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 942,
+                          "referencedDeclaration": 937,
                           "src": "1259:9:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                             "typeString": "bytes32[] storage ref"
                           }
                         },
-                        "id": 8318,
+                        "id": 8313,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -1981,7 +1981,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 8319,
+                        "id": 8314,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2019,7 +2019,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8327,
+                    "id": 8322,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2028,25 +2028,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8323,
+                        "id": 8318,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1288:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8325,
+                      "id": 8320,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8324,
+                        "id": 8319,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1298:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2068,11 +2068,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 8326,
+                      "id": 8321,
                       "name": "keyToMove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8315,
+                      "referencedDeclaration": 8310,
                       "src": "1313:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -2085,14 +2085,14 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 8328,
+                  "id": 8323,
                   "nodeType": "ExpressionStatement",
                   "src": "1288:34:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8334,
+                    "id": 8329,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2103,25 +2103,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 8329,
+                          "id": 8324,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8203,
+                          "referencedDeclaration": 8198,
                           "src": "1332:10:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                             "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                           }
                         },
-                        "id": 8331,
+                        "id": 8326,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 8330,
+                          "id": 8325,
                           "name": "keyToMove",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8315,
+                          "referencedDeclaration": 8310,
                           "src": "1343:9:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -2135,18 +2135,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1332:21:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$8208_storage",
+                          "typeIdentifier": "t_struct$_Type_$8203_storage",
                           "typeString": "struct PersonStorage.Type storage ref"
                         }
                       },
-                      "id": 8332,
+                      "id": 8327,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8207,
+                      "referencedDeclaration": 8202,
                       "src": "1332:27:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2157,11 +2157,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 8333,
+                      "id": 8328,
                       "name": "rowToDelete",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8308,
+                      "referencedDeclaration": 8303,
                       "src": "1362:11:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2174,14 +2174,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8335,
+                  "id": 8330,
                   "nodeType": "ExpressionStatement",
                   "src": "1332:41:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8339,
+                    "id": 8334,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2194,18 +2194,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8336,
+                        "id": 8331,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1383:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8338,
+                      "id": 8333,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2224,7 +2224,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8340,
+                  "id": 8335,
                   "nodeType": "ExpressionStatement",
                   "src": "1383:18:32"
                 },
@@ -2234,11 +2234,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8342,
+                        "id": 8337,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8293,
+                        "referencedDeclaration": 8288,
                         "src": "1427:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2247,11 +2247,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8343,
+                        "id": 8338,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1433:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2270,18 +2270,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8341,
+                      "id": 8336,
                       "name": "LogRemove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 960,
+                      "referencedDeclaration": 955,
                       "src": "1417:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8344,
+                    "id": 8339,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2295,7 +2295,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8345,
+                  "id": 8340,
                   "nodeType": "EmitStatement",
                   "src": "1412:33:32"
                 },
@@ -2305,11 +2305,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8347,
+                        "id": 8342,
                         "name": "keyToMove",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8315,
+                        "referencedDeclaration": 8310,
                         "src": "1471:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2318,11 +2318,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8348,
+                        "id": 8343,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1482:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2341,18 +2341,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8346,
+                      "id": 8341,
                       "name": "LogUpdate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 954,
+                      "referencedDeclaration": 949,
                       "src": "1461:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8349,
+                    "id": 8344,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2366,48 +2366,48 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8350,
+                  "id": 8345,
                   "nodeType": "EmitStatement",
                   "src": "1456:38:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8351,
+                    "id": 8346,
                     "name": "rowToDelete",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 8308,
+                    "referencedDeclaration": 8303,
                     "src": "1511:11:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 8297,
-                  "id": 8352,
+                  "functionReturnParameters": 8292,
+                  "id": 8347,
                   "nodeType": "Return",
                   "src": "1504:18:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8354,
+            "id": 8349,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8294,
+              "id": 8289,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8293,
+                  "id": 8288,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8354,
+                  "scope": 8349,
                   "src": "1060:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2416,7 +2416,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8292,
+                    "id": 8287,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1060:7:32",
@@ -2432,15 +2432,15 @@
               "src": "1059:14:32"
             },
             "returnParameters": {
-              "id": 8297,
+              "id": 8292,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8296,
+                  "id": 8291,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8354,
+                  "scope": 8349,
                   "src": "1089:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2449,7 +2449,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8295,
+                    "id": 8290,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1089:7:32",
@@ -2464,7 +2464,7 @@
               ],
               "src": "1088:15:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1044:485:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2472,7 +2472,7 @@
           },
           {
             "body": {
-              "id": 8378,
+              "id": 8373,
               "nodeType": "Block",
               "src": "1602:115:32",
               "statements": [
@@ -2483,7 +2483,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 8364,
+                    "id": 8359,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2492,18 +2492,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8361,
+                        "id": 8356,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1615:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8362,
+                      "id": 8357,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2522,7 +2522,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 8363,
+                      "id": 8358,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2544,14 +2544,14 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8367,
+                  "id": 8362,
                   "nodeType": "IfStatement",
                   "src": "1612:38:32",
                   "trueBody": {
                     "expression": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 8365,
+                      "id": 8360,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2566,8 +2566,8 @@
                       },
                       "value": "false"
                     },
-                    "functionReturnParameters": 8360,
-                    "id": 8366,
+                    "functionReturnParameters": 8355,
+                    "id": 8361,
                     "nodeType": "Return",
                     "src": "1638:12:32"
                   }
@@ -2582,7 +2582,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 8375,
+                        "id": 8370,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2591,43 +2591,43 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8368,
+                            "id": 8363,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "1668:9:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 8373,
+                          "id": 8368,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 8369,
+                                "id": 8364,
                                 "name": "typeStruct",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8203,
+                                "referencedDeclaration": 8198,
                                 "src": "1678:10:32",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                                   "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                                 }
                               },
-                              "id": 8371,
+                              "id": 8366,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 8370,
+                                "id": 8365,
                                 "name": "hash",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8356,
+                                "referencedDeclaration": 8351,
                                 "src": "1689:4:32",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -2641,18 +2641,18 @@
                               "nodeType": "IndexAccess",
                               "src": "1678:16:32",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Type_$8208_storage",
+                                "typeIdentifier": "t_struct$_Type_$8203_storage",
                                 "typeString": "struct PersonStorage.Type storage ref"
                               }
                             },
-                            "id": 8372,
+                            "id": 8367,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "index",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 8207,
+                            "referencedDeclaration": 8202,
                             "src": "1678:22:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -2674,11 +2674,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 8374,
+                          "id": 8369,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8356,
+                          "referencedDeclaration": 8351,
                           "src": "1705:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -2692,7 +2692,7 @@
                         }
                       }
                     ],
-                    "id": 8376,
+                    "id": 8371,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2705,30 +2705,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 8360,
-                  "id": 8377,
+                  "functionReturnParameters": 8355,
+                  "id": 8372,
                   "nodeType": "Return",
                   "src": "1660:50:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8379,
+            "id": 8374,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isStored",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8357,
+              "id": 8352,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8356,
+                  "id": 8351,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8379,
+                  "scope": 8374,
                   "src": "1553:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2737,7 +2737,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8355,
+                    "id": 8350,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1553:7:32",
@@ -2753,15 +2753,15 @@
               "src": "1552:14:32"
             },
             "returnParameters": {
-              "id": 8360,
+              "id": 8355,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8359,
+                  "id": 8354,
                   "name": "isIndeed",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8379,
+                  "scope": 8374,
                   "src": "1587:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2770,7 +2770,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8358,
+                    "id": 8353,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1587:4:32",
@@ -2785,7 +2785,7 @@
               ],
               "src": "1586:15:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1535:182:32",
             "stateMutability": "view",
             "superFunction": null,
@@ -2793,7 +2793,7 @@
           },
           {
             "body": {
-              "id": 8391,
+              "id": 8386,
               "nodeType": "Block",
               "src": "1806:45:32",
               "statements": [
@@ -2804,25 +2804,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8386,
+                        "id": 8381,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8203,
+                        "referencedDeclaration": 8198,
                         "src": "1823:10:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                           "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                         }
                       },
-                      "id": 8388,
+                      "id": 8383,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8387,
+                        "id": 8382,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8381,
+                        "referencedDeclaration": 8376,
                         "src": "1834:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -2836,48 +2836,48 @@
                       "nodeType": "IndexAccess",
                       "src": "1823:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$8208_storage",
+                        "typeIdentifier": "t_struct$_Type_$8203_storage",
                         "typeString": "struct PersonStorage.Type storage ref"
                       }
                     },
-                    "id": 8389,
+                    "id": 8384,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "data",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 8205,
+                    "referencedDeclaration": 8200,
                     "src": "1823:21:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage",
                       "typeString": "struct PersonLib.Person storage ref"
                     }
                   },
-                  "functionReturnParameters": 8385,
-                  "id": 8390,
+                  "functionReturnParameters": 8380,
+                  "id": 8385,
                   "nodeType": "Return",
                   "src": "1816:28:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8392,
+            "id": 8387,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getByHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8382,
+              "id": 8377,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8381,
+                  "id": 8376,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8392,
+                  "scope": 8387,
                   "src": "1742:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2886,7 +2886,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8380,
+                    "id": 8375,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1742:7:32",
@@ -2902,31 +2902,31 @@
               "src": "1741:14:32"
             },
             "returnParameters": {
-              "id": 8385,
+              "id": 8380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8384,
+                  "id": 8379,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8392,
+                  "scope": 8387,
                   "src": "1776:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8383,
+                    "id": 8378,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "1776:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -2936,14 +2936,14 @@
               ],
               "src": "1775:30:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1723:128:32",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 8394,
+        "scope": 8389,
         "src": "118:1735:32"
       }
     ],
@@ -2953,14 +2953,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonStorage.sol",
     "exportedSymbols": {
       "PersonStorage": [
-        8393
+        8388
       ]
     },
-    "id": 8394,
+    "id": 8389,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8191,
+        "id": 8186,
         "literals": [
           "solidity",
           "^",
@@ -2971,7 +2971,7 @@
         "src": "0:23:32"
       },
       {
-        "id": 8192,
+        "id": 8187,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -2982,10 +2982,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/StorageBase.sol",
         "file": "../../StorageBase.sol",
-        "id": 8193,
+        "id": 8188,
         "nodeType": "ImportDirective",
-        "scope": 8394,
-        "sourceUnit": 1001,
+        "scope": 8389,
+        "sourceUnit": 996,
         "src": "59:31:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2993,10 +2993,10 @@
       {
         "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
         "file": "./PersonLib.sol",
-        "id": 8194,
+        "id": 8189,
         "nodeType": "ImportDirective",
-        "scope": 8394,
-        "sourceUnit": 8190,
+        "scope": 8389,
+        "sourceUnit": 8185,
         "src": "91:25:32",
         "symbolAliases": [],
         "unitAlias": ""
@@ -3007,46 +3007,46 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 8195,
+              "id": 8190,
               "name": "StorageBase",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1000,
+              "referencedDeclaration": 995,
               "src": "144:11:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StorageBase_$1000",
+                "typeIdentifier": "t_contract$_StorageBase_$995",
                 "typeString": "contract StorageBase"
               }
             },
-            "id": 8196,
+            "id": 8191,
             "nodeType": "InheritanceSpecifier",
             "src": "144:11:32"
           }
         ],
         "contractDependencies": [
-          1000
+          995
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 8393,
+        "id": 8388,
         "linearizedBaseContracts": [
-          8393,
-          1000
+          8388,
+          995
         ],
         "name": "PersonStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "id": 8199,
+            "id": 8194,
             "libraryName": {
               "contractScope": null,
-              "id": 8197,
+              "id": 8192,
               "name": "PersonLib",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8189,
+              "referencedDeclaration": 8184,
               "src": "168:9:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_PersonLib_$8189",
+                "typeIdentifier": "t_contract$_PersonLib_$8184",
                 "typeString": "library PersonLib"
               }
             },
@@ -3054,34 +3054,34 @@
             "src": "162:37:32",
             "typeName": {
               "contractScope": null,
-              "id": 8198,
+              "id": 8193,
               "name": "PersonLib.Person",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8126,
+              "referencedDeclaration": 8121,
               "src": "182:16:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                 "typeString": "struct PersonLib.Person"
               }
             }
           },
           {
             "constant": false,
-            "id": 8203,
+            "id": 8198,
             "name": "typeStruct",
             "nodeType": "VariableDeclaration",
-            "scope": 8393,
+            "scope": 8388,
             "src": "205:42:32",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
               "typeString": "mapping(bytes32 => struct PersonStorage.Type)"
             },
             "typeName": {
-              "id": 8202,
+              "id": 8197,
               "keyType": {
-                "id": 8200,
+                "id": 8195,
                 "name": "bytes32",
                 "nodeType": "ElementaryTypeName",
                 "src": "213:7:32",
@@ -3093,18 +3093,18 @@
               "nodeType": "Mapping",
               "src": "205:24:32",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                 "typeString": "mapping(bytes32 => struct PersonStorage.Type)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 8201,
+                "id": 8196,
                 "name": "Type",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 8208,
+                "referencedDeclaration": 8203,
                 "src": "224:4:32",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Type_$8208_storage_ptr",
+                  "typeIdentifier": "t_struct$_Type_$8203_storage_ptr",
                   "typeString": "struct PersonStorage.Type"
                 }
               }
@@ -3114,30 +3114,30 @@
           },
           {
             "canonicalName": "PersonStorage.Type",
-            "id": 8208,
+            "id": 8203,
             "members": [
               {
                 "constant": false,
-                "id": 8205,
+                "id": 8200,
                 "name": "data",
                 "nodeType": "VariableDeclaration",
-                "scope": 8208,
+                "scope": 8203,
                 "src": "276:21:32",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                  "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                   "typeString": "struct PersonLib.Person"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 8204,
+                  "id": 8199,
                   "name": "PersonLib.Person",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 8126,
+                  "referencedDeclaration": 8121,
                   "src": "276:16:32",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                     "typeString": "struct PersonLib.Person"
                   }
                 },
@@ -3146,10 +3146,10 @@
               },
               {
                 "constant": false,
-                "id": 8207,
+                "id": 8202,
                 "name": "index",
                 "nodeType": "VariableDeclaration",
-                "scope": 8208,
+                "scope": 8203,
                 "src": "307:13:32",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -3158,7 +3158,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 8206,
+                  "id": 8201,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "307:7:32",
@@ -3173,13 +3173,13 @@
             ],
             "name": "Type",
             "nodeType": "StructDefinition",
-            "scope": 8393,
+            "scope": 8388,
             "src": "254:73:32",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 8220,
+              "id": 8215,
               "nodeType": "Block",
               "src": "370:77:32",
               "statements": [
@@ -3192,11 +3192,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 8214,
+                            "id": 8209,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8210,
+                            "referencedDeclaration": 8205,
                             "src": "397:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3211,18 +3211,18 @@
                               "typeString": "bytes32"
                             }
                           ],
-                          "id": 8213,
+                          "id": 8208,
                           "name": "isStored",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8379,
+                          "referencedDeclaration": 8374,
                           "src": "388:8:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                             "typeString": "function (bytes32) view returns (bool)"
                           }
                         },
-                        "id": 8215,
+                        "id": 8210,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3239,7 +3239,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4e6f2073756368206461746120696e7365727465642e",
-                        "id": 8216,
+                        "id": 8211,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3266,21 +3266,21 @@
                           "typeString": "literal_string \"No such data inserted.\""
                         }
                       ],
-                      "id": 8212,
+                      "id": 8207,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        10305,
-                        10306
+                        10300,
+                        10301
                       ],
-                      "referencedDeclaration": 10306,
+                      "referencedDeclaration": 10301,
                       "src": "380:7:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 8217,
+                    "id": 8212,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3294,31 +3294,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8218,
+                  "id": 8213,
                   "nodeType": "ExpressionStatement",
                   "src": "380:49:32"
                 },
                 {
-                  "id": 8219,
+                  "id": 8214,
                   "nodeType": "PlaceholderStatement",
                   "src": "439:1:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8221,
+            "id": 8216,
             "name": "dataIsStored",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 8211,
+              "id": 8206,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8210,
+                  "id": 8205,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8221,
+                  "scope": 8216,
                   "src": "356:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3327,7 +3327,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8209,
+                    "id": 8204,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "356:7:32",
@@ -3347,21 +3347,21 @@
           },
           {
             "body": {
-              "id": 8272,
+              "id": 8267,
               "nodeType": "Block",
               "src": "529:334:32",
               "statements": [
                 {
                   "assignments": [
-                    8229
+                    8224
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8229,
+                      "id": 8224,
                       "name": "hash",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8272,
+                      "scope": 8267,
                       "src": "569:12:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3370,7 +3370,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 8228,
+                        "id": 8223,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "569:7:32",
@@ -3383,7 +3383,7 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8233,
+                  "id": 8228,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
@@ -3391,32 +3391,32 @@
                       "argumentTypes": [],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8230,
+                        "id": 8225,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8223,
+                        "referencedDeclaration": 8218,
                         "src": "584:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       },
-                      "id": 8231,
+                      "id": 8226,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "getDataHash",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8157,
+                      "referencedDeclaration": 8152,
                       "src": "584:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Person_$8126_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Person_$8126_memory_ptr_$",
+                        "typeIdentifier": "t_function_delegatecall_pure$_t_struct$_Person_$8121_memory_ptr_$returns$_t_bytes32_$bound_to$_t_struct$_Person_$8121_memory_ptr_$",
                         "typeString": "function (struct PersonLib.Person memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 8232,
+                    "id": 8227,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3439,11 +3439,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8235,
+                        "id": 8230,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8229,
+                        "referencedDeclaration": 8224,
                         "src": "625:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -3458,18 +3458,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 8234,
+                      "id": 8229,
                       "name": "isStored",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8379,
+                      "referencedDeclaration": 8374,
                       "src": "616:8:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                         "typeString": "function (bytes32) view returns (bool)"
                       }
                     },
-                    "id": 8236,
+                    "id": 8231,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3484,7 +3484,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8241,
+                  "id": 8236,
                   "nodeType": "IfStatement",
                   "src": "613:67:32",
                   "trueBody": {
@@ -3494,7 +3494,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "546869732064617461206578697374732e205573652074686520657874616e7420646174612e",
-                          "id": 8238,
+                          "id": 8233,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -3517,21 +3517,21 @@
                             "typeString": "literal_string \"This data exists. Use the extant data.\""
                           }
                         ],
-                        "id": 8237,
+                        "id": 8232,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "632:6:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 8239,
+                      "id": 8234,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3545,7 +3545,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 8240,
+                    "id": 8235,
                     "nodeType": "ExpressionStatement",
                     "src": "632:48:32"
                   }
@@ -3556,14 +3556,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8247,
+                        "id": 8242,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8223,
+                        "referencedDeclaration": 8218,
                         "src": "720:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -3571,7 +3571,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
@@ -3581,25 +3581,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8242,
+                            "id": 8237,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8203,
+                            "referencedDeclaration": 8198,
                             "src": "691:10:32",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                               "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                             }
                           },
-                          "id": 8244,
+                          "id": 8239,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 8243,
+                            "id": 8238,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "702:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3613,39 +3613,39 @@
                           "nodeType": "IndexAccess",
                           "src": "691:16:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$8208_storage",
+                            "typeIdentifier": "t_struct$_Type_$8203_storage",
                             "typeString": "struct PersonStorage.Type storage ref"
                           }
                         },
-                        "id": 8245,
+                        "id": 8240,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "data",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 8205,
+                        "referencedDeclaration": 8200,
                         "src": "691:21:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_storage",
+                          "typeIdentifier": "t_struct$_Person_$8121_storage",
                           "typeString": "struct PersonLib.Person storage ref"
                         }
                       },
-                      "id": 8246,
+                      "id": 8241,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "insert",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8141,
+                      "referencedDeclaration": 8136,
                       "src": "691:28:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8126_storage_ptr_$_t_struct$_Person_$8126_memory_ptr_$returns$__$bound_to$_t_struct$_Person_$8126_storage_ptr_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8121_storage_ptr_$_t_struct$_Person_$8121_memory_ptr_$returns$__$bound_to$_t_struct$_Person_$8121_storage_ptr_$",
                         "typeString": "function (struct PersonLib.Person storage pointer,struct PersonLib.Person memory)"
                       }
                     },
-                    "id": 8248,
+                    "id": 8243,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3659,14 +3659,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8249,
+                  "id": 8244,
                   "nodeType": "ExpressionStatement",
                   "src": "691:34:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8260,
+                    "id": 8255,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3677,25 +3677,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 8250,
+                          "id": 8245,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8203,
+                          "referencedDeclaration": 8198,
                           "src": "735:10:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                             "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                           }
                         },
-                        "id": 8252,
+                        "id": 8247,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 8251,
+                          "id": 8246,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8229,
+                          "referencedDeclaration": 8224,
                           "src": "746:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -3709,18 +3709,18 @@
                         "nodeType": "IndexAccess",
                         "src": "735:16:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$8208_storage",
+                          "typeIdentifier": "t_struct$_Type_$8203_storage",
                           "typeString": "struct PersonStorage.Type storage ref"
                         }
                       },
-                      "id": 8253,
+                      "id": 8248,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8207,
+                      "referencedDeclaration": 8202,
                       "src": "735:22:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -3735,7 +3735,7 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 8259,
+                      "id": 8254,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3745,11 +3745,11 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 8256,
+                            "id": 8251,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "775:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3766,18 +3766,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 8254,
+                            "id": 8249,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "760:9:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 8255,
+                          "id": 8250,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -3791,7 +3791,7 @@
                             "typeString": "function (bytes32) returns (uint256)"
                           }
                         },
-                        "id": 8257,
+                        "id": 8252,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -3810,7 +3810,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 8258,
+                        "id": 8253,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3837,7 +3837,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8261,
+                  "id": 8256,
                   "nodeType": "ExpressionStatement",
                   "src": "735:49:32"
                 },
@@ -3847,11 +3847,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8263,
+                        "id": 8258,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8229,
+                        "referencedDeclaration": 8224,
                         "src": "806:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -3864,25 +3864,25 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8264,
+                            "id": 8259,
                             "name": "typeStruct",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8203,
+                            "referencedDeclaration": 8198,
                             "src": "812:10:32",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                               "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                             }
                           },
-                          "id": 8266,
+                          "id": 8261,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 8265,
+                            "id": 8260,
                             "name": "hash",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 8229,
+                            "referencedDeclaration": 8224,
                             "src": "823:4:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -3896,18 +3896,18 @@
                           "nodeType": "IndexAccess",
                           "src": "812:16:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Type_$8208_storage",
+                            "typeIdentifier": "t_struct$_Type_$8203_storage",
                             "typeString": "struct PersonStorage.Type storage ref"
                           }
                         },
-                        "id": 8267,
+                        "id": 8262,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "index",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 8207,
+                        "referencedDeclaration": 8202,
                         "src": "812:22:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -3926,18 +3926,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8262,
+                      "id": 8257,
                       "name": "LogNew",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 948,
+                      "referencedDeclaration": 943,
                       "src": "799:6:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8268,
+                    "id": 8263,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3951,64 +3951,64 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8269,
+                  "id": 8264,
                   "nodeType": "EmitStatement",
                   "src": "794:41:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8270,
+                    "id": 8265,
                     "name": "hash",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 8229,
+                    "referencedDeclaration": 8224,
                     "src": "852:4:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8227,
-                  "id": 8271,
+                  "functionReturnParameters": 8222,
+                  "id": 8266,
                   "nodeType": "Return",
                   "src": "845:11:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8273,
+            "id": 8268,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8224,
+              "id": 8219,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8223,
+                  "id": 8218,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8273,
+                  "scope": 8268,
                   "src": "469:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8222,
+                    "id": 8217,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "469:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -4019,15 +4019,15 @@
               "src": "468:30:32"
             },
             "returnParameters": {
-              "id": 8227,
+              "id": 8222,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8226,
+                  "id": 8221,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8273,
+                  "scope": 8268,
                   "src": "515:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4036,7 +4036,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8225,
+                    "id": 8220,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "515:7:32",
@@ -4051,7 +4051,7 @@
               ],
               "src": "514:14:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "453:410:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4059,7 +4059,7 @@
           },
           {
             "body": {
-              "id": 8290,
+              "id": 8285,
               "nodeType": "Block",
               "src": "979:59:32",
               "statements": [
@@ -4069,11 +4069,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8283,
+                        "id": 8278,
                         "name": "hashi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8275,
+                        "referencedDeclaration": 8270,
                         "src": "996:5:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4088,18 +4088,18 @@
                           "typeString": "bytes32"
                         }
                       ],
-                      "id": 8282,
+                      "id": 8277,
                       "name": "remove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8354,
+                      "referencedDeclaration": 8349,
                       "src": "989:6:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$returns$_t_uint256_$",
                         "typeString": "function (bytes32) returns (uint256)"
                       }
                     },
-                    "id": 8284,
+                    "id": 8279,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4113,7 +4113,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8285,
+                  "id": 8280,
                   "nodeType": "ExpressionStatement",
                   "src": "989:13:32"
                 },
@@ -4123,14 +4123,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8287,
+                        "id": 8282,
                         "name": "data",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8277,
+                        "referencedDeclaration": 8272,
                         "src": "1026:4:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -4138,22 +4138,22 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
-                      "id": 8286,
+                      "id": 8281,
                       "name": "insert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8273,
+                      "referencedDeclaration": 8268,
                       "src": "1019:6:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8126_memory_ptr_$returns$_t_bytes32_$",
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Person_$8121_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (struct PersonLib.Person memory) returns (bytes32)"
                       }
                     },
-                    "id": 8288,
+                    "id": 8283,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4167,30 +4167,30 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8281,
-                  "id": 8289,
+                  "functionReturnParameters": 8276,
+                  "id": 8284,
                   "nodeType": "Return",
                   "src": "1012:19:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8291,
+            "id": 8286,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "update",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8278,
+              "id": 8273,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8275,
+                  "id": 8270,
                   "name": "hashi",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "885:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4199,7 +4199,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8274,
+                    "id": 8269,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "885:7:32",
@@ -4213,26 +4213,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 8277,
+                  "id": 8272,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "900:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8276,
+                    "id": 8271,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "900:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -4243,15 +4243,15 @@
               "src": "884:45:32"
             },
             "returnParameters": {
-              "id": 8281,
+              "id": 8276,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8280,
+                  "id": 8275,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8291,
+                  "scope": 8286,
                   "src": "961:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4260,7 +4260,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8279,
+                    "id": 8274,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "961:7:32",
@@ -4275,7 +4275,7 @@
               ],
               "src": "960:14:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "869:169:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -4283,14 +4283,14 @@
           },
           {
             "body": {
-              "id": 8353,
+              "id": 8348,
               "nodeType": "Block",
               "src": "1104:425:32",
               "statements": [
                 {
                   "condition": {
                     "argumentTypes": null,
-                    "id": 8301,
+                    "id": 8296,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4304,11 +4304,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 8299,
+                          "id": 8294,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8293,
+                          "referencedDeclaration": 8288,
                           "src": "1127:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -4323,18 +4323,18 @@
                             "typeString": "bytes32"
                           }
                         ],
-                        "id": 8298,
+                        "id": 8293,
                         "name": "isStored",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8379,
+                        "referencedDeclaration": 8374,
                         "src": "1118:8:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$_t_bytes32_$returns$_t_bool_$",
                           "typeString": "function (bytes32) view returns (bool)"
                         }
                       },
-                      "id": 8300,
+                      "id": 8295,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4354,7 +4354,7 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8306,
+                  "id": 8301,
                   "nodeType": "IfStatement",
                   "src": "1114:54:32",
                   "trueBody": {
@@ -4364,7 +4364,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "4e6f742064656c657465643a206e6f7420657874616e742e",
-                          "id": 8303,
+                          "id": 8298,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4387,21 +4387,21 @@
                             "typeString": "literal_string \"Not deleted: not extant.\""
                           }
                         ],
-                        "id": 8302,
+                        "id": 8297,
                         "name": "revert",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [
-                          10307,
-                          10308
+                          10302,
+                          10303
                         ],
-                        "referencedDeclaration": 10308,
+                        "referencedDeclaration": 10303,
                         "src": "1134:6:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_revert_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 8304,
+                      "id": 8299,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4415,22 +4415,22 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 8305,
+                    "id": 8300,
                     "nodeType": "ExpressionStatement",
                     "src": "1134:34:32"
                   }
                 },
                 {
                   "assignments": [
-                    8308
+                    8303
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8308,
+                      "id": 8303,
                       "name": "rowToDelete",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8353,
+                      "scope": 8348,
                       "src": "1178:16:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -4439,7 +4439,7 @@
                         "typeString": "uint256"
                       },
                       "typeName": {
-                        "id": 8307,
+                        "id": 8302,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
                         "src": "1178:4:32",
@@ -4452,32 +4452,32 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8313,
+                  "id": 8308,
                   "initialValue": {
                     "argumentTypes": null,
                     "expression": {
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8309,
+                        "id": 8304,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8203,
+                        "referencedDeclaration": 8198,
                         "src": "1197:10:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                           "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                         }
                       },
-                      "id": 8311,
+                      "id": 8306,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8310,
+                        "id": 8305,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8293,
+                        "referencedDeclaration": 8288,
                         "src": "1208:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4491,18 +4491,18 @@
                       "nodeType": "IndexAccess",
                       "src": "1197:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$8208_storage",
+                        "typeIdentifier": "t_struct$_Type_$8203_storage",
                         "typeString": "struct PersonStorage.Type storage ref"
                       }
                     },
-                    "id": 8312,
+                    "id": 8307,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "index",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 8207,
+                    "referencedDeclaration": 8202,
                     "src": "1197:22:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -4514,15 +4514,15 @@
                 },
                 {
                   "assignments": [
-                    8315
+                    8310
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 8315,
+                      "id": 8310,
                       "name": "keyToMove",
                       "nodeType": "VariableDeclaration",
-                      "scope": 8353,
+                      "scope": 8348,
                       "src": "1229:17:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -4531,7 +4531,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 8314,
+                        "id": 8309,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1229:7:32",
@@ -4544,30 +4544,30 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 8322,
+                  "id": 8317,
                   "initialValue": {
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 8316,
+                      "id": 8311,
                       "name": "typeIndex",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 942,
+                      "referencedDeclaration": 937,
                       "src": "1249:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                         "typeString": "bytes32[] storage ref"
                       }
                     },
-                    "id": 8321,
+                    "id": 8316,
                     "indexExpression": {
                       "argumentTypes": null,
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 8320,
+                      "id": 8315,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4576,18 +4576,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8317,
+                          "id": 8312,
                           "name": "typeIndex",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 942,
+                          "referencedDeclaration": 937,
                           "src": "1259:9:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                             "typeString": "bytes32[] storage ref"
                           }
                         },
-                        "id": 8318,
+                        "id": 8313,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
@@ -4606,7 +4606,7 @@
                       "rightExpression": {
                         "argumentTypes": null,
                         "hexValue": "31",
-                        "id": 8319,
+                        "id": 8314,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4644,7 +4644,7 @@
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8327,
+                    "id": 8322,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4653,25 +4653,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8323,
+                        "id": 8318,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1288:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8325,
+                      "id": 8320,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8324,
+                        "id": 8319,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1298:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4693,11 +4693,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 8326,
+                      "id": 8321,
                       "name": "keyToMove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8315,
+                      "referencedDeclaration": 8310,
                       "src": "1313:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
@@ -4710,14 +4710,14 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 8328,
+                  "id": 8323,
                   "nodeType": "ExpressionStatement",
                   "src": "1288:34:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8334,
+                    "id": 8329,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4728,25 +4728,25 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 8329,
+                          "id": 8324,
                           "name": "typeStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8203,
+                          "referencedDeclaration": 8198,
                           "src": "1332:10:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                            "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                             "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                           }
                         },
-                        "id": 8331,
+                        "id": 8326,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 8330,
+                          "id": 8325,
                           "name": "keyToMove",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8315,
+                          "referencedDeclaration": 8310,
                           "src": "1343:9:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -4760,18 +4760,18 @@
                         "nodeType": "IndexAccess",
                         "src": "1332:21:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Type_$8208_storage",
+                          "typeIdentifier": "t_struct$_Type_$8203_storage",
                           "typeString": "struct PersonStorage.Type storage ref"
                         }
                       },
-                      "id": 8332,
+                      "id": 8327,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "index",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8207,
+                      "referencedDeclaration": 8202,
                       "src": "1332:27:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4782,11 +4782,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 8333,
+                      "id": 8328,
                       "name": "rowToDelete",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 8308,
+                      "referencedDeclaration": 8303,
                       "src": "1362:11:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4799,14 +4799,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8335,
+                  "id": 8330,
                   "nodeType": "ExpressionStatement",
                   "src": "1332:41:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8339,
+                    "id": 8334,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4819,18 +4819,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8336,
+                        "id": 8331,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1383:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8338,
+                      "id": 8333,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -4849,7 +4849,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 8340,
+                  "id": 8335,
                   "nodeType": "ExpressionStatement",
                   "src": "1383:18:32"
                 },
@@ -4859,11 +4859,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8342,
+                        "id": 8337,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8293,
+                        "referencedDeclaration": 8288,
                         "src": "1427:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4872,11 +4872,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8343,
+                        "id": 8338,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1433:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4895,18 +4895,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8341,
+                      "id": 8336,
                       "name": "LogRemove",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 960,
+                      "referencedDeclaration": 955,
                       "src": "1417:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8344,
+                    "id": 8339,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4920,7 +4920,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8345,
+                  "id": 8340,
                   "nodeType": "EmitStatement",
                   "src": "1412:33:32"
                 },
@@ -4930,11 +4930,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8347,
+                        "id": 8342,
                         "name": "keyToMove",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8315,
+                        "referencedDeclaration": 8310,
                         "src": "1471:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -4943,11 +4943,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 8348,
+                        "id": 8343,
                         "name": "rowToDelete",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8308,
+                        "referencedDeclaration": 8303,
                         "src": "1482:11:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4966,18 +4966,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 8346,
+                      "id": 8341,
                       "name": "LogUpdate",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 954,
+                      "referencedDeclaration": 949,
                       "src": "1461:9:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_uint256_$returns$__$",
                         "typeString": "function (bytes32,uint256)"
                       }
                     },
-                    "id": 8349,
+                    "id": 8344,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4991,48 +4991,48 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 8350,
+                  "id": 8345,
                   "nodeType": "EmitStatement",
                   "src": "1456:38:32"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8351,
+                    "id": 8346,
                     "name": "rowToDelete",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 8308,
+                    "referencedDeclaration": 8303,
                     "src": "1511:11:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 8297,
-                  "id": 8352,
+                  "functionReturnParameters": 8292,
+                  "id": 8347,
                   "nodeType": "Return",
                   "src": "1504:18:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8354,
+            "id": 8349,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "remove",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8294,
+              "id": 8289,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8293,
+                  "id": 8288,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8354,
+                  "scope": 8349,
                   "src": "1060:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5041,7 +5041,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8292,
+                    "id": 8287,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1060:7:32",
@@ -5057,15 +5057,15 @@
               "src": "1059:14:32"
             },
             "returnParameters": {
-              "id": 8297,
+              "id": 8292,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8296,
+                  "id": 8291,
                   "name": "index",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8354,
+                  "scope": 8349,
                   "src": "1089:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5074,7 +5074,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 8295,
+                    "id": 8290,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1089:7:32",
@@ -5089,7 +5089,7 @@
               ],
               "src": "1088:15:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1044:485:32",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -5097,7 +5097,7 @@
           },
           {
             "body": {
-              "id": 8378,
+              "id": 8373,
               "nodeType": "Block",
               "src": "1602:115:32",
               "statements": [
@@ -5108,7 +5108,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 8364,
+                    "id": 8359,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5117,18 +5117,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8361,
+                        "id": 8356,
                         "name": "typeIndex",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 942,
+                        "referencedDeclaration": 937,
                         "src": "1615:9:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                           "typeString": "bytes32[] storage ref"
                         }
                       },
-                      "id": 8362,
+                      "id": 8357,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -5147,7 +5147,7 @@
                     "rightExpression": {
                       "argumentTypes": null,
                       "hexValue": "30",
-                      "id": 8363,
+                      "id": 8358,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5169,14 +5169,14 @@
                     }
                   },
                   "falseBody": null,
-                  "id": 8367,
+                  "id": 8362,
                   "nodeType": "IfStatement",
                   "src": "1612:38:32",
                   "trueBody": {
                     "expression": {
                       "argumentTypes": null,
                       "hexValue": "66616c7365",
-                      "id": 8365,
+                      "id": 8360,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5191,8 +5191,8 @@
                       },
                       "value": "false"
                     },
-                    "functionReturnParameters": 8360,
-                    "id": 8366,
+                    "functionReturnParameters": 8355,
+                    "id": 8361,
                     "nodeType": "Return",
                     "src": "1638:12:32"
                   }
@@ -5207,7 +5207,7 @@
                           "typeIdentifier": "t_bytes32",
                           "typeString": "bytes32"
                         },
-                        "id": 8375,
+                        "id": 8370,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -5216,43 +5216,43 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 8368,
+                            "id": 8363,
                             "name": "typeIndex",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 942,
+                            "referencedDeclaration": 937,
                             "src": "1668:9:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_bytes32_$dyn_storage",
                               "typeString": "bytes32[] storage ref"
                             }
                           },
-                          "id": 8373,
+                          "id": 8368,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
                               "baseExpression": {
                                 "argumentTypes": null,
-                                "id": 8369,
+                                "id": 8364,
                                 "name": "typeStruct",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8203,
+                                "referencedDeclaration": 8198,
                                 "src": "1678:10:32",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                                   "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                                 }
                               },
-                              "id": 8371,
+                              "id": 8366,
                               "indexExpression": {
                                 "argumentTypes": null,
-                                "id": 8370,
+                                "id": 8365,
                                 "name": "hash",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 8356,
+                                "referencedDeclaration": 8351,
                                 "src": "1689:4:32",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -5266,18 +5266,18 @@
                               "nodeType": "IndexAccess",
                               "src": "1678:16:32",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Type_$8208_storage",
+                                "typeIdentifier": "t_struct$_Type_$8203_storage",
                                 "typeString": "struct PersonStorage.Type storage ref"
                               }
                             },
-                            "id": 8372,
+                            "id": 8367,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "index",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 8207,
+                            "referencedDeclaration": 8202,
                             "src": "1678:22:32",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -5299,11 +5299,11 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 8374,
+                          "id": 8369,
                           "name": "hash",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8356,
+                          "referencedDeclaration": 8351,
                           "src": "1705:4:32",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -5317,7 +5317,7 @@
                         }
                       }
                     ],
-                    "id": 8376,
+                    "id": 8371,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -5330,30 +5330,30 @@
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 8360,
-                  "id": 8377,
+                  "functionReturnParameters": 8355,
+                  "id": 8372,
                   "nodeType": "Return",
                   "src": "1660:50:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8379,
+            "id": 8374,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "isStored",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8357,
+              "id": 8352,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8356,
+                  "id": 8351,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8379,
+                  "scope": 8374,
                   "src": "1553:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5362,7 +5362,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8355,
+                    "id": 8350,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1553:7:32",
@@ -5378,15 +5378,15 @@
               "src": "1552:14:32"
             },
             "returnParameters": {
-              "id": 8360,
+              "id": 8355,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8359,
+                  "id": 8354,
                   "name": "isIndeed",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8379,
+                  "scope": 8374,
                   "src": "1587:13:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5395,7 +5395,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 8358,
+                    "id": 8353,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1587:4:32",
@@ -5410,7 +5410,7 @@
               ],
               "src": "1586:15:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1535:182:32",
             "stateMutability": "view",
             "superFunction": null,
@@ -5418,7 +5418,7 @@
           },
           {
             "body": {
-              "id": 8391,
+              "id": 8386,
               "nodeType": "Block",
               "src": "1806:45:32",
               "statements": [
@@ -5429,25 +5429,25 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 8386,
+                        "id": 8381,
                         "name": "typeStruct",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8203,
+                        "referencedDeclaration": 8198,
                         "src": "1823:10:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8208_storage_$",
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Type_$8203_storage_$",
                           "typeString": "mapping(bytes32 => struct PersonStorage.Type storage ref)"
                         }
                       },
-                      "id": 8388,
+                      "id": 8383,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 8387,
+                        "id": 8382,
                         "name": "hash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8381,
+                        "referencedDeclaration": 8376,
                         "src": "1834:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -5461,48 +5461,48 @@
                       "nodeType": "IndexAccess",
                       "src": "1823:16:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Type_$8208_storage",
+                        "typeIdentifier": "t_struct$_Type_$8203_storage",
                         "typeString": "struct PersonStorage.Type storage ref"
                       }
                     },
-                    "id": 8389,
+                    "id": 8384,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "data",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 8205,
+                    "referencedDeclaration": 8200,
                     "src": "1823:21:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage",
                       "typeString": "struct PersonLib.Person storage ref"
                     }
                   },
-                  "functionReturnParameters": 8385,
-                  "id": 8390,
+                  "functionReturnParameters": 8380,
+                  "id": 8385,
                   "nodeType": "Return",
                   "src": "1816:28:32"
                 }
               ]
             },
             "documentation": null,
-            "id": 8392,
+            "id": 8387,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getByHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8382,
+              "id": 8377,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8381,
+                  "id": 8376,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8392,
+                  "scope": 8387,
                   "src": "1742:12:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5511,7 +5511,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8380,
+                    "id": 8375,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1742:7:32",
@@ -5527,31 +5527,31 @@
               "src": "1741:14:32"
             },
             "returnParameters": {
-              "id": 8385,
+              "id": 8380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8384,
+                  "id": 8379,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8392,
+                  "scope": 8387,
                   "src": "1776:28:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8383,
+                    "id": 8378,
                     "name": "PersonLib.Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "1776:16:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -5561,14 +5561,14 @@
               ],
               "src": "1775:30:32"
             },
-            "scope": 8393,
+            "scope": 8388,
             "src": "1723:128:32",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 8394,
+        "scope": 8389,
         "src": "118:1735:32"
       }
     ],
@@ -5727,10 +5727,10 @@
         }
       },
       "links": {
-        "PersonLib": "0x2b655b000dC114566bE6401956f0671D5d50A24B"
+        "PersonLib": "0x9C605bCD022Af4367DEd5d29e6D049B815FD2b5a"
       },
-      "address": "0xBfaFe47A72d3825809fC0606d9650C2616787d68",
-      "transactionHash": "0xa94207ac25aefffa045149317b1e7d3126eb213b084691760ba23edfbbf1dbb8"
+      "address": "0xB74344b6C10ca9c9888571844D549db47dA7E1f6",
+      "transactionHash": "0x072d7db8a75a5f7007ba80ca22935f9debf770ddc8ab199b9b71c048ea3a78a2"
     },
     "5": {
       "events": {
@@ -5880,10 +5880,10 @@
         }
       },
       "links": {
-        "PersonLib": "0x77459251C9f057E05Fd1c2A7b92519123D698240"
+        "PersonLib": "0x6DD40C8198D5d7eC564221c28A096F18386A88B2"
       },
-      "address": "0xF77FaC7F4328E83400006E50200f11C3A20f45Ce",
-      "transactionHash": "0x316276be7acf0227b874e11690b1e57c1771190e65d64c8ee3c45286fa9c2328"
+      "address": "0xa4c0954E1c3efC0f6Fab94308527065fb30E6a0F",
+      "transactionHash": "0x07d7b5f2283c160d737d847a25c6c9368964a659504fbbd9242d76dc5ae4f847"
     },
     "5777": {
       "events": {
@@ -6040,7 +6040,7 @@
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-28T11:10:53.994Z",
+  "updatedAt": "2019-07-28T12:59:04.197Z",
   "devdoc": {
     "methods": {}
   },

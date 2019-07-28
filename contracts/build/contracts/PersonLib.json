@@ -88,14 +88,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
     "exportedSymbols": {
       "PersonLib": [
-        8189
+        8184
       ]
     },
-    "id": 8190,
+    "id": 8185,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8122,
+        "id": 8117,
         "literals": [
           "solidity",
           "^",
@@ -106,7 +106,7 @@
         "src": "0:23:31"
       },
       {
-        "id": 8123,
+        "id": 8118,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -120,23 +120,23 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 8189,
+        "id": 8184,
         "linearizedBaseContracts": [
-          8189
+          8184
         ],
         "name": "PersonLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "PersonLib.Person",
-            "id": 8126,
+            "id": 8121,
             "members": [
               {
                 "constant": false,
-                "id": 8125,
+                "id": 8120,
                 "name": "fullname",
                 "nodeType": "VariableDeclaration",
-                "scope": 8126,
+                "scope": 8121,
                 "src": "108:15:31",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -145,7 +145,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 8124,
+                  "id": 8119,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "108:6:31",
@@ -160,20 +160,20 @@
             ],
             "name": "Person",
             "nodeType": "StructDefinition",
-            "scope": 8189,
+            "scope": 8184,
             "src": "84:46:31",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 8140,
+              "id": 8135,
               "nodeType": "Block",
               "src": "206:50:31",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8138,
+                    "id": 8133,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -182,25 +182,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8133,
+                        "id": 8128,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8128,
+                        "referencedDeclaration": 8123,
                         "src": "216:4:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                           "typeString": "struct PersonLib.Person storage pointer"
                         }
                       },
-                      "id": 8135,
+                      "id": 8130,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "fullname",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8125,
+                      "referencedDeclaration": 8120,
                       "src": "216:13:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -213,25 +213,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8136,
+                        "id": 8131,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8130,
+                        "referencedDeclaration": 8125,
                         "src": "232:8:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       },
-                      "id": 8137,
+                      "id": 8132,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "fullname",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8125,
+                      "referencedDeclaration": 8120,
                       "src": "232:17:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory",
@@ -244,45 +244,45 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 8139,
+                  "id": 8134,
                   "nodeType": "ExpressionStatement",
                   "src": "216:33:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8141,
+            "id": 8136,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8131,
+              "id": 8126,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8128,
+                  "id": 8123,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8141,
+                  "scope": 8136,
                   "src": "152:19:31",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8127,
+                    "id": 8122,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "152:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -291,26 +291,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 8130,
+                  "id": 8125,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8141,
+                  "scope": 8136,
                   "src": "173:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8129,
+                    "id": 8124,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "173:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -321,12 +321,12 @@
               "src": "151:45:31"
             },
             "returnParameters": {
-              "id": 8132,
+              "id": 8127,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "206:0:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "136:120:31",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -334,7 +334,7 @@
           },
           {
             "body": {
-              "id": 8156,
+              "id": 8151,
               "nodeType": "Block",
               "src": "341:64:31",
               "statements": [
@@ -349,25 +349,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 8151,
+                              "id": 8146,
                               "name": "instance",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8143,
+                              "referencedDeclaration": 8138,
                               "src": "379:8:31",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                                "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                                 "typeString": "struct PersonLib.Person memory"
                               }
                             },
-                            "id": 8152,
+                            "id": 8147,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "fullname",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 8125,
+                            "referencedDeclaration": 8120,
                             "src": "379:17:31",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory",
@@ -384,18 +384,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 8149,
+                            "id": 8144,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 10289,
+                            "referencedDeclaration": 10284,
                             "src": "368:3:31",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 8150,
+                          "id": 8145,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -409,7 +409,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 8153,
+                        "id": 8148,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -431,18 +431,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 8148,
+                      "id": 8143,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10296,
+                      "referencedDeclaration": 10291,
                       "src": "358:9:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 8154,
+                    "id": 8149,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -456,46 +456,46 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8147,
-                  "id": 8155,
+                  "functionReturnParameters": 8142,
+                  "id": 8150,
                   "nodeType": "Return",
                   "src": "351:47:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8157,
+            "id": 8152,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getDataHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8144,
+              "id": 8139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8143,
+                  "id": 8138,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8157,
+                  "scope": 8152,
                   "src": "283:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8142,
+                    "id": 8137,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "283:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -506,15 +506,15 @@
               "src": "282:24:31"
             },
             "returnParameters": {
-              "id": 8147,
+              "id": 8142,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8146,
+                  "id": 8141,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8157,
+                  "scope": 8152,
                   "src": "327:12:31",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -523,7 +523,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8145,
+                    "id": 8140,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "327:7:31",
@@ -538,7 +538,7 @@
               ],
               "src": "326:14:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "262:143:31",
             "stateMutability": "pure",
             "superFunction": null,
@@ -546,14 +546,14 @@
           },
           {
             "body": {
-              "id": 8174,
+              "id": 8169,
               "nodeType": "Block",
               "src": "526:56:31",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8172,
+                    "id": 8167,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -563,19 +563,19 @@
                       "components": [
                         {
                           "argumentTypes": null,
-                          "id": 8164,
+                          "id": 8159,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8162,
+                          "referencedDeclaration": 8157,
                           "src": "537:8:31",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                            "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                             "typeString": "struct PersonLib.Person memory"
                           }
                         }
                       ],
-                      "id": 8165,
+                      "id": 8160,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": true,
@@ -584,7 +584,7 @@
                       "nodeType": "TupleExpression",
                       "src": "536:10:31",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                        "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                         "typeString": "struct PersonLib.Person memory"
                       }
                     },
@@ -595,11 +595,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 8168,
+                          "id": 8163,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8159,
+                          "referencedDeclaration": 8154,
                           "src": "560:4:31",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -611,19 +611,19 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 8169,
+                              "id": 8164,
                               "name": "Person",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8126,
+                              "referencedDeclaration": 8121,
                               "src": "567:6:31",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                                "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                                 "typeString": "type(struct PersonLib.Person storage pointer)"
                               }
                             }
                           ],
-                          "id": 8170,
+                          "id": 8165,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
@@ -632,7 +632,7 @@
                           "nodeType": "TupleExpression",
                           "src": "566:8:31",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                             "typeString": "type(struct PersonLib.Person storage pointer)"
                           }
                         }
@@ -644,24 +644,24 @@
                             "typeString": "bytes memory"
                           },
                           {
-                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                             "typeString": "type(struct PersonLib.Person storage pointer)"
                           }
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8166,
+                          "id": 8161,
                           "name": "abi",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 10289,
+                          "referencedDeclaration": 10284,
                           "src": "549:3:31",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_abi",
                             "typeString": "abi"
                           }
                         },
-                        "id": 8167,
+                        "id": 8162,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -675,7 +675,7 @@
                           "typeString": "function () pure"
                         }
                       },
-                      "id": 8171,
+                      "id": 8166,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -685,39 +685,39 @@
                       "nodeType": "FunctionCall",
                       "src": "549:26:31",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Person_$8126_memory",
+                        "typeIdentifier": "t_struct$_Person_$8121_memory",
                         "typeString": "struct PersonLib.Person memory"
                       }
                     },
                     "src": "536:39:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                       "typeString": "struct PersonLib.Person memory"
                     }
                   },
-                  "id": 8173,
+                  "id": 8168,
                   "nodeType": "ExpressionStatement",
                   "src": "536:39:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8175,
+            "id": 8170,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "structureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8160,
+              "id": 8155,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8159,
+                  "id": 8154,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8175,
+                  "scope": 8170,
                   "src": "435:17:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -726,7 +726,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8158,
+                    "id": 8153,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "435:5:31",
@@ -742,31 +742,31 @@
               "src": "434:19:31"
             },
             "returnParameters": {
-              "id": 8163,
+              "id": 8158,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8162,
+                  "id": 8157,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8175,
+                  "scope": 8170,
                   "src": "498:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8161,
+                    "id": 8156,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "498:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -776,7 +776,7 @@
               ],
               "src": "497:24:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "411:171:31",
             "stateMutability": "pure",
             "superFunction": null,
@@ -784,7 +784,7 @@
           },
           {
             "body": {
-              "id": 8187,
+              "id": 8182,
               "nodeType": "Block",
               "src": "705:44:31",
               "statements": [
@@ -794,14 +794,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8184,
+                        "id": 8179,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8177,
+                        "referencedDeclaration": 8172,
                         "src": "733:8:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -809,24 +809,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8182,
+                        "id": 8177,
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10289,
+                        "referencedDeclaration": 10284,
                         "src": "722:3:31",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
                           "typeString": "abi"
                         }
                       },
-                      "id": 8183,
+                      "id": 8178,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -840,7 +840,7 @@
                         "typeString": "function () pure returns (bytes memory)"
                       }
                     },
-                    "id": 8185,
+                    "id": 8180,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -854,46 +854,46 @@
                       "typeString": "bytes memory"
                     }
                   },
-                  "functionReturnParameters": 8181,
-                  "id": 8186,
+                  "functionReturnParameters": 8176,
+                  "id": 8181,
                   "nodeType": "Return",
                   "src": "715:27:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8188,
+            "id": 8183,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destructureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8178,
+              "id": 8173,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8177,
+                  "id": 8172,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8188,
+                  "scope": 8183,
                   "src": "614:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8176,
+                    "id": 8171,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "614:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -904,15 +904,15 @@
               "src": "613:24:31"
             },
             "returnParameters": {
-              "id": 8181,
+              "id": 8176,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8180,
+                  "id": 8175,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8188,
+                  "scope": 8183,
                   "src": "682:17:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -921,7 +921,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8179,
+                    "id": 8174,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "682:5:31",
@@ -936,14 +936,14 @@
               ],
               "src": "681:19:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "588:161:31",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 8190,
+        "scope": 8185,
         "src": "59:692:31"
       }
     ],
@@ -953,14 +953,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
     "exportedSymbols": {
       "PersonLib": [
-        8189
+        8184
       ]
     },
-    "id": 8190,
+    "id": 8185,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8122,
+        "id": 8117,
         "literals": [
           "solidity",
           "^",
@@ -971,7 +971,7 @@
         "src": "0:23:31"
       },
       {
-        "id": 8123,
+        "id": 8118,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -985,23 +985,23 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 8189,
+        "id": 8184,
         "linearizedBaseContracts": [
-          8189
+          8184
         ],
         "name": "PersonLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "PersonLib.Person",
-            "id": 8126,
+            "id": 8121,
             "members": [
               {
                 "constant": false,
-                "id": 8125,
+                "id": 8120,
                 "name": "fullname",
                 "nodeType": "VariableDeclaration",
-                "scope": 8126,
+                "scope": 8121,
                 "src": "108:15:31",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1010,7 +1010,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 8124,
+                  "id": 8119,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "108:6:31",
@@ -1025,20 +1025,20 @@
             ],
             "name": "Person",
             "nodeType": "StructDefinition",
-            "scope": 8189,
+            "scope": 8184,
             "src": "84:46:31",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 8140,
+              "id": 8135,
               "nodeType": "Block",
               "src": "206:50:31",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8138,
+                    "id": 8133,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1047,25 +1047,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8133,
+                        "id": 8128,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8128,
+                        "referencedDeclaration": 8123,
                         "src": "216:4:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                           "typeString": "struct PersonLib.Person storage pointer"
                         }
                       },
-                      "id": 8135,
+                      "id": 8130,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "fullname",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8125,
+                      "referencedDeclaration": 8120,
                       "src": "216:13:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1078,25 +1078,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8136,
+                        "id": 8131,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8130,
+                        "referencedDeclaration": 8125,
                         "src": "232:8:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       },
-                      "id": 8137,
+                      "id": 8132,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "fullname",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 8125,
+                      "referencedDeclaration": 8120,
                       "src": "232:17:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory",
@@ -1109,45 +1109,45 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 8139,
+                  "id": 8134,
                   "nodeType": "ExpressionStatement",
                   "src": "216:33:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8141,
+            "id": 8136,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8131,
+              "id": 8126,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8128,
+                  "id": 8123,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8141,
+                  "scope": 8136,
                   "src": "152:19:31",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8127,
+                    "id": 8122,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "152:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1156,26 +1156,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 8130,
+                  "id": 8125,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8141,
+                  "scope": 8136,
                   "src": "173:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8129,
+                    "id": 8124,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "173:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1186,12 +1186,12 @@
               "src": "151:45:31"
             },
             "returnParameters": {
-              "id": 8132,
+              "id": 8127,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "206:0:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "136:120:31",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1199,7 +1199,7 @@
           },
           {
             "body": {
-              "id": 8156,
+              "id": 8151,
               "nodeType": "Block",
               "src": "341:64:31",
               "statements": [
@@ -1214,25 +1214,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 8151,
+                              "id": 8146,
                               "name": "instance",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8143,
+                              "referencedDeclaration": 8138,
                               "src": "379:8:31",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                                "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                                 "typeString": "struct PersonLib.Person memory"
                               }
                             },
-                            "id": 8152,
+                            "id": 8147,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "fullname",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 8125,
+                            "referencedDeclaration": 8120,
                             "src": "379:17:31",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory",
@@ -1249,18 +1249,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 8149,
+                            "id": 8144,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 10289,
+                            "referencedDeclaration": 10284,
                             "src": "368:3:31",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 8150,
+                          "id": 8145,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1274,7 +1274,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 8153,
+                        "id": 8148,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1296,18 +1296,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 8148,
+                      "id": 8143,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10296,
+                      "referencedDeclaration": 10291,
                       "src": "358:9:31",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 8154,
+                    "id": 8149,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1321,46 +1321,46 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 8147,
-                  "id": 8155,
+                  "functionReturnParameters": 8142,
+                  "id": 8150,
                   "nodeType": "Return",
                   "src": "351:47:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8157,
+            "id": 8152,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getDataHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8144,
+              "id": 8139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8143,
+                  "id": 8138,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8157,
+                  "scope": 8152,
                   "src": "283:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8142,
+                    "id": 8137,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "283:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1371,15 +1371,15 @@
               "src": "282:24:31"
             },
             "returnParameters": {
-              "id": 8147,
+              "id": 8142,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8146,
+                  "id": 8141,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8157,
+                  "scope": 8152,
                   "src": "327:12:31",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1388,7 +1388,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 8145,
+                    "id": 8140,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "327:7:31",
@@ -1403,7 +1403,7 @@
               ],
               "src": "326:14:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "262:143:31",
             "stateMutability": "pure",
             "superFunction": null,
@@ -1411,14 +1411,14 @@
           },
           {
             "body": {
-              "id": 8174,
+              "id": 8169,
               "nodeType": "Block",
               "src": "526:56:31",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 8172,
+                    "id": 8167,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1428,19 +1428,19 @@
                       "components": [
                         {
                           "argumentTypes": null,
-                          "id": 8164,
+                          "id": 8159,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8162,
+                          "referencedDeclaration": 8157,
                           "src": "537:8:31",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                            "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                             "typeString": "struct PersonLib.Person memory"
                           }
                         }
                       ],
-                      "id": 8165,
+                      "id": 8160,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": true,
@@ -1449,7 +1449,7 @@
                       "nodeType": "TupleExpression",
                       "src": "536:10:31",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                        "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                         "typeString": "struct PersonLib.Person memory"
                       }
                     },
@@ -1460,11 +1460,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 8168,
+                          "id": 8163,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 8159,
+                          "referencedDeclaration": 8154,
                           "src": "560:4:31",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -1476,19 +1476,19 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 8169,
+                              "id": 8164,
                               "name": "Person",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 8126,
+                              "referencedDeclaration": 8121,
                               "src": "567:6:31",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                                "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                                 "typeString": "type(struct PersonLib.Person storage pointer)"
                               }
                             }
                           ],
-                          "id": 8170,
+                          "id": 8165,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
@@ -1497,7 +1497,7 @@
                           "nodeType": "TupleExpression",
                           "src": "566:8:31",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                             "typeString": "type(struct PersonLib.Person storage pointer)"
                           }
                         }
@@ -1509,24 +1509,24 @@
                             "typeString": "bytes memory"
                           },
                           {
-                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8121_storage_ptr_$",
                             "typeString": "type(struct PersonLib.Person storage pointer)"
                           }
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 8166,
+                          "id": 8161,
                           "name": "abi",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 10289,
+                          "referencedDeclaration": 10284,
                           "src": "549:3:31",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_abi",
                             "typeString": "abi"
                           }
                         },
-                        "id": 8167,
+                        "id": 8162,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1540,7 +1540,7 @@
                           "typeString": "function () pure"
                         }
                       },
-                      "id": 8171,
+                      "id": 8166,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1550,39 +1550,39 @@
                       "nodeType": "FunctionCall",
                       "src": "549:26:31",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Person_$8126_memory",
+                        "typeIdentifier": "t_struct$_Person_$8121_memory",
                         "typeString": "struct PersonLib.Person memory"
                       }
                     },
                     "src": "536:39:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                       "typeString": "struct PersonLib.Person memory"
                     }
                   },
-                  "id": 8173,
+                  "id": 8168,
                   "nodeType": "ExpressionStatement",
                   "src": "536:39:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8175,
+            "id": 8170,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "structureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8160,
+              "id": 8155,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8159,
+                  "id": 8154,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8175,
+                  "scope": 8170,
                   "src": "435:17:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1591,7 +1591,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8158,
+                    "id": 8153,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "435:5:31",
@@ -1607,31 +1607,31 @@
               "src": "434:19:31"
             },
             "returnParameters": {
-              "id": 8163,
+              "id": 8158,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8162,
+                  "id": 8157,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8175,
+                  "scope": 8170,
                   "src": "498:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8161,
+                    "id": 8156,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "498:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1641,7 +1641,7 @@
               ],
               "src": "497:24:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "411:171:31",
             "stateMutability": "pure",
             "superFunction": null,
@@ -1649,7 +1649,7 @@
           },
           {
             "body": {
-              "id": 8187,
+              "id": 8182,
               "nodeType": "Block",
               "src": "705:44:31",
               "statements": [
@@ -1659,14 +1659,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 8184,
+                        "id": 8179,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 8177,
+                        "referencedDeclaration": 8172,
                         "src": "733:8:31",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       }
@@ -1674,24 +1674,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                           "typeString": "struct PersonLib.Person memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 8182,
+                        "id": 8177,
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10289,
+                        "referencedDeclaration": 10284,
                         "src": "722:3:31",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
                           "typeString": "abi"
                         }
                       },
-                      "id": 8183,
+                      "id": 8178,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1705,7 +1705,7 @@
                         "typeString": "function () pure returns (bytes memory)"
                       }
                     },
-                    "id": 8185,
+                    "id": 8180,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1719,46 +1719,46 @@
                       "typeString": "bytes memory"
                     }
                   },
-                  "functionReturnParameters": 8181,
-                  "id": 8186,
+                  "functionReturnParameters": 8176,
+                  "id": 8181,
                   "nodeType": "Return",
                   "src": "715:27:31"
                 }
               ]
             },
             "documentation": null,
-            "id": 8188,
+            "id": 8183,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destructureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 8178,
+              "id": 8173,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8177,
+                  "id": 8172,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8188,
+                  "scope": 8183,
                   "src": "614:22:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeIdentifier": "t_struct$_Person_$8121_memory_ptr",
                     "typeString": "struct PersonLib.Person"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 8176,
+                    "id": 8171,
                     "name": "Person",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 8126,
+                    "referencedDeclaration": 8121,
                     "src": "614:6:31",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeIdentifier": "t_struct$_Person_$8121_storage_ptr",
                       "typeString": "struct PersonLib.Person"
                     }
                   },
@@ -1769,15 +1769,15 @@
               "src": "613:24:31"
             },
             "returnParameters": {
-              "id": 8181,
+              "id": 8176,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8180,
+                  "id": 8175,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 8188,
+                  "scope": 8183,
                   "src": "682:17:31",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1786,7 +1786,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 8179,
+                    "id": 8174,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "682:5:31",
@@ -1801,14 +1801,14 @@
               ],
               "src": "681:19:31"
             },
-            "scope": 8189,
+            "scope": 8184,
             "src": "588:161:31",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 8190,
+        "scope": 8185,
         "src": "59:692:31"
       }
     ],
@@ -1822,14 +1822,14 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0x2b655b000dC114566bE6401956f0671D5d50A24B",
-      "transactionHash": "0x5d6305af9ee05231ace5919dd261294990a603ccf411b214b52a78f9e69eff4a"
+      "address": "0x9C605bCD022Af4367DEd5d29e6D049B815FD2b5a",
+      "transactionHash": "0xb15398b5eabd0e331e7db04aba9da2e83f3688a3f98f0a70e0f3b9a97ce7cc38"
     },
     "5": {
       "events": {},
       "links": {},
-      "address": "0x77459251C9f057E05Fd1c2A7b92519123D698240",
-      "transactionHash": "0x27efd4d511d3ee482ba2051769726b8f8a033a4187c5155896fbc4fbea7f4760"
+      "address": "0x6DD40C8198D5d7eC564221c28A096F18386A88B2",
+      "transactionHash": "0xce1d2d266a57f35b61420ef9aecf9c966b61d69a40827c1404cf0492aa34d69c"
     },
     "5777": {
       "events": {},
@@ -1839,7 +1839,7 @@
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-28T11:10:53.990Z",
+  "updatedAt": "2019-07-28T12:59:04.192Z",
   "devdoc": {
     "methods": {}
   },

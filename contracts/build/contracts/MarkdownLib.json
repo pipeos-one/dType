@@ -88,14 +88,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
     "exportedSymbols": {
       "MarkdownLib": [
-        7080
+        7075
       ]
     },
-    "id": 7081,
+    "id": 7076,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7013,
+        "id": 7008,
         "literals": [
           "solidity",
           "^",
@@ -106,7 +106,7 @@
         "src": "0:23:25"
       },
       {
-        "id": 7014,
+        "id": 7009,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -120,23 +120,23 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7080,
+        "id": 7075,
         "linearizedBaseContracts": [
-          7080
+          7075
         ],
         "name": "MarkdownLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "MarkdownLib.Markdown",
-            "id": 7017,
+            "id": 7012,
             "members": [
               {
                 "constant": false,
-                "id": 7016,
+                "id": 7011,
                 "name": "content",
                 "nodeType": "VariableDeclaration",
-                "scope": 7017,
+                "scope": 7012,
                 "src": "112:14:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -145,7 +145,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 7015,
+                  "id": 7010,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "112:6:25",
@@ -160,20 +160,20 @@
             ],
             "name": "Markdown",
             "nodeType": "StructDefinition",
-            "scope": 7080,
+            "scope": 7075,
             "src": "86:47:25",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7031,
+              "id": 7026,
               "nodeType": "Block",
               "src": "213:48:25",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7029,
+                    "id": 7024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -182,25 +182,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7024,
+                        "id": 7019,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7019,
+                        "referencedDeclaration": 7014,
                         "src": "223:4:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                           "typeString": "struct MarkdownLib.Markdown storage pointer"
                         }
                       },
-                      "id": 7026,
+                      "id": 7021,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "content",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7016,
+                      "referencedDeclaration": 7011,
                       "src": "223:12:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -213,25 +213,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7027,
+                        "id": 7022,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7021,
+                        "referencedDeclaration": 7016,
                         "src": "238:8:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       },
-                      "id": 7028,
+                      "id": 7023,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "content",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7016,
+                      "referencedDeclaration": 7011,
                       "src": "238:16:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory",
@@ -244,45 +244,45 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 7030,
+                  "id": 7025,
                   "nodeType": "ExpressionStatement",
                   "src": "223:31:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7032,
+            "id": 7027,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7022,
+              "id": 7017,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7019,
+                  "id": 7014,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7032,
+                  "scope": 7027,
                   "src": "155:21:25",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7018,
+                    "id": 7013,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "155:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -291,26 +291,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7021,
+                  "id": 7016,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7032,
+                  "scope": 7027,
                   "src": "178:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7020,
+                    "id": 7015,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "178:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -321,12 +321,12 @@
               "src": "154:49:25"
             },
             "returnParameters": {
-              "id": 7023,
+              "id": 7018,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "213:0:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "139:122:25",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -334,7 +334,7 @@
           },
           {
             "body": {
-              "id": 7047,
+              "id": 7042,
               "nodeType": "Block",
               "src": "348:63:25",
               "statements": [
@@ -349,25 +349,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 7042,
+                              "id": 7037,
                               "name": "instance",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 7034,
+                              "referencedDeclaration": 7029,
                               "src": "386:8:25",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                                "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                                 "typeString": "struct MarkdownLib.Markdown memory"
                               }
                             },
-                            "id": 7043,
+                            "id": 7038,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "content",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 7016,
+                            "referencedDeclaration": 7011,
                             "src": "386:16:25",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory",
@@ -384,18 +384,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7040,
+                            "id": 7035,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 10289,
+                            "referencedDeclaration": 10284,
                             "src": "375:3:25",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 7041,
+                          "id": 7036,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -409,7 +409,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 7044,
+                        "id": 7039,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -431,18 +431,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 7039,
+                      "id": 7034,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10296,
+                      "referencedDeclaration": 10291,
                       "src": "365:9:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 7045,
+                    "id": 7040,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -456,46 +456,46 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7038,
-                  "id": 7046,
+                  "functionReturnParameters": 7033,
+                  "id": 7041,
                   "nodeType": "Return",
                   "src": "358:46:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7048,
+            "id": 7043,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getDataHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7035,
+              "id": 7030,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7034,
+                  "id": 7029,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7048,
+                  "scope": 7043,
                   "src": "288:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7033,
+                    "id": 7028,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "288:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -506,15 +506,15 @@
               "src": "287:26:25"
             },
             "returnParameters": {
-              "id": 7038,
+              "id": 7033,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7037,
+                  "id": 7032,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7048,
+                  "scope": 7043,
                   "src": "334:12:25",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -523,7 +523,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7036,
+                    "id": 7031,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "334:7:25",
@@ -538,7 +538,7 @@
               ],
               "src": "333:14:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "267:144:25",
             "stateMutability": "pure",
             "superFunction": null,
@@ -546,14 +546,14 @@
           },
           {
             "body": {
-              "id": 7065,
+              "id": 7060,
               "nodeType": "Block",
               "src": "534:58:25",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7063,
+                    "id": 7058,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -563,19 +563,19 @@
                       "components": [
                         {
                           "argumentTypes": null,
-                          "id": 7055,
+                          "id": 7050,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7053,
+                          "referencedDeclaration": 7048,
                           "src": "545:8:25",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                            "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                             "typeString": "struct MarkdownLib.Markdown memory"
                           }
                         }
                       ],
-                      "id": 7056,
+                      "id": 7051,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": true,
@@ -584,7 +584,7 @@
                       "nodeType": "TupleExpression",
                       "src": "544:10:25",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                        "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                         "typeString": "struct MarkdownLib.Markdown memory"
                       }
                     },
@@ -595,11 +595,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 7059,
+                          "id": 7054,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7050,
+                          "referencedDeclaration": 7045,
                           "src": "568:4:25",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -611,19 +611,19 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 7060,
+                              "id": 7055,
                               "name": "Markdown",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 7017,
+                              "referencedDeclaration": 7012,
                               "src": "575:8:25",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                                 "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                               }
                             }
                           ],
-                          "id": 7061,
+                          "id": 7056,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
@@ -632,7 +632,7 @@
                           "nodeType": "TupleExpression",
                           "src": "574:10:25",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                             "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                           }
                         }
@@ -644,24 +644,24 @@
                             "typeString": "bytes memory"
                           },
                           {
-                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                             "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                           }
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7057,
+                          "id": 7052,
                           "name": "abi",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 10289,
+                          "referencedDeclaration": 10284,
                           "src": "557:3:25",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_abi",
                             "typeString": "abi"
                           }
                         },
-                        "id": 7058,
+                        "id": 7053,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -675,7 +675,7 @@
                           "typeString": "function () pure"
                         }
                       },
-                      "id": 7062,
+                      "id": 7057,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -685,39 +685,39 @@
                       "nodeType": "FunctionCall",
                       "src": "557:28:25",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Markdown_$7017_memory",
+                        "typeIdentifier": "t_struct$_Markdown_$7012_memory",
                         "typeString": "struct MarkdownLib.Markdown memory"
                       }
                     },
                     "src": "544:41:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                       "typeString": "struct MarkdownLib.Markdown memory"
                     }
                   },
-                  "id": 7064,
+                  "id": 7059,
                   "nodeType": "ExpressionStatement",
                   "src": "544:41:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7066,
+            "id": 7061,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "structureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7051,
+              "id": 7046,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7050,
+                  "id": 7045,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7066,
+                  "scope": 7061,
                   "src": "441:17:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -726,7 +726,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 7049,
+                    "id": 7044,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "441:5:25",
@@ -742,31 +742,31 @@
               "src": "440:19:25"
             },
             "returnParameters": {
-              "id": 7054,
+              "id": 7049,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7053,
+                  "id": 7048,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7066,
+                  "scope": 7061,
                   "src": "504:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7052,
+                    "id": 7047,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "504:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -776,7 +776,7 @@
               ],
               "src": "503:26:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "417:175:25",
             "stateMutability": "pure",
             "superFunction": null,
@@ -784,7 +784,7 @@
           },
           {
             "body": {
-              "id": 7078,
+              "id": 7073,
               "nodeType": "Block",
               "src": "717:44:25",
               "statements": [
@@ -794,14 +794,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7075,
+                        "id": 7070,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7068,
+                        "referencedDeclaration": 7063,
                         "src": "745:8:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -809,24 +809,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7073,
+                        "id": 7068,
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10289,
+                        "referencedDeclaration": 10284,
                         "src": "734:3:25",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
                           "typeString": "abi"
                         }
                       },
-                      "id": 7074,
+                      "id": 7069,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -840,7 +840,7 @@
                         "typeString": "function () pure returns (bytes memory)"
                       }
                     },
-                    "id": 7076,
+                    "id": 7071,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -854,46 +854,46 @@
                       "typeString": "bytes memory"
                     }
                   },
-                  "functionReturnParameters": 7072,
-                  "id": 7077,
+                  "functionReturnParameters": 7067,
+                  "id": 7072,
                   "nodeType": "Return",
                   "src": "727:27:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7079,
+            "id": 7074,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destructureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7069,
+              "id": 7064,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7068,
+                  "id": 7063,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7079,
+                  "scope": 7074,
                   "src": "624:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7067,
+                    "id": 7062,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "624:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -904,15 +904,15 @@
               "src": "623:26:25"
             },
             "returnParameters": {
-              "id": 7072,
+              "id": 7067,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7071,
+                  "id": 7066,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7079,
+                  "scope": 7074,
                   "src": "694:17:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -921,7 +921,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 7070,
+                    "id": 7065,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "694:5:25",
@@ -936,14 +936,14 @@
               ],
               "src": "693:19:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "598:163:25",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7081,
+        "scope": 7076,
         "src": "59:704:25"
       }
     ],
@@ -953,14 +953,14 @@
     "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
     "exportedSymbols": {
       "MarkdownLib": [
-        7080
+        7075
       ]
     },
-    "id": 7081,
+    "id": 7076,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7013,
+        "id": 7008,
         "literals": [
           "solidity",
           "^",
@@ -971,7 +971,7 @@
         "src": "0:23:25"
       },
       {
-        "id": 7014,
+        "id": 7009,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -985,23 +985,23 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 7080,
+        "id": 7075,
         "linearizedBaseContracts": [
-          7080
+          7075
         ],
         "name": "MarkdownLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "MarkdownLib.Markdown",
-            "id": 7017,
+            "id": 7012,
             "members": [
               {
                 "constant": false,
-                "id": 7016,
+                "id": 7011,
                 "name": "content",
                 "nodeType": "VariableDeclaration",
-                "scope": 7017,
+                "scope": 7012,
                 "src": "112:14:25",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1010,7 +1010,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 7015,
+                  "id": 7010,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "112:6:25",
@@ -1025,20 +1025,20 @@
             ],
             "name": "Markdown",
             "nodeType": "StructDefinition",
-            "scope": 7080,
+            "scope": 7075,
             "src": "86:47:25",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 7031,
+              "id": 7026,
               "nodeType": "Block",
               "src": "213:48:25",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7029,
+                    "id": 7024,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1047,25 +1047,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7024,
+                        "id": 7019,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7019,
+                        "referencedDeclaration": 7014,
                         "src": "223:4:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                           "typeString": "struct MarkdownLib.Markdown storage pointer"
                         }
                       },
-                      "id": 7026,
+                      "id": 7021,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "content",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7016,
+                      "referencedDeclaration": 7011,
                       "src": "223:12:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -1078,25 +1078,25 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7027,
+                        "id": 7022,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7021,
+                        "referencedDeclaration": 7016,
                         "src": "238:8:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       },
-                      "id": 7028,
+                      "id": 7023,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
                       "memberName": "content",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 7016,
+                      "referencedDeclaration": 7011,
                       "src": "238:16:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory",
@@ -1109,45 +1109,45 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 7030,
+                  "id": 7025,
                   "nodeType": "ExpressionStatement",
                   "src": "223:31:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7032,
+            "id": 7027,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "insert",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7022,
+              "id": 7017,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7019,
+                  "id": 7014,
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7032,
+                  "scope": 7027,
                   "src": "155:21:25",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7018,
+                    "id": 7013,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "155:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1156,26 +1156,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7021,
+                  "id": 7016,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7032,
+                  "scope": 7027,
                   "src": "178:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7020,
+                    "id": 7015,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "178:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1186,12 +1186,12 @@
               "src": "154:49:25"
             },
             "returnParameters": {
-              "id": 7023,
+              "id": 7018,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "213:0:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "139:122:25",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1199,7 +1199,7 @@
           },
           {
             "body": {
-              "id": 7047,
+              "id": 7042,
               "nodeType": "Block",
               "src": "348:63:25",
               "statements": [
@@ -1214,25 +1214,25 @@
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 7042,
+                              "id": 7037,
                               "name": "instance",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 7034,
+                              "referencedDeclaration": 7029,
                               "src": "386:8:25",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                                "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                                 "typeString": "struct MarkdownLib.Markdown memory"
                               }
                             },
-                            "id": 7043,
+                            "id": 7038,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "content",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 7016,
+                            "referencedDeclaration": 7011,
                             "src": "386:16:25",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory",
@@ -1249,18 +1249,18 @@
                           ],
                           "expression": {
                             "argumentTypes": null,
-                            "id": 7040,
+                            "id": 7035,
                             "name": "abi",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 10289,
+                            "referencedDeclaration": 10284,
                             "src": "375:3:25",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_abi",
                               "typeString": "abi"
                             }
                           },
-                          "id": 7041,
+                          "id": 7036,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1274,7 +1274,7 @@
                             "typeString": "function () pure returns (bytes memory)"
                           }
                         },
-                        "id": 7044,
+                        "id": 7039,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1296,18 +1296,18 @@
                           "typeString": "bytes memory"
                         }
                       ],
-                      "id": 7039,
+                      "id": 7034,
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 10296,
+                      "referencedDeclaration": 10291,
                       "src": "365:9:25",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                         "typeString": "function (bytes memory) pure returns (bytes32)"
                       }
                     },
-                    "id": 7045,
+                    "id": 7040,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1321,46 +1321,46 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 7038,
-                  "id": 7046,
+                  "functionReturnParameters": 7033,
+                  "id": 7041,
                   "nodeType": "Return",
                   "src": "358:46:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7048,
+            "id": 7043,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getDataHash",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7035,
+              "id": 7030,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7034,
+                  "id": 7029,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7048,
+                  "scope": 7043,
                   "src": "288:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7033,
+                    "id": 7028,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "288:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1371,15 +1371,15 @@
               "src": "287:26:25"
             },
             "returnParameters": {
-              "id": 7038,
+              "id": 7033,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7037,
+                  "id": 7032,
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7048,
+                  "scope": 7043,
                   "src": "334:12:25",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1388,7 +1388,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 7036,
+                    "id": 7031,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "334:7:25",
@@ -1403,7 +1403,7 @@
               ],
               "src": "333:14:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "267:144:25",
             "stateMutability": "pure",
             "superFunction": null,
@@ -1411,14 +1411,14 @@
           },
           {
             "body": {
-              "id": 7065,
+              "id": 7060,
               "nodeType": "Block",
               "src": "534:58:25",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 7063,
+                    "id": 7058,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1428,19 +1428,19 @@
                       "components": [
                         {
                           "argumentTypes": null,
-                          "id": 7055,
+                          "id": 7050,
                           "name": "instance",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7053,
+                          "referencedDeclaration": 7048,
                           "src": "545:8:25",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                            "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                             "typeString": "struct MarkdownLib.Markdown memory"
                           }
                         }
                       ],
-                      "id": 7056,
+                      "id": 7051,
                       "isConstant": false,
                       "isInlineArray": false,
                       "isLValue": true,
@@ -1449,7 +1449,7 @@
                       "nodeType": "TupleExpression",
                       "src": "544:10:25",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                        "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                         "typeString": "struct MarkdownLib.Markdown memory"
                       }
                     },
@@ -1460,11 +1460,11 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 7059,
+                          "id": 7054,
                           "name": "data",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 7050,
+                          "referencedDeclaration": 7045,
                           "src": "568:4:25",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes_memory_ptr",
@@ -1476,19 +1476,19 @@
                           "components": [
                             {
                               "argumentTypes": null,
-                              "id": 7060,
+                              "id": 7055,
                               "name": "Markdown",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 7017,
+                              "referencedDeclaration": 7012,
                               "src": "575:8:25",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                                 "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                               }
                             }
                           ],
-                          "id": 7061,
+                          "id": 7056,
                           "isConstant": false,
                           "isInlineArray": false,
                           "isLValue": false,
@@ -1497,7 +1497,7 @@
                           "nodeType": "TupleExpression",
                           "src": "574:10:25",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                             "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                           }
                         }
@@ -1509,24 +1509,24 @@
                             "typeString": "bytes memory"
                           },
                           {
-                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7012_storage_ptr_$",
                             "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
                           }
                         ],
                         "expression": {
                           "argumentTypes": null,
-                          "id": 7057,
+                          "id": 7052,
                           "name": "abi",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 10289,
+                          "referencedDeclaration": 10284,
                           "src": "557:3:25",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_abi",
                             "typeString": "abi"
                           }
                         },
-                        "id": 7058,
+                        "id": 7053,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1540,7 +1540,7 @@
                           "typeString": "function () pure"
                         }
                       },
-                      "id": 7062,
+                      "id": 7057,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1550,39 +1550,39 @@
                       "nodeType": "FunctionCall",
                       "src": "557:28:25",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Markdown_$7017_memory",
+                        "typeIdentifier": "t_struct$_Markdown_$7012_memory",
                         "typeString": "struct MarkdownLib.Markdown memory"
                       }
                     },
                     "src": "544:41:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                       "typeString": "struct MarkdownLib.Markdown memory"
                     }
                   },
-                  "id": 7064,
+                  "id": 7059,
                   "nodeType": "ExpressionStatement",
                   "src": "544:41:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7066,
+            "id": 7061,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "structureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7051,
+              "id": 7046,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7050,
+                  "id": 7045,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7066,
+                  "scope": 7061,
                   "src": "441:17:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1591,7 +1591,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 7049,
+                    "id": 7044,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "441:5:25",
@@ -1607,31 +1607,31 @@
               "src": "440:19:25"
             },
             "returnParameters": {
-              "id": 7054,
+              "id": 7049,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7053,
+                  "id": 7048,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7066,
+                  "scope": 7061,
                   "src": "504:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7052,
+                    "id": 7047,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "504:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1641,7 +1641,7 @@
               ],
               "src": "503:26:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "417:175:25",
             "stateMutability": "pure",
             "superFunction": null,
@@ -1649,7 +1649,7 @@
           },
           {
             "body": {
-              "id": 7078,
+              "id": 7073,
               "nodeType": "Block",
               "src": "717:44:25",
               "statements": [
@@ -1659,14 +1659,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 7075,
+                        "id": 7070,
                         "name": "instance",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 7068,
+                        "referencedDeclaration": 7063,
                         "src": "745:8:25",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       }
@@ -1674,24 +1674,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                           "typeString": "struct MarkdownLib.Markdown memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 7073,
+                        "id": 7068,
                         "name": "abi",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 10289,
+                        "referencedDeclaration": 10284,
                         "src": "734:3:25",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_abi",
                           "typeString": "abi"
                         }
                       },
-                      "id": 7074,
+                      "id": 7069,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1705,7 +1705,7 @@
                         "typeString": "function () pure returns (bytes memory)"
                       }
                     },
-                    "id": 7076,
+                    "id": 7071,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1719,46 +1719,46 @@
                       "typeString": "bytes memory"
                     }
                   },
-                  "functionReturnParameters": 7072,
-                  "id": 7077,
+                  "functionReturnParameters": 7067,
+                  "id": 7072,
                   "nodeType": "Return",
                   "src": "727:27:25"
                 }
               ]
             },
             "documentation": null,
-            "id": 7079,
+            "id": 7074,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destructureBytes",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7069,
+              "id": 7064,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7068,
+                  "id": 7063,
                   "name": "instance",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7079,
+                  "scope": 7074,
                   "src": "624:24:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeIdentifier": "t_struct$_Markdown_$7012_memory_ptr",
                     "typeString": "struct MarkdownLib.Markdown"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7067,
+                    "id": 7062,
                     "name": "Markdown",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7017,
+                    "referencedDeclaration": 7012,
                     "src": "624:8:25",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeIdentifier": "t_struct$_Markdown_$7012_storage_ptr",
                       "typeString": "struct MarkdownLib.Markdown"
                     }
                   },
@@ -1769,15 +1769,15 @@
               "src": "623:26:25"
             },
             "returnParameters": {
-              "id": 7072,
+              "id": 7067,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7071,
+                  "id": 7066,
                   "name": "data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7079,
+                  "scope": 7074,
                   "src": "694:17:25",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1786,7 +1786,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 7070,
+                    "id": 7065,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "694:5:25",
@@ -1801,14 +1801,14 @@
               ],
               "src": "693:19:25"
             },
-            "scope": 7080,
+            "scope": 7075,
             "src": "598:163:25",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7081,
+        "scope": 7076,
         "src": "59:704:25"
       }
     ],
@@ -1822,14 +1822,14 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0xc4E72473d7f8dC3Ee5fbe96e91438096994fF46D",
-      "transactionHash": "0xb9b6ce633b318366364c71eb03d37a653213380d255f16b5166b37b988def8a1"
+      "address": "0x91201556e79Ee0Fd96312f27B20Ab14ccCCac849",
+      "transactionHash": "0x229a6c6e63c414a8b21c828f6af5fe66902069ea9781cada6f7d33930d8dc946"
     },
     "5": {
       "events": {},
       "links": {},
-      "address": "0x43Cd6e180EEA733eb4259267ef04967CA89e8444",
-      "transactionHash": "0x66fe08929e72b2ba2e383e5d684ee2c7a5862a03b6decbc8dfc50c706022719e"
+      "address": "0xee39D504A30aed9e2933DaF233401853df829Ca3",
+      "transactionHash": "0xf61f63a26fca7b5deaac1148f1890611a4c6adc04fbea158037fc549e17c6eef"
     },
     "5777": {
       "events": {},
@@ -1839,7 +1839,7 @@
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-28T11:10:53.975Z",
+  "updatedAt": "2019-07-28T12:59:04.172Z",
   "devdoc": {
     "methods": {}
   },
