@@ -1,0 +1,1849 @@
+{
+  "contractName": "PersonLib",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "fullname",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "getDataHash",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "structureBytes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "fullname",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "fullname",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "destructureBytes",
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"fullname\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"destructureBytes\",\"outputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"structureBytes\",\"outputs\":[{\"components\":[{\"name\":\"fullname\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"fullname\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"getDataHash\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol\":\"PersonLib\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol\":{\"keccak256\":\"0xfb1aad774400e4e98be2bcabe6f71cbe31b727af267d22e84b534d56568ca12d\",\"urls\":[\"bzzr://cc076aa9ec32146e43d0e5e990d30c569fb4d4a156d83209109d5832927bb8da\"]}},\"version\":1}",
+  "bytecode": "0x610732610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c8063247b76ce14610050578063b3718ad014610080578063e4498ecb146100b0575b600080fd5b61006a60048036036100659190810190610391565b6100e0565b6040516100779190610534565b60405180910390f35b61009a6004803603610095919081019061030f565b610109565b6040516100a7919061059a565b60405180910390f35b6100ca60048036036100c59190810190610391565b61012c565b6040516100d79190610519565b60405180910390f35b6060816040516020016100f39190610578565b6040516020818303038152906040529050919050565b610111610160565b818060200190516101259190810190610350565b9050919050565b600081600001516040516020016101439190610556565b604051602081830303815290604052805190602001209050919050565b6040518060200160405280606081525090565b600082601f83011261018457600080fd5b8135610197610192826105e9565b6105bc565b915080825260208301602083018583830111156101b357600080fd5b6101be8382846106a5565b50505092915050565b600082601f8301126101d857600080fd5b81356101eb6101e682610615565b6105bc565b9150808252602083016020830185838301111561020757600080fd5b6102128382846106a5565b50505092915050565b600082601f83011261022c57600080fd5b815161023f61023a82610615565b6105bc565b9150808252602083016020830185838301111561025b57600080fd5b6102668382846106b4565b50505092915050565b60006020828403121561028157600080fd5b61028b60206105bc565b9050600082015167ffffffffffffffff8111156102a757600080fd5b6102b38482850161021b565b60008301525092915050565b6000602082840312156102d157600080fd5b6102db60206105bc565b9050600082013567ffffffffffffffff8111156102f757600080fd5b610303848285016101c7565b60008301525092915050565b60006020828403121561032157600080fd5b600082013567ffffffffffffffff81111561033b57600080fd5b61034784828501610173565b91505092915050565b60006020828403121561036257600080fd5b600082015167ffffffffffffffff81111561037c57600080fd5b6103888482850161026f565b91505092915050565b6000602082840312156103a357600080fd5b600082013567ffffffffffffffff8111156103bd57600080fd5b6103c9848285016102bf565b91505092915050565b6103db8161069b565b82525050565b60006103ec82610641565b6103f68185610657565b93506104068185602086016106b4565b61040f816106e7565b840191505092915050565b60006104258261064c565b61042f8185610668565b935061043f8185602086016106b4565b610448816106e7565b840191505092915050565b600061045e8261064c565b6104688185610679565b93506104788185602086016106b4565b610481816106e7565b840191505092915050565b60006104978261064c565b6104a1818561068a565b93506104b18185602086016106b4565b6104ba816106e7565b840191505092915050565b600060208301600083015184820360008601526104e2828261041a565b9150508091505092915050565b6000602083016000830151848203600086015261050c828261048c565b9150508091505092915050565b600060208201905061052e60008301846103d2565b92915050565b6000602082019050818103600083015261054e81846103e1565b905092915050565b600060208201905081810360008301526105708184610453565b905092915050565b6000602082019050818103600083015261059281846104c5565b905092915050565b600060208201905081810360008301526105b481846104ef565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156105df57600080fd5b8060405250919050565b600067ffffffffffffffff82111561060057600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561062c57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000819050919050565b82818337600083830152505050565b60005b838110156106d25780820151818401526020810190506106b7565b838111156106e1576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820337f2ab21f9fcf81fc00378639ee471e8df54a57bbdaef6fe24492544f2b780f6c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c8063247b76ce14610050578063b3718ad014610080578063e4498ecb146100b0575b600080fd5b61006a60048036036100659190810190610391565b6100e0565b6040516100779190610534565b60405180910390f35b61009a6004803603610095919081019061030f565b610109565b6040516100a7919061059a565b60405180910390f35b6100ca60048036036100c59190810190610391565b61012c565b6040516100d79190610519565b60405180910390f35b6060816040516020016100f39190610578565b6040516020818303038152906040529050919050565b610111610160565b818060200190516101259190810190610350565b9050919050565b600081600001516040516020016101439190610556565b604051602081830303815290604052805190602001209050919050565b6040518060200160405280606081525090565b600082601f83011261018457600080fd5b8135610197610192826105e9565b6105bc565b915080825260208301602083018583830111156101b357600080fd5b6101be8382846106a5565b50505092915050565b600082601f8301126101d857600080fd5b81356101eb6101e682610615565b6105bc565b9150808252602083016020830185838301111561020757600080fd5b6102128382846106a5565b50505092915050565b600082601f83011261022c57600080fd5b815161023f61023a82610615565b6105bc565b9150808252602083016020830185838301111561025b57600080fd5b6102668382846106b4565b50505092915050565b60006020828403121561028157600080fd5b61028b60206105bc565b9050600082015167ffffffffffffffff8111156102a757600080fd5b6102b38482850161021b565b60008301525092915050565b6000602082840312156102d157600080fd5b6102db60206105bc565b9050600082013567ffffffffffffffff8111156102f757600080fd5b610303848285016101c7565b60008301525092915050565b60006020828403121561032157600080fd5b600082013567ffffffffffffffff81111561033b57600080fd5b61034784828501610173565b91505092915050565b60006020828403121561036257600080fd5b600082015167ffffffffffffffff81111561037c57600080fd5b6103888482850161026f565b91505092915050565b6000602082840312156103a357600080fd5b600082013567ffffffffffffffff8111156103bd57600080fd5b6103c9848285016102bf565b91505092915050565b6103db8161069b565b82525050565b60006103ec82610641565b6103f68185610657565b93506104068185602086016106b4565b61040f816106e7565b840191505092915050565b60006104258261064c565b61042f8185610668565b935061043f8185602086016106b4565b610448816106e7565b840191505092915050565b600061045e8261064c565b6104688185610679565b93506104788185602086016106b4565b610481816106e7565b840191505092915050565b60006104978261064c565b6104a1818561068a565b93506104b18185602086016106b4565b6104ba816106e7565b840191505092915050565b600060208301600083015184820360008601526104e2828261041a565b9150508091505092915050565b6000602083016000830151848203600086015261050c828261048c565b9150508091505092915050565b600060208201905061052e60008301846103d2565b92915050565b6000602082019050818103600083015261054e81846103e1565b905092915050565b600060208201905081810360008301526105708184610453565b905092915050565b6000602082019050818103600083015261059281846104c5565b905092915050565b600060208201905081810360008301526105b481846104ef565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156105df57600080fd5b8060405250919050565b600067ffffffffffffffff82111561060057600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561062c57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000819050919050565b82818337600083830152505050565b60005b838110156106d25780820151818401526020810190506106b7565b838111156106e1576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820337f2ab21f9fcf81fc00378639ee471e8df54a57bbdaef6fe24492544f2b780f6c6578706572696d656e74616cf50037",
+  "sourceMap": "59:692:31:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "59:692:31:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;588:161;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;411:171;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;262:143;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;588:161;682:17;733:8;722:20;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;722:20:31;;;715:27;;588:161;;;:::o;411:171::-;498:22;;:::i;:::-;560:4;549:26;;;;;;;;;;;;;;536:39;;411:171;;;:::o;262:143::-;327:12;379:8;:17;;;368:29;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;368:29:31;;;358:40;;;;;;351:47;;262:143;;;:::o;59:692::-;;;;;;;;;;;;;;:::o;6:440:-1:-;;107:3;100:4;92:6;88:17;84:27;74:2;;125:1;122;115:12;74:2;162:6;149:20;184:64;199:48;240:6;199:48;;;184:64;;;175:73;;268:6;261:5;254:21;304:4;296:6;292:17;337:4;330:5;326:16;372:3;363:6;358:3;354:16;351:25;348:2;;;389:1;386;379:12;348:2;399:41;433:6;428:3;423;399:41;;;67:379;;;;;;;;455:434;;553:3;546:4;538:6;534:17;530:27;520:2;;571:1;568;561:12;520:2;608:6;595:20;630:61;645:45;683:6;645:45;;;630:61;;;621:70;;711:6;704:5;697:21;747:4;739:6;735:17;780:4;773:5;769:16;815:3;806:6;801:3;797:16;794:25;791:2;;;832:1;829;822:12;791:2;842:41;876:6;871:3;866;842:41;;;513:376;;;;;;;;898:436;;1007:3;1000:4;992:6;988:17;984:27;974:2;;1025:1;1022;1015:12;974:2;1055:6;1049:13;1077:61;1092:45;1130:6;1092:45;;;1077:61;;;1068:70;;1158:6;1151:5;1144:21;1194:4;1186:6;1182:17;1227:4;1220:5;1216:16;1262:3;1253:6;1248:3;1244:16;1241:25;1238:2;;;1279:1;1276;1269:12;1238:2;1289:39;1321:6;1316:3;1311;1289:39;;;967:367;;;;;;;;1372:428;;1492:4;1480:9;1475:3;1471:19;1467:30;1464:2;;;1510:1;1507;1500:12;1464:2;1528:20;1543:4;1528:20;;;1519:29;;1623:1;1612:9;1608:17;1602:24;1646:18;1638:6;1635:30;1632:2;;;1678:1;1675;1668:12;1632:2;1712:66;1774:3;1765:6;1754:9;1750:22;1712:66;;;1706:3;1699:5;1695:15;1688:91;1558:232;1458:342;;;;;1837:417;;1950:4;1938:9;1933:3;1929:19;1925:30;1922:2;;;1968:1;1965;1958:12;1922:2;1986:20;2001:4;1986:20;;;1977:29;;2088:1;2077:9;2073:17;2060:31;2111:18;2103:6;2100:30;2097:2;;;2143:1;2140;2133:12;2097:2;2177:55;2228:3;2219:6;2208:9;2204:22;2177:55;;;2171:3;2164:5;2160:15;2153:80;2016:228;1916:338;;;;;2261:345;;2374:2;2362:9;2353:7;2349:23;2345:32;2342:2;;;2390:1;2387;2380:12;2342:2;2453:1;2442:9;2438:17;2425:31;2476:18;2468:6;2465:30;2462:2;;;2508:1;2505;2498:12;2462:2;2528:62;2582:7;2573:6;2562:9;2558:22;2528:62;;;2518:72;;2404:192;2336:270;;;;;2613:382;;2748:2;2736:9;2727:7;2723:23;2719:32;2716:2;;;2764:1;2761;2754:12;2716:2;2820:1;2809:9;2805:17;2799:24;2843:18;2835:6;2832:30;2829:2;;;2875:1;2872;2865:12;2829:2;2895:84;2971:7;2962:6;2951:9;2947:22;2895:84;;;2885:94;;2778:207;2710:285;;;;;3002:375;;3130:2;3118:9;3109:7;3105:23;3101:32;3098:2;;;3146:1;3143;3136:12;3098:2;3209:1;3198:9;3194:17;3181:31;3232:18;3224:6;3221:30;3218:2;;;3264:1;3261;3254:12;3218:2;3284:77;3353:7;3344:6;3333:9;3329:22;3284:77;;;3274:87;;3160:207;3092:285;;;;;3384:128;3475:31;3500:5;3475:31;;;3470:3;3463:44;3457:55;;;3519:359;;3637:38;3669:5;3637:38;;;3687:78;3758:6;3753:3;3687:78;;;3680:85;;3770:52;3815:6;3810:3;3803:4;3796:5;3792:16;3770:52;;;3843:29;3865:6;3843:29;;;3838:3;3834:39;3827:46;;3617:261;;;;;;3885:319;;3983:35;4012:5;3983:35;;;4030:61;4084:6;4079:3;4030:61;;;4023:68;;4096:52;4141:6;4136:3;4129:4;4122:5;4118:16;4096:52;;;4169:29;4191:6;4169:29;;;4164:3;4160:39;4153:46;;3963:241;;;;;;4211:339;;4319:35;4348:5;4319:35;;;4366:71;4430:6;4425:3;4366:71;;;4359:78;;4442:52;4487:6;4482:3;4475:4;4468:5;4464:16;4442:52;;;4515:29;4537:6;4515:29;;;4510:3;4506:39;4499:46;;4299:251;;;;;;4557:335;;4663:35;4692:5;4663:35;;;4710:69;4772:6;4767:3;4710:69;;;4703:76;;4784:52;4829:6;4824:3;4817:4;4810:5;4806:16;4784:52;;;4857:29;4879:6;4857:29;;;4852:3;4848:39;4841:46;;4643:249;;;;;;4956:411;;5105:4;5100:3;5096:14;5191:3;5184:5;5180:15;5174:22;5241:3;5235:4;5231:14;5225:3;5220;5216:13;5209:37;5261:68;5324:4;5311:11;5261:68;;;5253:76;;5125:216;5358:4;5351:11;;5078:289;;;;;;5431:427;;5588:4;5583:3;5579:14;5674:3;5667:5;5663:15;5657:22;5724:3;5718:4;5714:14;5708:3;5703;5699:13;5692:37;5744:76;5815:4;5802:11;5744:76;;;5736:84;;5608:224;5849:4;5842:11;;5561:297;;;;;;5865:229;;5991:2;5980:9;5976:18;5968:26;;6005:79;6081:1;6070:9;6066:17;6057:6;6005:79;;;5962:132;;;;;6101:313;;6245:2;6234:9;6230:18;6222:26;;6295:9;6289:4;6285:20;6281:1;6270:9;6266:17;6259:47;6320:84;6399:4;6390:6;6320:84;;;6312:92;;6216:198;;;;;6421:293;;6555:2;6544:9;6540:18;6532:26;;6605:9;6599:4;6595:20;6591:1;6580:9;6576:17;6569:47;6630:74;6699:4;6690:6;6630:74;;;6622:82;;6526:188;;;;;6721:357;;6887:2;6876:9;6872:18;6864:26;;6937:9;6931:4;6927:20;6923:1;6912:9;6908:17;6901:47;6962:106;7063:4;7054:6;6962:106;;;6954:114;;6858:220;;;;;7085:373;;7259:2;7248:9;7244:18;7236:26;;7309:9;7303:4;7299:20;7295:1;7284:9;7280:17;7273:47;7334:114;7443:4;7434:6;7334:114;;;7326:122;;7230:228;;;;;7465:256;;7527:2;7521:9;7511:19;;7565:4;7557:6;7553:17;7664:6;7652:10;7649:22;7628:18;7616:10;7613:34;7610:62;7607:2;;;7685:1;7682;7675:12;7607:2;7705:10;7701:2;7694:22;7505:216;;;;;7728:258;;7871:18;7863:6;7860:30;7857:2;;;7903:1;7900;7893:12;7857:2;7947:4;7943:9;7936:4;7928:6;7924:17;7920:33;7912:41;;7976:4;7970;7966:15;7958:23;;7794:192;;;;7993:255;;8133:18;8125:6;8122:30;8119:2;;;8165:1;8162;8155:12;8119:2;8209:4;8205:9;8198:4;8190:6;8186:17;8182:33;8174:41;;8238:4;8232;8228:15;8220:23;;8056:192;;;;8255:91;;8335:5;8329:12;8319:22;;8313:33;;;;8353:88;;8430:5;8424:12;8414:22;;8408:33;;;;8449:170;;8571:6;8566:3;8559:19;8608:4;8603:3;8599:14;8584:29;;8552:67;;;;;8628:153;;8733:6;8728:3;8721:19;8770:4;8765:3;8761:14;8746:29;;8714:67;;;;;8790:163;;8905:6;8900:3;8893:19;8942:4;8937:3;8933:14;8918:29;;8886:67;;;;;8962:161;;9075:6;9070:3;9063:19;9112:4;9107:3;9103:14;9088:29;;9056:67;;;;;9131:79;;9200:5;9189:16;;9183:27;;;;9218:145;9299:6;9294:3;9289;9276:30;9355:1;9346:6;9341:3;9337:16;9330:27;9269:94;;;;9372:268;9437:1;9444:101;9458:6;9455:1;9452:13;9444:101;;;9534:1;9529:3;9525:11;9519:18;9515:1;9510:3;9506:11;9499:39;9480:2;9477:1;9473:10;9468:15;;9444:101;;;9560:6;9557:1;9554:13;9551:2;;;9625:1;9616:6;9611:3;9607:16;9600:27;9551:2;9421:219;;;;;9648:97;;9736:2;9732:7;9727:2;9720:5;9716:14;9712:28;9702:38;;9696:49;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nlibrary PersonLib {\n\n    struct Person {\n        string fullname;\n    }\n\n    function insert(Person storage self, Person memory instance) internal {\n        self.fullname = instance.fullname;\n    }\n\n    function getDataHash(Person memory instance) pure public returns(bytes32 hash) {\n        return keccak256(abi.encode(instance.fullname));\n    }\n\n    function structureBytes(bytes memory data)\n        pure\n        public\n        returns(Person memory instance)\n    {\n        (instance) = abi.decode(data, (Person));\n    }\n\n    function destructureBytes(Person memory instance)\n        pure\n        public\n        returns(bytes memory data)\n    {\n        return abi.encode(instance);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
+    "exportedSymbols": {
+      "PersonLib": [
+        8189
+      ]
+    },
+    "id": 8190,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8122,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:31"
+      },
+      {
+        "id": 8123,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:31"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 8189,
+        "linearizedBaseContracts": [
+          8189
+        ],
+        "name": "PersonLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PersonLib.Person",
+            "id": 8126,
+            "members": [
+              {
+                "constant": false,
+                "id": 8125,
+                "name": "fullname",
+                "nodeType": "VariableDeclaration",
+                "scope": 8126,
+                "src": "108:15:31",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 8124,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "108:6:31",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Person",
+            "nodeType": "StructDefinition",
+            "scope": 8189,
+            "src": "84:46:31",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8140,
+              "nodeType": "Block",
+              "src": "206:50:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8138,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8133,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8128,
+                        "src": "216:4:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                          "typeString": "struct PersonLib.Person storage pointer"
+                        }
+                      },
+                      "id": 8135,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "fullname",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8125,
+                      "src": "216:13:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8136,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8130,
+                        "src": "232:8:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      },
+                      "id": 8137,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "fullname",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8125,
+                      "src": "232:17:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "216:33:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 8139,
+                  "nodeType": "ExpressionStatement",
+                  "src": "216:33:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8128,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8141,
+                  "src": "152:19:31",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8127,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "152:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8130,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8141,
+                  "src": "173:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8129,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "173:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "151:45:31"
+            },
+            "returnParameters": {
+              "id": 8132,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "206:0:31"
+            },
+            "scope": 8189,
+            "src": "136:120:31",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 8156,
+              "nodeType": "Block",
+              "src": "341:64:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8151,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8143,
+                              "src": "379:8:31",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                                "typeString": "struct PersonLib.Person memory"
+                              }
+                            },
+                            "id": 8152,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "fullname",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8125,
+                            "src": "379:17:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8149,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "368:3:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 8150,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "368:10:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 8153,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "368:29:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 8148,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "358:9:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 8154,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "358:40:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 8147,
+                  "id": 8155,
+                  "nodeType": "Return",
+                  "src": "351:47:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8157,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8144,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8143,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8157,
+                  "src": "283:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8142,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "283:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "282:24:31"
+            },
+            "returnParameters": {
+              "id": 8147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8146,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8157,
+                  "src": "327:12:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8145,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "327:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "326:14:31"
+            },
+            "scope": 8189,
+            "src": "262:143:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8174,
+              "nodeType": "Block",
+              "src": "526:56:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8172,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8164,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8162,
+                          "src": "537:8:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                            "typeString": "struct PersonLib.Person memory"
+                          }
+                        }
+                      ],
+                      "id": 8165,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "536:10:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                        "typeString": "struct PersonLib.Person memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8168,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8159,
+                          "src": "560:4:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 8169,
+                              "name": "Person",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8126,
+                              "src": "567:6:31",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                                "typeString": "type(struct PersonLib.Person storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 8170,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "566:8:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeString": "type(struct PersonLib.Person storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeString": "type(struct PersonLib.Person storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 8166,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "549:3:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 8167,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "549:10:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 8171,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "549:26:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Person_$8126_memory",
+                        "typeString": "struct PersonLib.Person memory"
+                      }
+                    },
+                    "src": "536:39:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                      "typeString": "struct PersonLib.Person memory"
+                    }
+                  },
+                  "id": 8173,
+                  "nodeType": "ExpressionStatement",
+                  "src": "536:39:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8175,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8160,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8159,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8175,
+                  "src": "435:17:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8158,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:5:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "434:19:31"
+            },
+            "returnParameters": {
+              "id": 8163,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8162,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8175,
+                  "src": "498:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8161,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "498:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "497:24:31"
+            },
+            "scope": 8189,
+            "src": "411:171:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8187,
+              "nodeType": "Block",
+              "src": "705:44:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8184,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8177,
+                        "src": "733:8:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8182,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "722:3:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 8183,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "722:10:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 8185,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "722:20:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 8181,
+                  "id": 8186,
+                  "nodeType": "Return",
+                  "src": "715:27:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8188,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8178,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8177,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8188,
+                  "src": "614:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8176,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "614:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "613:24:31"
+            },
+            "returnParameters": {
+              "id": 8181,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8180,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8188,
+                  "src": "682:17:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8179,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "682:5:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "681:19:31"
+            },
+            "scope": 8189,
+            "src": "588:161:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8190,
+        "src": "59:692:31"
+      }
+    ],
+    "src": "0:752:31"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/person/PersonLib.sol",
+    "exportedSymbols": {
+      "PersonLib": [
+        8189
+      ]
+    },
+    "id": 8190,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8122,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:31"
+      },
+      {
+        "id": 8123,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:31"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 8189,
+        "linearizedBaseContracts": [
+          8189
+        ],
+        "name": "PersonLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "PersonLib.Person",
+            "id": 8126,
+            "members": [
+              {
+                "constant": false,
+                "id": 8125,
+                "name": "fullname",
+                "nodeType": "VariableDeclaration",
+                "scope": 8126,
+                "src": "108:15:31",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 8124,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "108:6:31",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Person",
+            "nodeType": "StructDefinition",
+            "scope": 8189,
+            "src": "84:46:31",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8140,
+              "nodeType": "Block",
+              "src": "206:50:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8138,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8133,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8128,
+                        "src": "216:4:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                          "typeString": "struct PersonLib.Person storage pointer"
+                        }
+                      },
+                      "id": 8135,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "fullname",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8125,
+                      "src": "216:13:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8136,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8130,
+                        "src": "232:8:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      },
+                      "id": 8137,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "fullname",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8125,
+                      "src": "232:17:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "216:33:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 8139,
+                  "nodeType": "ExpressionStatement",
+                  "src": "216:33:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8131,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8128,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8141,
+                  "src": "152:19:31",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8127,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "152:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8130,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8141,
+                  "src": "173:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8129,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "173:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "151:45:31"
+            },
+            "returnParameters": {
+              "id": 8132,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "206:0:31"
+            },
+            "scope": 8189,
+            "src": "136:120:31",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 8156,
+              "nodeType": "Block",
+              "src": "341:64:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8151,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8143,
+                              "src": "379:8:31",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                                "typeString": "struct PersonLib.Person memory"
+                              }
+                            },
+                            "id": 8152,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "fullname",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8125,
+                            "src": "379:17:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8149,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "368:3:31",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 8150,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "368:10:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 8153,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "368:29:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 8148,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "358:9:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 8154,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "358:40:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 8147,
+                  "id": 8155,
+                  "nodeType": "Return",
+                  "src": "351:47:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8157,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8144,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8143,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8157,
+                  "src": "283:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8142,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "283:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "282:24:31"
+            },
+            "returnParameters": {
+              "id": 8147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8146,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8157,
+                  "src": "327:12:31",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8145,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "327:7:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "326:14:31"
+            },
+            "scope": 8189,
+            "src": "262:143:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8174,
+              "nodeType": "Block",
+              "src": "526:56:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8172,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8164,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8162,
+                          "src": "537:8:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                            "typeString": "struct PersonLib.Person memory"
+                          }
+                        }
+                      ],
+                      "id": 8165,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "536:10:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                        "typeString": "struct PersonLib.Person memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8168,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8159,
+                          "src": "560:4:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 8169,
+                              "name": "Person",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8126,
+                              "src": "567:6:31",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                                "typeString": "type(struct PersonLib.Person storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 8170,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "566:8:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeString": "type(struct PersonLib.Person storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Person_$8126_storage_ptr_$",
+                            "typeString": "type(struct PersonLib.Person storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 8166,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "549:3:31",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 8167,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "549:10:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 8171,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "549:26:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Person_$8126_memory",
+                        "typeString": "struct PersonLib.Person memory"
+                      }
+                    },
+                    "src": "536:39:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                      "typeString": "struct PersonLib.Person memory"
+                    }
+                  },
+                  "id": 8173,
+                  "nodeType": "ExpressionStatement",
+                  "src": "536:39:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8175,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8160,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8159,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8175,
+                  "src": "435:17:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8158,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:5:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "434:19:31"
+            },
+            "returnParameters": {
+              "id": 8163,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8162,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8175,
+                  "src": "498:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8161,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "498:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "497:24:31"
+            },
+            "scope": 8189,
+            "src": "411:171:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8187,
+              "nodeType": "Block",
+              "src": "705:44:31",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8184,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8177,
+                        "src": "733:8:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                          "typeString": "struct PersonLib.Person memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8182,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "722:3:31",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 8183,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "722:10:31",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 8185,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "722:20:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 8181,
+                  "id": 8186,
+                  "nodeType": "Return",
+                  "src": "715:27:31"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8188,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8178,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8177,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8188,
+                  "src": "614:22:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Person_$8126_memory_ptr",
+                    "typeString": "struct PersonLib.Person"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8176,
+                    "name": "Person",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8126,
+                    "src": "614:6:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Person_$8126_storage_ptr",
+                      "typeString": "struct PersonLib.Person"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "613:24:31"
+            },
+            "returnParameters": {
+              "id": 8181,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8180,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8188,
+                  "src": "682:17:31",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8179,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "682:5:31",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "681:19:31"
+            },
+            "scope": 8189,
+            "src": "588:161:31",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8190,
+        "src": "59:692:31"
+      }
+    ],
+    "src": "0:752:31"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0x2b655b000dC114566bE6401956f0671D5d50A24B",
+      "transactionHash": "0x5d6305af9ee05231ace5919dd261294990a603ccf411b214b52a78f9e69eff4a"
+    },
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x77459251C9f057E05Fd1c2A7b92519123D698240",
+      "transactionHash": "0x27efd4d511d3ee482ba2051769726b8f8a033a4187c5155896fbc4fbea7f4760"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x82662CDb16e6827695c8B00D0208905cc04777ae",
+      "transactionHash": "0x5731c8bb55d1250e019f42385575ba64ccd09b32a015696d69831a8a1b6694c7"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-28T11:10:53.990Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,0 +1,1555 @@
+{
+  "contractName": "VoteResourceInterface",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogNew",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogUpdate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogRemove",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "proponent",
+              "type": "address"
+            },
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "dataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "votingProcessDataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "scoreyes",
+              "type": "uint256"
+            },
+            {
+              "name": "scoreno",
+              "type": "uint256"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "name": "insert",
+      "outputs": [
+        {
+          "name": "hasho",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hashi",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "name": "vote",
+              "type": "bool"
+            },
+            {
+              "name": "voteWeight",
+              "type": "uint256"
+            },
+            {
+              "name": "senderAddress",
+              "type": "address"
+            }
+          ],
+          "name": "vote",
+          "type": "tuple"
+        }
+      ],
+      "name": "update",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "remove",
+      "outputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "count",
+      "outputs": [
+        {
+          "name": "counter",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getByHash",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "proponent",
+              "type": "address"
+            },
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "dataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "votingProcessDataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "scoreyes",
+              "type": "uint256"
+            },
+            {
+              "name": "scoreno",
+              "type": "uint256"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"count\",\"outputs\":[{\"name\":\"counter\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"remove\",\"outputs\":[{\"name\":\"index\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"getByHash\",\"outputs\":[{\"components\":[{\"name\":\"proponent\",\"type\":\"address\"},{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"dataHash\",\"type\":\"bytes32\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"scoreyes\",\"type\":\"uint256\"},{\"name\":\"scoreno\",\"type\":\"uint256\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"hashi\",\"type\":\"bytes32\"},{\"components\":[{\"name\":\"vote\",\"type\":\"bool\"},{\"name\":\"voteWeight\",\"type\":\"uint256\"},{\"name\":\"senderAddress\",\"type\":\"address\"}],\"name\":\"vote\",\"type\":\"tuple\"}],\"name\":\"update\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"components\":[{\"name\":\"proponent\",\"type\":\"address\"},{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"dataHash\",\"type\":\"bytes32\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"scoreyes\",\"type\":\"uint256\"},{\"name\":\"scoreno\",\"type\":\"uint256\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"insert\",\"outputs\":[{\"name\":\"hasho\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"LogNew\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"LogUpdate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"LogRemove\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceInterface.sol\":\"VoteResourceInterface\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceInterface.sol\":{\"keccak256\":\"0xfdb8430357fbe9184ac7e35845fc7d589ab5e0c2d1b33192ec39b3c601d60294\",\"urls\":[\"bzzr://3ad2bbfe686ecf2d424916d8a204194c1c190124d19bb5528720684516ba1adf\"]},\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceTypeLib.sol\":{\"keccak256\":\"0xe25f1bc01d236fb1df7b7a20acea19a0e9f688987c3e963d5ed96ecdc3d153a7\",\"urls\":[\"bzzr://1988daed1600ebcad493df7f5e33dc436f602e257110a7cf2bab65954ace525c\"]},\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteTypeLib.sol\":{\"keccak256\":\"0x9106a5953ab399dfd88d77620c9be8f6a977ab0afe6b1db7aafa543daf43cec1\",\"urls\":[\"bzzr://eda02f795732286444244031d11c058b1895760ebdd2a2c90b95f227f6339740\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport './VoteTypeLib.sol';\nimport './VoteResourceTypeLib.sol';\n\ninterface VoteResourceInterface {\n    event LogNew(bytes32 indexed hash, uint256 indexed index);\n    event LogUpdate(bytes32 indexed hash, uint256 indexed index);\n    event LogRemove(bytes32 indexed hash, uint256 indexed index);\n\n    function insert(VoteResourceTypeLib.VoteResource calldata data) external returns (bytes32 hasho);\n\n    function update(bytes32 hashi, VoteTypeLib.UserVote calldata vote) external;\n\n    function remove(bytes32 hash) external returns(uint256 index);\n\n    function count() external view returns(uint256 counter);\n\n    function getByHash(bytes32 hash) external view returns(VoteResourceTypeLib.VoteResource memory data);\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceInterface.sol",
+    "exportedSymbols": {
+      "VoteResourceInterface": [
+        7340
+      ]
+    },
+    "id": 7341,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7285,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:28"
+      },
+      {
+        "id": 7286,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:28"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteTypeLib.sol",
+        "file": "./VoteTypeLib.sol",
+        "id": 7287,
+        "nodeType": "ImportDirective",
+        "scope": 7341,
+        "sourceUnit": 7936,
+        "src": "59:27:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceTypeLib.sol",
+        "file": "./VoteResourceTypeLib.sol",
+        "id": 7288,
+        "nodeType": "ImportDirective",
+        "scope": 7341,
+        "sourceUnit": 7563,
+        "src": "87:35:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 7340,
+        "linearizedBaseContracts": [
+          7340
+        ],
+        "name": "VoteResourceInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7294,
+            "name": "LogNew",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7293,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7290,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7294,
+                  "src": "175:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7289,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7292,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7294,
+                  "src": "197:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7291,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "197:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "174:45:28"
+            },
+            "src": "162:58:28"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7300,
+            "name": "LogUpdate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7299,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7296,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7300,
+                  "src": "241:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7295,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7298,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7300,
+                  "src": "263:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7297,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "263:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:45:28"
+            },
+            "src": "225:61:28"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7306,
+            "name": "LogRemove",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7305,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7302,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7306,
+                  "src": "307:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7301,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "307:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7304,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7306,
+                  "src": "329:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7303,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "329:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "306:45:28"
+            },
+            "src": "291:61:28"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7313,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7309,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7308,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7313,
+                  "src": "374:46:28",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteResource_$7356_calldata_ptr",
+                    "typeString": "struct VoteResourceTypeLib.VoteResource"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7307,
+                    "name": "VoteResourceTypeLib.VoteResource",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7356,
+                    "src": "374:32:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteResource_$7356_storage_ptr",
+                      "typeString": "struct VoteResourceTypeLib.VoteResource"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "373:48:28"
+            },
+            "returnParameters": {
+              "id": 7312,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7311,
+                  "name": "hasho",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7313,
+                  "src": "440:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7310,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "440:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "439:15:28"
+            },
+            "scope": 7340,
+            "src": "358:97:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7320,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7318,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7315,
+                  "name": "hashi",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7320,
+                  "src": "477:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7314,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "477:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7317,
+                  "name": "vote",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7320,
+                  "src": "492:34:28",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_UserVote_$7934_calldata_ptr",
+                    "typeString": "struct VoteTypeLib.UserVote"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7316,
+                    "name": "VoteTypeLib.UserVote",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7934,
+                    "src": "492:20:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserVote_$7934_storage_ptr",
+                      "typeString": "struct VoteTypeLib.UserVote"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "476:51:28"
+            },
+            "returnParameters": {
+              "id": 7319,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "536:0:28"
+            },
+            "scope": 7340,
+            "src": "461:76:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7327,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7322,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7327,
+                  "src": "559:12:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7321,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "559:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "558:14:28"
+            },
+            "returnParameters": {
+              "id": 7326,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7325,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7327,
+                  "src": "590:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7324,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "590:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "589:15:28"
+            },
+            "scope": 7340,
+            "src": "543:62:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7332,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "count",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7328,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "625:2:28"
+            },
+            "returnParameters": {
+              "id": 7331,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7330,
+                  "name": "counter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7332,
+                  "src": "650:15:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7329,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "650:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "649:17:28"
+            },
+            "scope": 7340,
+            "src": "611:56:28",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7339,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7334,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7339,
+                  "src": "692:12:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7333,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:14:28"
+            },
+            "returnParameters": {
+              "id": 7338,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7337,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7339,
+                  "src": "728:44:28",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteResource_$7356_memory_ptr",
+                    "typeString": "struct VoteResourceTypeLib.VoteResource"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7336,
+                    "name": "VoteResourceTypeLib.VoteResource",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7356,
+                    "src": "728:32:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteResource_$7356_storage_ptr",
+                      "typeString": "struct VoteResourceTypeLib.VoteResource"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "727:46:28"
+            },
+            "scope": 7340,
+            "src": "673:101:28",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7341,
+        "src": "124:652:28"
+      }
+    ],
+    "src": "0:777:28"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceInterface.sol",
+    "exportedSymbols": {
+      "VoteResourceInterface": [
+        7340
+      ]
+    },
+    "id": 7341,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7285,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:28"
+      },
+      {
+        "id": 7286,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:28"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteTypeLib.sol",
+        "file": "./VoteTypeLib.sol",
+        "id": 7287,
+        "nodeType": "ImportDirective",
+        "scope": 7341,
+        "sourceUnit": 7936,
+        "src": "59:27:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VoteResourceTypeLib.sol",
+        "file": "./VoteResourceTypeLib.sol",
+        "id": 7288,
+        "nodeType": "ImportDirective",
+        "scope": 7341,
+        "sourceUnit": 7563,
+        "src": "87:35:28",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 7340,
+        "linearizedBaseContracts": [
+          7340
+        ],
+        "name": "VoteResourceInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7294,
+            "name": "LogNew",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7293,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7290,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7294,
+                  "src": "175:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7289,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "175:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7292,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7294,
+                  "src": "197:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7291,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "197:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "174:45:28"
+            },
+            "src": "162:58:28"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7300,
+            "name": "LogUpdate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7299,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7296,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7300,
+                  "src": "241:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7295,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7298,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7300,
+                  "src": "263:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7297,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "263:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:45:28"
+            },
+            "src": "225:61:28"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 7306,
+            "name": "LogRemove",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 7305,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7302,
+                  "indexed": true,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7306,
+                  "src": "307:20:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7301,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "307:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7304,
+                  "indexed": true,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7306,
+                  "src": "329:21:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7303,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "329:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "306:45:28"
+            },
+            "src": "291:61:28"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7313,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7309,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7308,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7313,
+                  "src": "374:46:28",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteResource_$7356_calldata_ptr",
+                    "typeString": "struct VoteResourceTypeLib.VoteResource"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7307,
+                    "name": "VoteResourceTypeLib.VoteResource",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7356,
+                    "src": "374:32:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteResource_$7356_storage_ptr",
+                      "typeString": "struct VoteResourceTypeLib.VoteResource"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "373:48:28"
+            },
+            "returnParameters": {
+              "id": 7312,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7311,
+                  "name": "hasho",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7313,
+                  "src": "440:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7310,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "440:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "439:15:28"
+            },
+            "scope": 7340,
+            "src": "358:97:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7320,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7318,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7315,
+                  "name": "hashi",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7320,
+                  "src": "477:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7314,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "477:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7317,
+                  "name": "vote",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7320,
+                  "src": "492:34:28",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_UserVote_$7934_calldata_ptr",
+                    "typeString": "struct VoteTypeLib.UserVote"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7316,
+                    "name": "VoteTypeLib.UserVote",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7934,
+                    "src": "492:20:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserVote_$7934_storage_ptr",
+                      "typeString": "struct VoteTypeLib.UserVote"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "476:51:28"
+            },
+            "returnParameters": {
+              "id": 7319,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "536:0:28"
+            },
+            "scope": 7340,
+            "src": "461:76:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7327,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7323,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7322,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7327,
+                  "src": "559:12:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7321,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "559:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "558:14:28"
+            },
+            "returnParameters": {
+              "id": 7326,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7325,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7327,
+                  "src": "590:13:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7324,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "590:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "589:15:28"
+            },
+            "scope": 7340,
+            "src": "543:62:28",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7332,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "count",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7328,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "625:2:28"
+            },
+            "returnParameters": {
+              "id": 7331,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7330,
+                  "name": "counter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7332,
+                  "src": "650:15:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7329,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "650:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "649:17:28"
+            },
+            "scope": 7340,
+            "src": "611:56:28",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7339,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7334,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7339,
+                  "src": "692:12:28",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7333,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "692:7:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "691:14:28"
+            },
+            "returnParameters": {
+              "id": 7338,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7337,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7339,
+                  "src": "728:44:28",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VoteResource_$7356_memory_ptr",
+                    "typeString": "struct VoteResourceTypeLib.VoteResource"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7336,
+                    "name": "VoteResourceTypeLib.VoteResource",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7356,
+                    "src": "728:32:28",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VoteResource_$7356_storage_ptr",
+                      "typeString": "struct VoteResourceTypeLib.VoteResource"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "727:46:28"
+            },
+            "scope": 7340,
+            "src": "673:101:28",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7341,
+        "src": "124:652:28"
+      }
+    ],
+    "src": "0:777:28"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-16T11:00:51.218Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,0 +1,2651 @@
+{
+  "contractName": "VotingProcessLib",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "funcHash",
+              "type": "bytes4"
+            },
+            {
+              "name": "votingMechanismDataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "funcHashYes",
+              "type": "bytes4"
+            },
+            {
+              "name": "funcHashNo",
+              "type": "bytes4"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "name": "getDataHash",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "structureBytes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "funcHash",
+              "type": "bytes4"
+            },
+            {
+              "name": "votingMechanismDataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "funcHashYes",
+              "type": "bytes4"
+            },
+            {
+              "name": "funcHashNo",
+              "type": "bytes4"
+            }
+          ],
+          "name": "dataStruct",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "funcHash",
+              "type": "bytes4"
+            },
+            {
+              "name": "votingMechanismDataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "funcHashYes",
+              "type": "bytes4"
+            },
+            {
+              "name": "funcHashNo",
+              "type": "bytes4"
+            }
+          ],
+          "name": "dataStruct",
+          "type": "tuple"
+        }
+      ],
+      "name": "destructureBytes",
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"funcHash\",\"type\":\"bytes4\"},{\"name\":\"votingMechanismDataHash\",\"type\":\"bytes32\"},{\"name\":\"funcHashYes\",\"type\":\"bytes4\"},{\"name\":\"funcHashNo\",\"type\":\"bytes4\"}],\"name\":\"dataStruct\",\"type\":\"tuple\"}],\"name\":\"destructureBytes\",\"outputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"funcHash\",\"type\":\"bytes4\"},{\"name\":\"votingMechanismDataHash\",\"type\":\"bytes32\"},{\"name\":\"funcHashYes\",\"type\":\"bytes4\"},{\"name\":\"funcHashNo\",\"type\":\"bytes4\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"getDataHash\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"structureBytes\",\"outputs\":[{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"funcHash\",\"type\":\"bytes4\"},{\"name\":\"votingMechanismDataHash\",\"type\":\"bytes32\"},{\"name\":\"funcHashYes\",\"type\":\"bytes4\"},{\"name\":\"funcHashNo\",\"type\":\"bytes4\"}],\"name\":\"dataStruct\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VotingProcessLib.sol\":\"VotingProcessLib\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VotingProcessLib.sol\":{\"keccak256\":\"0x04eb291a5d4abcc15b731cf29bd9220b3422c697ef1d9df82a242739e38892f2\",\"urls\":[\"bzzr://51b008ff29b14774c84ae4a67cf1f22e4cedf88ef3511c3141b3aaf0f424c62d\"]}},\"version\":1}",
+  "bytecode": "0x610878610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c806345e5d34c1461005057806361dbc06714610080578063b3718ad0146100b0575b600080fd5b61006a60048036036100659190810190610451565b6100e0565b604051610077919061064e565b60405180910390f35b61009a60048036036100959190810190610451565b610109565b6040516100a79190610633565b60405180910390f35b6100ca60048036036100c591908101906103e7565b610143565b6040516100d7919061068b565b60405180910390f35b6060816040516020016100f39190610670565b6040516020818303038152906040529050919050565b60008160000151826020015160405160200161012692919061060a565b604051602081830303815290604052805190602001209050919050565b61014b610166565b8180602001905161015f9190810190610428565b9050919050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191681526020016000801916815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191681525090565b60006102178235610783565b905092915050565b600061022b8251610783565b905092915050565b600061023f8235610795565b905092915050565b60006102538251610795565b905092915050565b6000610267823561079f565b905092915050565b600061027b825161079f565b905092915050565b600082601f83011261029457600080fd5b81356102a76102a2826106d3565b6106a6565b915080825260208301602083018583830111156102c357600080fd5b6102ce8382846107eb565b50505092915050565b600060a082840312156102e957600080fd5b6102f360a06106a6565b905060006103038482850161021f565b60008301525060206103178482850161026f565b602083015250604061032b84828501610247565b604083015250606061033f8482850161026f565b60608301525060806103538482850161026f565b60808301525092915050565b600060a0828403121561037157600080fd5b61037b60a06106a6565b9050600061038b8482850161020b565b600083015250602061039f8482850161025b565b60208301525060406103b384828501610233565b60408301525060606103c78482850161025b565b60608301525060806103db8482850161025b565b60808301525092915050565b6000602082840312156103f957600080fd5b600082013567ffffffffffffffff81111561041357600080fd5b61041f84828501610283565b91505092915050565b600060a0828403121561043a57600080fd5b6000610448848285016102d7565b91505092915050565b600060a0828403121561046357600080fd5b60006104718482850161035f565b91505092915050565b6104838161071b565b82525050565b6104928161071b565b82525050565b6104a18161071b565b82525050565b6104b08161072d565b82525050565b6104bf8161072d565b82525050565b6104ce8161072d565b82525050565b6104dd81610737565b82525050565b6104ec81610737565b82525050565b6104fb81610737565b82525050565b600061050c826106ff565b610516818561070a565b93506105268185602086016107fa565b61052f8161082d565b840191505092915050565b60a082016000820151610550600085018261047a565b50602082015161056360208501826104d4565b50604082015161057660408501826104a7565b50606082015161058960608501826104d4565b50608082015161059c60808501826104d4565b50505050565b60a0820160008201516105b86000850182610498565b5060208201516105cb60208501826104f2565b5060408201516105de60408501826104c5565b5060608201516105f160608501826104f2565b50608082015161060460808501826104f2565b50505050565b600060408201905061061f6000830185610489565b61062c60208301846104e3565b9392505050565b600060208201905061064860008301846104b6565b92915050565b600060208201905081810360008301526106688184610501565b905092915050565b600060a082019050610685600083018461053a565b92915050565b600060a0820190506106a060008301846105a2565b92915050565b6000604051905081810181811067ffffffffffffffff821117156106c957600080fd5b8060405250919050565b600067ffffffffffffffff8211156106ea57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b600061072682610763565b9050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061078e826107cb565b9050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b82818337600083830152505050565b60005b838110156108185780820151818401526020810190506107fd565b83811115610827576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a723058200daee577438e4791df884a449e54fe68da25e8286768a281f9623ae9b5a4b0d56c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c806345e5d34c1461005057806361dbc06714610080578063b3718ad0146100b0575b600080fd5b61006a60048036036100659190810190610451565b6100e0565b604051610077919061064e565b60405180910390f35b61009a60048036036100959190810190610451565b610109565b6040516100a79190610633565b60405180910390f35b6100ca60048036036100c591908101906103e7565b610143565b6040516100d7919061068b565b60405180910390f35b6060816040516020016100f39190610670565b6040516020818303038152906040529050919050565b60008160000151826020015160405160200161012692919061060a565b604051602081830303815290604052805190602001209050919050565b61014b610166565b8180602001905161015f9190810190610428565b9050919050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191681526020016000801916815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916815260200160007bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191681525090565b60006102178235610783565b905092915050565b600061022b8251610783565b905092915050565b600061023f8235610795565b905092915050565b60006102538251610795565b905092915050565b6000610267823561079f565b905092915050565b600061027b825161079f565b905092915050565b600082601f83011261029457600080fd5b81356102a76102a2826106d3565b6106a6565b915080825260208301602083018583830111156102c357600080fd5b6102ce8382846107eb565b50505092915050565b600060a082840312156102e957600080fd5b6102f360a06106a6565b905060006103038482850161021f565b60008301525060206103178482850161026f565b602083015250604061032b84828501610247565b604083015250606061033f8482850161026f565b60608301525060806103538482850161026f565b60808301525092915050565b600060a0828403121561037157600080fd5b61037b60a06106a6565b9050600061038b8482850161020b565b600083015250602061039f8482850161025b565b60208301525060406103b384828501610233565b60408301525060606103c78482850161025b565b60608301525060806103db8482850161025b565b60808301525092915050565b6000602082840312156103f957600080fd5b600082013567ffffffffffffffff81111561041357600080fd5b61041f84828501610283565b91505092915050565b600060a0828403121561043a57600080fd5b6000610448848285016102d7565b91505092915050565b600060a0828403121561046357600080fd5b60006104718482850161035f565b91505092915050565b6104838161071b565b82525050565b6104928161071b565b82525050565b6104a18161071b565b82525050565b6104b08161072d565b82525050565b6104bf8161072d565b82525050565b6104ce8161072d565b82525050565b6104dd81610737565b82525050565b6104ec81610737565b82525050565b6104fb81610737565b82525050565b600061050c826106ff565b610516818561070a565b93506105268185602086016107fa565b61052f8161082d565b840191505092915050565b60a082016000820151610550600085018261047a565b50602082015161056360208501826104d4565b50604082015161057660408501826104a7565b50606082015161058960608501826104d4565b50608082015161059c60808501826104d4565b50505050565b60a0820160008201516105b86000850182610498565b5060208201516105cb60208501826104f2565b5060408201516105de60408501826104c5565b5060608201516105f160608501826104f2565b50608082015161060460808501826104f2565b50505050565b600060408201905061061f6000830185610489565b61062c60208301846104e3565b9392505050565b600060208201905061064860008301846104b6565b92915050565b600060208201905081810360008301526106688184610501565b905092915050565b600060a082019050610685600083018461053a565b92915050565b600060a0820190506106a060008301846105a2565b92915050565b6000604051905081810181811067ffffffffffffffff821117156106c957600080fd5b8060405250919050565b600067ffffffffffffffff8211156106ea57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b600061072682610763565b9050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061078e826107cb565b9050919050565b6000819050919050565b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b82818337600083830152505050565b60005b838110156108185780820151818401526020810190506107fd565b83811115610827576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a723058200daee577438e4791df884a449e54fe68da25e8286768a281f9623ae9b5a4b0d56c6578706572696d656e74616cf50037",
+  "sourceMap": "59:1189:38:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "59:1189:38:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1074:172;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;675:198;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;879:189;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;1074:172;1177:17;1228:10;1217:22;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;1217:22:38;;;1210:29;;1074:172;;;:::o;675:198::-;743:12;808:4;:20;;;842:4;:13;;;784:81;;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;784:81:38;;;774:92;;;;;;767:99;;675:198;;;:::o;879:189::-;966:31;;:::i;:::-;1039:4;1028:33;;;;;;;;;;;;;;1013:48;;879:189;;;:::o;59:1189::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;5:118:-1:-;;72:46;110:6;97:20;72:46;;;63:55;;57:66;;;;;130:122;;208:39;239:6;233:13;208:39;;;199:48;;193:59;;;;;259:118;;326:46;364:6;351:20;326:46;;;317:55;;311:66;;;;;384:122;;462:39;493:6;487:13;462:39;;;453:48;;447:59;;;;;513:116;;579:45;616:6;603:20;579:45;;;570:54;;564:65;;;;;636:120;;713:38;743:6;737:13;713:38;;;704:47;;698:58;;;;;764:440;;865:3;858:4;850:6;846:17;842:27;832:2;;883:1;880;873:12;832:2;920:6;907:20;942:64;957:48;998:6;957:48;;;942:64;;;933:73;;1026:6;1019:5;1012:21;1062:4;1054:6;1050:17;1095:4;1088:5;1084:16;1130:3;1121:6;1116:3;1112:16;1109:25;1106:2;;;1147:1;1144;1137:12;1106:2;1157:41;1191:6;1186:3;1181;1157:41;;;825:379;;;;;;;;1256:1011;;1383:4;1371:9;1366:3;1362:19;1358:30;1355:2;;;1401:1;1398;1391:12;1355:2;1419:20;1434:4;1419:20;;;1410:29;;1500:1;1531:60;1587:3;1578:6;1567:9;1563:22;1531:60;;;1525:3;1518:5;1514:15;1507:85;1449:154;1657:2;1690:59;1745:3;1736:6;1725:9;1721:22;1690:59;;;1683:4;1676:5;1672:16;1665:85;1613:148;1830:2;1863:60;1919:3;1910:6;1899:9;1895:22;1863:60;;;1856:4;1849:5;1845:16;1838:86;1771:164;1992:2;2025:59;2080:3;2071:6;2060:9;2056:22;2025:59;;;2018:4;2011:5;2007:16;2000:85;1945:151;2152:3;2186:59;2241:3;2232:6;2221:9;2217:22;2186:59;;;2179:4;2172:5;2168:16;2161:85;2106:151;1349:918;;;;;2318:949;;2438:4;2426:9;2421:3;2417:19;2413:30;2410:2;;;2456:1;2453;2446:12;2410:2;2474:20;2489:4;2474:20;;;2465:29;;2555:1;2586:49;2631:3;2622:6;2611:9;2607:22;2586:49;;;2580:3;2573:5;2569:15;2562:74;2504:143;2701:2;2734:48;2778:3;2769:6;2758:9;2754:22;2734:48;;;2727:4;2720:5;2716:16;2709:74;2657:137;2863:2;2896:49;2941:3;2932:6;2921:9;2917:22;2896:49;;;2889:4;2882:5;2878:16;2871:75;2804:153;3014:2;3047:48;3091:3;3082:6;3071:9;3067:22;3047:48;;;3040:4;3033:5;3029:16;3022:74;2967:140;3163:3;3197:48;3241:3;3232:6;3221:9;3217:22;3197:48;;;3190:4;3183:5;3179:16;3172:74;3117:140;2404:863;;;;;3274:345;;3387:2;3375:9;3366:7;3362:23;3358:32;3355:2;;;3403:1;3400;3393:12;3355:2;3466:1;3455:9;3451:17;3438:31;3489:18;3481:6;3478:30;3475:2;;;3521:1;3518;3511:12;3475:2;3541:62;3595:7;3586:6;3575:9;3571:22;3541:62;;;3531:72;;3417:192;3349:270;;;;;3626:318;;3768:3;3756:9;3747:7;3743:23;3739:33;3736:2;;;3785:1;3782;3775:12;3736:2;3820:1;3837:91;3920:7;3911:6;3900:9;3896:22;3837:91;;;3827:101;;3799:135;3730:214;;;;;3951:304;;4086:3;4074:9;4065:7;4061:23;4057:33;4054:2;;;4103:1;4100;4093:12;4054:2;4138:1;4155:84;4231:7;4222:6;4211:9;4207:22;4155:84;;;4145:94;;4117:128;4048:207;;;;;4262:110;4335:31;4360:5;4335:31;;;4330:3;4323:44;4317:55;;;4379:120;4462:31;4487:5;4462:31;;;4457:3;4450:44;4444:55;;;4506:118;4587:31;4612:5;4587:31;;;4582:3;4575:44;4569:55;;;4631:110;4704:31;4729:5;4704:31;;;4699:3;4692:44;4686:55;;;4748:128;4839:31;4864:5;4839:31;;;4834:3;4827:44;4821:55;;;4883:118;4964:31;4989:5;4964:31;;;4959:3;4952:44;4946:55;;;5008:107;5079:30;5103:5;5079:30;;;5074:3;5067:43;5061:54;;;5122:117;5203:30;5227:5;5203:30;;;5198:3;5191:43;5185:54;;;5246:115;5325:30;5349:5;5325:30;;;5320:3;5313:43;5307:54;;;5368:359;;5486:38;5518:5;5486:38;;;5536:78;5607:6;5602:3;5536:78;;;5529:85;;5619:52;5664:6;5659:3;5652:4;5645:5;5641:16;5619:52;;;5692:29;5714:6;5692:29;;;5687:3;5683:39;5676:46;;5466:261;;;;;;5819:979;5974:4;5969:3;5965:14;6067:3;6060:5;6056:15;6050:22;6078:61;6134:3;6129;6125:13;6112:11;6078:61;;;5994:151;6221:4;6214:5;6210:16;6204:23;6233:60;6287:4;6282:3;6278:14;6265:11;6233:60;;;6155:144;6390:4;6383:5;6379:16;6373:23;6402:62;6458:4;6453:3;6449:14;6436:11;6402:62;;;6309:161;6549:4;6542:5;6538:16;6532:23;6561:60;6615:4;6610:3;6606:14;6593:11;6561:60;;;6480:147;6705:4;6698:5;6694:16;6688:23;6717:60;6771:4;6766:3;6762:14;6749:11;6717:60;;;6637:146;5947:851;;;;6890:1027;7053:4;7048:3;7044:14;7146:3;7139:5;7135:15;7129:22;7157:69;7221:3;7216;7212:13;7199:11;7157:69;;;7073:159;7308:4;7301:5;7297:16;7291:23;7320:68;7382:4;7377:3;7373:14;7360:11;7320:68;;;7242:152;7485:4;7478:5;7474:16;7468:23;7497:70;7561:4;7556:3;7552:14;7539:11;7497:70;;;7404:169;7652:4;7645:5;7641:16;7635:23;7664:68;7726:4;7721:3;7717:14;7704:11;7664:68;;;7583:155;7816:4;7809:5;7805:16;7799:23;7828:68;7890:4;7885:3;7881:14;7868:11;7828:68;;;7748:154;7026:891;;;;7924:320;;8068:2;8057:9;8053:18;8045:26;;8082:71;8150:1;8139:9;8135:17;8126:6;8082:71;;;8164:70;8230:2;8219:9;8215:18;8206:6;8164:70;;;8039:205;;;;;;8251:229;;8377:2;8366:9;8362:18;8354:26;;8391:79;8467:1;8456:9;8452:17;8443:6;8391:79;;;8348:132;;;;;8487:313;;8631:2;8620:9;8616:18;8608:26;;8681:9;8675:4;8671:20;8667:1;8656:9;8652:17;8645:47;8706:84;8785:4;8776:6;8706:84;;;8698:92;;8602:198;;;;;8807:338;;8987:3;8976:9;8972:19;8964:27;;9002:133;9132:1;9121:9;9117:17;9108:6;9002:133;;;8958:187;;;;;9152:354;;9340:3;9329:9;9325:19;9317:27;;9355:141;9493:1;9482:9;9478:17;9469:6;9355:141;;;9311:195;;;;;9513:256;;9575:2;9569:9;9559:19;;9613:4;9605:6;9601:17;9712:6;9700:10;9697:22;9676:18;9664:10;9661:34;9658:62;9655:2;;;9733:1;9730;9723:12;9655:2;9753:10;9749:2;9742:22;9553:216;;;;;9776:258;;9919:18;9911:6;9908:30;9905:2;;;9951:1;9948;9941:12;9905:2;9995:4;9991:9;9984:4;9976:6;9972:17;9968:33;9960:41;;10024:4;10018;10014:15;10006:23;;9842:192;;;;10041:91;;10121:5;10115:12;10105:22;;10099:33;;;;10140:170;;10262:6;10257:3;10250:19;10299:4;10294:3;10290:14;10275:29;;10243:67;;;;;10318:105;;10387:31;10412:5;10387:31;;;10376:42;;10370:53;;;;10430:79;;10499:5;10488:16;;10482:27;;;;10516:151;;10595:66;10588:5;10584:78;10573:89;;10567:100;;;;10674:128;;10754:42;10747:5;10743:54;10732:65;;10726:76;;;;10809:105;;10878:31;10903:5;10878:31;;;10867:42;;10861:53;;;;10921:79;;10990:5;10979:16;;10973:27;;;;11007:151;;11086:66;11079:5;11075:78;11064:89;;11058:100;;;;11165:128;;11245:42;11238:5;11234:54;11223:65;;11217:76;;;;11301:145;11382:6;11377:3;11372;11359:30;11438:1;11429:6;11424:3;11420:16;11413:27;11352:94;;;;11455:268;11520:1;11527:101;11541:6;11538:1;11535:13;11527:101;;;11617:1;11612:3;11608:11;11602:18;11598:1;11593:3;11589:11;11582:39;11563:2;11560:1;11556:10;11551:15;;11527:101;;;11643:6;11640:1;11637:13;11634:2;;;11708:1;11699:6;11694:3;11690:16;11683:27;11634:2;11504:219;;;;;11731:97;;11819:2;11815:7;11810:2;11803:5;11799:14;11795:28;11785:38;;11779:49;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nlibrary VotingProcessLib {\n\n    struct VotingProcessRequired {\n        bytes32 votingMechanismDataHash;\n        bytes4 funcHashYes;\n        bytes4 funcHashNo;\n    }\n\n    struct VotingProcess {\n        address contractAddress;\n        bytes4 funcHash;\n        bytes32 votingMechanismDataHash;\n        bytes4 funcHashYes;\n        bytes4 funcHashNo;\n    }\n\n    function insert(VotingProcessRequired storage self, VotingProcess memory data) internal {\n        self.votingMechanismDataHash = data.votingMechanismDataHash;\n        self.funcHashYes = data.funcHashYes;\n        self.funcHashNo = data.funcHashNo;\n    }\n\n    function getDataHash(VotingProcess memory data) pure public returns(bytes32 hash) {\n        return keccak256(abi.encode(\n            data.contractAddress,\n            data.funcHash\n        ));\n    }\n\n    function structureBytes(bytes memory data)\n        pure\n        public\n        returns(VotingProcess memory dataStruct)\n    {\n        (dataStruct) = abi.decode(data, (VotingProcess));\n    }\n\n    function destructureBytes(VotingProcess memory dataStruct)\n        pure\n        public\n        returns(bytes memory data)\n    {\n        return abi.encode(dataStruct);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VotingProcessLib.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VotingProcessLib.sol",
+    "exportedSymbols": {
+      "VotingProcessLib": [
+        8807
+      ]
+    },
+    "id": 8808,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8709,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:38"
+      },
+      {
+        "id": 8710,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:38"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 8807,
+        "linearizedBaseContracts": [
+          8807
+        ],
+        "name": "VotingProcessLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "VotingProcessLib.VotingProcessRequired",
+            "id": 8717,
+            "members": [
+              {
+                "constant": false,
+                "id": 8712,
+                "name": "votingMechanismDataHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "130:31:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 8711,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "130:7:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8714,
+                "name": "funcHashYes",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "171:18:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8713,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "171:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8716,
+                "name": "funcHashNo",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "199:17:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8715,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "199:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VotingProcessRequired",
+            "nodeType": "StructDefinition",
+            "scope": 8807,
+            "src": "91:132:38",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "VotingProcessLib.VotingProcess",
+            "id": 8728,
+            "members": [
+              {
+                "constant": false,
+                "id": 8719,
+                "name": "contractAddress",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "260:23:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 8718,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "260:7:38",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8721,
+                "name": "funcHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "293:15:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8720,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8723,
+                "name": "votingMechanismDataHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "318:31:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 8722,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "318:7:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8725,
+                "name": "funcHashYes",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "359:18:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8724,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "359:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8727,
+                "name": "funcHashNo",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "387:17:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8726,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "387:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VotingProcess",
+            "nodeType": "StructDefinition",
+            "scope": 8807,
+            "src": "229:182:38",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8756,
+              "nodeType": "Block",
+              "src": "505:164:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8740,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8735,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "515:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8737,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "votingMechanismDataHash",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8712,
+                      "src": "515:28:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8738,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "546:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8739,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "votingMechanismDataHash",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8723,
+                      "src": "546:28:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "515:59:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 8741,
+                  "nodeType": "ExpressionStatement",
+                  "src": "515:59:38"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8742,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "584:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8744,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "funcHashYes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8714,
+                      "src": "584:16:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8745,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "603:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8746,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "funcHashYes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8725,
+                      "src": "603:16:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "584:35:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "id": 8748,
+                  "nodeType": "ExpressionStatement",
+                  "src": "584:35:38"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8754,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8749,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "629:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8751,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "funcHashNo",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8716,
+                      "src": "629:15:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8752,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "647:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8753,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "funcHashNo",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8727,
+                      "src": "647:15:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "629:33:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "id": 8755,
+                  "nodeType": "ExpressionStatement",
+                  "src": "629:33:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8757,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8733,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8730,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8757,
+                  "src": "433:34:38",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcessRequired"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8729,
+                    "name": "VotingProcessRequired",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8717,
+                    "src": "433:21:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcessRequired"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8732,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8757,
+                  "src": "469:25:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8731,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "469:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "432:63:38"
+            },
+            "returnParameters": {
+              "id": 8734,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "505:0:38"
+            },
+            "scope": 8807,
+            "src": "417:252:38",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 8774,
+              "nodeType": "Block",
+              "src": "757:116:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8767,
+                              "name": "data",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8759,
+                              "src": "808:4:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                                "typeString": "struct VotingProcessLib.VotingProcess memory"
+                              }
+                            },
+                            "id": 8768,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "contractAddress",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8719,
+                            "src": "808:20:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8769,
+                              "name": "data",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8759,
+                              "src": "842:4:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                                "typeString": "struct VotingProcessLib.VotingProcess memory"
+                              }
+                            },
+                            "id": 8770,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "funcHash",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8721,
+                            "src": "842:13:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes4",
+                              "typeString": "bytes4"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes4",
+                              "typeString": "bytes4"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8765,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9166,
+                            "src": "784:3:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 8766,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "784:10:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 8771,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "784:81:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 8764,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9173,
+                      "src": "774:9:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 8772,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "774:92:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 8763,
+                  "id": 8773,
+                  "nodeType": "Return",
+                  "src": "767:99:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8775,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8760,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8759,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8775,
+                  "src": "696:25:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8758,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "696:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "695:27:38"
+            },
+            "returnParameters": {
+              "id": 8763,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8762,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8775,
+                  "src": "743:12:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8761,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "743:7:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "742:14:38"
+            },
+            "scope": 8807,
+            "src": "675:198:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8792,
+              "nodeType": "Block",
+              "src": "1003:65:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8790,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8782,
+                          "name": "dataStruct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8780,
+                          "src": "1014:10:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                            "typeString": "struct VotingProcessLib.VotingProcess memory"
+                          }
+                        }
+                      ],
+                      "id": 8783,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1013:12:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                        "typeString": "struct VotingProcessLib.VotingProcess memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8786,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8777,
+                          "src": "1039:4:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 8787,
+                              "name": "VotingProcess",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8728,
+                              "src": "1046:13:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                                "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 8788,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "1045:15:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                            "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                            "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 8784,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9166,
+                          "src": "1028:3:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 8785,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1028:10:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 8789,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1028:33:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VotingProcess_$8728_memory",
+                        "typeString": "struct VotingProcessLib.VotingProcess memory"
+                      }
+                    },
+                    "src": "1013:48:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess memory"
+                    }
+                  },
+                  "id": 8791,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1013:48:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8793,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8777,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8793,
+                  "src": "903:17:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8776,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "903:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:19:38"
+            },
+            "returnParameters": {
+              "id": 8781,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8780,
+                  "name": "dataStruct",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8793,
+                  "src": "966:31:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8779,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "966:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "965:33:38"
+            },
+            "scope": 8807,
+            "src": "879:189:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8805,
+              "nodeType": "Block",
+              "src": "1200:46:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8802,
+                        "name": "dataStruct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8795,
+                        "src": "1228:10:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8800,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9166,
+                        "src": "1217:3:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 8801,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1217:10:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 8803,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1217:22:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 8799,
+                  "id": 8804,
+                  "nodeType": "Return",
+                  "src": "1210:29:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8806,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8795,
+                  "name": "dataStruct",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8806,
+                  "src": "1100:31:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8794,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "1100:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1099:33:38"
+            },
+            "returnParameters": {
+              "id": 8799,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8798,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8806,
+                  "src": "1177:17:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8797,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1177:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1176:19:38"
+            },
+            "scope": 8807,
+            "src": "1074:172:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8808,
+        "src": "59:1189:38"
+      }
+    ],
+    "src": "0:1249:38"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/voting/VotingProcessLib.sol",
+    "exportedSymbols": {
+      "VotingProcessLib": [
+        8807
+      ]
+    },
+    "id": 8808,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8709,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:38"
+      },
+      {
+        "id": 8710,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:38"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 8807,
+        "linearizedBaseContracts": [
+          8807
+        ],
+        "name": "VotingProcessLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "VotingProcessLib.VotingProcessRequired",
+            "id": 8717,
+            "members": [
+              {
+                "constant": false,
+                "id": 8712,
+                "name": "votingMechanismDataHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "130:31:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 8711,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "130:7:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8714,
+                "name": "funcHashYes",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "171:18:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8713,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "171:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8716,
+                "name": "funcHashNo",
+                "nodeType": "VariableDeclaration",
+                "scope": 8717,
+                "src": "199:17:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8715,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "199:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VotingProcessRequired",
+            "nodeType": "StructDefinition",
+            "scope": 8807,
+            "src": "91:132:38",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "VotingProcessLib.VotingProcess",
+            "id": 8728,
+            "members": [
+              {
+                "constant": false,
+                "id": 8719,
+                "name": "contractAddress",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "260:23:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 8718,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "260:7:38",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8721,
+                "name": "funcHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "293:15:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8720,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "293:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8723,
+                "name": "votingMechanismDataHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "318:31:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 8722,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "318:7:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8725,
+                "name": "funcHashYes",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "359:18:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8724,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "359:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8727,
+                "name": "funcHashNo",
+                "nodeType": "VariableDeclaration",
+                "scope": 8728,
+                "src": "387:17:38",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes4",
+                  "typeString": "bytes4"
+                },
+                "typeName": {
+                  "id": 8726,
+                  "name": "bytes4",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "387:6:38",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "VotingProcess",
+            "nodeType": "StructDefinition",
+            "scope": 8807,
+            "src": "229:182:38",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8756,
+              "nodeType": "Block",
+              "src": "505:164:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8740,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8735,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "515:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8737,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "votingMechanismDataHash",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8712,
+                      "src": "515:28:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8738,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "546:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8739,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "votingMechanismDataHash",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8723,
+                      "src": "546:28:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "515:59:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 8741,
+                  "nodeType": "ExpressionStatement",
+                  "src": "515:59:38"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8742,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "584:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8744,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "funcHashYes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8714,
+                      "src": "584:16:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8745,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "603:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8746,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "funcHashYes",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8725,
+                      "src": "603:16:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "584:35:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "id": 8748,
+                  "nodeType": "ExpressionStatement",
+                  "src": "584:35:38"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8754,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8749,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8730,
+                        "src": "629:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcessRequired storage pointer"
+                        }
+                      },
+                      "id": 8751,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "funcHashNo",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8716,
+                      "src": "629:15:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8752,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8732,
+                        "src": "647:4:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      },
+                      "id": 8753,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "funcHashNo",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 8727,
+                      "src": "647:15:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes4",
+                        "typeString": "bytes4"
+                      }
+                    },
+                    "src": "629:33:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "id": 8755,
+                  "nodeType": "ExpressionStatement",
+                  "src": "629:33:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8757,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8733,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8730,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8757,
+                  "src": "433:34:38",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcessRequired"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8729,
+                    "name": "VotingProcessRequired",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8717,
+                    "src": "433:21:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcessRequired_$8717_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcessRequired"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8732,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8757,
+                  "src": "469:25:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8731,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "469:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "432:63:38"
+            },
+            "returnParameters": {
+              "id": 8734,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "505:0:38"
+            },
+            "scope": 8807,
+            "src": "417:252:38",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 8774,
+              "nodeType": "Block",
+              "src": "757:116:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8767,
+                              "name": "data",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8759,
+                              "src": "808:4:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                                "typeString": "struct VotingProcessLib.VotingProcess memory"
+                              }
+                            },
+                            "id": 8768,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "contractAddress",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8719,
+                            "src": "808:20:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 8769,
+                              "name": "data",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8759,
+                              "src": "842:4:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                                "typeString": "struct VotingProcessLib.VotingProcess memory"
+                              }
+                            },
+                            "id": 8770,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "funcHash",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8721,
+                            "src": "842:13:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes4",
+                              "typeString": "bytes4"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_bytes4",
+                              "typeString": "bytes4"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 8765,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 9166,
+                            "src": "784:3:38",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 8766,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "784:10:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 8771,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "784:81:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 8764,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 9173,
+                      "src": "774:9:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 8772,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "774:92:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 8763,
+                  "id": 8773,
+                  "nodeType": "Return",
+                  "src": "767:99:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8775,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8760,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8759,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8775,
+                  "src": "696:25:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8758,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "696:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "695:27:38"
+            },
+            "returnParameters": {
+              "id": 8763,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8762,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8775,
+                  "src": "743:12:38",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 8761,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "743:7:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "742:14:38"
+            },
+            "scope": 8807,
+            "src": "675:198:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8792,
+              "nodeType": "Block",
+              "src": "1003:65:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8790,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8782,
+                          "name": "dataStruct",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8780,
+                          "src": "1014:10:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                            "typeString": "struct VotingProcessLib.VotingProcess memory"
+                          }
+                        }
+                      ],
+                      "id": 8783,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1013:12:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                        "typeString": "struct VotingProcessLib.VotingProcess memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 8786,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 8777,
+                          "src": "1039:4:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 8787,
+                              "name": "VotingProcess",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 8728,
+                              "src": "1046:13:38",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                                "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 8788,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "1045:15:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                            "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_VotingProcess_$8728_storage_ptr_$",
+                            "typeString": "type(struct VotingProcessLib.VotingProcess storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 8784,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 9166,
+                          "src": "1028:3:38",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 8785,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1028:10:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 8789,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1028:33:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_VotingProcess_$8728_memory",
+                        "typeString": "struct VotingProcessLib.VotingProcess memory"
+                      }
+                    },
+                    "src": "1013:48:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess memory"
+                    }
+                  },
+                  "id": 8791,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1013:48:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8793,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8777,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8793,
+                  "src": "903:17:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8776,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "903:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "902:19:38"
+            },
+            "returnParameters": {
+              "id": 8781,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8780,
+                  "name": "dataStruct",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8793,
+                  "src": "966:31:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8779,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "966:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "965:33:38"
+            },
+            "scope": 8807,
+            "src": "879:189:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 8805,
+              "nodeType": "Block",
+              "src": "1200:46:38",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 8802,
+                        "name": "dataStruct",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8795,
+                        "src": "1228:10:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                          "typeString": "struct VotingProcessLib.VotingProcess memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 8800,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9166,
+                        "src": "1217:3:38",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 8801,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1217:10:38",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 8803,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1217:22:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 8799,
+                  "id": 8804,
+                  "nodeType": "Return",
+                  "src": "1210:29:38"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 8806,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8795,
+                  "name": "dataStruct",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8806,
+                  "src": "1100:31:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_VotingProcess_$8728_memory_ptr",
+                    "typeString": "struct VotingProcessLib.VotingProcess"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8794,
+                    "name": "VotingProcess",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8728,
+                    "src": "1100:13:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_VotingProcess_$8728_storage_ptr",
+                      "typeString": "struct VotingProcessLib.VotingProcess"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1099:33:38"
+            },
+            "returnParameters": {
+              "id": 8799,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8798,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8806,
+                  "src": "1177:17:38",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 8797,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1177:5:38",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1176:19:38"
+            },
+            "scope": 8807,
+            "src": "1074:172:38",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8808,
+        "src": "59:1189:38"
+      }
+    ],
+    "src": "0:1249:38"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x6c65764439A93F32E8aB022429FAc28AcB73A0c1",
+      "transactionHash": "0xb811db65ef49e1645bb5ffcdc883c0ba87edb8ab1ae88674a1def8a3e5820a81"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-27T20:46:26.947Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

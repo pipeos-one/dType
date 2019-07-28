@@ -1,0 +1,1428 @@
+{
+  "contractName": "PermissionStorageInterface",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "functionSig",
+              "type": "bytes4"
+            },
+            {
+              "name": "transitionHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "dataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "anyone",
+              "type": "bool"
+            },
+            {
+              "name": "allowed",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "name": "temporaryAction",
+                  "type": "bytes4"
+                },
+                {
+                  "name": "votingProcessDataHash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "functionHashPermission",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "allowedTransitions",
+                  "type": "bytes32[]"
+                }
+              ],
+              "name": "permissionProcess",
+              "type": "tuple"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "name": "insert",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hashi",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "functionSig",
+              "type": "bytes4"
+            },
+            {
+              "name": "transitionHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "dataHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "anyone",
+              "type": "bool"
+            },
+            {
+              "name": "allowed",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "name": "temporaryAction",
+                  "type": "bytes4"
+                },
+                {
+                  "name": "votingProcessDataHash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "functionHashPermission",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "allowedTransitions",
+                  "type": "bytes32[]"
+                }
+              ],
+              "name": "permissionProcess",
+              "type": "tuple"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "name": "update",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "remove",
+      "outputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "count",
+      "outputs": [
+        {
+          "name": "counter",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getByHash",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "anyone",
+              "type": "bool"
+            },
+            {
+              "name": "allowed",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "name": "temporaryAction",
+                  "type": "bytes4"
+                },
+                {
+                  "name": "votingProcessDataHash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "functionHashPermission",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "allowedTransitions",
+                  "type": "bytes32[]"
+                }
+              ],
+              "name": "permissionProcess",
+              "type": "tuple"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "contractAddress",
+              "type": "address"
+            },
+            {
+              "name": "functionSig",
+              "type": "bytes4"
+            },
+            {
+              "name": "transitionHash",
+              "type": "bytes32"
+            },
+            {
+              "name": "dataHash",
+              "type": "bytes32"
+            }
+          ],
+          "name": "identifier",
+          "type": "tuple"
+        }
+      ],
+      "name": "get",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "anyone",
+              "type": "bool"
+            },
+            {
+              "name": "allowed",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "name": "temporaryAction",
+                  "type": "bytes4"
+                },
+                {
+                  "name": "votingProcessDataHash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "functionHashPermission",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "allowedTransitions",
+                  "type": "bytes32[]"
+                }
+              ],
+              "name": "permissionProcess",
+              "type": "tuple"
+            }
+          ],
+          "name": "data",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"count\",\"outputs\":[{\"name\":\"counter\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"functionSig\",\"type\":\"bytes4\"},{\"name\":\"transitionHash\",\"type\":\"bytes32\"},{\"name\":\"dataHash\",\"type\":\"bytes32\"},{\"name\":\"anyone\",\"type\":\"bool\"},{\"name\":\"allowed\",\"type\":\"address\"},{\"components\":[{\"name\":\"temporaryAction\",\"type\":\"bytes4\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"functionHashPermission\",\"type\":\"bytes32\"},{\"name\":\"allowedTransitions\",\"type\":\"bytes32[]\"}],\"name\":\"permissionProcess\",\"type\":\"tuple\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"insert\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"functionSig\",\"type\":\"bytes4\"},{\"name\":\"transitionHash\",\"type\":\"bytes32\"},{\"name\":\"dataHash\",\"type\":\"bytes32\"}],\"name\":\"identifier\",\"type\":\"tuple\"}],\"name\":\"get\",\"outputs\":[{\"components\":[{\"name\":\"anyone\",\"type\":\"bool\"},{\"name\":\"allowed\",\"type\":\"address\"},{\"components\":[{\"name\":\"temporaryAction\",\"type\":\"bytes4\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"functionHashPermission\",\"type\":\"bytes32\"},{\"name\":\"allowedTransitions\",\"type\":\"bytes32[]\"}],\"name\":\"permissionProcess\",\"type\":\"tuple\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"hashi\",\"type\":\"bytes32\"},{\"components\":[{\"name\":\"contractAddress\",\"type\":\"address\"},{\"name\":\"functionSig\",\"type\":\"bytes4\"},{\"name\":\"transitionHash\",\"type\":\"bytes32\"},{\"name\":\"dataHash\",\"type\":\"bytes32\"},{\"name\":\"anyone\",\"type\":\"bool\"},{\"name\":\"allowed\",\"type\":\"address\"},{\"components\":[{\"name\":\"temporaryAction\",\"type\":\"bytes4\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"functionHashPermission\",\"type\":\"bytes32\"},{\"name\":\"allowedTransitions\",\"type\":\"bytes32[]\"}],\"name\":\"permissionProcess\",\"type\":\"tuple\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"name\":\"update\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"remove\",\"outputs\":[{\"name\":\"index\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"getByHash\",\"outputs\":[{\"components\":[{\"name\":\"anyone\",\"type\":\"bool\"},{\"name\":\"allowed\",\"type\":\"address\"},{\"components\":[{\"name\":\"temporaryAction\",\"type\":\"bytes4\"},{\"name\":\"votingProcessDataHash\",\"type\":\"bytes32\"},{\"name\":\"functionHashPermission\",\"type\":\"bytes32\"},{\"name\":\"allowedTransitions\",\"type\":\"bytes32[]\"}],\"name\":\"permissionProcess\",\"type\":\"tuple\"}],\"name\":\"data\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionStorageInterface.sol\":\"PermissionStorageInterface\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionLib.sol\":{\"keccak256\":\"0x09ddf12b6c73599aa1a7070b6b79043f1f0dbcc21ef5cd1ef71aac3a5bca7dd7\",\"urls\":[\"bzzr://534e4b0e70342c4e106122f1e63be33d3a8a7a96872069eeb20fbe9adfa1dff1\"]},\"/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionProcessLib.sol\":{\"keccak256\":\"0xea3787ef3e421fcc6212e94bdc90fd9c01dd5c5f4508d3cff852041ab17e4e6a\",\"urls\":[\"bzzr://866fc53729f138e1961fdaa3cf8701fae5970c45006144ff31505d49f601700a\"]},\"/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionStorageInterface.sol\":{\"keccak256\":\"0x49eaebc9499c58aa29199d11787e5d36fa53b2c258497e56fdd48bdf1cd9647b\",\"urls\":[\"bzzr://5040d248240f317759e014039ba2300601be9f4bbfa2d467e69e3b4685084b02\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport './PermissionLib.sol';\n\ninterface PermissionStorageInterface {\n    function insert(PermissionLib.Permission calldata data) external returns (bytes32 hash);\n\n    function update(bytes32 hashi, PermissionLib.Permission calldata data) external returns(bytes32 hash);\n\n    function remove(bytes32 hash) external returns(uint256 index);\n\n    function count() external view returns(uint256 counter);\n\n    function getByHash(bytes32 hash) external view returns(PermissionLib.PermissionFull memory data);\n\n    function get(PermissionLib.PermissionIdentifier calldata identifier) external view returns(PermissionLib.PermissionFull memory data);\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionStorageInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionStorageInterface.sol",
+    "exportedSymbols": {
+      "PermissionStorageInterface": [
+        7270
+      ]
+    },
+    "id": 7271,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7225,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:26"
+      },
+      {
+        "id": 7226,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:26"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionLib.sol",
+        "file": "./PermissionLib.sol",
+        "id": 7227,
+        "nodeType": "ImportDirective",
+        "scope": 7271,
+        "sourceUnit": 6638,
+        "src": "59:29:26",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 7270,
+        "linearizedBaseContracts": [
+          7270
+        ],
+        "name": "PermissionStorageInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7234,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7230,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7229,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7234,
+                  "src": "149:38:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Permission_$6474_calldata_ptr",
+                    "typeString": "struct PermissionLib.Permission"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7228,
+                    "name": "PermissionLib.Permission",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6474,
+                    "src": "149:24:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Permission_$6474_storage_ptr",
+                      "typeString": "struct PermissionLib.Permission"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "148:40:26"
+            },
+            "returnParameters": {
+              "id": 7233,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7232,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7234,
+                  "src": "207:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7231,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "207:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "206:14:26"
+            },
+            "scope": 7270,
+            "src": "133:88:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7243,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7239,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7236,
+                  "name": "hashi",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "243:13:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7235,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "243:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7238,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "258:38:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Permission_$6474_calldata_ptr",
+                    "typeString": "struct PermissionLib.Permission"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7237,
+                    "name": "PermissionLib.Permission",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6474,
+                    "src": "258:24:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Permission_$6474_storage_ptr",
+                      "typeString": "struct PermissionLib.Permission"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "242:55:26"
+            },
+            "returnParameters": {
+              "id": 7242,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7241,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "315:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7240,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "315:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "314:14:26"
+            },
+            "scope": 7270,
+            "src": "227:102:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7250,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7246,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7245,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7250,
+                  "src": "351:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7244,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "351:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "350:14:26"
+            },
+            "returnParameters": {
+              "id": 7249,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7248,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7250,
+                  "src": "382:13:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7247,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "381:15:26"
+            },
+            "scope": 7270,
+            "src": "335:62:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7255,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "count",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7251,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "417:2:26"
+            },
+            "returnParameters": {
+              "id": 7254,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7253,
+                  "name": "counter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7255,
+                  "src": "442:15:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7252,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:17:26"
+            },
+            "scope": 7270,
+            "src": "403:56:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7262,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7258,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7257,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7262,
+                  "src": "484:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7256,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "484:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "483:14:26"
+            },
+            "returnParameters": {
+              "id": 7261,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7260,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7262,
+                  "src": "520:40:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionFull_$6450_memory_ptr",
+                    "typeString": "struct PermissionLib.PermissionFull"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7259,
+                    "name": "PermissionLib.PermissionFull",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6450,
+                    "src": "520:28:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionFull_$6450_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionFull"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "519:42:26"
+            },
+            "scope": 7270,
+            "src": "465:97:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7269,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7265,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7264,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7269,
+                  "src": "581:54:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionIdentifier_$6459_calldata_ptr",
+                    "typeString": "struct PermissionLib.PermissionIdentifier"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7263,
+                    "name": "PermissionLib.PermissionIdentifier",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6459,
+                    "src": "581:34:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionIdentifier_$6459_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionIdentifier"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "580:56:26"
+            },
+            "returnParameters": {
+              "id": 7268,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7267,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7269,
+                  "src": "659:40:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionFull_$6450_memory_ptr",
+                    "typeString": "struct PermissionLib.PermissionFull"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7266,
+                    "name": "PermissionLib.PermissionFull",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6450,
+                    "src": "659:28:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionFull_$6450_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionFull"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "658:42:26"
+            },
+            "scope": 7270,
+            "src": "568:133:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7271,
+        "src": "90:613:26"
+      }
+    ],
+    "src": "0:704:26"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionStorageInterface.sol",
+    "exportedSymbols": {
+      "PermissionStorageInterface": [
+        7270
+      ]
+    },
+    "id": 7271,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7225,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:26"
+      },
+      {
+        "id": 7226,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:26"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/permissions/PermissionLib.sol",
+        "file": "./PermissionLib.sol",
+        "id": 7227,
+        "nodeType": "ImportDirective",
+        "scope": 7271,
+        "sourceUnit": 6638,
+        "src": "59:29:26",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 7270,
+        "linearizedBaseContracts": [
+          7270
+        ],
+        "name": "PermissionStorageInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7234,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7230,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7229,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7234,
+                  "src": "149:38:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Permission_$6474_calldata_ptr",
+                    "typeString": "struct PermissionLib.Permission"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7228,
+                    "name": "PermissionLib.Permission",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6474,
+                    "src": "149:24:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Permission_$6474_storage_ptr",
+                      "typeString": "struct PermissionLib.Permission"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "148:40:26"
+            },
+            "returnParameters": {
+              "id": 7233,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7232,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7234,
+                  "src": "207:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7231,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "207:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "206:14:26"
+            },
+            "scope": 7270,
+            "src": "133:88:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7243,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "update",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7239,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7236,
+                  "name": "hashi",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "243:13:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7235,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "243:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7238,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "258:38:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Permission_$6474_calldata_ptr",
+                    "typeString": "struct PermissionLib.Permission"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7237,
+                    "name": "PermissionLib.Permission",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6474,
+                    "src": "258:24:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Permission_$6474_storage_ptr",
+                      "typeString": "struct PermissionLib.Permission"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "242:55:26"
+            },
+            "returnParameters": {
+              "id": 7242,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7241,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7243,
+                  "src": "315:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7240,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "315:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "314:14:26"
+            },
+            "scope": 7270,
+            "src": "227:102:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7250,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "remove",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7246,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7245,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7250,
+                  "src": "351:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7244,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "351:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "350:14:26"
+            },
+            "returnParameters": {
+              "id": 7249,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7248,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7250,
+                  "src": "382:13:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7247,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "382:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "381:15:26"
+            },
+            "scope": 7270,
+            "src": "335:62:26",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7255,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "count",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7251,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "417:2:26"
+            },
+            "returnParameters": {
+              "id": 7254,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7253,
+                  "name": "counter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7255,
+                  "src": "442:15:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7252,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:17:26"
+            },
+            "scope": 7270,
+            "src": "403:56:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7262,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getByHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7258,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7257,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7262,
+                  "src": "484:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7256,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "484:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "483:14:26"
+            },
+            "returnParameters": {
+              "id": 7261,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7260,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7262,
+                  "src": "520:40:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionFull_$6450_memory_ptr",
+                    "typeString": "struct PermissionLib.PermissionFull"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7259,
+                    "name": "PermissionLib.PermissionFull",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6450,
+                    "src": "520:28:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionFull_$6450_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionFull"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "519:42:26"
+            },
+            "scope": 7270,
+            "src": "465:97:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "id": 7269,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7265,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7264,
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7269,
+                  "src": "581:54:26",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionIdentifier_$6459_calldata_ptr",
+                    "typeString": "struct PermissionLib.PermissionIdentifier"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7263,
+                    "name": "PermissionLib.PermissionIdentifier",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6459,
+                    "src": "581:34:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionIdentifier_$6459_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionIdentifier"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "580:56:26"
+            },
+            "returnParameters": {
+              "id": 7268,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7267,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7269,
+                  "src": "659:40:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PermissionFull_$6450_memory_ptr",
+                    "typeString": "struct PermissionLib.PermissionFull"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7266,
+                    "name": "PermissionLib.PermissionFull",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 6450,
+                    "src": "659:28:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PermissionFull_$6450_storage_ptr",
+                      "typeString": "struct PermissionLib.PermissionFull"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "658:42:26"
+            },
+            "scope": 7270,
+            "src": "568:133:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7271,
+        "src": "90:613:26"
+      }
+    ],
+    "src": "0:704:26"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-16T11:00:51.215Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

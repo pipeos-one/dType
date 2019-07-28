@@ -1,0 +1,915 @@
+{
+  "contractName": "typeABLogic",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "balance",
+              "type": "uint256"
+            },
+            {
+              "name": "token",
+              "type": "address"
+            }
+          ],
+          "name": "typeA",
+          "type": "tuple"
+        }
+      ],
+      "name": "setStaked",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "staked",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "name": "balance",
+                  "type": "uint256"
+                },
+                {
+                  "name": "token",
+                  "type": "address"
+                }
+              ],
+              "name": "typeA",
+              "type": "tuple"
+            }
+          ],
+          "name": "typeB",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"typeA\",\"type\":\"tuple\"}],\"name\":\"setStaked\",\"outputs\":[{\"components\":[{\"name\":\"staked\",\"type\":\"uint256\"},{\"components\":[{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"typeA\",\"type\":\"tuple\"}],\"name\":\"typeB\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeABLogic.sol\":\"typeABLogic\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeABLogic.sol\":{\"keccak256\":\"0x41e7bf269c7859dbd90e41cd4ca0a40a0766b1324a184cc9779793a12b22ff13\",\"urls\":[\"bzzr://118a3b1dd8f5b0fb7df7cabc0ee7ab508fd7ad05872b4b04b491e44179466a2c\"]},\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol\":{\"keccak256\":\"0x67624dd5c2406d264a0e49f06355602e197109c6c90ad0aaf1a723f8578c8244\",\"urls\":[\"bzzr://b99f4318a296b74b5ecb8c8b17c8f4f20296635edf27a43f0d5ca958d9b5e7d0\"]},\"/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeBLib.sol\":{\"keccak256\":\"0xbde94ad80ff962e7a681e9dbd22efa102bb653f3cfcf7ec144c0c84d34dcc573\",\"urls\":[\"bzzr://e9b18a01528d584df614e3bf57aaf38fdf8f6aaa503771eba1c99078349d1f25\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102f4806100206000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80631688af8314610030575b600080fd5b61004a60048036036100459190810190610155565b610060565b60405161005791906101fa565b60405180910390f35b610068610091565b600282600001518161007657fe5b04816000018181525050818160200181905250809050919050565b6040518060600160405280600081526020016100ab6100b1565b81525090565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b60006100ed823561027e565b905092915050565b60006040828403121561010757600080fd5b6101116040610215565b9050600061012184828501610141565b6000830152506020610135848285016100e1565b60208301525092915050565b600061014d82356102b0565b905092915050565b60006040828403121561016757600080fd5b6000610175848285016100f5565b91505092915050565b61018781610242565b82525050565b6040820160008201516101a360008501826101eb565b5060208201516101b6602085018261017e565b50505050565b6060820160008201516101d260008501826101eb565b5060208201516101e5602085018261018d565b50505050565b6101f481610274565b82525050565b600060608201905061020f60008301846101bc565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561023857600080fd5b8060405250919050565b600061024d82610254565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600061028982610290565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600081905091905056fea265627a7a7230582084d29d6cede67424b0fe468a4015d6948ae10d0ebceb51289aade2a3236298896c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c80631688af8314610030575b600080fd5b61004a60048036036100459190810190610155565b610060565b60405161005791906101fa565b60405180910390f35b610068610091565b600282600001518161007657fe5b04816000018181525050818160200181905250809050919050565b6040518060600160405280600081526020016100ab6100b1565b81525090565b604051806040016040528060008152602001600073ffffffffffffffffffffffffffffffffffffffff1681525090565b60006100ed823561027e565b905092915050565b60006040828403121561010757600080fd5b6101116040610215565b9050600061012184828501610141565b6000830152506020610135848285016100e1565b60208301525092915050565b600061014d82356102b0565b905092915050565b60006040828403121561016757600080fd5b6000610175848285016100f5565b91505092915050565b61018781610242565b82525050565b6040820160008201516101a360008501826101eb565b5060208201516101b6602085018261017e565b50505050565b6060820160008201516101d260008501826101eb565b5060208201516101e5602085018261018d565b50505050565b6101f481610274565b82525050565b600060608201905061020f60008301846101bc565b92915050565b6000604051905081810181811067ffffffffffffffff8211171561023857600080fd5b8060405250919050565b600061024d82610254565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600061028982610290565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600081905091905056fea265627a7a7230582084d29d6cede67424b0fe468a4015d6948ae10d0ebceb51289aade2a3236298896c6578706572696d656e74616cf50037",
+  "sourceMap": "110:333:8:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;110:333:8;;;;;;;",
+  "deployedSourceMap": "110:333:8:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;110:333:8;;;;;;;;;;;;;;;;;;;216:225;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;308:27;;:::i;:::-;382:1;366:5;:13;;;:17;;;;;;351:5;:12;;:32;;;;;407:5;393;:11;;:19;;;;429:5;422:12;;216:225;;;:::o;110:333::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;5:118:-1:-;;72:46;110:6;97:20;72:46;;;63:55;;57:66;;;;;158:468;;270:4;258:9;253:3;249:19;245:30;242:2;;;288:1;285;278:12;242:2;306:20;321:4;306:20;;;297:29;;379:1;410:49;455:3;446:6;435:9;431:22;410:49;;;404:3;397:5;393:15;386:74;336:135;522:2;555:49;600:3;591:6;580:9;576:22;555:49;;;548:4;541:5;537:16;530:75;481:135;236:390;;;;;633:118;;700:46;738:6;725:20;700:46;;;691:55;;685:66;;;;;758:287;;885:2;873:9;864:7;860:23;856:32;853:2;;;901:1;898;891:12;853:2;936:1;953:76;1021:7;1012:6;1001:9;997:22;953:76;;;943:86;;915:120;847:198;;;;;1052:110;1125:31;1150:5;1125:31;;;1120:3;1113:44;1107:55;;;1222:456;1347:4;1342:3;1338:14;1432:3;1425:5;1421:15;1415:22;1443:61;1499:3;1494;1490:13;1477:11;1443:61;;;1367:143;1583:4;1576:5;1572:16;1566:23;1595:62;1651:4;1646:3;1642:14;1629:11;1595:62;;;1520:143;1320:358;;;;1738:511;1877:4;1872:3;1868:14;1961:3;1954:5;1950:15;1944:22;1972:61;2028:3;2023;2019:13;2006:11;1972:61;;;1897:142;2112:4;2105:5;2101:16;2095:23;2124:104;2222:4;2217:3;2213:14;2200:11;2124:104;;;2049:185;1850:399;;;;2256:110;2329:31;2354:5;2329:31;;;2324:3;2317:44;2311:55;;;2373:305;;2537:2;2526:9;2522:18;2514:26;;2551:117;2665:1;2654:9;2650:17;2641:6;2551:117;;;2508:170;;;;;2685:256;;2747:2;2741:9;2731:19;;2785:4;2777:6;2773:17;2884:6;2872:10;2869:22;2848:18;2836:10;2833:34;2830:62;2827:2;;;2905:1;2902;2895:12;2827:2;2925:10;2921:2;2914:22;2725:216;;;;;2948:105;;3017:31;3042:5;3017:31;;;3006:42;;3000:53;;;;3060:128;;3140:42;3133:5;3129:54;3118:65;;3112:76;;;;3195:79;;3264:5;3253:16;;3247:27;;;;3281:105;;3350:31;3375:5;3350:31;;;3339:42;;3333:53;;;;3393:128;;3473:42;3466:5;3462:54;3451:65;;3445:76;;;;3528:79;;3597:5;3586:16;;3580:27;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nimport './typeALib.sol';\nimport './typeBLib.sol';\n\ncontract typeABLogic {\n    using typeALib for typeALib.TypeA;\n    using typeBLib for typeBLib.TypeB;\n\n    function setStaked(typeALib.TypeA memory typeA)\n        pure\n        public\n        returns(typeBLib.TypeB memory typeB)\n    {\n        typeB.staked = typeA.balance / 2;\n        typeB.typeA = typeA;\n        return typeB;\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeABLogic.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeABLogic.sol",
+    "exportedSymbols": {
+      "typeABLogic": [
+        2628
+      ]
+    },
+    "id": 2629,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2593,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:8"
+      },
+      {
+        "id": 2594,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:8"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol",
+        "file": "./typeALib.sol",
+        "id": 2595,
+        "nodeType": "ImportDirective",
+        "scope": 2629,
+        "sourceUnit": 3027,
+        "src": "59:24:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeBLib.sol",
+        "file": "./typeBLib.sol",
+        "id": 2596,
+        "nodeType": "ImportDirective",
+        "scope": 2629,
+        "sourceUnit": 3429,
+        "src": "84:24:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2628,
+        "linearizedBaseContracts": [
+          2628
+        ],
+        "name": "typeABLogic",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 2599,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2597,
+              "name": "typeALib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3026,
+              "src": "143:8:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeALib_$3026",
+                "typeString": "library typeALib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "137:34:8",
+            "typeName": {
+              "contractScope": null,
+              "id": 2598,
+              "name": "typeALib.TypeA",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2894,
+              "src": "156:14:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                "typeString": "struct typeALib.TypeA"
+              }
+            }
+          },
+          {
+            "id": 2602,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2600,
+              "name": "typeBLib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3428,
+              "src": "182:8:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeBLib_$3428",
+                "typeString": "library typeBLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "176:34:8",
+            "typeName": {
+              "contractScope": null,
+              "id": 2601,
+              "name": "typeBLib.TypeB",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3296,
+              "src": "195:14:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeB_$3296_storage_ptr",
+                "typeString": "struct typeBLib.TypeB"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 2626,
+              "nodeType": "Block",
+              "src": "341:100:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2616,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2609,
+                        "name": "typeB",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2607,
+                        "src": "351:5:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                          "typeString": "struct typeBLib.TypeB memory"
+                        }
+                      },
+                      "id": 2611,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "staked",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3293,
+                      "src": "351:12:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 2615,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2612,
+                          "name": "typeA",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2604,
+                          "src": "366:5:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                            "typeString": "struct typeALib.TypeA memory"
+                          }
+                        },
+                        "id": 2613,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "balance",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 2891,
+                        "src": "366:13:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "/",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "hexValue": "32",
+                        "id": 2614,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "382:1:8",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_2_by_1",
+                          "typeString": "int_const 2"
+                        },
+                        "value": "2"
+                      },
+                      "src": "366:17:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "351:32:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2617,
+                  "nodeType": "ExpressionStatement",
+                  "src": "351:32:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2622,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2618,
+                        "name": "typeB",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2607,
+                        "src": "393:5:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                          "typeString": "struct typeBLib.TypeB memory"
+                        }
+                      },
+                      "id": 2620,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "typeA",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3295,
+                      "src": "393:11:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_memory",
+                        "typeString": "struct typeALib.TypeA memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2621,
+                      "name": "typeA",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2604,
+                      "src": "407:5:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                        "typeString": "struct typeALib.TypeA memory"
+                      }
+                    },
+                    "src": "393:19:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_memory",
+                      "typeString": "struct typeALib.TypeA memory"
+                    }
+                  },
+                  "id": 2623,
+                  "nodeType": "ExpressionStatement",
+                  "src": "393:19:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2624,
+                    "name": "typeB",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2607,
+                    "src": "429:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                      "typeString": "struct typeBLib.TypeB memory"
+                    }
+                  },
+                  "functionReturnParameters": 2608,
+                  "id": 2625,
+                  "nodeType": "Return",
+                  "src": "422:12:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2627,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setStaked",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2605,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2604,
+                  "name": "typeA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2627,
+                  "src": "235:27:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2603,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "235:14:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "234:29:8"
+            },
+            "returnParameters": {
+              "id": 2608,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2607,
+                  "name": "typeB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2627,
+                  "src": "308:27:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                    "typeString": "struct typeBLib.TypeB"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2606,
+                    "name": "typeBLib.TypeB",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3296,
+                    "src": "308:14:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeB_$3296_storage_ptr",
+                      "typeString": "struct typeBLib.TypeB"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:29:8"
+            },
+            "scope": 2628,
+            "src": "216:225:8",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2629,
+        "src": "110:333:8"
+      }
+    ],
+    "src": "0:444:8"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeABLogic.sol",
+    "exportedSymbols": {
+      "typeABLogic": [
+        2628
+      ]
+    },
+    "id": 2629,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2593,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:8"
+      },
+      {
+        "id": 2594,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:8"
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeALib.sol",
+        "file": "./typeALib.sol",
+        "id": 2595,
+        "nodeType": "ImportDirective",
+        "scope": 2629,
+        "sourceUnit": 3027,
+        "src": "59:24:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/dtypes/typeBLib.sol",
+        "file": "./typeBLib.sol",
+        "id": 2596,
+        "nodeType": "ImportDirective",
+        "scope": 2629,
+        "sourceUnit": 3429,
+        "src": "84:24:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2628,
+        "linearizedBaseContracts": [
+          2628
+        ],
+        "name": "typeABLogic",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 2599,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2597,
+              "name": "typeALib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3026,
+              "src": "143:8:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeALib_$3026",
+                "typeString": "library typeALib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "137:34:8",
+            "typeName": {
+              "contractScope": null,
+              "id": 2598,
+              "name": "typeALib.TypeA",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2894,
+              "src": "156:14:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                "typeString": "struct typeALib.TypeA"
+              }
+            }
+          },
+          {
+            "id": 2602,
+            "libraryName": {
+              "contractScope": null,
+              "id": 2600,
+              "name": "typeBLib",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3428,
+              "src": "182:8:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_typeBLib_$3428",
+                "typeString": "library typeBLib"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "176:34:8",
+            "typeName": {
+              "contractScope": null,
+              "id": 2601,
+              "name": "typeBLib.TypeB",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3296,
+              "src": "195:14:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_TypeB_$3296_storage_ptr",
+                "typeString": "struct typeBLib.TypeB"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 2626,
+              "nodeType": "Block",
+              "src": "341:100:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2616,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2609,
+                        "name": "typeB",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2607,
+                        "src": "351:5:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                          "typeString": "struct typeBLib.TypeB memory"
+                        }
+                      },
+                      "id": 2611,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "staked",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3293,
+                      "src": "351:12:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 2615,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2612,
+                          "name": "typeA",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2604,
+                          "src": "366:5:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                            "typeString": "struct typeALib.TypeA memory"
+                          }
+                        },
+                        "id": 2613,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "balance",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 2891,
+                        "src": "366:13:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "/",
+                      "rightExpression": {
+                        "argumentTypes": null,
+                        "hexValue": "32",
+                        "id": 2614,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "382:1:8",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_2_by_1",
+                          "typeString": "int_const 2"
+                        },
+                        "value": "2"
+                      },
+                      "src": "366:17:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "351:32:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2617,
+                  "nodeType": "ExpressionStatement",
+                  "src": "351:32:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2622,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 2618,
+                        "name": "typeB",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2607,
+                        "src": "393:5:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                          "typeString": "struct typeBLib.TypeB memory"
+                        }
+                      },
+                      "id": 2620,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "typeA",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3295,
+                      "src": "393:11:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_memory",
+                        "typeString": "struct typeALib.TypeA memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2621,
+                      "name": "typeA",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2604,
+                      "src": "407:5:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                        "typeString": "struct typeALib.TypeA memory"
+                      }
+                    },
+                    "src": "393:19:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_memory",
+                      "typeString": "struct typeALib.TypeA memory"
+                    }
+                  },
+                  "id": 2623,
+                  "nodeType": "ExpressionStatement",
+                  "src": "393:19:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2624,
+                    "name": "typeB",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2607,
+                    "src": "429:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                      "typeString": "struct typeBLib.TypeB memory"
+                    }
+                  },
+                  "functionReturnParameters": 2608,
+                  "id": 2625,
+                  "nodeType": "Return",
+                  "src": "422:12:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2627,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setStaked",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2605,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2604,
+                  "name": "typeA",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2627,
+                  "src": "235:27:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeA_$2894_memory_ptr",
+                    "typeString": "struct typeALib.TypeA"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2603,
+                    "name": "typeALib.TypeA",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2894,
+                    "src": "235:14:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeA_$2894_storage_ptr",
+                      "typeString": "struct typeALib.TypeA"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "234:29:8"
+            },
+            "returnParameters": {
+              "id": 2608,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2607,
+                  "name": "typeB",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2627,
+                  "src": "308:27:8",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_TypeB_$3296_memory_ptr",
+                    "typeString": "struct typeBLib.TypeB"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2606,
+                    "name": "typeBLib.TypeB",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3296,
+                    "src": "308:14:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_TypeB_$3296_storage_ptr",
+                      "typeString": "struct typeBLib.TypeB"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:29:8"
+            },
+            "scope": 2628,
+            "src": "216:225:8",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2629,
+        "src": "110:333:8"
+      }
+    ],
+    "src": "0:444:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x904Ac6137C81c70bcbd6B40F0906A1a7Db84Ba6f",
+      "transactionHash": "0x3b568e9b6ef4f4b2c8e71e6c777ecb70bf7baeede3748118f9e241ca86820573"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-28T08:56:05.670Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

@@ -1,0 +1,1849 @@
+{
+  "contractName": "MarkdownLib",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "content",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "getDataHash",
+      "outputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "structureBytes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "content",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "components": [
+            {
+              "name": "content",
+              "type": "string"
+            }
+          ],
+          "name": "instance",
+          "type": "tuple"
+        }
+      ],
+      "name": "destructureBytes",
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.7+commit.6da8b019\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"content\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"destructureBytes\",\"outputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"components\":[{\"name\":\"content\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"name\":\"getDataHash\",\"outputs\":[{\"name\":\"hash\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"structureBytes\",\"outputs\":[{\"components\":[{\"name\":\"content\",\"type\":\"string\"}],\"name\":\"instance\",\"type\":\"tuple\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol\":\"MarkdownLib\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol\":{\"keccak256\":\"0xee7f47945a676d75a50ded674b9a6ab4a4d9232ae98c656d2fb0fa8044ef7a25\",\"urls\":[\"bzzr://cb94483bc5bccacfe482f7732d5ff8c8ea91fefac75e0cad35fa7f56b782ce50\"]}},\"version\":1}",
+  "bytecode": "0x610732610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c80633483a7f71461005057806349ca8f9014610080578063b3718ad0146100b0575b600080fd5b61006a60048036036100659190810190610391565b6100e0565b6040516100779190610534565b60405180910390f35b61009a60048036036100959190810190610391565b610109565b6040516100a79190610519565b60405180910390f35b6100ca60048036036100c5919081019061030f565b61013d565b6040516100d7919061059a565b60405180910390f35b6060816040516020016100f39190610578565b6040516020818303038152906040529050919050565b600081600001516040516020016101209190610556565b604051602081830303815290604052805190602001209050919050565b610145610160565b818060200190516101599190810190610350565b9050919050565b6040518060200160405280606081525090565b600082601f83011261018457600080fd5b8135610197610192826105e9565b6105bc565b915080825260208301602083018583830111156101b357600080fd5b6101be8382846106a5565b50505092915050565b600082601f8301126101d857600080fd5b81356101eb6101e682610615565b6105bc565b9150808252602083016020830185838301111561020757600080fd5b6102128382846106a5565b50505092915050565b600082601f83011261022c57600080fd5b815161023f61023a82610615565b6105bc565b9150808252602083016020830185838301111561025b57600080fd5b6102668382846106b4565b50505092915050565b60006020828403121561028157600080fd5b61028b60206105bc565b9050600082015167ffffffffffffffff8111156102a757600080fd5b6102b38482850161021b565b60008301525092915050565b6000602082840312156102d157600080fd5b6102db60206105bc565b9050600082013567ffffffffffffffff8111156102f757600080fd5b610303848285016101c7565b60008301525092915050565b60006020828403121561032157600080fd5b600082013567ffffffffffffffff81111561033b57600080fd5b61034784828501610173565b91505092915050565b60006020828403121561036257600080fd5b600082015167ffffffffffffffff81111561037c57600080fd5b6103888482850161026f565b91505092915050565b6000602082840312156103a357600080fd5b600082013567ffffffffffffffff8111156103bd57600080fd5b6103c9848285016102bf565b91505092915050565b6103db8161069b565b82525050565b60006103ec82610641565b6103f68185610657565b93506104068185602086016106b4565b61040f816106e7565b840191505092915050565b60006104258261064c565b61042f8185610668565b935061043f8185602086016106b4565b610448816106e7565b840191505092915050565b600061045e8261064c565b6104688185610679565b93506104788185602086016106b4565b610481816106e7565b840191505092915050565b60006104978261064c565b6104a1818561068a565b93506104b18185602086016106b4565b6104ba816106e7565b840191505092915050565b600060208301600083015184820360008601526104e2828261041a565b9150508091505092915050565b6000602083016000830151848203600086015261050c828261048c565b9150508091505092915050565b600060208201905061052e60008301846103d2565b92915050565b6000602082019050818103600083015261054e81846103e1565b905092915050565b600060208201905081810360008301526105708184610453565b905092915050565b6000602082019050818103600083015261059281846104c5565b905092915050565b600060208201905081810360008301526105b481846104ef565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156105df57600080fd5b8060405250919050565b600067ffffffffffffffff82111561060057600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561062c57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000819050919050565b82818337600083830152505050565b60005b838110156106d25780820151818401526020810190506106b7565b838111156106e1576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820e82a137a054afa43978c363b7809f7869cb14366d484bd4e5c049ff72fd4dec66c6578706572696d656e74616cf50037",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061004b5760003560e01c80633483a7f71461005057806349ca8f9014610080578063b3718ad0146100b0575b600080fd5b61006a60048036036100659190810190610391565b6100e0565b6040516100779190610534565b60405180910390f35b61009a60048036036100959190810190610391565b610109565b6040516100a79190610519565b60405180910390f35b6100ca60048036036100c5919081019061030f565b61013d565b6040516100d7919061059a565b60405180910390f35b6060816040516020016100f39190610578565b6040516020818303038152906040529050919050565b600081600001516040516020016101209190610556565b604051602081830303815290604052805190602001209050919050565b610145610160565b818060200190516101599190810190610350565b9050919050565b6040518060200160405280606081525090565b600082601f83011261018457600080fd5b8135610197610192826105e9565b6105bc565b915080825260208301602083018583830111156101b357600080fd5b6101be8382846106a5565b50505092915050565b600082601f8301126101d857600080fd5b81356101eb6101e682610615565b6105bc565b9150808252602083016020830185838301111561020757600080fd5b6102128382846106a5565b50505092915050565b600082601f83011261022c57600080fd5b815161023f61023a82610615565b6105bc565b9150808252602083016020830185838301111561025b57600080fd5b6102668382846106b4565b50505092915050565b60006020828403121561028157600080fd5b61028b60206105bc565b9050600082015167ffffffffffffffff8111156102a757600080fd5b6102b38482850161021b565b60008301525092915050565b6000602082840312156102d157600080fd5b6102db60206105bc565b9050600082013567ffffffffffffffff8111156102f757600080fd5b610303848285016101c7565b60008301525092915050565b60006020828403121561032157600080fd5b600082013567ffffffffffffffff81111561033b57600080fd5b61034784828501610173565b91505092915050565b60006020828403121561036257600080fd5b600082015167ffffffffffffffff81111561037c57600080fd5b6103888482850161026f565b91505092915050565b6000602082840312156103a357600080fd5b600082013567ffffffffffffffff8111156103bd57600080fd5b6103c9848285016102bf565b91505092915050565b6103db8161069b565b82525050565b60006103ec82610641565b6103f68185610657565b93506104068185602086016106b4565b61040f816106e7565b840191505092915050565b60006104258261064c565b61042f8185610668565b935061043f8185602086016106b4565b610448816106e7565b840191505092915050565b600061045e8261064c565b6104688185610679565b93506104788185602086016106b4565b610481816106e7565b840191505092915050565b60006104978261064c565b6104a1818561068a565b93506104b18185602086016106b4565b6104ba816106e7565b840191505092915050565b600060208301600083015184820360008601526104e2828261041a565b9150508091505092915050565b6000602083016000830151848203600086015261050c828261048c565b9150508091505092915050565b600060208201905061052e60008301846103d2565b92915050565b6000602082019050818103600083015261054e81846103e1565b905092915050565b600060208201905081810360008301526105708184610453565b905092915050565b6000602082019050818103600083015261059281846104c5565b905092915050565b600060208201905081810360008301526105b481846104ef565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156105df57600080fd5b8060405250919050565b600067ffffffffffffffff82111561060057600080fd5b601f19601f8301169050602081019050919050565b600067ffffffffffffffff82111561062c57600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000819050919050565b82818337600083830152505050565b60005b838110156106d25780820151818401526020810190506106b7565b838111156106e1576000848401525b50505050565b6000601f19601f830116905091905056fea265627a7a72305820e82a137a054afa43978c363b7809f7869cb14366d484bd4e5c049ff72fd4dec66c6578706572696d656e74616cf50037",
+  "sourceMap": "59:704:25:-;;132:2:-1;166:7;155:9;146:7;137:37;255:7;249:14;246:1;241:23;235:4;232:33;222:2;;269:9;222:2;293:9;290:1;283:20;323:4;314:7;306:22;347:7;338;331:24",
+  "deployedSourceMap": "59:704:25:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;598:163;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;267:144;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;417:175;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;598:163;694:17;745:8;734:20;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;734:20:25;;;727:27;;598:163;;;:::o;267:144::-;334:12;386:8;:16;;;375:28;;;;;;;;;;;;49:4:-1;39:7;30;26:21;22:32;13:7;6:49;375:28:25;;;365:39;;;;;;358:46;;267:144;;;:::o;417:175::-;504:24;;:::i;:::-;568:4;557:28;;;;;;;;;;;;;;544:41;;417:175;;;:::o;59:704::-;;;;;;;;;;;;;;:::o;6:440:-1:-;;107:3;100:4;92:6;88:17;84:27;74:2;;125:1;122;115:12;74:2;162:6;149:20;184:64;199:48;240:6;199:48;;;184:64;;;175:73;;268:6;261:5;254:21;304:4;296:6;292:17;337:4;330:5;326:16;372:3;363:6;358:3;354:16;351:25;348:2;;;389:1;386;379:12;348:2;399:41;433:6;428:3;423;399:41;;;67:379;;;;;;;;455:434;;553:3;546:4;538:6;534:17;530:27;520:2;;571:1;568;561:12;520:2;608:6;595:20;630:61;645:45;683:6;645:45;;;630:61;;;621:70;;711:6;704:5;697:21;747:4;739:6;735:17;780:4;773:5;769:16;815:3;806:6;801:3;797:16;794:25;791:2;;;832:1;829;822:12;791:2;842:41;876:6;871:3;866;842:41;;;513:376;;;;;;;;898:436;;1007:3;1000:4;992:6;988:17;984:27;974:2;;1025:1;1022;1015:12;974:2;1055:6;1049:13;1077:61;1092:45;1130:6;1092:45;;;1077:61;;;1068:70;;1158:6;1151:5;1144:21;1194:4;1186:6;1182:17;1227:4;1220:5;1216:16;1262:3;1253:6;1248:3;1244:16;1241:25;1238:2;;;1279:1;1276;1269:12;1238:2;1289:39;1321:6;1316:3;1311;1289:39;;;967:367;;;;;;;;1376:429;;1498:4;1486:9;1481:3;1477:19;1473:30;1470:2;;;1516:1;1513;1506:12;1470:2;1534:20;1549:4;1534:20;;;1525:29;;1628:1;1617:9;1613:17;1607:24;1651:18;1643:6;1640:30;1637:2;;;1683:1;1680;1673:12;1637:2;1717:66;1779:3;1770:6;1759:9;1755:22;1717:66;;;1711:3;1704:5;1700:15;1693:91;1564:231;1464:341;;;;;1846:418;;1961:4;1949:9;1944:3;1940:19;1936:30;1933:2;;;1979:1;1976;1969:12;1933:2;1997:20;2012:4;1997:20;;;1988:29;;2098:1;2087:9;2083:17;2070:31;2121:18;2113:6;2110:30;2107:2;;;2153:1;2150;2143:12;2107:2;2187:55;2238:3;2229:6;2218:9;2214:22;2187:55;;;2181:3;2174:5;2170:15;2163:80;2027:227;1927:337;;;;;2271:345;;2384:2;2372:9;2363:7;2359:23;2355:32;2352:2;;;2400:1;2397;2390:12;2352:2;2463:1;2452:9;2448:17;2435:31;2486:18;2478:6;2475:30;2472:2;;;2518:1;2515;2508:12;2472:2;2538:62;2592:7;2583:6;2572:9;2568:22;2538:62;;;2528:72;;2414:192;2346:270;;;;;2623:386;;2760:2;2748:9;2739:7;2735:23;2731:32;2728:2;;;2776:1;2773;2766:12;2728:2;2832:1;2821:9;2817:17;2811:24;2855:18;2847:6;2844:30;2841:2;;;2887:1;2884;2877:12;2841:2;2907:86;2985:7;2976:6;2965:9;2961:22;2907:86;;;2897:96;;2790:209;2722:287;;;;;3016:379;;3146:2;3134:9;3125:7;3121:23;3117:32;3114:2;;;3162:1;3159;3152:12;3114:2;3225:1;3214:9;3210:17;3197:31;3248:18;3240:6;3237:30;3234:2;;;3280:1;3277;3270:12;3234:2;3300:79;3371:7;3362:6;3351:9;3347:22;3300:79;;;3290:89;;3176:209;3108:287;;;;;3402:128;3493:31;3518:5;3493:31;;;3488:3;3481:44;3475:55;;;3537:359;;3655:38;3687:5;3655:38;;;3705:78;3776:6;3771:3;3705:78;;;3698:85;;3788:52;3833:6;3828:3;3821:4;3814:5;3810:16;3788:52;;;3861:29;3883:6;3861:29;;;3856:3;3852:39;3845:46;;3635:261;;;;;;3903:319;;4001:35;4030:5;4001:35;;;4048:61;4102:6;4097:3;4048:61;;;4041:68;;4114:52;4159:6;4154:3;4147:4;4140:5;4136:16;4114:52;;;4187:29;4209:6;4187:29;;;4182:3;4178:39;4171:46;;3981:241;;;;;;4229:339;;4337:35;4366:5;4337:35;;;4384:71;4448:6;4443:3;4384:71;;;4377:78;;4460:52;4505:6;4500:3;4493:4;4486:5;4482:16;4460:52;;;4533:29;4555:6;4533:29;;;4528:3;4524:39;4517:46;;4317:251;;;;;;4575:335;;4681:35;4710:5;4681:35;;;4728:69;4790:6;4785:3;4728:69;;;4721:76;;4802:52;4847:6;4842:3;4835:4;4828:5;4824:16;4802:52;;;4875:29;4897:6;4875:29;;;4870:3;4866:39;4859:46;;4661:249;;;;;;4982:414;;5135:4;5130:3;5126:14;5220:3;5213:5;5209:15;5203:22;5270:3;5264:4;5260:14;5254:3;5249;5245:13;5238:37;5290:68;5353:4;5340:11;5290:68;;;5282:76;;5155:215;5387:4;5380:11;;5108:288;;;;;;5468:430;;5629:4;5624:3;5620:14;5714:3;5707:5;5703:15;5697:22;5764:3;5758:4;5754:14;5748:3;5743;5739:13;5732:37;5784:76;5855:4;5842:11;5784:76;;;5776:84;;5649:223;5889:4;5882:11;;5602:296;;;;;;5905:229;;6031:2;6020:9;6016:18;6008:26;;6045:79;6121:1;6110:9;6106:17;6097:6;6045:79;;;6002:132;;;;;6141:313;;6285:2;6274:9;6270:18;6262:26;;6335:9;6329:4;6325:20;6321:1;6310:9;6306:17;6299:47;6360:84;6439:4;6430:6;6360:84;;;6352:92;;6256:198;;;;;6461:293;;6595:2;6584:9;6580:18;6572:26;;6645:9;6639:4;6635:20;6631:1;6620:9;6616:17;6609:47;6670:74;6739:4;6730:6;6670:74;;;6662:82;;6566:188;;;;;6761:365;;6931:2;6920:9;6916:18;6908:26;;6981:9;6975:4;6971:20;6967:1;6956:9;6952:17;6945:47;7006:110;7111:4;7102:6;7006:110;;;6998:118;;6902:224;;;;;7133:381;;7311:2;7300:9;7296:18;7288:26;;7361:9;7355:4;7351:20;7347:1;7336:9;7332:17;7325:47;7386:118;7499:4;7490:6;7386:118;;;7378:126;;7282:232;;;;;7521:256;;7583:2;7577:9;7567:19;;7621:4;7613:6;7609:17;7720:6;7708:10;7705:22;7684:18;7672:10;7669:34;7666:62;7663:2;;;7741:1;7738;7731:12;7663:2;7761:10;7757:2;7750:22;7561:216;;;;;7784:258;;7927:18;7919:6;7916:30;7913:2;;;7959:1;7956;7949:12;7913:2;8003:4;7999:9;7992:4;7984:6;7980:17;7976:33;7968:41;;8032:4;8026;8022:15;8014:23;;7850:192;;;;8049:255;;8189:18;8181:6;8178:30;8175:2;;;8221:1;8218;8211:12;8175:2;8265:4;8261:9;8254:4;8246:6;8242:17;8238:33;8230:41;;8294:4;8288;8284:15;8276:23;;8112:192;;;;8311:91;;8391:5;8385:12;8375:22;;8369:33;;;;8409:88;;8486:5;8480:12;8470:22;;8464:33;;;;8505:170;;8627:6;8622:3;8615:19;8664:4;8659:3;8655:14;8640:29;;8608:67;;;;;8684:153;;8789:6;8784:3;8777:19;8826:4;8821:3;8817:14;8802:29;;8770:67;;;;;8846:163;;8961:6;8956:3;8949:19;8998:4;8993:3;8989:14;8974:29;;8942:67;;;;;9018:161;;9131:6;9126:3;9119:19;9168:4;9163:3;9159:14;9144:29;;9112:67;;;;;9187:79;;9256:5;9245:16;;9239:27;;;;9274:145;9355:6;9350:3;9345;9332:30;9411:1;9402:6;9397:3;9393:16;9386:27;9325:94;;;;9428:268;9493:1;9500:101;9514:6;9511:1;9508:13;9500:101;;;9590:1;9585:3;9581:11;9575:18;9571:1;9566:3;9562:11;9555:39;9536:2;9533:1;9529:10;9524:15;;9500:101;;;9616:6;9613:1;9610:13;9607:2;;;9681:1;9672:6;9667:3;9663:16;9656:27;9607:2;9477:219;;;;;9704:97;;9792:2;9788:7;9783:2;9776:5;9772:14;9768:28;9758:38;;9752:49;;;",
+  "source": "pragma solidity ^0.5.0;\npragma experimental ABIEncoderV2;\n\nlibrary MarkdownLib {\n\n    struct Markdown {\n        string content;\n    }\n\n    function insert(Markdown storage self, Markdown memory instance) internal {\n        self.content = instance.content;\n    }\n\n    function getDataHash(Markdown memory instance) pure public returns(bytes32 hash) {\n        return keccak256(abi.encode(instance.content));\n    }\n\n    function structureBytes(bytes memory data)\n        pure\n        public\n        returns(Markdown memory instance)\n    {\n        (instance) = abi.decode(data, (Markdown));\n    }\n\n    function destructureBytes(Markdown memory instance)\n        pure\n        public\n        returns(bytes memory data)\n    {\n        return abi.encode(instance);\n    }\n}\n",
+  "sourcePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
+  "ast": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
+    "exportedSymbols": {
+      "MarkdownLib": [
+        7080
+      ]
+    },
+    "id": 7081,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7013,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:25"
+      },
+      {
+        "id": 7014,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:25"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7080,
+        "linearizedBaseContracts": [
+          7080
+        ],
+        "name": "MarkdownLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "MarkdownLib.Markdown",
+            "id": 7017,
+            "members": [
+              {
+                "constant": false,
+                "id": 7016,
+                "name": "content",
+                "nodeType": "VariableDeclaration",
+                "scope": 7017,
+                "src": "112:14:25",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 7015,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:6:25",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Markdown",
+            "nodeType": "StructDefinition",
+            "scope": 7080,
+            "src": "86:47:25",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7031,
+              "nodeType": "Block",
+              "src": "213:48:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7029,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7024,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7019,
+                        "src": "223:4:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                          "typeString": "struct MarkdownLib.Markdown storage pointer"
+                        }
+                      },
+                      "id": 7026,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "content",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7016,
+                      "src": "223:12:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7027,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7021,
+                        "src": "238:8:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      },
+                      "id": 7028,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "content",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7016,
+                      "src": "238:16:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "223:31:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 7030,
+                  "nodeType": "ExpressionStatement",
+                  "src": "223:31:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7032,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7022,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7019,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7032,
+                  "src": "155:21:25",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7018,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "155:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7021,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7032,
+                  "src": "178:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7020,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "178:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "154:49:25"
+            },
+            "returnParameters": {
+              "id": 7023,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "213:0:25"
+            },
+            "scope": 7080,
+            "src": "139:122:25",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 7047,
+              "nodeType": "Block",
+              "src": "348:63:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 7042,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7034,
+                              "src": "386:8:25",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                                "typeString": "struct MarkdownLib.Markdown memory"
+                              }
+                            },
+                            "id": 7043,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "content",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 7016,
+                            "src": "386:16:25",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 7040,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "375:3:25",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 7041,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "375:10:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 7044,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "375:28:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 7039,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "365:9:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 7045,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "365:39:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 7038,
+                  "id": 7046,
+                  "nodeType": "Return",
+                  "src": "358:46:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7048,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7035,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7034,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7048,
+                  "src": "288:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7033,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "288:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "287:26:25"
+            },
+            "returnParameters": {
+              "id": 7038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7037,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7048,
+                  "src": "334:12:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7036,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "334:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "333:14:25"
+            },
+            "scope": 7080,
+            "src": "267:144:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7065,
+              "nodeType": "Block",
+              "src": "534:58:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7063,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7055,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7053,
+                          "src": "545:8:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                            "typeString": "struct MarkdownLib.Markdown memory"
+                          }
+                        }
+                      ],
+                      "id": 7056,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "544:10:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                        "typeString": "struct MarkdownLib.Markdown memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7059,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7050,
+                          "src": "568:4:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 7060,
+                              "name": "Markdown",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7017,
+                              "src": "575:8:25",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                                "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 7061,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "574:10:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 7057,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "557:3:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 7058,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "557:10:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 7062,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "557:28:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Markdown_$7017_memory",
+                        "typeString": "struct MarkdownLib.Markdown memory"
+                      }
+                    },
+                    "src": "544:41:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                      "typeString": "struct MarkdownLib.Markdown memory"
+                    }
+                  },
+                  "id": 7064,
+                  "nodeType": "ExpressionStatement",
+                  "src": "544:41:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7066,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7051,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7050,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7066,
+                  "src": "441:17:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7049,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:5:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:19:25"
+            },
+            "returnParameters": {
+              "id": 7054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7053,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7066,
+                  "src": "504:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7052,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "504:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "503:26:25"
+            },
+            "scope": 7080,
+            "src": "417:175:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7078,
+              "nodeType": "Block",
+              "src": "717:44:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7075,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7068,
+                        "src": "745:8:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7073,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "734:3:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 7074,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "734:10:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 7076,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "734:20:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 7072,
+                  "id": 7077,
+                  "nodeType": "Return",
+                  "src": "727:27:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7079,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7069,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7068,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7079,
+                  "src": "624:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7067,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "624:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:26:25"
+            },
+            "returnParameters": {
+              "id": 7072,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7071,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7079,
+                  "src": "694:17:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7070,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "694:5:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "693:19:25"
+            },
+            "scope": 7080,
+            "src": "598:163:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7081,
+        "src": "59:704:25"
+      }
+    ],
+    "src": "0:764:25"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/loredana/ETH/dType/contracts/contracts/examples/markdown/MarkdownLib.sol",
+    "exportedSymbols": {
+      "MarkdownLib": [
+        7080
+      ]
+    },
+    "id": 7081,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7013,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:25"
+      },
+      {
+        "id": 7014,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "24:33:25"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7080,
+        "linearizedBaseContracts": [
+          7080
+        ],
+        "name": "MarkdownLib",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "MarkdownLib.Markdown",
+            "id": 7017,
+            "members": [
+              {
+                "constant": false,
+                "id": 7016,
+                "name": "content",
+                "nodeType": "VariableDeclaration",
+                "scope": 7017,
+                "src": "112:14:25",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 7015,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:6:25",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Markdown",
+            "nodeType": "StructDefinition",
+            "scope": 7080,
+            "src": "86:47:25",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7031,
+              "nodeType": "Block",
+              "src": "213:48:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7029,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7024,
+                        "name": "self",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7019,
+                        "src": "223:4:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                          "typeString": "struct MarkdownLib.Markdown storage pointer"
+                        }
+                      },
+                      "id": 7026,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "content",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7016,
+                      "src": "223:12:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7027,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7021,
+                        "src": "238:8:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      },
+                      "id": 7028,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "content",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7016,
+                      "src": "238:16:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "223:31:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 7030,
+                  "nodeType": "ExpressionStatement",
+                  "src": "223:31:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7032,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "insert",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7022,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7019,
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7032,
+                  "src": "155:21:25",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7018,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "155:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7021,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7032,
+                  "src": "178:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7020,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "178:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "154:49:25"
+            },
+            "returnParameters": {
+              "id": 7023,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "213:0:25"
+            },
+            "scope": 7080,
+            "src": "139:122:25",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 7047,
+              "nodeType": "Block",
+              "src": "348:63:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 7042,
+                              "name": "instance",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7034,
+                              "src": "386:8:25",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                                "typeString": "struct MarkdownLib.Markdown memory"
+                              }
+                            },
+                            "id": 7043,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "content",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 7016,
+                            "src": "386:16:25",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 7040,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 10289,
+                            "src": "375:3:25",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 7041,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "encode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "375:10:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 7044,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "375:28:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 7039,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 10296,
+                      "src": "365:9:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 7045,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "365:39:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 7038,
+                  "id": 7046,
+                  "nodeType": "Return",
+                  "src": "358:46:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7048,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDataHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7035,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7034,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7048,
+                  "src": "288:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7033,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "288:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "287:26:25"
+            },
+            "returnParameters": {
+              "id": 7038,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7037,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7048,
+                  "src": "334:12:25",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7036,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "334:7:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "333:14:25"
+            },
+            "scope": 7080,
+            "src": "267:144:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7065,
+              "nodeType": "Block",
+              "src": "534:58:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7063,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "components": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7055,
+                          "name": "instance",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7053,
+                          "src": "545:8:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                            "typeString": "struct MarkdownLib.Markdown memory"
+                          }
+                        }
+                      ],
+                      "id": 7056,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "544:10:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                        "typeString": "struct MarkdownLib.Markdown memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7059,
+                          "name": "data",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7050,
+                          "src": "568:4:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "components": [
+                            {
+                              "argumentTypes": null,
+                              "id": 7060,
+                              "name": "Markdown",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7017,
+                              "src": "575:8:25",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                                "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                              }
+                            }
+                          ],
+                          "id": 7061,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "574:10:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          },
+                          {
+                            "typeIdentifier": "t_type$_t_struct$_Markdown_$7017_storage_ptr_$",
+                            "typeString": "type(struct MarkdownLib.Markdown storage pointer)"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 7057,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 10289,
+                          "src": "557:3:25",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 7058,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "decode",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "557:10:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                          "typeString": "function () pure"
+                        }
+                      },
+                      "id": 7062,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "557:28:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Markdown_$7017_memory",
+                        "typeString": "struct MarkdownLib.Markdown memory"
+                      }
+                    },
+                    "src": "544:41:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                      "typeString": "struct MarkdownLib.Markdown memory"
+                    }
+                  },
+                  "id": 7064,
+                  "nodeType": "ExpressionStatement",
+                  "src": "544:41:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7066,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "structureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7051,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7050,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7066,
+                  "src": "441:17:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7049,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:5:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:19:25"
+            },
+            "returnParameters": {
+              "id": 7054,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7053,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7066,
+                  "src": "504:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7052,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "504:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "503:26:25"
+            },
+            "scope": 7080,
+            "src": "417:175:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7078,
+              "nodeType": "Block",
+              "src": "717:44:25",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7075,
+                        "name": "instance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7068,
+                        "src": "745:8:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                          "typeString": "struct MarkdownLib.Markdown memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 7073,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 10289,
+                        "src": "734:3:25",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 7074,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "encode",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "734:10:25",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function () pure returns (bytes memory)"
+                      }
+                    },
+                    "id": 7076,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "734:20:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "functionReturnParameters": 7072,
+                  "id": 7077,
+                  "nodeType": "Return",
+                  "src": "727:27:25"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7079,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "destructureBytes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7069,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7068,
+                  "name": "instance",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7079,
+                  "src": "624:24:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Markdown_$7017_memory_ptr",
+                    "typeString": "struct MarkdownLib.Markdown"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 7067,
+                    "name": "Markdown",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7017,
+                    "src": "624:8:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Markdown_$7017_storage_ptr",
+                      "typeString": "struct MarkdownLib.Markdown"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "623:26:25"
+            },
+            "returnParameters": {
+              "id": 7072,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7071,
+                  "name": "data",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7079,
+                  "src": "694:17:25",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7070,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "694:5:25",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "693:19:25"
+            },
+            "scope": 7080,
+            "src": "598:163:25",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7081,
+        "src": "59:704:25"
+      }
+    ],
+    "src": "0:764:25"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.7+commit.6da8b019.Emscripten.clang"
+  },
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xc4E72473d7f8dC3Ee5fbe96e91438096994fF46D",
+      "transactionHash": "0xb9b6ce633b318366364c71eb03d37a653213380d255f16b5166b37b988def8a1"
+    },
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x43Cd6e180EEA733eb4259267ef04967CA89e8444",
+      "transactionHash": "0x66fe08929e72b2ba2e383e5d684ee2c7a5862a03b6decbc8dfc50c706022719e"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x4601409792bDB1DDE93a6E75212B777B59aDa60a",
+      "transactionHash": "0xfcb60009cad22aa35fedd04a24ec9193e7ad0bc1c478dffd31bf3ce929b352c8"
+    }
+  },
+  "schemaVersion": "3.0.11",
+  "updatedAt": "2019-07-28T11:10:53.975Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
