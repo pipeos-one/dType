@@ -198,7 +198,7 @@ const dTypeStore = new Vuex.Store({
             // TODO: differentiate update from insert - check if identifier is bytes32(0) or not
             // const txn = await contract.update(identifier, data);
             const txn = await contract.insert(data);
-            const receipt = await state.provider.getTransactionReceipt(txn.hash);
+            const receipt = await state.provider.waitForTransaction(txn.hash);
             // TODO: proper generalized log parsing for any storage contract
             return receipt.logs[0].topics[1];
         },
