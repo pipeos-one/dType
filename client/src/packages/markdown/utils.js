@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 
-const getAliasesFromMd = (text) => {
+export const getAliasesFromMd = (text) => {
     const included = {aliases: [], full: []};
     const links = {aliases: [], full: []};
     const arrayMatch = [...text.matchAll(/\[\[(.*?)\]\]/g)];
@@ -18,14 +18,14 @@ const getAliasesFromMd = (text) => {
     return {included, links};
 };
 
-const replaceAliasesMd = (text, aliases, replacements) => {
+export const replaceAliasesMd = (text, aliases, replacements) => {
     aliases.forEach((match, i) => {
         text = text.replace(match, replacements[i]);
     });
     return text;
 };
 
-const TYPE_PREVIEW = {
+export const TYPE_PREVIEW = {
     markdown: (data) => {
         // return ethers.utils.toUtf8String(data.content);
         return data.content;
@@ -40,7 +40,7 @@ const TYPE_PREVIEW = {
     },
 };
 
-const enforceMaxLength = (cm, change) => {
+export const enforceMaxLength = (cm, change) => {
     const maxLength = cm.getOption('maxLength');
 
     if (maxLength && change.update) {
@@ -56,9 +56,17 @@ const enforceMaxLength = (cm, change) => {
     return true;
 };
 
-export {
-    getAliasesFromMd,
-    replaceAliasesMd,
-    TYPE_PREVIEW,
-    enforceMaxLength,
-}
+export const previewRender = async (plainText, replaceAlias) => {
+    const {included, links} = getAliasesFromMd(plainText);
+
+    // Replace links before included aliases
+    plainText = replaceAliasesMd(
+        plainText,
+        links.full,
+        links.aliases.map(link => `[${link}](/#/alias?alias=${link})`),
+    );
+    const aliasobjs = await replaceAlias(included.aliases);
+    plainText = replaceAliasesMd(plainText, included.full, aliasobjs);
+
+    return plainText;
+};

@@ -26,7 +26,13 @@
 import VueSimplemde from 'vue-simplemde';
 import marked from 'marked';
 import { mapState } from 'vuex';
-import {getAliasesFromMd, replaceAliasesMd, TYPE_PREVIEW, enforceMaxLength} from '../utils.js';
+import {
+  getAliasesFromMd,
+  replaceAliasesMd,
+  TYPE_PREVIEW,
+  enforceMaxLength,
+  previewRender,
+} from '../utils.js';
 
 export default {
   props: ['content', 'addition', 'getAliasData'],
@@ -124,18 +130,9 @@ export default {
       return this.content ? TYPE_PREVIEW.markdown(this.content) : '';
     },
     previewRender(plainText, preview) {
-      const {included, links} = getAliasesFromMd(plainText);
-
-      // Replace links before included aliases
-      plainText = replaceAliasesMd(
-        plainText,
-        links.full,
-        this.replaceAliasLinks(plainText, links.aliases),
-      );
-      this.replaceAlias(included.aliases).then((aliasobjs) => {
-        plainText = replaceAliasesMd(plainText, included.full, aliasobjs);
-        preview.innerHTML = marked(plainText);
-      });
+      previewRender(plainText, this.replaceAlias).then((text) => {
+        preview.innerHTML = marked(text);
+      })
       return 'Loading...';
     },
     async replaceAlias(aliases) {
