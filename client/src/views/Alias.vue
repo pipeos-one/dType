@@ -8,7 +8,7 @@
           @alias="setAlias"
         />
       </v-flex>
-      <v-flex xs12>
+      <v-flex xs12 v-if="dtypeData && dtypeData.name === 'markdown'">
         <MarkdownRenderer
           :content="aliasData"
           :addition="selectedAlias"
@@ -16,6 +16,11 @@
           @save="saveResource"
           @changeType="changeType"
         />
+      </v-flex>
+      <v-flex xs12 v-else>
+        <p>
+          {{parseContent(aliasData)}}
+        </p>
       </v-flex>
     </v-layout>
   </v-container>
@@ -26,6 +31,7 @@ import {ethers} from 'ethers';
 import marked from 'marked';
 import { mapState } from 'vuex';
 import {getDataItemByTypeHash} from '../blockchain';
+import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
 import MarkdownRenderer from '@/packages/markdown/components/MarkdownRenderer';
@@ -63,6 +69,11 @@ export default {
     alias() {
       if (this.query && this.alias) {
         this.setAliasData(this.query.alias);
+      }
+    },
+    selectedAlias() {
+      if (this.viewer) {
+        this.$router.push({path: 'alias', query: {alias: this.selectedAlias.alias}});
       }
     }
   },
@@ -112,6 +123,12 @@ export default {
     },
     changeType(viewer) {
       this.viewer = viewer;
+    },
+    parseContent(content) {
+      if (content && this.dtypeData && TYPE_PREVIEW[this.dtypeData.name]) {
+        return TYPE_PREVIEW[this.dtypeData.name](content);
+      }
+      return '';
     }
   }
 }

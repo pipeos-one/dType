@@ -93,8 +93,6 @@ export default {
         var doc = this.$refs.markdownEditor.simplemde.codemirror.getDoc();
         var cursor = doc.getCursor();
         doc.replaceRange(text, cursor);
-      } else {
-        this.$router.push({path: 'alias', query: {alias: this.addition.alias}});
       }
     },
   },
