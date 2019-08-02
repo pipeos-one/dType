@@ -30,7 +30,7 @@
 import {ethers} from 'ethers';
 import marked from 'marked';
 import { mapState } from 'vuex';
-import {getDataItemByTypeHash} from '../blockchain';
+import {getDataItemByTypeHash} from 'dtype-core/dtype-utils';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
@@ -91,7 +91,7 @@ export default {
       // TODO: account for all separators & multiple subdomains
       // see replaceAlias commented code
       const parts = url.split('.');
-      const dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
+      const dtypeData = await this.$store.dispatch('getTypeStruct', {lang: 0, name: parts[0]});
 
       const identifier = await this.$store.dispatch('parseAlias', {
         dTypeIdentifier: dtypeData.typeHash,

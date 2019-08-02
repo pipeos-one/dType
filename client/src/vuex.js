@@ -1,9 +1,16 @@
-import {ethers} from 'ethers';
-
+import {
+    getProvider,
+    getContract,
+    signMessage,
+    buildStorageAbi,
+    getTypeStruct,
+    getdTypeRoot,
+    getTypes,
+    dTypeMeta,
+} from 'dtype-core';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import DType from './constants';
-import {getProvider, getContract, normalizeEthersObject, signMessage, buildStorageAbi} from './blockchain';
 
 Vue.use(Vuex);
 
@@ -55,25 +62,25 @@ const dTypeStore = new Vuex.Store({
                 state.aliases[dtype.name] = {identifier: dtype.identifier};
             }
             if (!state.aliases[dtype.name][alias.separator]) {
-              state.aliases[dtype.name][alias.separator] = {};
+                state.aliases[dtype.name][alias.separator] = {};
             }
             state.aliases[dtype.name][alias.separator][alias.name] = alias.identifier;
         },
     },
     actions: {
-        setProvider({commit, state}) {
-            return getProvider(state.DType).then(({provider, wallet}) => {
+        setProvider({commit}) {
+            return getProvider().then(({provider, wallet}) => {
                 commit('setProvider', provider);
                 commit('setWallet', wallet);
             });
         },
         setContract({commit, state}) {
-            const contractAddress = state.DType.contract.networks[
+            const contractAddress = dTypeMeta.networks[
                 String(state.provider.network.chainId)
             ].address;
             getContract(
                 contractAddress,
-                state.DType.contract.abi,
+                dTypeMeta.abi,
                 state.wallet,
             ).then((contract) => {
                 commit('setContract', contract);
@@ -90,33 +97,13 @@ const dTypeStore = new Vuex.Store({
                 commit('setAlias', contract);
             });
         },
-        async getTypeStructByName({dispatch, state}, {lang, name}) {
-            const hash = await state.contract.getTypeHash(lang, name);
-            return dispatch('getTypeStruct', hash);
+        async getTypeStruct({state}, {lang, name, hash}) {
+            return getTypeStruct(state.contract, {lang, name, hash});
         },
-        async getTypeStruct({state}, hash) {
-            let struct = await state.contract.getByHash(hash);
-            struct.typeHash = hash;
-            return normalizeEthersObject(struct);
-        },
-        async setTypes({dispatch, commit, state}) {
-            return state.contract.getTypeHash(0, state.DType.rootName).then((hash) => {
-                return dispatch('getTypeStruct', hash);
-            }).then(async (dtype) => {
-                dtype.typesHashes = [];
-                for (let i = 0; i < dtype.types.length; i++) {
-                    let typeHash = await state.contract.getTypeHash(dtype.lang, dtype.types[i].name);
-                    dtype.typesHashes.push(typeHash);
-                }
-                commit('setType', dtype);
-            }).then(() => {
-                return state.contract.getIndex();
-            }).then(async (hashes) => {
-                for (let i = 0; i < hashes.length; i++) {
-                    const dtype = await dispatch('getTypeStruct', hashes[i]);
-                    commit('addType', dtype);
-                }
-            });
+        async setTypes({commit, state}) {
+            const data = await getdTypeRoot(state.contract);
+            commit('setType', data);
+            getTypes(state.contract, struct => commit('addType', struct));
         },
         insertType({state}, dtype) {
             console.log('insert dtype', JSON.stringify(dtype));
@@ -143,7 +130,7 @@ const dTypeStore = new Vuex.Store({
                 .then(console.log);
         },
         async parseAlias({state}, alias) {
-            const separator = '0x' + alias.separator.charCodeAt(0).toString(16);
+            const separator = `0x${alias.separator.charCodeAt(0).toString(16)}`;
             return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
         },
         watchAll({dispatch}) {
@@ -163,7 +150,7 @@ const dTypeStore = new Vuex.Store({
                 console.log('LogNew', typeHash, index);
                 const typeIndex = state.dtypes.findIndex(dtype => dtype.typeHash === typeHash);
                 if (typeIndex !== -1) return;
-                dispatch('getTypeStruct', typeHash).then((struct) => {
+                dispatch('getTypeStruct', {hash: typeHash}).then((struct) => {
                     commit('addType', struct);
                 });
             });
@@ -174,7 +161,7 @@ const dTypeStore = new Vuex.Store({
                 const typeIndex = state.dtypes.findIndex(dtype => dtype.typeHash === typeHash);
 
                 if (typeIndex === -1) return;
-                dispatch('getTypeStruct', typeHash).then((struct) => {
+                dispatch('getTypeStruct', {hash: typeHash}).then((struct) => {
                     commit('updateType', typeIndex, struct);
                 });
             });
@@ -188,6 +175,7 @@ const dTypeStore = new Vuex.Store({
                 }
             });
         },
+        // eslint-disable-next-line
         async saveResource({state}, {dTypeData, data, identifier}) {
             const abi = await buildStorageAbi(state.contract, dTypeData.typeHash, 'data');
             const contract = await getContract(
@@ -210,12 +198,12 @@ const dTypeStore = new Vuex.Store({
                 alias: {
                     identifier: args.identifier,
                     name: alias.substring(1),
-                    separator: alias.substring(0, 1)
+                    separator: alias.substring(0, 1),
                 },
             });
         },
         async setAlias({state}, data) {
-            const separator = '0x' + data.separator.charCodeAt(0).toString(16);
+            const separator = `0x${data.separator.charCodeAt(0).toString(16)}`;
             const {nonce} = (
                 await state.alias.getAliasedData(data.dTypeIdentifier, separator, data.name)
             );
@@ -233,6 +221,7 @@ const dTypeStore = new Vuex.Store({
                     data.name,
                 ],
             );
+
             state.alias.setAlias(
                 data.dTypeIdentifier,
                 separator,
@@ -254,15 +243,15 @@ const dTypeStore = new Vuex.Store({
         removeWatchersAlias({state}) {
             return state.alias.removeAllListeners('AliasSet');
         },
-        watchAliasSet({dispatch, commit, state}) {
+        watchAliasSet({dispatch, state}) {
             const filter = {
                 address: state.alias.address,
-                topics: [ state.alias.interface.events.AliasSet.topic ],
+                topics: [state.alias.interface.events.AliasSet.topic],
                 fromBlock: 0,
                 toBlock: 'latest',
-            }
+            };
             state.provider.getLogs(filter).then((logs) => {
-                logs.map((log) => {
+                logs.forEach((log) => {
                     log = state.alias.interface.parseLog(log);
                     dispatch('setAliased', log.values);
                 });

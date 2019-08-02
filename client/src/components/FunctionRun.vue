@@ -49,7 +49,7 @@
 
 <script>
 import dTypeSearch from '../components/dTypeSearch';
-import {buildDefaultItem, getDataItemsByTypeHash} from '../blockchain';
+import {buildDefaultItem, getDataItemsByTypeHash} from 'dtype-core/dtype-utils';
 
 export default {
     props: ['functionType'],
@@ -83,7 +83,7 @@ export default {
                 let label = this.functionType.types[i].label;
 
                 let subType = await this.$store.dispatch(
-                    'getTypeStructByName',
+                    'getTypeStruct',
                     {
                         lang: this.functionType.lang,
                         name: this.functionType.types[i].name,

@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "dtype-core": "^0.0.1",
     "ethers": "4.0.26",
     "marked": "^0.7.0",
     "simplemde": "^1.11.2",

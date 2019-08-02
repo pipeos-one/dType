@@ -17,18 +17,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import dTypeBrowse from '../components/dTypeBrowse';
-import dTypeView from '../components/dTypeView';
-import {EMPTY_ADDRESS} from '../constants_utils';
-import {buildTypeAbi, typeDimensionsToString} from '../dtype_utils';
+import {mapState} from 'vuex';
 import {
     getContract,
-    buildStructAbi,
     buildDefaultItem,
     getDataItem,
     getDataItems,
-} from '../blockchain';
+    buildStorageAbi,
+    typeDimensionsToString,
+} from 'dtype-core';
+import dTypeBrowse from '../components/dTypeBrowse';
+import dTypeView from '../components/dTypeView';
+import {EMPTY_ADDRESS} from '../constants_utils';
 
 export default {
     props: ['hash', 'lang', 'name'],
@@ -88,20 +88,21 @@ export default {
                 this.headers = this.dtypeHeaders;
             } else {
                 console.log('not Root');
-                let hash = this.hash;
+                let {hash} = this;
                 if (this.name) {
                     hash = await this.contract.getTypeHash(this.lang, this.name);
                 }
-                this.typeStruct = await this.$store.dispatch('getTypeStruct', hash);
+                this.typeStruct = await this.$store.dispatch('getTypeStruct', {hash});
                 this.typeContract = null;
                 this.items = [];
                 this.headers = this.getHeaders(this.typeStruct);
                 this.isRoot = false;
 
-                if (this.typeStruct.contractAddress && this.typeStruct.contractAddress !== EMPTY_ADDRESS) {
-                    const dtypeAbi = await buildStructAbi(this.contract, this.typeStruct.typeHash);
-
-                    const abi = buildTypeAbi(dtypeAbi);
+                if (
+                    this.typeStruct.contractAddress &&
+                    this.typeStruct.contractAddress !== EMPTY_ADDRESS
+                ) {
+                    const abi = await buildStorageAbi(this.contract, this.typeStruct.typeHash);
                     this.typeContract = await getContract(
                         this.typeStruct.contractAddress,
                         abi,
@@ -122,7 +123,7 @@ export default {
                 const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
 
                 if (typeIndex !== -1) return;
-                let typeData = await getDataItem(this.typeContract, typeHash, index);
+                const typeData = await getDataItem(this.typeContract, typeHash, index);
                 this.items.push(typeData);
             });
             this.typeContract.on('LogUpdate', async (typeHash, index) => {
@@ -130,7 +131,7 @@ export default {
                 const typeIndex = this.items.findIndex(dtype => dtype.typeHash === typeHash);
 
                 if (typeIndex === -1) return;
-                let typeData = await getDataItem(this.typeContract, typeHash, index);
+                const typeData = await getDataItem(this.typeContract, typeHash, index);
                 if (typeData && this.items[index]) {
                     Object.assign(this.items[index], typeData);
                 }
@@ -186,19 +187,19 @@ export default {
             }
         },
         getHeader(type, required = true) {
-            let dimensionsString = typeDimensionsToString(type.dimensions);
+            const dimensionsString = typeDimensionsToString(type.dimensions);
             type.fullName = type.name + dimensionsString;
             return {
                 text: `${type.label}\n${type.fullName}`,
                 value: type.label,
                 type,
                 required,
-            }
+            };
         },
         getHeaders(dtype) {
             return dtype.types.map(type => this.getHeader(type))
                 .concat(dtype.optionals.map(type => this.getHeader(type, false)));
         },
     },
-}
+};
 </script>
