@@ -1,16 +1,19 @@
 import {
     getProvider,
     getContract,
-    signMessage,
-    buildStorageAbi,
     getTypeStruct,
     getdTypeRoot,
     getTypes,
     dTypeMeta,
+    saveResource,
 } from 'dtype-core';
+import {
+    AliasMeta,
+    getAliased,
+    setAlias,
+} from 'dtype-alias';
 import Vue from 'vue';
 import Vuex from 'vuex';
-import DType from './constants';
 
 Vue.use(Vuex);
 
@@ -21,7 +24,6 @@ const dTypeStore = new Vuex.Store({
         contract: null,
         dtype: null,
         dtypes: [],
-        DType,
         alias: null,
         aliases: {},
     },
@@ -86,12 +88,12 @@ const dTypeStore = new Vuex.Store({
                 commit('setContract', contract);
             });
 
-            const aliasAddress = state.DType.aliasmeta.networks[
+            const aliasAddress = AliasMeta.networks[
                 String(state.provider.network.chainId)
             ].address;
             getContract(
                 aliasAddress,
-                state.DType.aliasmeta.abi,
+                AliasMeta.abi,
                 state.wallet,
             ).then((contract) => {
                 commit('setAlias', contract);
@@ -128,10 +130,6 @@ const dTypeStore = new Vuex.Store({
             return state.contract.remove(dtype.typeHash)
                 .then(tx => tx.wait(2))
                 .then(console.log);
-        },
-        async parseAlias({state}, alias) {
-            const separator = `0x${alias.separator.charCodeAt(0).toString(16)}`;
-            return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
         },
         watchAll({dispatch}) {
             return dispatch('watchInsert').then(() => {
@@ -175,68 +173,30 @@ const dTypeStore = new Vuex.Store({
                 }
             });
         },
-        // eslint-disable-next-line
         async saveResource({state}, {dTypeData, data, identifier}) {
-            const abi = await buildStorageAbi(state.contract, dTypeData.typeHash, 'data');
-            const contract = await getContract(
-                dTypeData.contractAddress,
-                abi,
+            return saveResource(
+                state.provider,
                 state.wallet,
+                state.contract,
+                {dTypeData, data, identifier},
             );
-            // TODO: differentiate update from insert - check if identifier is bytes32(0) or not
-            // const txn = await contract.update(identifier, data);
-            const txn = await contract.insert(data);
-            const receipt = await state.provider.waitForTransaction(txn.hash);
-            // TODO: proper generalized log parsing for any storage contract
-            return receipt.logs[0].topics[1];
+        },
+        async parseAlias({state}, alias) {
+            const separator = `0x${alias.separator.charCodeAt(0).toString(16)}`;
+            return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
         },
         async setAliased({state, commit}, args) {
-            const dtype = await state.contract.getByHash(args.dTypeIdentifier);
-            const alias = await state.alias.getReverse(args.dTypeIdentifier, args.identifier);
-            commit('setAliased', {
-                dtype: {identifier: args.dTypeIdentifier, name: dtype.name},
-                alias: {
-                    identifier: args.identifier,
-                    name: alias.substring(1),
-                    separator: alias.substring(0, 1),
-                },
-            });
+            commit('setAliased', await getAliased(state.contract, state.alias, args));
         },
         async setAlias({state}, data) {
-            const separator = `0x${data.separator.charCodeAt(0).toString(16)}`;
-            const {nonce} = (
-                await state.alias.getAliasedData(data.dTypeIdentifier, separator, data.name)
-            );
-            // TODO fix signature
-            const signature = await signMessage(
+            setAlias(
+                state.contract,
+                state.alias,
                 state.wallet,
-                ['address', 'uint256', 'bytes32', 'bytes32', 'uint64', 'bytes1', 'string'],
-                [
-                    state.contract.address,
-                    state.provider.network.chainId,
-                    data.dTypeIdentifier,
-                    data.identifier,
-                    nonce,
-                    separator,
-                    data.name,
-                ],
-            );
-
-            state.alias.setAlias(
-                data.dTypeIdentifier,
-                separator,
-                data.name,
-                data.identifier,
-                signature,
+                state.provider.network.chainId,
+                data,
             );
         },
-        // async getAliasData({state}, {dTypeIdentifier, separator, name}) {
-        //     separator = ethers.utils.formatBytes32String(separator).substring(0, 4);
-        //     const data = await state.alias.getAlias(dTypeIdentifier, separator, name);
-        //     console.log('data', data.data);
-        //     const
-        //     return data;
-        // },
         watchAllAlias({dispatch}) {
             return dispatch('watchAliasSet');
         },
