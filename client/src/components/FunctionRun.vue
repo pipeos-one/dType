@@ -1,9 +1,12 @@
 <template>
     <div>
         <template v-for="(type, i) in functionType.types">
-            <v-layout wrap>
+            <v-layout wrap :key="i">
                 <v-flex xs4>
-                    <v-text-field v-model='dataArguments[type.label]' :label='type.label'></v-text-field>
+                    <v-text-field
+                        v-model='dataArguments[type.label]'
+                        :label='type.label'
+                    ></v-text-field>
                 </v-flex>
                 <v-flex xs4>
                     <v-select
@@ -38,6 +41,7 @@
             <v-flex xs6 v-if="txSuccess">
                 <router-link
                     v-for="typeObj in functionType.outputs"
+                    :key="typeObj.typeHash"
                     :to="`/dtype/${functionType.lang}/${typeObj.name}`"
                 >
                     {{typeObj.name}}
@@ -55,10 +59,10 @@ export default {
     props: ['functionType'],
     components: {dTypeSearch},
     data() {
-        let dataArguments = {};
-        let selectedItems = {};
-        let selectedValues = {};
-        let functionData = {};
+        const dataArguments = {};
+        const selectedItems = {};
+        const selectedValues = {};
+        const functionData = {};
 
         this.functionType.types.forEach((type) => {
             dataArguments[type.label] = ''; buildDefaultItem(this.functionType);
@@ -80,14 +84,14 @@ export default {
     methods: {
         async setData() {
             for (let i = 0; i < this.functionType.types.length; i++) {
-                let label = this.functionType.types[i].label;
+                const label = this.functionType.types[i].label;
 
-                let subType = await this.$store.dispatch(
+                const subType = await this.$store.dispatch(
                     'getTypeStruct',
                     {
                         lang: this.functionType.lang,
                         name: this.functionType.types[i].name,
-                    }
+                    },
                 );
 
                 this.selectedItems[label] = subType.types.map(type => type.label);
@@ -101,25 +105,36 @@ export default {
                         this.functionData[label].push(dataItem);
                     },
                 );
-            };
+            }
         },
         async run() {
-            const dataHashes = this.functionType.types.map((type) => this.dataArguments[type.label]);
-            console.log('run', this.$store.state.contract.address, this.functionType.typeHash, dataHashes);
+            const dataHashes = this.functionType.types.map(
+                (type) => this.dataArguments[type.label],
+            );
+            console.log(
+                'run',
+                this.$store.state.contract.address,
+                this.functionType.typeHash,
+                dataHashes,
+            );
 
             // TODO fix gas estimation for Ganache
-            const tx = await this.$store.state.contract.run(this.functionType.typeHash, dataHashes, {gasLimit: 4000000});
+            const tx = await this.$store.state.contract.run(
+                this.functionType.typeHash,
+                dataHashes,
+                {gasLimit: 4000000},
+            );
 
             tx.wait(2).then((receipt) => {
                 console.log('run receipt', receipt);
-                if (receipt.status == 1) {
+                if (receipt.status === 1) {
                     this.txSuccess = true;
                 }
             });
 
             this.$store.state.provider.waitForTransaction(tx.hash).then((receipt) => {
                 console.log('Transaction Mined: ' + receipt.transactionHash, receipt);
-                if (receipt.status == 1) {
+                if (receipt.status === 1) {
                     this.txSuccess = true;
                 }
             });
@@ -129,5 +144,5 @@ export default {
             this.dataArguments[label] = event[0].typeHash;
         },
     },
-}
+};
 </script>

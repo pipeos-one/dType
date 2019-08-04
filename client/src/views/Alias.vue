@@ -51,7 +51,7 @@ export default {
     dtypeData: null,
   }),
   computed: mapState({
-      alias: 'alias',
+    alias: 'alias',
   }),
   mounted() {
     if (this.query) {
@@ -73,7 +73,7 @@ export default {
       if (this.viewer) {
         this.$router.push({path: 'alias', query: {alias: this.selectedAlias.alias}});
       }
-    }
+    },
   },
   methods: {
     setAlias(alias) {
@@ -98,10 +98,10 @@ export default {
       });
 
       const content = await getDataItemByTypeHash(
-          this.$store.state.contract,
-          this.$store.state.wallet,
-          dtypeData,
-          identifier,
+        this.$store.state.contract,
+        this.$store.state.wallet,
+        dtypeData,
+        identifier,
       );
       return {content, dtypeData};
     },
@@ -111,7 +111,7 @@ export default {
       });
     },
     changeAlias(identifier) {
-      let parts = this.domain.split('.');
+      const parts = this.domain.split('.');
       this.$store.dispatch('setAlias', {
         dTypeIdentifier: this.dtypeData.typeHash,
         separator: '.',
@@ -127,7 +127,7 @@ export default {
         return TYPE_PREVIEW[this.dtypeData.name](content);
       }
       return '';
-    }
-  }
-}
+    },
+  },
+};
 </script>

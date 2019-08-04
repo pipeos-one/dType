@@ -4,11 +4,10 @@ import {DTYPE_ROOT} from './constants';
 import {buildStorageAbi} from './dtype-utils';
 
 export const getTypeStruct = async (contract, {lang, name, hash}) => {
-  let struct;
   if (!hash) {
     hash = await contract.getTypeHash(lang, name);
   }
-  struct = await contract.getByHash(hash);
+  const struct = await contract.getByHash(hash);
   struct.typeHash = hash;
   return normalizeEthersObject(struct);
 };
@@ -34,6 +33,7 @@ export const getTypes = async (contract, callback) => {
 };
 
 export const saveResource = async (provider, wallet, dtypeContract, obj) => {
+  // eslint-disable-next-line
   const {dTypeData, data, identifier} = obj;
   const abi = await buildStorageAbi(dtypeContract, dTypeData.typeHash);
   const contract = await getContract(
