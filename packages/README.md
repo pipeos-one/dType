@@ -7,14 +7,13 @@ Future plans:
 
 ## Development
 
-Packages need to be linked:
-
 ```
-cd packages/dtype-core
-npm link
-cd packages/dtype-alias
-npm link
+cd dType
+npm install
+lerna bootstrap
 
-cd client
+cd dType/client
 npm link dtype-core
+npm link dtype-alias
+npm link dtype-markdown
 ```
