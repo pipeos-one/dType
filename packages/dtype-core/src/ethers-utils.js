@@ -19,7 +19,7 @@ export const normalizeEthersObject = (item) => {
   Object.keys(item)
     .filter(key => !Number(key) && Number(key) !== 0)
     .forEach((key) => {
-        obj[key] = normalizeEthersObject(item[key]);
+      obj[key] = normalizeEthersObject(item[key]);
     });
   return obj;
 };

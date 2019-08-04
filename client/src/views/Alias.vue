@@ -27,10 +27,8 @@
 </template>
 
 <script>
-import {ethers} from 'ethers';
-import marked from 'marked';
-import { mapState } from 'vuex';
-import {getDataItemByTypeHash} from 'dtype-core/dtype-utils';
+import {mapState} from 'vuex';
+import {getDataItemByTypeHash} from 'dtype-core';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';

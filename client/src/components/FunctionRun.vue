@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import dTypeSearch from '../components/dTypeSearch';
-import {buildDefaultItem, getDataItemsByTypeHash} from 'dtype-core/dtype-utils';
+import {buildDefaultItem, getDataItemsByTypeHash} from 'dtype-core';
+import dTypeSearch from './dTypeSearch';
 
 export default {
     props: ['functionType'],
