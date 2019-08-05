@@ -29,11 +29,9 @@ export const TYPE_PREVIEW = {
     return data.content;
   },
   account: (data) => {
-    console.log('TYPE_PREVIEW account', data);
     return `\`${data.addr}\``;
   },
   person: (data) => {
-    console.log('TYPE_PREVIEW person', data);
     return data.fullname;
   },
 };
