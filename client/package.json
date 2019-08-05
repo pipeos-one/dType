@@ -8,14 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "dtype-core": "^0.0.1",
-    "dtype-alias": "^0.0.1",
-    "ethers": "4.0.26",
-    "marked": "^0.7.0",
-    "simplemde": "^1.11.2",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
-    "vue-simplemde": "^1.0.0",
     "vuetify": "^1.5.5",
     "vuex": "^3.1.0"
   },

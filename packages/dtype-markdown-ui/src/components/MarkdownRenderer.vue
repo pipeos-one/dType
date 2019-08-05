@@ -1,42 +1,42 @@
 <template>
   <v-layout row wrap>
-    <v-flex v-bind="{[`xs${xssize}`]: true}" v-if="renderer" style="padding-right:10px;">
+    <v-flex v-bind='{[`xs${xssize}`]: true}' v-if='renderer' style='padding-right:10px;'>
       <vue-simplemde
-        v-model="tempContent"
-        ref="markdownEditor"
-        :configs="configs"
+        v-model='tempContent'
+        ref='markdownEditor'
+        :configs='configs'
       />
     </v-flex>
-    <v-flex v-bind="{[`xs${xssize}`]: true}" v-if="viewer" style="padding-left:10px;">
-      <v-layout row wrap justify-end v-if="!renderer">
+    <v-flex v-bind='{[`xs${xssize}`]: true}' v-if='viewer' style='padding-left:10px;'>
+      <v-layout row wrap justify-end v-if='!renderer'>
         <v-flex shrink>
-          <v-btn icon @click="renderer = true">
+          <v-btn icon @click='renderer = true'>
             <v-icon>fa-edit</v-icon>
           </v-btn>
         </v-flex>
       </v-layout>
       <v-flex xs12>
-        <div id="content" class="subheading"></div>
+        <div id='content' class='subheading'></div>
       </v-flex>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
+import Vue from 'vue';
+import Vuetify, {VLayout, VFlex, VBtn, VIcon} from 'vuetify/lib';
 import VueSimplemde from 'vue-simplemde';
 import marked from 'marked';
-import { mapState } from 'vuex';
 import {
-  getAliasesFromMd,
-  replaceAliasesMd,
   TYPE_PREVIEW,
   enforceMaxLength,
   previewRender,
 } from '../utils.js';
 
 export default {
+  name: 'MarkdownRenderer',
   props: ['content', 'addition', 'getAliasData'],
-  components: {VueSimplemde},
+  components: {VueSimplemde, VLayout, VFlex, VBtn, VIcon},
   data() {
     return {
       xssize: 12,
@@ -48,32 +48,30 @@ export default {
         indentWithTabs: false,
         previewRender: this.previewRender,
         toolbar: [
-          "bold", "italic", "heading", "|",
-          "quote", "unordered-list", "ordered-list", "|",
-          "link", "image", "|", {
-            name: "preview",
-            action: (editor) => {
+          'bold', 'italic', 'heading', '|',
+          'quote', 'unordered-list', 'ordered-list', '|',
+          'link', 'image', '|', {
+            name: 'preview',
+            action: () => {
               this.viewer = true;
               this.renderer = false;
             },
-            className: "fa fa-eye",
-            title: "Preview",
+            className: 'fa fa-eye',
+            title: 'Preview',
           },
           {
-            name: "save",
-            action: (editor) => {
+            name: 'save',
+            action: () => {
+              // TODO: check text length
               this.$emit('save', {content: this.tempContent});
             },
-            className: "fa fa-save",
-            title: "Save",
-          }
+            className: 'fa fa-save',
+            title: 'Save',
+          },
         ],
       },
-    }
+    };
   },
-  computed: mapState({
-      aliases: 'aliases',
-  }),
   mounted() {
     this.setData();
   },
@@ -93,11 +91,11 @@ export default {
     addition() {
       if (this.renderer) {
         let text = `[[${this.addition.alias}]]`;
-        if (this.addition.type == 'link') {
+        if (this.addition.type === 'link') {
           text += '()';
         }
-        var doc = this.$refs.markdownEditor.simplemde.codemirror.getDoc();
-        var cursor = doc.getCursor();
+        const doc = this.$refs.markdownEditor.simplemde.codemirror.getDoc();
+        const cursor = doc.getCursor();
         doc.replaceRange(text, cursor);
       }
     },
@@ -132,13 +130,14 @@ export default {
     previewRender(plainText, preview) {
       previewRender(plainText, this.replaceAlias).then((text) => {
         preview.innerHTML = marked(text);
-      })
+      });
       return 'Loading...';
     },
     async replaceAlias(aliases) {
       let aliasobjs = [];
 
-      for (let alias of aliases) {
+      for (let i = 0; i < aliases[i]; i++) {
+        const alias = aliases[i];
         // const separators = [...alias.matchAll(/[.\/#\@]+/g)];
         // const components = alias.split(/[.\/#\@]+/g);
         // console.log('separators', separators);
@@ -160,9 +159,9 @@ export default {
     },
     replaceAliasLinks(plainText, links) {
       return links.map(link => `[${link}](/#/alias?alias=${link})`);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
