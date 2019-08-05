@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Vuetify, {VLayout, VFlex, VBtn, VIcon} from 'vuetify/lib';
+import {VLayout, VFlex, VBtn, VIcon} from 'vuetify/lib';
 import VueSimplemde from 'vue-simplemde';
 import marked from 'marked';
 import {
@@ -134,9 +133,8 @@ export default {
       return 'Loading...';
     },
     async replaceAlias(aliases) {
-      let aliasobjs = [];
-
-      for (let i = 0; i < aliases[i]; i++) {
+      const aliasobjs = [];
+      for (let i = 0; i < aliases.length; i++) {
         const alias = aliases[i];
         // const separators = [...alias.matchAll(/[.\/#\@]+/g)];
         // const components = alias.split(/[.\/#\@]+/g);
