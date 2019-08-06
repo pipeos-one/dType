@@ -1,4 +1,4 @@
-import {signMessage} from 'dtype-core';
+import {signMessage} from '@dtype/core';
 
 export const parseAlias = (aliasContract, alias) => {
   const separator = `0x${alias.separator.charCodeAt(0).toString(16)}`;

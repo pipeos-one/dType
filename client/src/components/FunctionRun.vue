@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import {buildDefaultItem, getDataItemsByTypeHash} from 'dtype-core';
+import {buildDefaultItem, getDataItemsByTypeHash} from '@dtype/core';
 import dTypeSearch from './dTypeSearch';
 
 export default {

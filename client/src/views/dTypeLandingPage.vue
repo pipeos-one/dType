@@ -25,7 +25,7 @@ import {
     getDataItems,
     buildStorageAbi,
     typeDimensionsToString,
-} from 'dtype-core';
+} from '@dtype/core';
 import dTypeBrowse from '../components/dTypeBrowse';
 import dTypeView from '../components/dTypeView';
 import {EMPTY_ADDRESS} from '../constants_utils';

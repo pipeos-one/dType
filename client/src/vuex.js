@@ -6,12 +6,12 @@ import {
     getTypes,
     dTypeMeta,
     saveResource,
-} from 'dtype-core';
+} from '@dtype/core';
 import {
     AliasMeta,
     getAliased,
     setAlias,
-} from 'dtype-alias';
+} from '@dtype/alias';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
