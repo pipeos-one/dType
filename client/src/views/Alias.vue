@@ -8,6 +8,7 @@
           @alias="setAlias"
         />
       </v-flex>
+      <Switcher :dtypeName="dtypeData && dtypeData.name"/>
       <v-flex xs12 v-if="dtypeData && dtypeData.name === 'markdown'">
         <MarkdownRenderer
           :content="aliasData"
@@ -28,21 +29,25 @@
 
 <script>
 import {mapState} from 'vuex';
-import {getDataItemByTypeHash} from 'dtype-core';
+import {getDataItemByTypeHash} from '@dtype/core';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
 import {MarkdownRenderer} from 'dtype-markdown-ui';
 import 'dtype-markdown-ui/dist/dtype-markdown-ui.css';
 
+import Switcher from './Switcher';
+
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
+
 
 export default {
   props: ['query'],
   components: {
     AliasSelector,
     MarkdownRenderer,
+    Switcher,
   },
   data: () => ({
     viewer: true,
