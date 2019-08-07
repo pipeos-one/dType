@@ -33,21 +33,21 @@ import AliasSelector from '@/packages/alias/components/AliasSelector';
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 
 const getUIPackage = async (packageName) => {
-    const pack = await import(
+  const pack = await import(
+    /* webpackChunkName: 'dynamicComponent' */
+    /* webpackMode: "lazy" */
+    `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
+  ).catch(console.log);
+
+  if (pack) {
+    await import(
       /* webpackChunkName: 'dynamicComponent' */
       /* webpackMode: "lazy" */
-      `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
+      `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
     ).catch(console.log);
+  }
 
-    if (pack) {
-      await import(
-        /* webpackChunkName: 'dynamicComponent' */
-        /* webpackMode: "lazy" */
-        `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
-      ).catch(console.log);
-    }
-
-    return pack;
+  return pack;
 }
 
 export default {
@@ -151,7 +151,7 @@ export default {
       const component = getComponent('view');
       Vue.component(component.name, component);
       this.dynamicComponent = component.name;
-    }
+    },
   },
 };
 </script>

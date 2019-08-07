@@ -23,6 +23,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'no-await-in-loop': 'off',
     'prefer-template': 'off',
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
   },
   parserOptions: {
     parser: 'babel-eslint',
