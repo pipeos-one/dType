@@ -16,7 +16,7 @@ import {
 
 export default {
   name: 'MarkdownView',
-  props: ['content', 'getAliasData'],
+  props: ['value', 'getAliasData'],
   components: {VLayout, VFlex},
   data() {
     return {
@@ -28,13 +28,13 @@ export default {
     this.setData();
   },
   watch: {
-    content() {
+    value() {
       this.setData();
     },
   },
   methods: {
     setData() {
-      this.tempContent = this.content ? TYPE_PREVIEW.markdown(this.content) : '';
+      this.tempContent = this.value ? TYPE_PREVIEW.markdown(this.value) : '';
       this.aliascontent = {};
       this.updatePreview();
     },

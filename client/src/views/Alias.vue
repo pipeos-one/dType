@@ -10,6 +10,9 @@
       </v-flex>
       <v-layout row wrap justify-end>
         <v-flex shrink>
+          <v-btn icon v-if="!viewer">
+            <v-icon @click="saveResource">fa-save</v-icon>
+          </v-btn>
           <v-btn icon>
             <v-icon v-if="viewer" @click="viewer = false">fa-edit</v-icon>
             <v-icon v-else @click="viewer = true">fa-eye</v-icon>
@@ -19,7 +22,9 @@
       <v-flex xs12>
         <component
           :is="dynamicComponent"
-          v-bind="{content: aliasData, addition: selectedAlias, getAliasData: getAliasData}"
+          v-model="dynamicComponentData"
+          :addition="selectedAlias"
+          :getAliasData="getAliasData"
           @save="saveResource"
         ></component>
       </v-flex>
@@ -70,6 +75,7 @@ export default {
     dtypeData: null,
     dynamicPackage: null,
     dynamicComponent: null,
+    dynamicComponentData: null,
   }),
   computed: mapState({
     alias: 'alias',
@@ -98,6 +104,9 @@ export default {
     viewer() {
       if (!this.dynamicPackage) return;
       this.setDynamicComponent();
+    },
+    aliasData() {
+      this.dynamicComponentData = this.aliasData;
     },
   },
   methods: {
@@ -131,8 +140,8 @@ export default {
       );
       return {content, dtypeData};
     },
-    saveResource(data) {
-      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data, identifier: this.aliasData.typeHash}).then((newidentifier) => {
+    saveResource() {
+      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data: this.dynamicComponentData, identifier: this.aliasData.typeHash}).then((newidentifier) => {
         this.changeAlias(newidentifier);
       });
     },

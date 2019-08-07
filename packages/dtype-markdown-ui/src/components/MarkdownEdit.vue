@@ -2,14 +2,14 @@
   <v-layout row wrap>
     <v-flex xs6 style='padding-right:10px;'>
       <vue-simplemde
-        v-model='tempContent'
+        v-model='editorContent'
         ref='markdownEditor'
         :configs='configs'
       />
     </v-flex>
     <v-flex xs6 style='padding-left:10px;'>
       <v-flex xs12>
-        <MarkdownView :content="{content: tempContent}" :getAliasData="getAliasData"/>
+        <MarkdownView :value="{content: editorContent}" :getAliasData="getAliasData"/>
       </v-flex>
     </v-flex>
   </v-layout>
@@ -23,25 +23,17 @@ import MarkdownView from './MarkdownView';
 
 export default {
   name: 'MarkdownEdit',
-  props: ['content', 'addition', 'getAliasData'],
+  props: ['value', 'addition', 'getAliasData'],
   components: {VueSimplemde, VLayout, VFlex, MarkdownView},
   data() {
     return {
-      tempContent: '',
+      editorContent: '',
       configs: {
         indentWithTabs: false,
         toolbar: [
           'bold', 'italic', 'heading', '|',
           'quote', 'unordered-list', 'ordered-list', '|',
-          'link', 'image', '|', {
-            name: 'save',
-            action: () => {
-              // TODO: check text length
-              this.$emit('save', {content: this.tempContent});
-            },
-            className: 'fa fa-save',
-            title: 'Save',
-          },
+          'link', 'image',
         ],
       },
     };
@@ -50,7 +42,7 @@ export default {
     this.setData();
   },
   watch: {
-    content() {
+    value() {
       this.setData();
     },
     addition() {
@@ -62,10 +54,16 @@ export default {
       const cursor = doc.getCursor();
       doc.replaceRange(text, cursor);
     },
+    editorContent() {
+      const value = this.value ? TYPE_PREVIEW.markdown(this.value) : '';
+      if (this.editorContent !== value) {
+        this.$emit('input', {content: this.editorContent});
+      }
+    },
   },
   methods: {
     setData() {
-      this.tempContent = this.content ? TYPE_PREVIEW.markdown(this.content) : '';
+      this.editorContent = this.value ? TYPE_PREVIEW.markdown(this.value) : '';
     },
   },
 };

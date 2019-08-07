@@ -11,11 +11,11 @@ import {VFlex} from 'vuetify/lib';
 
 export default {
   name: 'DefaultView',
-  props: ['content'],
+  props: ['value'],
   components: {VFlex},
   computed: {
     parsedContent() {
-      return JSON.stringify(this.content);
+      return JSON.stringify(this.value);
     },
   },
 };
