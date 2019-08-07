@@ -6,8 +6,8 @@ export const waitAsync = async function(delay) {
 
 export const getProvider = async () => {
   // Metamask
-  let provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
-  let wallet = provider.getSigner();
+  const provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
+  const wallet = provider.getSigner();
 
   // wait for network to load
   await provider.getNetwork();
@@ -17,7 +17,6 @@ export const getProvider = async () => {
 
 export const getContract = async (address, abi, wallet) => {
   const contract = new ethers.Contract(address, abi, wallet);
-  // await waitAsync(1000);
   return contract;
 };
 
