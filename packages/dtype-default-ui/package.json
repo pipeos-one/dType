@@ -8,7 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.6.6",
+    "vuetify": "^1.5.5"
+  },
   "files": [
     "dist/*",
     "src/*",
@@ -16,8 +19,6 @@
     "*.js"
   ],
   "devDependencies": {
-    "vue": "^2.6.6",
-    "vuetify": "^1.5.5",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",

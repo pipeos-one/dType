@@ -8,12 +8,19 @@
           @alias="setAlias"
         />
       </v-flex>
+      <v-layout row wrap justify-end>
+        <v-flex shrink>
+          <v-btn icon>
+            <v-icon v-if="viewer" @click="viewer = false">fa-edit</v-icon>
+            <v-icon v-else @click="viewer = true">fa-eye</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
       <v-flex xs12>
         <component
           :is="dynamicComponent"
           v-bind="{content: aliasData, addition: selectedAlias, getAliasData: getAliasData}"
           @save="saveResource"
-          @changeType="changeType"
         ></component>
       </v-flex>
     </v-layout>
@@ -48,7 +55,7 @@ const getUIPackage = async (packageName) => {
   }
 
   return pack;
-}
+};
 
 export default {
   props: ['query'],
@@ -61,6 +68,7 @@ export default {
     selectedAlias: null,
     aliasData: null,
     dtypeData: null,
+    dynamicPackage: null,
     dynamicComponent: null,
   }),
   computed: mapState({
@@ -87,6 +95,10 @@ export default {
         this.$router.push({path: 'alias', query: {alias: this.selectedAlias.alias}});
       }
     },
+    viewer() {
+      if (!this.dynamicPackage) return;
+      this.setDynamicComponent();
+    },
   },
   methods: {
     setAlias(alias) {
@@ -96,7 +108,7 @@ export default {
       const {content, dtypeData} = await this.getAliasData(url);
       this.aliasData = content;
       this.dtypeData = dtypeData;
-      this.setDynamicComponent();
+      this.setDynamicPackage();
     },
     async getAliasData(url) {
       this.domain = this.query.alias;
@@ -133,22 +145,26 @@ export default {
         identifier,
       });
     },
-    changeType(viewer) {
-      this.viewer = viewer;
-    },
     parseContent(content) {
       if (content && this.dtypeData && TYPE_PREVIEW[this.dtypeData.name]) {
         return TYPE_PREVIEW[this.dtypeData.name](content);
       }
       return '';
     },
-    async setDynamicComponent() {
+    async setDynamicPackage() {
       let uiPackage = await getUIPackage(this.dtypeData.name);
       if (!uiPackage) {
         uiPackage = await getUIPackage('default');
       }
-      const {getComponent} = uiPackage;
-      const component = getComponent('view');
+      this.dynamicPackage = uiPackage;
+      console.log('uiPackage', uiPackage);
+      this.setDynamicComponent();
+    },
+    setDynamicComponent() {
+      const {getComponent} = this.dynamicPackage;
+      const componentType = this.viewer ? 'view' : 'edit';
+      const component = getComponent(componentType);
+      console.log('componentName', component.name, component);
       Vue.component(component.name, component);
       this.dynamicComponent = component.name;
     },

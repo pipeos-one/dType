@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "marked": "^0.7.0",
-    "vue-simplemde": "^1.0.0"
+    "vue": "^2.6.6",
+    "vue-simplemde": "^1.0.0",
+    "vuetify": "^1.5.5"
   },
   "files": [
     "dist/*",
@@ -19,8 +21,6 @@
     "*.js"
   ],
   "devDependencies": {
-    "vue": "^2.6.6",
-    "vuetify": "^1.5.5",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",

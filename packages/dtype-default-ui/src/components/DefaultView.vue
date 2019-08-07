@@ -1,7 +1,7 @@
 <template>
   <v-flex xs12>
     <p>
-      {{parseContent(aliasData)}}
+      {{parsedContent}}
     </p>
   </v-flex>
 </template>
@@ -11,19 +11,11 @@ import {VFlex} from 'vuetify/lib';
 
 export default {
   name: 'DefaultView',
-  props: ['data'],
+  props: ['content'],
   components: {VFlex},
-  mounted() {
-    this.parseContent();
-  },
-  watch: {
-    data() {
-      this.parseContent();
-    },
-  },
-  methods: {
-    parseContent() {
-      return `${this.data}`;
+  computed: {
+    parsedContent() {
+      return JSON.stringify(this.content);
     },
   },
 };

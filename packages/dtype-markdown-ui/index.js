@@ -1,12 +1,13 @@
-import MarkdownRenderer from './src/components/MarkdownRenderer.vue';
+import MarkdownEdit from './src/components/MarkdownEdit.vue';
+import MarkdownView from './src/components/MarkdownView.vue';
 
-export {MarkdownRenderer};
+export {MarkdownEdit, MarkdownView};
 
 const componentMap = {
-  view: MarkdownRenderer,
-  edit: MarkdownRenderer,
+  view: MarkdownView,
+  edit: MarkdownEdit,
 };
 
 export const getComponent = (type) => {
-  return componentMap[type] || MarkdownRenderer;
+  return componentMap[type] || MarkdownView;
 };
