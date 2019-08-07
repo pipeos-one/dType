@@ -8,46 +8,52 @@
           @alias="setAlias"
         />
       </v-flex>
-      <Switcher :dtypeName="dtypeData && dtypeData.name"/>
-      <v-flex xs12 v-if="dtypeData && dtypeData.name === 'markdown'">
-        <MarkdownRenderer
-          :content="aliasData"
-          :addition="selectedAlias"
-          :getAliasData="getAliasData"
+      <v-flex xs12>
+        <component
+          :is="dynamicComponent"
+          v-bind="{content: aliasData, addition: selectedAlias, getAliasData: getAliasData}"
           @save="saveResource"
           @changeType="changeType"
-        />
-      </v-flex>
-      <v-flex xs12 v-else>
-        <p>
-          {{parseContent(aliasData)}}
-        </p>
+        ></component>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import Vue from 'vue';
 import {mapState} from 'vuex';
 import {getDataItemByTypeHash} from '@dtype/core';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
-import {MarkdownRenderer} from 'dtype-markdown-ui';
-import 'dtype-markdown-ui/dist/dtype-markdown-ui.css';
-
-import Switcher from './Switcher';
+// import 'dtype-markdown-ui/dist/dtype-markdown-ui.css';
 
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 
+const getUIPackage = async (packageName) => {
+    const pack = await import(
+      /* webpackChunkName: 'dynamicComponent' */
+      /* webpackMode: "lazy" */
+      `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
+    ).catch(console.log);
+
+    if (pack) {
+      await import(
+        /* webpackChunkName: 'dynamicComponent' */
+        /* webpackMode: "lazy" */
+        `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
+      ).catch(console.log);
+    }
+
+    return pack;
+}
 
 export default {
   props: ['query'],
   components: {
     AliasSelector,
-    MarkdownRenderer,
-    Switcher,
   },
   data: () => ({
     viewer: true,
@@ -55,6 +61,7 @@ export default {
     selectedAlias: null,
     aliasData: null,
     dtypeData: null,
+    dynamicComponent: null,
   }),
   computed: mapState({
     alias: 'alias',
@@ -89,6 +96,7 @@ export default {
       const {content, dtypeData} = await this.getAliasData(url);
       this.aliasData = content;
       this.dtypeData = dtypeData;
+      this.setDynamicComponent();
     },
     async getAliasData(url) {
       this.domain = this.query.alias;
@@ -134,6 +142,16 @@ export default {
       }
       return '';
     },
+    async setDynamicComponent() {
+      let uiPackage = await getUIPackage(this.dtypeData.name);
+      if (!uiPackage) {
+        uiPackage = await getUIPackage('default');
+      }
+      const {getComponent} = uiPackage;
+      const component = getComponent('view');
+      Vue.component(component.name, component);
+      this.dynamicComponent = component.name;
+    }
   },
 };
 </script>
