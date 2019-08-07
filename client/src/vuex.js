@@ -77,9 +77,8 @@ const dTypeStore = new Vuex.Store({
       });
     },
     setContract({commit, state}) {
-      const contractAddress = dTypeMeta.networks[
-        String(state.provider.network.chainId)
-      ].address;
+      const chainId = String(state.provider.network.chainId);
+      const contractAddress = dTypeMeta.networks[chainId].address;
       getContract(
         contractAddress,
         dTypeMeta.abi,
@@ -88,9 +87,7 @@ const dTypeStore = new Vuex.Store({
         commit('setContract', contract);
       });
 
-      const aliasAddress = AliasMeta.networks[
-        String(state.provider.network.chainId)
-      ].address;
+      const aliasAddress = AliasMeta.networks[chainId].address;
       getContract(
         aliasAddress,
         AliasMeta.abi,

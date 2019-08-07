@@ -9,15 +9,9 @@ export const getProvider = async () => {
   let provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
   let wallet = provider.getSigner();
 
-  await waitAsync(1000);
+  // wait for network to load
+  await provider.getNetwork();
 
-  // Temporary fix for Ganache
-  if (provider.network.chainId === 5777) {
-    const url = 'http://192.168.1.140:8545';
-    provider = new ethers.providers.JsonRpcProvider(url);
-    wallet = provider.getSigner(0);
-    await waitAsync(1000);
-  }
   return {provider, wallet};
 };
 
