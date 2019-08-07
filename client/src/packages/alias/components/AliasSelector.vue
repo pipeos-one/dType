@@ -37,10 +37,19 @@
       ></v-autocomplete>
     </v-flex>
     <v-flex xs2>
-      <v-btn icon @click="onGo('include')" :disabled="(selectType && selectItem) ? false : 'disabled'">
+      <v-btn
+        icon
+        @click="onGo('include')"
+        :disabled="(selectType && selectItem) ? false : 'disabled'"
+      >
         <v-icon>fa-chevron-right</v-icon>
       </v-btn>
-      <v-btn v-if="linkbtn" icon @click="onGo('link')" :disabled="(selectType && selectItem) ? false : 'disabled'">
+      <v-btn
+        v-if="linkbtn"
+        icon
+        @click="onGo('link')"
+        :disabled="(selectType && selectItem) ? false : 'disabled'"
+      >
         <v-icon>fa-link</v-icon>
       </v-btn>
     </v-flex>
@@ -48,7 +57,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   props: ['linkbtn', 'initial'],
@@ -62,8 +71,8 @@ export default {
     selectSeparator: '.',
   }),
   computed: mapState({
-      alias: 'alias',
-      aliases: 'aliases',
+    alias: 'alias',
+    aliases: 'aliases',
   }),
   mounted() {
     this.setData();
@@ -77,7 +86,7 @@ export default {
     },
     initial() {
       setTimeout(this.setInitial, 500);
-    }
+    },
   },
   methods: {
     setData() {
@@ -86,15 +95,14 @@ export default {
       setTimeout(this.setInitial, 6000);
     },
     setInitial() {
-      if (!this.initial || Object.keys(this.aliases).length == 0) return;
+      if (!this.initial || Object.keys(this.aliases).length === 0) return;
       const parts = this.initial.split('.');
 
       if (!this.aliases[parts[0]]['.'][parts[1]]) {
         this.aliases[parts[0]]['.'][parts[1]] = '0x0000000000000000000000000000000000000000000000000000000000000000';
       }
-      this.selectType = parts[0];
       this.selectSeparator = '.';
-      this.selectItem = parts[1];
+      [this.selectType, this.selectItem] = parts;
     },
     onGo(type) {
       const alias = this.selectType + this.selectSeparator + this.selectItem;
@@ -104,7 +112,7 @@ export default {
         {name: this.selectItem, identifier: this.aliases[this.selectType][this.selectSeparator][this.selectItem], type: 'item'},
       ];
       this.$emit('alias', {alias, components, type});
-    }
-  }
-}
+    },
+  },
+};
 </script>

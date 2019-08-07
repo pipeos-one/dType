@@ -8,42 +8,64 @@
           @alias="setAlias"
         />
       </v-flex>
-      <v-flex xs12 v-if="dtypeData && dtypeData.name === 'markdown'">
-        <MarkdownRenderer
-          :content="aliasData"
+      <v-layout row wrap justify-end>
+        <v-flex shrink>
+          <v-btn icon v-if="!viewer">
+            <v-icon @click="saveResource">fa-save</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon v-if="viewer" @click="viewer = false">fa-edit</v-icon>
+            <v-icon v-else @click="viewer = true">fa-eye</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-layout>
+      <v-flex xs12>
+        <component
+          :is="dynamicComponent"
+          v-model="dynamicComponentData"
           :addition="selectedAlias"
           :getAliasData="getAliasData"
           @save="saveResource"
-          @changeType="changeType"
-        />
-      </v-flex>
-      <v-flex xs12 v-else>
-        <p>
-          {{parseContent(aliasData)}}
-        </p>
+        ></component>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import {ethers} from 'ethers';
-import marked from 'marked';
-import { mapState } from 'vuex';
-import {getDataItemByTypeHash} from '../blockchain';
+import Vue from 'vue';
+import {mapState} from 'vuex';
+import {getDataItemByTypeHash} from '@dtype/core';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
-import MarkdownRenderer from '@/packages/markdown/components/MarkdownRenderer';
+// import 'dtype-markdown-ui/dist/dtype-markdown-ui.css';
 
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
+
+const getUIPackage = async (packageName) => {
+  const pack = await import(
+    /* webpackChunkName: 'dynamicComponent' */
+    /* webpackMode: "lazy" */
+    `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
+  ).catch(console.log);
+
+  if (pack) {
+    await import(
+      /* webpackChunkName: 'dynamicComponent' */
+      /* webpackMode: "lazy" */
+      `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
+    ).catch(console.log);
+  }
+
+  return pack;
+};
 
 export default {
   props: ['query'],
   components: {
     AliasSelector,
-    MarkdownRenderer,
   },
   data: () => ({
     viewer: true,
@@ -51,9 +73,12 @@ export default {
     selectedAlias: null,
     aliasData: null,
     dtypeData: null,
+    dynamicPackage: null,
+    dynamicComponent: null,
+    dynamicComponentData: null,
   }),
   computed: mapState({
-      alias: 'alias',
+    alias: 'alias',
   }),
   mounted() {
     if (this.query) {
@@ -75,7 +100,14 @@ export default {
       if (this.viewer) {
         this.$router.push({path: 'alias', query: {alias: this.selectedAlias.alias}});
       }
-    }
+    },
+    viewer() {
+      if (!this.dynamicPackage) return;
+      this.setDynamicComponent();
+    },
+    aliasData() {
+      this.dynamicComponentData = this.aliasData;
+    },
   },
   methods: {
     setAlias(alias) {
@@ -85,13 +117,14 @@ export default {
       const {content, dtypeData} = await this.getAliasData(url);
       this.aliasData = content;
       this.dtypeData = dtypeData;
+      this.setDynamicPackage();
     },
     async getAliasData(url) {
       this.domain = this.query.alias;
       // TODO: account for all separators & multiple subdomains
       // see replaceAlias commented code
       const parts = url.split('.');
-      const dtypeData = await this.$store.dispatch('getTypeStructByName', {lang: 0, name: parts[0]});
+      const dtypeData = await this.$store.dispatch('getTypeStruct', {lang: 0, name: parts[0]});
 
       const identifier = await this.$store.dispatch('parseAlias', {
         dTypeIdentifier: dtypeData.typeHash,
@@ -100,20 +133,20 @@ export default {
       });
 
       const content = await getDataItemByTypeHash(
-          this.$store.state.contract,
-          this.$store.state.wallet,
-          dtypeData,
-          identifier,
+        this.$store.state.contract,
+        this.$store.state.wallet,
+        dtypeData,
+        identifier,
       );
       return {content, dtypeData};
     },
-    saveResource(data) {
-      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data, identifier: this.aliasData.typeHash}).then((newidentifier) => {
+    saveResource() {
+      this.$store.dispatch('saveResource', {dTypeData: this.dtypeData, data: this.dynamicComponentData, identifier: this.aliasData.typeHash}).then((newidentifier) => {
         this.changeAlias(newidentifier);
       });
     },
     changeAlias(identifier) {
-      let parts = this.domain.split('.');
+      const parts = this.domain.split('.');
       this.$store.dispatch('setAlias', {
         dTypeIdentifier: this.dtypeData.typeHash,
         separator: '.',
@@ -121,15 +154,29 @@ export default {
         identifier,
       });
     },
-    changeType(viewer) {
-      this.viewer = viewer;
-    },
     parseContent(content) {
       if (content && this.dtypeData && TYPE_PREVIEW[this.dtypeData.name]) {
         return TYPE_PREVIEW[this.dtypeData.name](content);
       }
       return '';
-    }
-  }
-}
+    },
+    async setDynamicPackage() {
+      let uiPackage = await getUIPackage(this.dtypeData.name);
+      if (!uiPackage) {
+        uiPackage = await getUIPackage('default');
+      }
+      this.dynamicPackage = uiPackage;
+      console.log('uiPackage', uiPackage);
+      this.setDynamicComponent();
+    },
+    setDynamicComponent() {
+      const {getComponent} = this.dynamicPackage;
+      const componentType = this.viewer ? 'view' : 'edit';
+      const component = getComponent(componentType);
+      console.log('componentName', component.name, component);
+      Vue.component(component.name, component);
+      this.dynamicComponent = component.name;
+    },
+  },
+};
 </script>

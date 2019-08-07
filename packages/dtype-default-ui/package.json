@@ -1,0 +1,40 @@
+{
+  "name": "@dtype/default-ui",
+  "version": "0.0.1",
+  "description": "dType default type UI",
+  "main": "./index.js",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name dtype-default-ui ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "vue": "^2.6.6",
+    "vuetify": "^1.5.5"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-eslint": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeos-one/dType.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/pipeos-one/dType/issues"
+  },
+  "homepage": "https://github.com/pipeos-one/dType#readme"
+}

@@ -116,10 +116,27 @@ Ganache is set on port 8545.
 truffle migrate --network ganache
 ```
 
-### Client app:
+### Client App
 
+#### Build dType UI Packages
+
+Contains core packages for dType and example packages for each type.
+
+Future plans:
+- type packages will be published on Swarm/IPFS and loaded on demand in the client app
+
+```sh
+cd dType
+npm install
+lerna bootstrap
+lerna run build
 ```
+
+#### Run Client
+
+```sh
 cd client
+# Remove dType/client/package-lock.json if npm install fails, and try again
 npm install
 npm run start
 ```
