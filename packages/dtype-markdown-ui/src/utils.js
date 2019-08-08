@@ -34,6 +34,18 @@ export const TYPE_PREVIEW = {
   person: (data) => {
     return data.fullname;
   },
+  PhysicalAddress: (data) => {
+    return Object.values(data).join(', ');
+  },
+};
+
+export const typePreview = (dtypeName, data) => {
+  if (!data) return '';
+
+  if (TYPE_PREVIEW[dtypeName]) {
+    return TYPE_PREVIEW[dtypeName](data);
+  }
+  return `\`${JSON.stringify(data)}\``;
 };
 
 export const enforceMaxLength = (cm, change) => {

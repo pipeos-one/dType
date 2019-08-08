@@ -1,0 +1,19 @@
+[
+  {
+      "name": "PhysicalAddress",
+      "types": [
+          {"name": "string", "label": "countryCode", "relation": 0, "dimensions":[]},
+          {"name": "string", "label": "city", "relation": 0, "dimensions":[]},
+          {"name": "string", "label": "streetName", "relation": 0, "dimensions":[]},
+          {"name": "string", "label": "postcode", "relation": 0, "dimensions":[]},
+          {"name": "uint16", "label": "streetNo", "relation": 0, "dimensions":[]},
+          {"name": "string", "label": "location", "relation": 0, "dimensions":[]}
+      ],
+      "optionals": [],
+      "outputs": [],
+      "lang": 0,
+      "typeChoice": 0,
+      "contractAddress": "0x0000000000000000000000000000000000000000",
+      "source": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  }
+]

@@ -2,19 +2,19 @@ const UTILS = require('../test/utils.js');
 
 const dType = artifacts.require("dType.sol");
 const Alias = artifacts.require('Alias');
-const MarkdownLib = artifacts.require('MarkdownLib');
 const MarkdownStorage = artifacts.require('MarkdownStorage');
-const AccountLib = artifacts.require('AccountLib');
 const AccountStorage = artifacts.require('AccountStorage');
-const PersonLib = artifacts.require('PersonLib');
 const PersonStorage = artifacts.require('PersonStorage');
+const PhysicalAddressStorage = artifacts.require('PhysicalAddressStorage');
 
 const dtypesMd = require('../data/dtypes_md.json');
 const dtypesAccount = require('../data/dtypes_account.json');
 const dtypesPerson = require('../data/dtypes_person.json');
+const dtypesPhyA = require('../data/dtypes_physicaladdr.json');
 const mddata = require('../data/md_data.json');
 const accountdata = require('../data/account_data.json');
 const persondata = require('../data/person_data.json');
+const phyadata = require('../data/physicaladdr_data.json');
 
 module.exports = async function(deployer, network, accounts) {
     const chainId = await web3.eth.net.getId();
@@ -24,6 +24,7 @@ module.exports = async function(deployer, network, accounts) {
     let md = await MarkdownStorage.deployed();
     let account = await AccountStorage.deployed();
     let person = await PersonStorage.deployed();
+    let phyaddr = await PhysicalAddressStorage.deployed();
 
     // Markdown example with alias
     dtypesMd[0].contractAddress = md.address;
@@ -76,5 +77,28 @@ module.exports = async function(deployer, network, accounts) {
           accounts[0],
         );
         await alias.setAlias(dtypehashper, ...aliasn, hash, signature);
+    }
+
+    // Physical address with alias
+    dtypesPhyA[0].contractAddress = phyaddr.address;
+    await dtypeContract.insert(dtypesPhyA[0], {from: accounts[0]});
+    let dtypehashphy = await dtypeContract.getTypeHash(0, 'PhysicalAddress');
+    const signatureDataPhyA = (hash, nonce, name, sep) => UTILS.signatureDataInternal(web3, chainId, Alias.address, dtypehashphy, hash, nonce, name, sep);
+    for (let i = 0; i < phyadata.length; i++) {
+        let data = phyadata[i].data;
+        // data.countryCode = web3.utils.utf8ToHex(data.countryCode);
+        // data.city = web3.utils.utf8ToHex(data.city);
+        // data.streetName = web3.utils.utf8ToHex(data.streetName);
+        // data.postcode = web3.utils.utf8ToHex(data.postcode);
+        // data.location = data.location ? web3.utils.utf8ToHex(data.location) : '0x0';
+        await phyaddr.insert(phyadata[i].data);
+        let hash = await phyaddr.typeIndex(i);
+        aliasn = phyadata[i].alias;
+        aliasn[0] = web3.utils.utf8ToHex(aliasn[0]);
+        signature = await web3.eth.sign(
+          signatureDataPhyA(hash, 1, ...aliasn),
+          accounts[0],
+        );
+        await alias.setAlias(dtypehashphy, ...aliasn, hash, signature);
     }
 };
