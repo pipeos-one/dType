@@ -19,7 +19,7 @@
   },
   {
     "data": {
-      "content": "# Markdown \n ## article4 \n Some content here"
+      "content": "# Markdown \n ## article4 \n Some content here \n\n[[PhysicalAddress.bob]] \n\n[[PhysicalAddress.bob.city]]"
     },
     "alias": [".", "article4"]
   },

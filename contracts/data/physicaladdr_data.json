@@ -1,0 +1,46 @@
+[
+  {
+    "data": {
+      "countryCode": "POL",
+      "city": "Krakow",
+      "streetName": "Koronowska",
+      "postcode": "61-046",
+      "streetNo": 28,
+      "location": "0x0"
+    },
+    "alias": [".", "alice"]
+  },
+  {
+    "data": {
+      "countryCode": "GBR",
+      "city": "Drayton Bassett",
+      "streetName": "Prospect Hill",
+      "postcode": "B78 0WA",
+      "streetNo": 120,
+      "location": "0x0"
+    },
+    "alias": [".", "bob"]
+  },
+  {
+    "data": {
+      "countryCode": "DEU",
+      "city": "Blievenstorf",
+      "streetName": "An der Alster",
+      "postcode": "19306",
+      "streetNo": 75,
+      "location": "0x0"
+    },
+    "alias": [".", "charlie"]
+  },
+  {
+    "data": {
+      "countryCode": "USA",
+      "city": "Laurinburg",
+      "streetName": "Clarence Court",
+      "postcode": "28352",
+      "streetNo": 4966,
+      "location": "0x0"
+    },
+    "alias": [".", "brenda"]
+  }
+]

@@ -8,13 +8,8 @@ const AccountLib = artifacts.require('AccountLib');
 const AccountStorage = artifacts.require('AccountStorage');
 const PersonLib = artifacts.require('PersonLib');
 const PersonStorage = artifacts.require('PersonStorage');
-
-const dtypesMd = require('../data/dtypes_md.json');
-const dtypesAccount = require('../data/dtypes_account.json');
-const dtypesPerson = require('../data/dtypes_person.json');
-const mddata = require('../data/md_data.json');
-const accountdata = require('../data/account_data.json');
-const persondata = require('../data/person_data.json');
+const PhysicalAddressLib = artifacts.require('PhysicalAddressLib');
+const PhysicalAddressStorage = artifacts.require('PhysicalAddressStorage');
 
 module.exports = async function(deployer, network, accounts) {
     const chainId = await web3.eth.net.getId();
@@ -32,4 +27,8 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(PersonLib);
     await deployer.link(PersonLib, PersonStorage);
     await deployer.deploy(PersonStorage);
+
+    await deployer.deploy(PhysicalAddressLib);
+    await deployer.link(PhysicalAddressLib, PhysicalAddressStorage);
+    await deployer.deploy(PhysicalAddressStorage);
 };

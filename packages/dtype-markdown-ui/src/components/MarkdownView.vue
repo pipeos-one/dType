@@ -11,6 +11,7 @@ import {VLayout, VFlex} from 'vuetify/lib';
 import marked from 'marked';
 import {
   TYPE_PREVIEW,
+  typePreview,
   previewRender,
 } from '../utils.js';
 
@@ -58,11 +59,27 @@ export default {
         //   separator: separators[0][0],
         //   name: components[1],
         // });
+
         if (!this.aliascontent[alias]) {
-          const {content, dtypeData} = await this.getAliasData(alias);
-          this.aliascontent[alias] = TYPE_PREVIEW[dtypeData.name](content);
+          this.aliascontent[alias] = await this.getAliasData(alias);
         }
-        aliasobjs.push(this.aliascontent[alias]);
+
+        // TODO move this in a utility that knows how to handle each type
+        const parts = alias.split('.').slice(2);
+        const parsed = typePreview(
+          this.aliascontent[alias].dtypeData.name,
+          this.aliascontent[alias].content,
+        );
+
+        if (parts.length === 0) {
+          aliasobjs.push(parsed);
+        } else {
+          let replacement = Object.assign({}, this.aliascontent[alias].content);
+          for (let j = 0; j < parts.length; j++) {
+            if (replacement) replacement = replacement[parts[j]];
+          }
+          aliasobjs.push(replacement);
+        }
       }
       return aliasobjs;
     },
