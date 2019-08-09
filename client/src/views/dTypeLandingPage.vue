@@ -45,13 +45,16 @@ export default {
     isRoot: false,
     defaultItem: {},
   }),
-  computed: mapState({
+  computed: mapState('dtype', {
     contract: 'contract',
     dtype: 'dtype',
     dtypes: 'dtypes',
   }),
   destroyed() {
     this.teardown();
+  },
+  mounted() {
+    this.setData();
   },
   watch: {
     dtype() {
@@ -77,6 +80,7 @@ export default {
       await this.setContract();
     },
     async setContract() {
+
       this.dtypeHeaders = this.getHeaders(this.dtype);
 
       if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
@@ -92,7 +96,7 @@ export default {
         if (this.name) {
           hash = await this.contract.getTypeHash(this.lang, this.name);
         }
-        this.typeStruct = await this.$store.dispatch('getTypeStruct', {hash});
+        this.typeStruct = await this.$store.dispatch('dtype/getTypeStruct', {hash});
         this.typeContract = null;
         this.items = [];
         this.headers = this.getHeaders(this.typeStruct);
@@ -106,7 +110,7 @@ export default {
           this.typeContract = await getContract(
             this.typeStruct.contractAddress,
             abi,
-            this.$store.state.wallet,
+            this.$store.state.dtype.wallet,
           );
 
           getDataItems(this.typeContract, (dataItem) => {
@@ -152,7 +156,7 @@ export default {
     },
     insert(dtype) {
       if (this.isRoot) {
-        this.$store.dispatch('insertType', dtype);
+        this.$store.dispatch('dtype/insertType', dtype);
       } else {
         this.typeContract.insert(dtype)
           .then(tx => tx.wait(2))
@@ -161,7 +165,7 @@ export default {
     },
     batchInsert(dtypeArray) {
       if (this.isRoot) {
-        this.$store.dispatch('insertBatchType', dtypeArray);
+        this.$store.dispatch('dtype/insertBatchType', dtypeArray);
       } else {
         for (let i = 0; i < dtypeArray.length; i++) {
           this.insert(dtypeArray[i]);
@@ -170,7 +174,7 @@ export default {
     },
     update(dtype) {
       if (this.isRoot) {
-        this.$store.dispatch('updateType', dtype);
+        this.$store.dispatch('dtype/updateType', dtype);
       } else {
         this.typeContract.update(dtype.typeHash, dtype)
           .then(tx => tx.wait(2))
@@ -179,7 +183,7 @@ export default {
     },
     remove(dtype) {
       if (this.isRoot) {
-        this.$store.dispatch('removeType', dtype);
+        this.$store.dispatch('dtype/removeType', dtype);
       } else {
         this.typeContract.remove(dtype.typeHash)
           .then(tx => tx.wait(2))

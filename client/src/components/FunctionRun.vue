@@ -87,7 +87,7 @@ export default {
         const {label} = this.functionType.types[i];
 
         const subType = await this.$store.dispatch(
-          'getTypeStruct',
+          'dtype/getTypeStruct',
           {
             lang: this.functionType.lang,
             name: this.functionType.types[i].name,
@@ -98,8 +98,8 @@ export default {
         this.selectedValues[label] = this.selectedItems[label][0];
 
         getDataItemsByTypeHash(
-          this.$store.state.contract,
-          this.$store.state.wallet,
+          this.$store.state.dtype.contract,
+          this.$store.state.dtype.wallet,
           subType,
           (dataItem) => {
             this.functionData[label].push(dataItem);
@@ -113,13 +113,13 @@ export default {
       );
       console.log(
         'run',
-        this.$store.state.contract.address,
+        this.$store.state.dtype.contract.address,
         this.functionType.typeHash,
         dataHashes,
       );
 
       // TODO fix gas estimation for Ganache
-      const tx = await this.$store.state.contract.run(
+      const tx = await this.$store.state.dtype.contract.run(
         this.functionType.typeHash,
         dataHashes,
         {gasLimit: 4000000},
@@ -132,7 +132,7 @@ export default {
         }
       });
 
-      this.$store.state.provider.waitForTransaction(tx.hash).then((receipt) => {
+      this.$store.state.dtype.provider.waitForTransaction(tx.hash).then((receipt) => {
         console.log('Transaction Mined: ' + receipt.transactionHash, receipt);
         if (receipt.status === 1) {
           this.txSuccess = true;

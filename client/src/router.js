@@ -26,7 +26,7 @@ export default new VueRouter({
     {
       path: '/alias',
       name: 'alias',
-      component: () => import(/* webpackChunkName: "alias" */ './views/Alias.vue'),
+      component: () => import(/* webpackChunkName: "dtype" */ './views/Alias.vue'),
       props: route => ({query: route.query}),
     },
   ],

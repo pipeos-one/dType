@@ -57,9 +57,12 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {createNamespacedHelpers} from 'vuex'
+
+const {mapState, mapActions} = createNamespacedHelpers('alias');
 
 export default {
+  name: 'AliasSelector',
   props: ['linkbtn', 'initial'],
   data: () => ({
     selectType: null,
@@ -70,15 +73,15 @@ export default {
     loadingItems: false,
     selectSeparator: '.',
   }),
-  computed: mapState({
-    alias: 'alias',
-    aliases: 'aliases',
-  }),
+  computed: {
+    ...mapState(['alias', 'aliases']),
+  },
   mounted() {
+    console.log('aliases', this.aliases);
     this.setData();
   },
   destroyed() {
-    this.$store.dispatch('removeWatchersAlias');
+    this.$store.dispatch('alias/removeWatchersAlias');
   },
   watch: {
     alias() {
@@ -87,11 +90,15 @@ export default {
     initial() {
       setTimeout(this.setInitial, 500);
     },
+    aliases() {
+      console.log('watch aliases', this.aliases);
+    },
   },
   methods: {
     setData() {
       if (!this.alias) return;
-      this.$store.dispatch('watchAllAlias');
+
+      this.$store.dispatch('alias/watchAllAlias');
       setTimeout(this.setInitial, 6000);
     },
     setInitial() {
