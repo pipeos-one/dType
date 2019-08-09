@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import {mapState} from 'vuex';
 import {getDataItemByTypeHash} from '@dtype/core';
 import {TYPE_PREVIEW, getUIPackage} from '../utils.js';
@@ -44,7 +45,7 @@ import AliasSelector from './AliasSelector';
 
 export default {
   name: 'Alias',
-  props: ['query', 'loadComponent'],
+  props: ['query'],
   components: {
     AliasSelector,
   },
@@ -157,8 +158,7 @@ export default {
       const componentType = this.viewer ? 'view' : 'edit';
       const component = getComponent(componentType);
       console.log('componentName', component.name, component);
-      this.loadComponent(component.name, component);
-      // Vue.component(component.name, component);
+      Vue.component(component.name, component);
       this.dynamicComponent = component.name;
     },
   },
