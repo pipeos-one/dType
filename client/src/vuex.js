@@ -5,27 +5,16 @@ import {
   getdTypeRoot,
   getTypes,
   dTypeMeta,
-  saveResource,
 } from '@dtype/core';
-import {
-  AliasMeta,
-  getAliased,
-  setAlias,
-} from '@dtype/alias';
-import Vue from 'vue';
-import Vuex from 'vuex';
 
-Vue.use(Vuex);
-
-const dTypeStore = new Vuex.Store({
+const dTypeStore = {
+  namespaced: true,
   state: {
     provider: null,
     wallet: null,
     contract: null,
     dtype: null,
     dtypes: [],
-    alias: null,
-    aliases: {},
   },
   mutations: {
     setProvider(state, provider) {
@@ -55,19 +44,6 @@ const dTypeStore = new Vuex.Store({
     removeType(state, index) {
       state.dtypes.splice(index, 1);
     },
-    // Alias
-    setAlias(state, alias) {
-      state.alias = alias;
-    },
-    setAliased(state, {dtype, alias}) {
-      if (!state.aliases[dtype.name]) {
-        state.aliases[dtype.name] = {identifier: dtype.identifier};
-      }
-      if (!state.aliases[dtype.name][alias.separator]) {
-        state.aliases[dtype.name][alias.separator] = {};
-      }
-      state.aliases[dtype.name][alias.separator][alias.name] = alias.identifier;
-    },
   },
   actions: {
     setProvider({commit}) {
@@ -85,15 +61,6 @@ const dTypeStore = new Vuex.Store({
         state.wallet,
       ).then((contract) => {
         commit('setContract', contract);
-      });
-
-      const aliasAddress = AliasMeta.networks[chainId].address;
-      getContract(
-        aliasAddress,
-        AliasMeta.abi,
-        state.wallet,
-      ).then((contract) => {
-        commit('setAlias', contract);
       });
     },
     async getTypeStruct({state}, {lang, name, hash}) {
@@ -170,55 +137,7 @@ const dTypeStore = new Vuex.Store({
         }
       });
     },
-    async saveResource({state}, {dTypeData, data, identifier}) {
-      return saveResource(
-        state.provider,
-        state.wallet,
-        state.contract,
-        {dTypeData, data, identifier},
-      );
-    },
-    async parseAlias({state}, alias) {
-      const separator = `0x${alias.separator.charCodeAt(0).toString(16)}`;
-      return state.alias.getAliased(alias.dTypeIdentifier, separator, alias.name);
-    },
-    async setAliased({state, commit}, args) {
-      commit('setAliased', await getAliased(state.contract, state.alias, args));
-    },
-    async setAlias({state}, data) {
-      setAlias(
-        state.contract,
-        state.alias,
-        state.wallet,
-        state.provider.network.chainId,
-        data,
-      );
-    },
-    watchAllAlias({dispatch}) {
-      return dispatch('watchAliasSet');
-    },
-    removeWatchersAlias({state}) {
-      return state.alias.removeAllListeners('AliasSet');
-    },
-    watchAliasSet({dispatch, state}) {
-      const filter = {
-        address: state.alias.address,
-        topics: [state.alias.interface.events.AliasSet.topic],
-        fromBlock: 0,
-        toBlock: 'latest',
-      };
-      state.provider.getLogs(filter).then((logs) => {
-        logs.forEach((log) => {
-          log = state.alias.interface.parseLog(log);
-          dispatch('setAliased', log.values);
-        });
-      });
-      state.alias.on('AliasSet', (dTypeIdentifier, identifier) => {
-        console.log('AliasSet', dTypeIdentifier, identifier);
-        dispatch('setAliased', {dTypeIdentifier, identifier});
-      });
-    },
   },
-});
+};
 
 export default dTypeStore;

@@ -8,6 +8,7 @@
     </v-flex>
     <v-flex xs12 v-for='key in Object.keys(changedType)'>
       <v-text-field
+        :key="key"
         :value='changedType[key]'
         :label='key'
         :readonly='key == "name" ? true : false'

@@ -123,21 +123,3 @@ export const getDataItemByTypeHash = async (dtypeContract, wallet, typeStruct, d
 
   return getDataItem(typeContract, dataIdentifier);
 };
-
-export const getUIPackage = async (packageName) => {
-  const pack = await import(
-    /* webpackChunkName: 'dynamicComponent' */
-    /* webpackMode: "lazy" */
-    `../../../client/node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
-  ).catch(console.log);
-
-  if (pack) {
-    await import(
-      /* webpackChunkName: 'dynamicComponent' */
-      /* webpackMode: "lazy" */
-      `../../../client/node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
-    ).catch(console.log);
-  }
-
-  return pack;
-};

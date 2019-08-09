@@ -12,13 +12,13 @@
     "@dtype/core": "file:../packages/dtype-core",
     "@dtype/default-ui": "file:../packages/dtype-default-ui",
     "@dtype/markdown-ui": "file:../packages/dtype-markdown-ui",
+    "@dtype/navigation-ui": "file:../packages/dtype-navigation-ui",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
     "vuetify": "^1.5.5",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@fortawesome/fontawesome-free": "^5.7.2",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",

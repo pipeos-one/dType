@@ -219,7 +219,7 @@ export default {
         .forEach((key) => {
           const header = this.headers.find(header => header.value === key);
           if (header) {
-            let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
+            let dtype = this.$store.state.dtype.dtypes.find(dtype => dtype.name === header.type.name);
 
             if (
               dtype &&
@@ -267,7 +267,7 @@ export default {
             this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
           }
         }// else {
-          let dtype = this.$store.state.dtypes.find(dtype => dtype.name === header.type.name);
+          let dtype = this.$store.state.dtype.dtypes.find(dtype => dtype.name === header.type.name);
 
           if (dtype && dtype.types.length && typeof this.editedItem[header.value] == 'string') {
             this.editedItem[header.value] = JSON.parse(this.editedItem[header.value]);
