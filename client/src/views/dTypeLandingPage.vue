@@ -45,13 +45,16 @@ export default {
     isRoot: false,
     defaultItem: {},
   }),
-  computed: mapState({
+  computed: mapState('dtype', {
     contract: 'contract',
     dtype: 'dtype',
     dtypes: 'dtypes',
   }),
   destroyed() {
     this.teardown();
+  },
+  mounted() {
+    this.setData();
   },
   watch: {
     dtype() {
@@ -77,6 +80,7 @@ export default {
       await this.setContract();
     },
     async setContract() {
+
       this.dtypeHeaders = this.getHeaders(this.dtype);
 
       if (this.hash === this.dtype.typeHash || this.name === this.dtype.name) {
@@ -170,7 +174,7 @@ export default {
     },
     update(dtype) {
       if (this.isRoot) {
-        this.$store.dispatch('updateType', dtype);
+        this.$store.dispatch('dtype/updateType', dtype);
       } else {
         this.typeContract.update(dtype.typeHash, dtype)
           .then(tx => tx.wait(2))
