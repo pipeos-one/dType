@@ -35,32 +35,13 @@
 <script>
 import Vue from 'vue';
 import {mapState} from 'vuex';
-import {getDataItemByTypeHash} from '@dtype/core';
+import {getDataItemByTypeHash, getUIPackage} from '@dtype/core';
 import {TYPE_PREVIEW} from '../utils.js';
 
 import AliasSelector from '@/packages/alias/components/AliasSelector';
-// import 'dtype-markdown-ui/dist/dtype-markdown-ui.css';
 
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
 // http://192.168.1.140:8080/#/alias?alias=markdown.article1
-
-const getUIPackage = async (packageName) => {
-  const pack = await import(
-    /* webpackChunkName: 'dynamicComponent' */
-    /* webpackMode: "lazy" */
-    `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.common.js`
-  ).catch(console.log);
-
-  if (pack) {
-    await import(
-      /* webpackChunkName: 'dynamicComponent' */
-      /* webpackMode: "lazy" */
-      `../../node_modules/@dtype/${packageName}-ui/dist/dtype-${packageName}-ui.css`
-    ).catch(console.log);
-  }
-
-  return pack;
-};
 
 export default {
   props: ['query'],
