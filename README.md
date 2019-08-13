@@ -7,17 +7,21 @@ dType is a Decentralized Type System for a Global OS, for Ethereum. A global typ
 dType supports any Solidity type, including functions, along with custom user types. dType assigns a unique global identifier for each type and stores data needed to recompose the type's ABI. Various storage mechanism extensions can be optionally integrated with dType, enabling efficient blockchain data analysis, especially by blockchain explorers, without relying on off-chain centralized services to provide ABI data.
 
 ## ERCs
-1. [EIP-1900: dType - Decentralized Type System for EVM](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1900.md), discussions [here](https://github.com/ethereum/EIPs/issues/1882)
-2. [EIP-2157: dType Storage Extension - Decentralized Type System for EVM](https://github.com/ethereum/EIPs/pull/2158)
-3. [EIP-xxxx: dType - Extending the Decentralized Type System for Functions](https://github.com/ethereum/EIPs/issues/1921)
+1. [EIP-1900: dType - Decentralized Type System for EVM](http://eips.ethereum.org/EIPS/eip-1900), discussions [here](https://github.com/ethereum/EIPs/issues/1882)
+2. [EIP-2157: dType Storage Extension - Decentralized Type System for EVM](http://eips.ethereum.org/EIPS/eip-2157)
+3. [EIP-2193: dType Alias Extension - Decentralized Type System](http://eips.ethereum.org/EIPS/eip-2193)
+4. [EIP-xxxx: dType - Extending the Decentralized Type System for Functions](https://github.com/ethereum/EIPs/issues/1921)
+5. [dType Language Extension, Data Bridging](https://github.com/loredanacirstea/EIPs/blob/d6fbbff5f1a1ecfa1eee6f8efa4ca3d896303e38/EIPS/eip-dtype_language.md)
 
 ## Ethereum 2.0
 
-In research: [dType on Eth2](./docs/dType_Ethereum_2.0.md).
+In research: [dType on Ethereum 2.0](./docs/dType_Ethereum_2.0.md).
 
 ## Demos
 
 Playlist: https://www.youtube.com/playlist?list=PL323JufuD9JC46yClCf5fdaEX17kocem7
+
+For an overview, see [dType 101 - A Developer Guide - 1. The Anatomy of a dType](https://youtu.be/zcq2di8QIUE)
 
 ## Vision
 
