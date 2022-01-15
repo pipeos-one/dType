@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "vue-simplemde": "^1.0.0",
     "vuetify": "^1.5.5"
   },
